@@ -1,0 +1,85 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ *= require_tree .
+ *= require_self
+*/
+body {
+	font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	color:#222;
+}
+
+h1, h2, h3, h4, h5 { font-weight: 200;}
+.centr-text{ text-align: center; }
+.no-top-margine { margin-top: 0px;}
+.no-margin { margin: 0 0 0 0 !important; }
+.no-top-margin { margin-top: 0 !important; }
+.right { float: right !important; }
+.subheader { position: relative; top: -12px; margin-bottom: 0; }
+header> div { margin-top: -17px;}
+
+form {
+  select.big { font-size: 20px;}
+  textarea#new_survey_item_title {   }
+  select#surveyTypeSelector{ padding: 5px; }
+}
+.min80height{ min-height: 80px; }
+.min120height{ min-height: 120px; }
+.vertical-resize{ resize: vertical; }
+#new_survey_item { min-height: 415px;}
+.bottom-block { position: absolute; bottom: 0; width: 100%;}
+.relative { position: relative;}
+.horizontal-borders {
+	border-left: 1px solid;	border-right: 1px solid; border-color: #CCC;
+	-webkit-box-shadow: inset 0px 1px 0px 	rgba(150, 150, 150, 0.1);
+	-moz-box-shadow: inset 0px 1px 0px rgba(150, 150, 150, 0.1);
+	box-shadow: inset 2px 0px 0px	rgba(150, 150, 150, 0.1);
+}
+.borders { border: 1px dashed #ccc; }
+.top-span{ padding-top: 3px; }
+.vspace{ margin-top: 4px !important; margin-bottom: 4px !important; }
+.vspace-big{ margin-top: 10px !important; margin-bottom: 10px !important; }
+.list {
+		counter-reset:li; /* Initiate a counter */
+    margin-left:0; /* Remove the default left margin */
+    padding-left:0; /* Remove the default left padding */
+    position: relative;
+    > div { background-color: white; }
+    > div.sortable_item{
+		  position: relative; margin: 0; list-style: none; padding: 0;
+		  >.content-row{ margin: 0; padding-bottom: 5px; border: 1px dashed #CCC; }
+		  h6 { margin-top: 5px;}
+    }
+
+	> div.question-item::before {
+		content: counter(li);	counter-increment: li; position: absolute;	top: -2px; left: -9px;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+		margin-right: 8px; padding: 2px 4px; color: white;	background: #ccc;	font-weight: bold;
+		font-family: "Helvetica Neue", Arial, sans-serif;	text-align: center;	height: 18px;
+	}
+}
+
+#no-items-area{
+	border: 1px dashed #929292;
+	display: none;
+	#work-area-texting{
+		color: #929292;
+	}
+}
+.insert_buttons{
+	margin-top: 4px !important; margin-bottom: 4px !important;
+	font-size: 10px;
+  padding: 2px 4px 3px;
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+

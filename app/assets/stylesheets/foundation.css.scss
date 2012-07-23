@@ -1,20 +1,13 @@
-/* Requires:
-   normalize.css
-   -box-sizing.htc */
-/* Global Reset & Standards ---------------------- */
-/* line 9, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 10, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 html {
   font-size: 62.5%;
 }
 
-/* line 11, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 body {
   background: white;
   font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -26,169 +19,138 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Links ---------------------- */
-/* line 15, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 a {
   color: #2ba6cb;
   text-decoration: none;
   line-height: inherit;
 }
 
-/* line 16, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 a:hover {
   color: #2795b6;
 }
 
-/* line 17, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 a:focus {
   color: #2ba6cb;
   outline: none;
 }
 
-/* line 18, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 p a, p a:visited {
   line-height: inherit;
 }
 
 /* Misc ---------------------- */
-/* line 22, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 .left {
   float: left;
 }
 
-/* line 23, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 .right {
   float: right;
 }
 
-/* line 24, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 .text-left {
   text-align: left;
 }
 
-/* line 25, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 26, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 27, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 .hide {
   display: none;
 }
 
-/* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 .highlight {
   background: #ffff99;
 }
 
-/* line 30, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 #googlemap img, object, embed {
   max-width: none;
 }
 
-/* line 32, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 #map_canvas embed {
   max-width: none;
 }
 
-/* line 33, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 #map_canvas img {
   max-width: none;
 }
 
-/* line 34, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/globals.scss */
 #map_canvas object {
   max-width: none;
 }
 
 /* Base Type Styles Using Modular Scale ---------------------- */
-/* line 5, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, p, blockquote, th, td {
   margin: 0;
   padding: 0;
-  font-size: 14px;
+  font-size: 10px;
 }
 
-/* line 11, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 p {
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 17px;
 }
-/* line 12, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 p.lead {
   font-size: 17.5px;
   line-height: 1.6;
   margin-bottom: 17px;
 }
-/* line 13, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 p img.left, p img {
   margin: 17px;
   margin-left: 0;
 }
-/* line 14, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 p img.right {
   margin: 17px;
   margin-right: 0;
 }
 
-/* line 16, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 aside p {
   font-size: 13px;
   line-height: 1.35;
   font-style: italic;
 }
 
-/* line 18, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
   line-height: 1.1;
-  margin-bottom: 14px;
-  margin-top: 14px;
+  margin-bottom: 10px;
+  margin-top: 4px;
 }
-/* line 23, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-size: 60%;
   color: #888;
   line-height: 0;
 }
 
-/* line 26, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 h1 {
   font-size: 44px;
 }
 
-/* line 27, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 h2 {
   font-size: 37px;
 }
 
-/* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 h3 {
   font-size: 27px;
 }
 
-/* line 29, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 h4 {
   font-size: 23px;
 }
 
-/* line 30, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 h5 {
   font-size: 17px;
 }
 
-/* line 31, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 h6 {
   font-size: 14px;
 }
 
-/* line 33, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 hr {
   border: solid #ddd;
   border-width: 1px 0 0;
@@ -197,7 +159,6 @@ hr {
   height: 0;
 }
 
-/* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 .subheader {
   line-height: 1.3;
   color: #777;
@@ -205,7 +166,6 @@ hr {
   margin-bottom: 17px;
 }
 
-/* line 37, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 em, i {
   font-style: italic;
   line-height: inherit;
@@ -223,14 +183,11 @@ small {
   line-height: inherit;
 }
 
-/* line 40, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 code {
   font-weight: bold;
   background: #ffff99;
 }
 
-/* Lists ---------------------- */
-/* line 43, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
 ul, ol {
   font-size: 14px;
   line-height: 1.6;
@@ -407,17 +364,18 @@ abbr {
 /* The Grid ---------------------- */
 /* line 7, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row {
-  width: 940px;
+  width: 1440px;
   max-width: 100%;
   min-width: 767px;
   margin: 0 auto;
+  clear: both;
 }
 /* line 8, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .row {
   width: auto;
   max-width: none;
   min-width: 0;
-  margin: 0 -15px;
+  margin: 0 -7.5px;
 }
 /* line 11, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row.collapse .column, .row.collapse .columns {
@@ -428,7 +386,7 @@ abbr {
   width: auto;
   max-width: none;
   min-width: 0;
-  margin: 0 -15px;
+  margin: 0 -7.5px;
 }
 /* line 14, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .row.collapse {
@@ -439,7 +397,7 @@ abbr {
 .column, .columns {
   float: left;
   min-height: 1px;
-  padding: 0 15px;
+  padding: 0 7.5px;
   position: relative;
 }
 /* line 19, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
@@ -460,202 +418,282 @@ abbr {
 
 /* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .one {
-  width: 8.333%;
+  width: 6.25%;
 }
 
 /* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .two {
-  width: 16.667%;
+  width: 12.5%;
 }
 
 /* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .three {
-  width: 25%;
+  width: 18.75%;
 }
 
 /* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .four {
-  width: 33.333%;
+  width: 25%;
 }
 
 /* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .five {
-  width: 41.667%;
+  width: 31.25%;
 }
 
 /* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .six {
-  width: 50%;
+  width: 37.5%;
 }
 
 /* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .seven {
-  width: 58.333%;
+  width: 43.75%;
 }
 
 /* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .eight {
-  width: 66.667%;
+  width: 50%;
 }
 
 /* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .nine {
-  width: 75%;
+  width: 56.25%;
 }
 
 /* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .ten {
-  width: 83.333%;
+  width: 62.5%;
 }
 
 /* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .eleven {
-  width: 91.667%;
+  width: 68.75%;
 }
 
 /* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .twelve {
+  width: 75%;
+}
+
+/* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.row .thirteen {
+  width: 81.25%;
+}
+
+/* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.row .fourteen {
+  width: 87.5%;
+}
+
+/* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.row .fifteen {
+  width: 93.75%;
+}
+
+/* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.row .sixteen {
   width: 100%;
 }
 
 /* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .offset-by-one {
-  margin-left: 8.333%;
+  margin-left: 6.25%;
 }
 
 /* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .offset-by-two {
-  margin-left: 16.667%;
+  margin-left: 12.5%;
 }
 
 /* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .offset-by-three {
-  margin-left: 25%;
+  margin-left: 18.75%;
 }
 
 /* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .offset-by-four {
-  margin-left: 33.333%;
+  margin-left: 25%;
 }
 
 /* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .offset-by-five {
-  margin-left: 41.667%;
+  margin-left: 31.25%;
 }
 
 /* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .offset-by-six {
-  margin-left: 50%;
+  margin-left: 37.5%;
 }
 
 /* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .offset-by-seven {
-  margin-left: 58.333%;
+  margin-left: 43.75%;
 }
 
 /* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .offset-by-eight {
-  margin-left: 66.667%;
+  margin-left: 50%;
 }
 
 /* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .offset-by-nine {
-  margin-left: 75%;
+  margin-left: 56.25%;
 }
 
 /* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .offset-by-ten {
-  margin-left: 83.333%;
+  margin-left: 62.5%;
+}
+
+/* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.row .offset-by-eleven {
+  margin-left: 68.75%;
+}
+
+/* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.row .offset-by-twelve {
+  margin-left: 75%;
+}
+
+/* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.row .offset-by-thirteen {
+  margin-left: 81.25%;
+}
+
+/* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.row .offset-by-fourteen {
+  margin-left: 87.5%;
 }
 
 /* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .push-two {
-  left: 16.667%;
+  left: 12.5%;
 }
 
 /* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .pull-two {
-  right: 16.667%;
+  right: 12.5%;
 }
 
 /* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .push-three {
-  left: 25%;
+  left: 18.75%;
 }
 
 /* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .pull-three {
-  right: 25%;
+  right: 18.75%;
 }
 
 /* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .push-four {
-  left: 33.333%;
+  left: 25%;
 }
 
 /* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .pull-four {
-  right: 33.333%;
+  right: 25%;
 }
 
 /* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .push-five {
-  left: 41.667%;
+  left: 31.25%;
 }
 
 /* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .pull-five {
-  right: 41.667%;
+  right: 31.25%;
 }
 
 /* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .push-six {
-  left: 50%;
+  left: 37.5%;
 }
 
 /* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .pull-six {
-  right: 50%;
+  right: 37.5%;
 }
 
 /* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .push-seven {
-  left: 58.333%;
+  left: 43.75%;
 }
 
 /* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .pull-seven {
-  right: 58.333%;
+  right: 43.75%;
 }
 
 /* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .push-eight {
-  left: 66.667%;
+  left: 50%;
 }
 
 /* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .pull-eight {
-  right: 66.667%;
+  right: 50%;
 }
 
 /* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .push-nine {
-  left: 75%;
+  left: 56.25%;
 }
 
 /* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .pull-nine {
-  right: 75%;
+  right: 56.25%;
 }
 
 /* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .push-ten {
-  left: 83.333%;
+  left: 62.5%;
 }
 
 /* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .pull-ten {
-  right: 83.333%;
+  right: 62.5%;
+}
+
+/* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.push-eleven {
+  left: 68.75%;
+}
+
+/* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.pull-eleven {
+  right: 68.75%;
+}
+
+/* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.push-twelve {
+  left: 75%;
+}
+
+/* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.pull-twelve {
+  right: 75%;
+}
+
+/* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.push-thirteen {
+  left: 81.25%;
+}
+
+/* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.pull-thirteen {
+  right: 81.25%;
+}
+
+/* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.push-fourteen {
+  left: 87.5%;
+}
+
+/* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
+.pull-fourteen {
+  right: 87.5%;
 }
 
 /* line 45, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
@@ -681,7 +719,7 @@ img {
 }
 /* line 14, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/_semantic-grid.scss */
 .row:before, .row:after {
-  content: "";
+  /*content: "";*/
   display: table;
 }
 /* line 15, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/_semantic-grid.scss */
@@ -739,17 +777,17 @@ img {
   }
 
   /* line 65, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
-  .offset-by-one, .offset-by-two, .offset-by-three, .offset-by-four, .offset-by-five, .offset-by-six, .offset-by-seven, .offset-by-eight, .offset-by-nine, .offset-by-ten {
+  .offset-by-one, .offset-by-two, .offset-by-three, .offset-by-four, .offset-by-five, .offset-by-six, .offset-by-seven, .offset-by-eight, .offset-by-nine, .offset-by-ten, .offset-by-eleven, .offset-by-twelve, .offset-by-thirteen, .offset-by-fourteen {
     margin-left: 0 !important;
   }
 
   /* line 66, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
-  .push-two, .push-three, .push-four, .push-five, .push-six, .push-seven, .push-eight, .push-nine, .push-ten {
+  .push-two, .push-three, .push-four, .push-five, .push-six, .push-seven, .push-eight, .push-nine, .push-ten, .push-eleven, .push-twelve, .push-thirteen, .push-fourteen {
     left: auto;
   }
 
   /* line 67, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
-  .pull-two, .pull-three, .pull-four, .pull-five, .pull-six, .pull-seven, .pull-eight, .pull-nine, .pull-ten {
+  .pull-two, .pull-three, .pull-four, .pull-five, .pull-six, .pull-seven, .pull-eight, .pull-nine, .pull-ten, .pull-eleven, .pull-twelve, .pull-thirteen, .pull-fourteen {
     right: auto;
   }
 
@@ -758,7 +796,7 @@ img {
   .row .mobile-one {
     width: 25% !important;
     float: left;
-    padding: 0 15px;
+    padding: 0 7.5px;
   }
   /* line 81, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
   .row .mobile-one:last-child {
@@ -773,7 +811,7 @@ img {
   .row .mobile-two {
     width: 50% !important;
     float: left;
-    padding: 0 15px;
+    padding: 0 7.5px;
   }
   /* line 81, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
   .row .mobile-two:last-child {
@@ -788,7 +826,7 @@ img {
   .row .mobile-three {
     width: 75% !important;
     float: left;
-    padding: 0 15px;
+    padding: 0 7.5px;
   }
   /* line 81, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
   .row .mobile-three:last-child {
@@ -803,7 +841,7 @@ img {
   .row .mobile-four {
     width: 100% !important;
     float: left;
-    padding: 0 15px;
+    padding: 0 7.5px;
   }
   /* line 81, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
   .row .mobile-four:last-child {
@@ -1180,11 +1218,11 @@ div.alert-box a.close:hover, div.alert-box a.close:focus {
 }
 /* line 143, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/ui.scss */
 .label.radius {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
 }
 /* line 144, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/ui.scss */
 .label.round {
@@ -1333,7 +1371,7 @@ div.panel {
   background: #f2f2f2;
   border: solid 1px #e6e6e6;
   margin: 0 0 22px 0;
-  padding: 20px;
+  padding: 5px;
 }
 /* line 197, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/ui.scss */
 div.panel *:first-child {
@@ -1369,11 +1407,11 @@ div.panel.callout .button:hover {
 }
 /* line 208, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/ui.scss */
 div.panel.radius {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
 }
 
 /* Side Nav ---------------------- */
@@ -1579,7 +1617,7 @@ ul.nice li span.bullet, ul.nice li span.number, ol.nice li span.bullet, ol.nice 
 /* Link List */
 /* line 284, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/ui.scss */
 ul.link-list {
-  margin: 0 0 17px -22px;
+  margin: 0 0 0 24px;
   padding: 0;
   list-style: none;
   overflow: hidden;
@@ -1588,7 +1626,7 @@ ul.link-list {
 ul.link-list li {
   list-style: none;
   float: left;
-  margin-left: 22px;
+  margin-left: 10px;
   display: block;
 }
 /* line 288, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/ui.scss */
@@ -1605,11 +1643,11 @@ ul.link-list li a {
   margin: 0;
   background: #ededed;
   border: solid 1px #dbdbdb;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
 }
 
 /* Video - Mad props to http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/ ---------------------- */
@@ -1765,7 +1803,7 @@ p.vevent abbr {
   line-height: 1;
   margin: 0;
   outline: none;
-  padding: 10px 20px 11px;
+  padding: 7px 9px 8px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -1801,7 +1839,7 @@ p.vevent abbr {
 /* line 16, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.large {
   font-size: 17px;
-  padding: 15px 30px 16px;
+  padding: 12px 24px 13px;
 }
 /* line 17, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.medium {
@@ -1810,12 +1848,12 @@ p.vevent abbr {
 /* line 18, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.small {
   font-size: 11px;
-  padding: 7px 14px 8px;
+  padding: 4px 8px 5px;
 }
 /* line 19, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.tiny {
   font-size: 10px;
-  padding: 5px 10px 6px;
+  padding: 2px 4px 3px;
 }
 /* line 20, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.expand {
@@ -1883,28 +1921,13 @@ p.vevent abbr {
   -moz-box-shadow: 0 0 5px #e9e9e9, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
   box-shadow: 0 0 5px #e9e9e9, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
 }
-/* line 41, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.radius {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-}
-/* line 42, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.round {
-  -webkit-border-radius: 1000px;
-  -moz-border-radius: 1000px;
-  -ms-border-radius: 1000px;
-  -o-border-radius: 1000px;
-  border-radius: 1000px;
-}
+
 /* line 45, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.full-width {
   width: 100%;
   text-align: center;
   padding-left: 0 !important;
-  padding-right: !important;
+  padding-right: 0 !important;
 }
 /* line 46, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.left-align {
@@ -1920,9 +1943,9 @@ p.vevent abbr {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-
+end
 /* Don't use native buttons on iOS */
-/* line 53, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
+/* line 53, /var/www/foundendation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 input[type=submit].button, button.button {
   -webkit-appearance: none;
 }
@@ -1950,22 +1973,22 @@ input[type=submit].button, button.button {
 
   /* line 63, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
   input[type="submit"].tiny.button {
-    padding: 3px 10px 4px;
+    padding: 0px 4px 1px;
   }
 
   /* line 64, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
   input[type="submit"].small.button {
-    padding: 5px 14px 6px;
+    padding: 2px 8px 3px;
   }
 
   /* line 65, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
   input[type="submit"].button, input[type=submit].medium.button {
-    padding: 8px 20px 9px;
+    padding: 5px 14px 6px;
   }
 
   /* line 66, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
   input[type="submit"].large.button {
-    padding: 13px 30px 14px;
+    padding: 10px 24px 11px;
   }
 }
 
@@ -1973,7 +1996,7 @@ input[type=submit].button, button.button {
 /* line 71, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown {
   position: relative;
-  padding-right: 44px;
+  padding-right: 38px;
   /* Sizes */
   /* Triangles */
   /* Flyout List */
@@ -1981,15 +2004,15 @@ input[type=submit].button, button.button {
 }
 /* line 74, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown.large {
-  padding-right: 60px;
+  padding-right: 48px;
 }
 /* line 75, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown.small {
-  padding-right: 28px;
+  padding-right: 16px;
 }
 /* line 76, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown.tiny {
-  padding-right: 20px;
+  padding-right: 8px;
 }
 /* line 79, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown:after {
@@ -2001,7 +2024,7 @@ input[type=submit].button, button.button {
   border-color: white transparent transparent transparent;
   position: absolute;
   top: 50%;
-  right: 20px;
+  right: 14px;
   margin-top: -2px;
 }
 /* line 80, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
@@ -2013,7 +2036,7 @@ input[type=submit].button, button.button {
   border: solid 7px;
   border-color: white transparent transparent transparent;
   margin-top: -3px;
-  right: 30px;
+  right: 24px;
 }
 /* line 81, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown.small:after {
@@ -2024,7 +2047,7 @@ input[type=submit].button, button.button {
   border: solid 5px;
   border-color: white transparent transparent transparent;
   margin-top: -2px;
-  right: 14px;
+  right: 8px;
 }
 /* line 82, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown.tiny:after {
@@ -2035,7 +2058,7 @@ input[type=submit].button, button.button {
   border: solid 4px;
   border-color: white transparent transparent transparent;
   margin-top: -1px;
-  right: 10px;
+  right: 4px;
 }
 /* line 85, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown > ul {
@@ -2127,7 +2150,7 @@ input[type=submit].button, button.button {
 .button.dropdown.split > a {
   color: white;
   display: block;
-  padding: 10px 50px 11px 20px;
+  padding: 7px 35px 8px 14px;
   -webkit-transition: background-color 0.15s ease-in-out;
   -moz-transition: background-color 0.15s ease-in-out;
   -o-transition: background-color 0.15s ease-in-out;
@@ -2139,15 +2162,15 @@ input[type=submit].button, button.button {
 }
 /* line 114, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown.split.large > a {
-  padding: 15px 75px 16px 30px;
+  padding: 12px 60px 13px 24px;
 }
 /* line 115, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown.split.small > a {
-  padding: 7px 35px 8px 14px;
+  padding: 4px 20px 5px 8px;
 }
 /* line 116, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown.split.tiny > a {
-  padding: 5px 25px 6px 10px;
+  padding: 2px 10px 3px 4px;
 }
 /* line 119, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown.split > span {
@@ -2156,7 +2179,7 @@ input[type=submit].button, button.button {
   right: 0;
   top: 0;
   height: 100%;
-  width: 30px;
+  width: 21px;
   border-left: 1px solid #1e728c;
   -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5) inset;
   -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5) inset;
@@ -2186,15 +2209,15 @@ input[type=submit].button, button.button {
 }
 /* line 123, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown.split.large span {
-  width: 45px;
+  width: 36px;
 }
 /* line 124, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown.split.small span {
-  width: 21px;
+  width: 12px;
 }
 /* line 125, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown.split.tiny span {
-  width: 15px;
+  width: 6px;
 }
 /* line 127, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.dropdown.split.large span:after {
@@ -2282,8 +2305,8 @@ ul.button-group.radius li:first-child a.button, ul.button-group.radius li:first-
   -ms-border-radius: 0px;
   -o-border-radius: 0px;
   border-radius: 0px;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 /* line 152, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 ul.button-group.radius li + li a.button, ul.button-group.radius li + li a.button.radius, ul.button-group.radius li + li a.button.rounded {
@@ -2296,8 +2319,8 @@ ul.button-group.radius li:last-child a.button, ul.button-group.radius li:last-ch
   -ms-border-radius: 0px;
   -o-border-radius: 0px;
   border-radius: 0px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 /* line 157, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 ul.button-group.rounded li:first-child a.button, ul.button-group.rounded li:first-child a.button.radius, ul.button-group.rounded li:first-child a.button.rounded {
@@ -2313,7 +2336,6 @@ ul.button-group.rounded li:first-child a.button, ul.button-group.rounded li:firs
 ul.button-group.rounded li + li a.button, ul.button-group.rounded li + li a.button.radius, ul.button-group.rounded li + li a.button.rounded {
   border-radius: 0;
 }
-/* line 159, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 ul.button-group.rounded li:last-child a.button, ul.button-group.rounded li:last-child a.button.radius, ul.button-group.rounded li:last-child a.button.rounded {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -2323,50 +2345,36 @@ ul.button-group.rounded li:last-child a.button, ul.button-group.rounded li:last-
   border-top-right-radius: 1000px;
   border-bottom-right-radius: 1000px;
 }
-/* line 163, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 ul.button-group.even a.button {
   width: 100%;
 }
-/* line 164, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 ul.button-group.even.two-up li {
   width: 50%;
 }
-/* line 165, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 ul.button-group.even.three-up li {
   width: 33.3%;
 }
-/* line 166, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 ul.button-group.even.three-up li:first-child {
   width: 33.4%;
 }
-/* line 167, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 ul.button-group.even.four-up li {
   width: 25%;
 }
-/* line 168, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 ul.button-group.even.five-up li {
   width: 20%;
 }
 
-/* line 172, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 div.button-bar {
   overflow: hidden;
 }
-/* line 173, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 div.button-bar ul.button-group {
   float: left;
   margin-right: 8px;
 }
-/* line 174, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 div.button-bar ul.button-group:last-child {
   margin-left: 0;
 }
 
-/* Requires
-   globals.css
-   app.js */
-/* Tabs ---------------------- */
-/* line 9, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/tabs.scss */
 dl.tabs {
   border-bottom: solid 1px #e6e6e6;
   display: block;
@@ -2374,42 +2382,36 @@ dl.tabs {
   padding: 0;
   margin-bottom: 20px;
 }
-/* line 10, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/tabs.scss */
 dl.tabs.contained {
   margin-bottom: 0;
 }
-/* line 12, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/tabs.scss */
 dl.tabs dt {
   color: #b3b3b3;
   cursor: default;
   display: block;
   float: left;
-  font-size: 12px;
-  height: 40px;
-  line-height: 40px;
+  font-size: 16px;
+  height: 25px;
+  line-height: 25px;
   padding: 0 9px 0 20px;
   width: auto;
-  text-transform: uppercase;
 }
-/* line 13, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/tabs.scss */
 dl.tabs dt:first-child {
   padding: 0 9px 0 0;
 }
-/* line 16, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/tabs.scss */
 dl.tabs dd {
   display: block;
   float: left;
   padding: 0;
   margin: 0;
 }
-/* line 17, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/tabs.scss */
 dl.tabs dd a {
   color: #6f6f6f;
   display: block;
   font-size: 14px;
-  height: 40px;
-  line-height: 40px;
-  padding: 0px 23.8px;
+  height: 25px;
+  line-height: 25px;
+  padding: 0px 16px;
 }
 /* line 18, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/tabs.scss */
 dl.tabs dd.active {
@@ -2454,7 +2456,7 @@ dl.tabs.vertical dd a {
   font-size: 14px;
   height: auto;
   line-height: 1;
-  padding: 15px 20px;
+  padding: 10px;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
@@ -3070,16 +3072,8 @@ span.prefix, span.postfix {
 }
 
 /* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-input[type="text"], textarea {
+input[type="text"], input[type="password"], textarea {
   border: 1px solid #cccccc;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.75);
   display: block;
   font-size: 14px;
@@ -3087,24 +3081,20 @@ input[type="text"], textarea {
   padding: 6px;
   height: 32px;
   width: 100%;
-  -webkit-transition: all 0.15s linear;
-  -moz-transition: all 0.15s linear;
-  -o-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  background-color: #FCFCFC;
 }
 /* line 37, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-input[type="text"].oversize, textarea.oversize {
+input[type="text"].oversize, input[type="password"].oversize, textarea.oversize {
   font-size: 18px !important;
   font-size: 1.8 rem !important;
 }
 /* line 39, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-input[type="text"]:focus, textarea:focus {
-  background: #fafafa;
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
   outline: none !important;
   border-color: #b3b3b3;
 }
 /* line 40, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-input[type="text"][disabled], textarea[disabled] {
+input[type="text"][disabled], input[type="password"][disabled], textarea[disabled] {
   background-color: #ddd;
 }
 
@@ -3121,7 +3111,7 @@ fieldset {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   padding: 12px 12px 0;
-  margin: 18px 0;
+  margin: 10px 0;
 }
 /* line 48, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
 fieldset legend {
@@ -3230,231 +3220,25 @@ fieldset legend {
   input[type="text"].twelve, textarea.twelve {
     width: 100% !important;
   }
-}
-/* Custom Forms ---------------------- */
-/* line 67, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom {
-  /* Custom input, disabled */
-}
-/* line 69, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom span.custom {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  position: relative;
-  top: 2px;
-  border: solid 1px #ccc;
-  background: #fff;
-}
-/* line 71, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom span.custom.radio {
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  -ms-border-radius: 100px;
-  -o-border-radius: 100px;
-  border-radius: 100px;
-}
-/* line 73, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom span.custom.checkbox:before {
-  content: "\00d7";
-  display: block;
-  line-height: 0.8;
-  height: 14px;
-  width: 14px;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* margin-top: -9px; margin-left: -4px; */
-  font-size: 14px;
-  color: #fff;
-}
-/* line 76, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom span.custom.radio.checked:before {
-  content: "";
-  display: block;
-  width: 8px;
-  height: 8px;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  -ms-border-radius: 100px;
-  -o-border-radius: 100px;
-  border-radius: 100px;
-  background: #222;
-  position: relative;
-  top: 3px;
-  left: 3px;
-}
-/* line 79, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom span.custom.checkbox.checked:before {
-  color: #222;
-}
-/* line 82, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown {
-  display: block;
-  position: relative;
-  width: auto;
-  height: 28px;
-  margin-bottom: 9px;
-  margin-top: 2px;
-}
-/* line 84, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown a.current {
-  display: block;
-  width: auto;
-  line-height: 26px;
-  min-height: 28px;
-  padding: 0 38px 0 6px;
-  border: solid 1px #ddd;
-  color: #141414;
-  background-color: #fff;
-  word-wrap: nowrap;
-}
-/* line 85, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown a.selector {
-  position: absolute;
-  width: 27px;
-  height: 28px;
-  display: block;
-  right: 0;
-  top: 0;
-  border: solid 1px #ddd;
-}
-/* line 86, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown a.selector:after {
-  content: "";
-  display: block;
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border: solid 5px;
-  border-color: #aaaaaa transparent transparent transparent;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-top: -2px;
-  margin-left: -5px;
-}
-/* line 89, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown:hover a.selector:after, form.custom div.custom.dropdown.open a.selector:after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border: solid 5px;
-  border-color: #222222 transparent transparent transparent;
-}
-/* line 92, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown.open ul {
-  display: block;
-  z-index: 10;
-}
-/* line 94, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown.small {
-  width: 134px !important;
-}
-/* line 95, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown.medium {
-  width: 254px !important;
-}
-/* line 96, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown.large {
-  width: 434px !important;
-}
-/* line 97, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown.expand {
-  width: 100% !important;
-}
-/* line 99, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown.open.small ul {
-  width: 134px !important;
-}
-/* line 100, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown.open.medium ul {
-  width: 254px !important;
-}
-/* line 101, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown.open.large ul {
-  width: 434px !important;
-}
-/* line 102, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown.open.expand ul {
-  width: 100% !important;
-}
-/* line 105, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown ul {
-  position: absolute;
-  width: auto;
-  display: none;
-  margin: 0;
-  left: 0;
-  top: 27px;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  background: rgba(255, 255, 255, 0.95);
-  border: solid 1px #cccccc;
-}
-/* line 107, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown ul li {
-  color: #555;
-  font-size: 13px;
-  cursor: pointer;
-  padding: 3px 38px 3px 6px;
-  min-height: 18px;
-  line-height: 18px;
-  margin: 0;
-  white-space: nowrap;
-  list-style: none;
-}
-/* line 108, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown ul li.selected {
-  background: #cdebf5;
-  color: #000;
-}
-/* line 109, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown ul li.selected:after {
-  content: "\2013";
-  position: absolute;
-  right: 10px;
-}
-/* line 111, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown ul li:hover {
-  background-color: #e3f4f9;
-  color: #222;
-}
-/* line 112, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown ul li:hover:after {
-  content: "\2013";
-  position: absolute;
-  right: 10px;
-  color: #8ed3e7;
-}
-/* line 114, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown ul li.selected:hover {
-  background: #cdebf5;
-  cursor: default;
-  color: #000;
-}
-/* line 115, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown ul li.selected:hover:after {
-  color: #000;
-}
-/* line 117, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom div.custom.dropdown ul.show {
-  display: block;
-}
-/* line 121, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-form.custom .custom.disabled {
-  background-color: #ddd;
-}
 
-/* Correct FF custom dropdown height */
-@-moz-document url-prefix() {
-  /* line 126, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-  form.custom div.custom.dropdown a.selector {
-    height: 30px;
+  /* line 61, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
+  input[type="text"].thirteen, textarea.thirteen {
+    width: 100% !important;
+  }
+
+  /* line 61, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
+  input[type="text"].fourteen, textarea.fourteen {
+    width: 100% !important;
+  }
+
+  /* line 61, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
+  input[type="text"].fifteen, textarea.fifteen {
+    width: 100% !important;
+  }
+
+  /* line 61, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
+  input[type="text"].sixteen, textarea.sixteen {
+    width: 100% !important;
   }
 }
 
@@ -3528,3 +3312,4 @@ div.panel {
 /* -----------------------------------------
    Page Name 2
 ----------------------------------------- */
+

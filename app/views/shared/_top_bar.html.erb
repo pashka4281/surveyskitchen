@@ -1,0 +1,22 @@
+<div class="row collapse">
+  <div class="sixteen columns">
+    <ul class="nav-bar no-top-margine">
+      <li class="has-flyout">
+        <a href="#">1 new survey passed</a>
+        <a href="#" class="flyout-toggle"><span> </span></a>
+        <div class="flyout small">
+          <h5>Large Dropdown</h5>
+          <div class="row">
+            <div class="twelve columns">
+              <p>This is example text. This is example text. This is example text. This is example text.</p>
+            </div>
+          </div>
+        </div>
+      </li>
+      <%=content_tag :li, class: (request.path =~ /(dashboard)(\/)?/ ? 'active' : '')  do -%>
+        <%= link_to 'Dashboard', :dashboard%>
+      <%-end-%>
+    </ul>
+
+  </div>
+</div>

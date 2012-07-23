@@ -1,69 +1,66 @@
- <div class="row">
-    <div class=".ten.columns.offset-by-one">
-      <h3>Register</h3>
-      <h4 class="subheader">
-        Foundation 3 uses a modular scale to generate typography. That means a great,
-        logical vertical rhythm whether you use the SCSS version, or just download the CSS.
-      </h4>
-      <%= devise_error_messages! %>
+<div class="ten columns offset-by-one">
+  <h3>Register</h3>
+  <h4 class="subheader">
+    Foundation 3 uses a modular scale to generate typography. That means a great,
+    logical vertical rhythm whether you use the SCSS version, or just download the CSS.
+  </h4>
+  <%= devise_error_messages! %>
 
-      <%= form_for(resource, :url => :register) do |f| %>
-          <div class="row">
-            <div class="two mobile-one columns">
-              <%= f.label :first_name, class: 'right' %>
-            </div>
-            <div class="ten mobile-three columns">
-              <%= f.text_field :first_name, placeholder: 'Your first name', class: 'five' %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="two mobile-one columns">
-              <%= f.label :last_name, class: 'right' %>
-            </div>
-            <div class="ten mobile-three columns">
-              <%= f.text_field :last_name, placeholder: 'Your last name', class: 'five' %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="two mobile-one columns">
-              <%= f.label :account_name, class: 'right' %>
-            </div>
-            <div class="ten mobile-three columns">
-              <%= f.text_field :account_name, placeholder: 'Choose an account name', class: 'five' %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="two mobile-one columns">
-              <%= f.label :email, class: 'right' %>
-            </div>
-            <div class="ten mobile-three columns">
-              <%= f.text_field :email, placeholder: 'Email address', class: 'five' %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="two mobile-one columns">
-              <%= f.label :password, class: 'right' %>
-            </div>
-            <div class="ten mobile-three columns">
-              <%= f.password_field :password, placeholder: 'Password', class: 'three' %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="two mobile-one columns">
-              <%= f.label :password_confirmation, 'Confirm password: ', class: 'right' %>
-            </div>
-            <div class="ten mobile-three columns">
-              <%= f.password_field :password_confirmation, placeholder: 'Confirm password', class: 'three' %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="two mobile-one columns"></div>
-            <div class="ten mobile-three columns">
-              <%= f.submit "Sign up now!", class: 'button' %>
-            </div>
-          </div>
+  <%= form_for(resource, :url => :register) do |f| %>
+      <div class="row">
+        <div class="four mobile-one columns">
+          <%= f.label :first_name, class: 'right' %>
+        </div>
+        <div class="twelve mobile-three columns">
+          <%= f.text_field :first_name, placeholder: 'Your first name', class: 'ten' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four mobile-one columns">
+          <%= f.label :last_name, class: 'right' %>
+        </div>
+        <div class="twelve mobile-three columns">
+          <%= f.text_field :last_name, placeholder: 'Your last name', class: 'ten' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four mobile-one columns">
+          <%= f.label :account_name, class: 'right' %>
+        </div>
+        <div class="twelve mobile-three columns">
+          <%= f.text_field :account_name, placeholder: 'Choose an account name', class: 'ten' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four mobile-one columns">
+          <%= f.label :email, class: 'right' %>
+        </div>
+        <div class="twelve mobile-three columns">
+          <%= f.text_field :email, placeholder: 'Email address', class: 'ten' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four mobile-two columns">
+          <%= f.label :password, class: 'right' %>
+        </div>
+        <div class="twelve mobile-three columns">
+          <%= f.password_field :password, placeholder: 'Password', class: 'seven' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four mobile-two columns">
+          <%= f.label :password_confirmation, 'Confirm password: ', class: 'right' %>
+        </div>
+        <div class="twelve mobile-three columns">
+          <%= f.password_field :password_confirmation, placeholder: 'Confirm password', class: 'seven' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="two mobile-one columns"></div>
+        <div class="ten mobile-three columns">
+          <%= f.submit "Sign up now!", class: 'button' %>
+        </div>
+      </div>
 
-      <% end %>
-
-    </div>
- </div>
+  <% end %>
+</div>

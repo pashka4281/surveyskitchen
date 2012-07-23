@@ -14,4 +14,14 @@ class User < ActiveRecord::Base
   has_one :owned_account, :foreign_key => :owner_id, class_name: 'Account'
   belongs_to :account
 
+  after_create :setup_account
+
+  private
+
+  def setup_account
+    if !self.account_name.blank? && !self.invited?
+      a = Account.create(name: self.account_name, owner: self)
+      a.users << self
+    end
+  end
 end

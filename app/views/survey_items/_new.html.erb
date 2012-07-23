@@ -1,0 +1,50 @@
+<div class="row" id="new_survey_item">
+  <div class="fifteen columns centered">
+    
+    <dl class="tabs" id="newEditItemSwitch"></dl>
+
+    <form id="newItemForm">
+
+    	<select id="surveyTypeSelector" class="big" tabindex="1">
+        <optgroup label="Questions:">
+          <option value="open_question" icon_src="/images/ui-text-field.png" >
+            Open type</option>
+          <option value="multiple_select_question" icon_src="/images/ui-check-box.png">
+            Multiple select</option>
+          <option value="single_select_question" icon_src="/images/ui-radio-button.png" >
+            Single select</option>
+        </optgroup>
+        <optgroup label="Page elements:">
+          <option value="image">Image</option>
+          <option value="desc_text">Descriptive text</option>
+          <option value="page_break" icon_src="/images/page_white_width.png">
+            Page break</option>
+        </optgroup>
+      </select>
+
+      <div id="new_item" class="top-span"></div>
+
+    </form>
+  </div>
+
+</div>
+
+<%= content_for :js do -%>
+  <script>
+    var surveyTypeSelector = $('#surveyTypeSelector');
+    var itemsHtmlArray = <%= raw(survey_items_html_array()) %>;
+
+    function renderSelectedItem(e){
+       var val = $(e.target).val();
+       $('#new_item').html(itemsHtmlArray[val]);
+    }
+
+    //document ready callback
+    $(function(){
+      surveyTypeSelector.change(renderSelectedItem).change(); // attaching event handler and triggering that event
+      $('#surveyTypeSelector').dropkick();
+    });
+
+  </script>
+<%-end-%>
+

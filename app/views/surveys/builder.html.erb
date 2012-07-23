@@ -1,0 +1,217 @@
+<% header('Questions builder', subheader: 'All changes here are automatically saved.', icon: '/images/builder_icon.png') %>
+
+<%=render 'shared/nav_menu' %>
+
+<div class="fourteen columns">
+  <div class="row">
+    <div class="six columns top-span">
+      <div style="height: 600px" class="relative horizontal-borders">
+        <%=render 'survey_items/new' %>
+
+        <div class="panel no-margin bottom-block">
+          <div class="row">
+            <div class="three columns mobile-one">
+              <img src="/images/trash_icon.png" alt="trash">
+            </div>
+            <div class="thirteen columns mobile-three">
+              <h6>Trash box.</h6>
+              <span class="round label">0 items</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="ten columns top-span">
+      <div id="build_list" style="background-color: #97C597;" class="list">
+
+				<div id="zero-item" class="row insertable">
+            <div class="ten columns centered">
+	            <button class="button secondary insert_buttons" >Insert here »</button>
+	          </div>
+        </div>
+        
+        <div id="no-items-area" class="row insertable">
+	        <div class="row">
+            <div class="ten columns centered">
+	            <button class="button secondary insert_buttons" >Insert here »</button>
+	          </div>
+	        </div>
+          <div class="row">
+            <div id="work-area-texting" class="fifteen columns centered centr-text vspace-big">
+              <h3>This is your working area.</h3>
+              <h5>Start building survey by inserting questions here.</h5>
+	          </div>
+          </div>
+
+        </div>
+        
+        <%- @survey.sorted_items.each do |i| -%>
+          <%= render_survey_item(i) %>
+        <%- end -%>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<%= content_for :js do %>
+	<script>
+		function BuilderUI(params){
+			//constructor
+			this.working_area = params['working_area'];
+			this.survey_items = params['survey_items'];
+			this.insert_buttons = params['insert_buttons']; 
+			this.delete_links = $('.sortable_item .deleteLnk');
+			this.new_item_form_container = $('#new_survey_item');
+			this.new_edit_item_switch = $('#newEditItemSwitch');
+			this.edit_mode = false;
+					
+			this.insertItem = function(html, pos, total_items){
+				var btn = $(this.insert_buttons + '[itemindex='+ pos + ']:not(:hidden)');
+				$(html).insertAfter(btn.parents('.insertable')).hide().slideDown();
+				if(total_items == 0){ 
+					$('#zero-item').show();
+					$('#no-items-area').hide();
+				} 
+				this.renewItemsIndexes();
+			}
+			
+			this.removeItem = function(id){
+			console.log($(this.survey_items))
+			  $(this.survey_items + '[item_id=' + id + ']').slideUp(300, function(){
+			    $(this).remove();
+			  });
+			}
+			
+			this.renewItemsIndexes = function(){
+				$(this.working_area).find(this.insert_buttons + ':not(:hidden)').each(function(i, el){
+					$(el).attr('itemindex', i);
+				});
+			}
+			
+			this.renewItemsIndexes();
+			
+			//change all insert buttons labels to `label`
+			this.buttonsLabel = function(label){
+				$(this.insert_buttons).html(label);
+			}
+			
+			this.enableButtons = function(){
+				//TODO: implement this method 
+			}
+			
+			this.enterEditMode = function(){
+				this.new_edit_item_switch("<dt>New item</dt><dd class=\"active\"><a>Edit Item</a></dd>")
+				this.edit_mode = true;
+			}
+			
+			this.enterNewMode = function(){
+				this.new_edit_item_switch.html("<dd class=\"active\"><a>New Item</a></dd><dt>Edit item</dt>");
+				//this.new_item_form_container.find('form').reset();
+				this.edit_mode = false;
+			}
+			
+			this.enterNewMode();
+		} 
+	
+		function Survey(params){
+			//constructor
+			this.survey_id = params['survey_id'];
+			this.base_path = '/surveys/' + this.survey_id; // e.g. "/survey/1"
+			this.builder_ui = params['builder_ui'];
+			this.total_items = params['total_items'];
+			
+			//callbacks:
+			this.afterItemAdd = undefined;
+			this.onSuccCall  	= undefined;
+			this.onErrorCall	= undefined;
+			
+			//functions			
+			this.addItem = function(type, pos, params){
+				var self = this;
+				$.ajax(this.base_path + '/items', {
+					type: 'POST',
+					data: {
+						item_type: type,
+						item_params: params,
+						item_position: pos
+					}, 
+					success: function(resp){ //resp contains new item markup
+						self.builder_ui.insertItem(resp, pos, self.total_items);
+						self.total_items += 1;
+						if(self.afterItemAdd != undefined)
+						  self.afterItemAdd(resp, pos);
+					},
+					error: function(){}
+				});
+			}		
+			
+			this.deleteItem = function(id){
+			  var self = this;
+				$.ajax(this.base_path + '/items/' + id , {
+					type: 'DELETE',
+					success: function(){ //resp contains new item markup
+						self.builder_ui.removeItem(id);
+						self.total_items -= 1;
+					},
+					error: function(){}
+				});
+			}	
+		}
+		
+		
+		// document ready 
+		$(function(){
+			var newItemForm = $('#newItemForm');
+			if(!<%= @survey.items.any?.to_s %>){ 
+				$('#no-items-area').show();
+				$('#zero-item').hide();
+			}
+			
+			var builder_ui = new BuilderUI({
+				working_area: '#build_list',
+				insert_buttons: '.insert_buttons',
+				survey_items: '.sortable_item'
+			}); 
+			
+			var survey = new Survey({survey_id: <%= @survey.id%>, 
+				builder_ui: builder_ui,
+				total_items: <%= @survey.items.count %> });			
+			
+			//insert buttons click handler:
+			$(builder_ui.insert_buttons).live('click', function(){
+				type = $('#surveyTypeSelector').val();
+				survey.addItem(type, $(this).attr('itemindex'), newItemForm.serialize());
+				builder_ui.renewItemsIndexes();
+			});
+			
+			//remove links click handler:
+			$(builder_ui.delete_links).live('click', function(){
+				survey.deleteItem($(this).parents('.sortable_item').attr('item_id'));
+				return false;
+			});
+			
+			$('#build_list').sortable({ 
+				axis: 'y', 
+				cursor: 'move', 
+				items: 'div.sortable_item',
+				update: function(){ console.log(this); } 
+			});
+		});
+	</script>
+<% end %>
+
+
+<%= content_for :head_panel do %>
+	<div class="panel vspace">
+		Survey settings to be placed here...<br />
+	  <button class="button">Press me</button>
+		<select>
+			<option>Yellow</option>
+			<option>Red</option>
+		</select>
+	</div>
+<% end %>
+

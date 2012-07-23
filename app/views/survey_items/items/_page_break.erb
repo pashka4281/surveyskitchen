@@ -1,0 +1,17 @@
+<%= content_tag_for :div, item, class: "row insertable sortable_item", item_id: item.id do -%>
+  <div class="row">
+    <div class="fifteen columns centered">
+      <div class="six columns page_border"></div>
+      <div class="three columns page_break_texting">
+        <h5>Page break</h5>
+      </div>
+      <div class="seven columns page_border end"></div>
+  	</div>
+  </div>
+  <div class="row">
+  	<div class="ten columns centered">
+  	  <button class="button secondary insert_buttons">Insert here »</button>
+	  </div>
+  </div>
+<%- end -%>
+

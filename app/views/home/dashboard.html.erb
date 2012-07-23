@@ -1,18 +1,19 @@
-<h1>Home#dashboard</h1>
-<p>Find me in app/views/home/dashboard.html.erb</p>
+<% header('Dasboard', subheader: 'This is a place where all starts') %>
 
-<div class="row">
+<%= render 'shared/nav_menu' %>
 
-  <div class="two columns">
-    <dl class="tabs vertical">
-      <dd class="active"><a href="#">Surveys</a></dd>
-      <dd><a href="#">Clients</a></dd>
-      <dd><a href="#">Categories</a></dd>
-      <dd><a href="#">Designs</a></dd>
-      <dd><a href="#">Statistics</a></dd>
-      <dd><a href="/">Assets Manager</a></dd>
-    </dl>
-  </div>
-
-  <div class="eight columns"></div>
+<div class="fourteen columns">
+  <div style="border: 1px dotted; height: 500px"></div>
+  <ul class="pagination">
+    <li class="arrow unavailable"><a href="">&laquo;</a></li>
+    <li class="current"><a href="">1</a></li>
+    <li><a href="">2</a></li>
+    <li><a href="">3</a></li>
+    <li><a href="">4</a></li>
+    <li class="unavailable"><a href="">&hellip;</a></li>
+    <li><a href="">12</a></li>
+    <li><a href="">13</a></li>
+    <li class="arrow"><a href="">&raquo;</a></li>
+  </ul>
 </div>
+
