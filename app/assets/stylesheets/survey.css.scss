@@ -6,4 +6,22 @@
 	}
 	.page_break_texting{ text-align: center; }
 }
+.sortable_item{
+	input[type=range]{ width: 100%; }
+	
+	.content-row{
+		.item_header{
+			margin-bottom: 8px;
+			background-color: #F2F2FD;
+		}
+		> div{
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+	.scale_limits{ text-align: center; }
+	.manage_links{
+		display: none;
+	}
 
+}

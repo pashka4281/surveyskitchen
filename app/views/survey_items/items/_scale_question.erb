@@ -11,18 +11,19 @@
 
     <div class="row item_header">
       <div class="fifteen columns centered">
-      	<h6><%= item.title%></h6>
+      	<h6><%= item.title%></h6>        
       </div>
     </div>
     <div class="row">
-      <div class="fifteen columns centered">
-        <input type="text" />
-      </div>
+  	  <div class="one columns scale_limits">1</div>
+  	  <div class="fourteen columns"><input type="range" /></div>
+  	  <div class="one columns scale_limits">2</div>
     </div>
+    
   </div>
   <div class="row">
   	<div class="ten columns centered">
   		<button class="button secondary insert_buttons">Insert here »</button>
   	</div>
- </div>
+  </div>
 <%- end -%>

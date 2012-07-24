@@ -1,5 +1,12 @@
 <%= content_tag_for :div, item, class: "row insertable sortable_item", item_id: item.id do -%>
   <div class="row">
+    <div class="row manage_links">
+      <div class="three columns offset-by-thirteen">
+        <ul class="link-list">
+          <li><%= link_to 'Delete', '#', class: 'deleteLnk', confirm: 'Sure?' %></li>
+        </ul>
+      </div>
+    </div>
     <div class="fifteen columns centered">
       <div class="six columns page_border"></div>
       <div class="three columns page_break_texting">

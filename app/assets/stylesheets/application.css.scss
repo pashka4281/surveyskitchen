@@ -40,10 +40,10 @@ form {
 .top-span{ padding-top: 3px; }
 .vspace{ margin-top: 4px !important; margin-bottom: 4px !important; }
 .vspace-big{ margin-top: 10px !important; margin-bottom: 10px !important; }
-.list {
-		counter-reset:li; /* Initiate a counter */
-    margin-left:0; /* Remove the default left margin */
-    padding-left:0; /* Remove the default left padding */
+#build_list {
+		counter-reset: li; /* Initiate a counter */
+    margin-left: 0; /* Remove the default left margin */
+    padding-left: 0; /* Remove the default left padding */
     position: relative;
     > div { background-color: white; }
     > div.sortable_item{

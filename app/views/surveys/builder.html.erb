@@ -79,7 +79,6 @@
 			}
 			
 			this.removeItem = function(id){
-			console.log($(this.survey_items))
 			  $(this.survey_items + '[item_id=' + id + ']').slideUp(300, function(){
 			    $(this).remove();
 			  });
@@ -197,6 +196,8 @@
 				axis: 'y', 
 				cursor: 'move', 
 				items: 'div.sortable_item',
+				containment: 'parent',
+				handle: '.item_header, h5',
 				update: function(){ console.log(this); } 
 			});
 		});

@@ -1,4 +1,0 @@
-class SurveyItems::OpenQuestion < SurveyItem
-
-end
-
