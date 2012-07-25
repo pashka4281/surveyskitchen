@@ -2378,9 +2378,9 @@ div.button-bar ul.button-group:last-child {
 dl.tabs {
   border-bottom: solid 1px #e6e6e6;
   display: block;
-  height: 40px;
+  height: 32px;
   padding: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 dl.tabs.contained {
   margin-bottom: 0;
@@ -2416,7 +2416,6 @@ dl.tabs dd a {
 /* line 18, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/tabs.scss */
 dl.tabs dd.active {
   border-top: 3px solid #2ba6cb;
-  margin-top: -3px;
 }
 /* line 19, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/tabs.scss */
 dl.tabs dd.active a {

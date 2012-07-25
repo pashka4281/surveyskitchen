@@ -34,6 +34,7 @@
     function renderSelectedItem(e){
        var val = $(e.target).val();
        $('#new_item').html(itemsHtmlArray[val]);
+       $("#new_item textarea").autoGrow();
     }
 
     //document ready callback

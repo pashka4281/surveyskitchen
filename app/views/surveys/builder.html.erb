@@ -5,7 +5,7 @@
 <div class="fourteen columns">
   <div class="row">
     <div class="six columns top-span">
-      <div style="height: 600px" class="relative horizontal-borders">
+      <div id="sticky_box" style="height: 600px" class="relative horizontal-borders">
         <%=render 'survey_items/new' %>
 
         <div class="panel no-margin bottom-block">
@@ -202,6 +202,11 @@
 				update: function(){ 
 				  builder_ui.renewItemsIndexes();
 				} 
+			});
+			$("#sticky_box").sticky({
+			  topSpacing: 0, 
+			  className: 'sticky', 
+			  wrapperClassName: 'my-wrapper' 
 			});
 		});
 	</script>

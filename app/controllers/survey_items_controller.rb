@@ -24,6 +24,7 @@ class SurveyItemsController < ApplicationController
 	def	get_item_constant(name)
 		{ 'open_question' => 'SurveyItems::OpenQuestion',
 			'multiple_select_question' => nil,
+			'single_select_question' => 'SurveyItems::SingleSelectQuestion',
 			'scale_question' => 'SurveyItems::ScaleQuestion',
 			'desc_text' => 'SurveyItems::DescText',
 			'page_break' => 'SurveyItems::PageBreak'}[name].constantize rescue nil
