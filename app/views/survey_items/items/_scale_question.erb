@@ -1,24 +1,46 @@
 <%= content_tag_for :div, item, class: "row insertable sortable_item question-item", item_id: item.id do -%>
   <div class="row content-row">
-    <div class="row" style="display:none">
-      <div class="three columns offset-by-thirteen">
-        <ul class="link-list">
-          <li><a href="#">Edit</a></li>
-          <li><%= link_to 'Delete', '#', class: 'deleteLnk', confirm: 'Sure?' %></li>
-        </ul>
-      </div>
-    </div>
-
+    <ul class="link-list manage_links">
+      <li><a href="#">Edit</a></li>
+      <li><%= link_to 'Delete', '#', class: 'deleteLnk', confirm: 'Sure?' %></li>
+    </ul>
+        
     <div class="row item_header">
-      <div class="fifteen columns centered">
-      	<h6><%= item.title%></h6>        
+      <div class="sixteen columns">
+      	<h6><%= item.title%></h6>
       </div>
     </div>
     <div class="row">
-  	  <div class="one columns scale_limits">1</div>
-  	  <div class="fourteen columns"><input type="range" /></div>
-  	  <div class="one columns scale_limits">2</div>
+      <div class="fifteen columns centered scale_container">
+      <table>
+        <tr>
+          <td><input type="radio" name="scale" /></td>
+          <td><input type="radio" name="scale" /></td>
+          <td><input type="radio" name="scale" /></td>
+          <td><input type="radio" name="scale" /></td>
+          <td><input type="radio" name="scale" /></td>
+          <td><input type="radio" name="scale" /></td>
+          <td><input type="radio" name="scale" /></td>
+          <td><input type="radio" name="scale" /></td>
+          <td><input type="radio" name="scale" /></td>
+          <td><input type="radio" name="scale" /></td>
+        </tr>
+        <tr>
+          <td><span>1</span></td>
+          <td><span>2</span></td>
+          <td><span>3</span></td>
+          <td><span>4</span></td>
+          <td><span>5</span></td>
+          <td><span>6</span></td>
+          <td><span>7</span></td>
+          <td><span>8</span></td>
+          <td><span>9</span></td>
+          <td><span>10</span></td>
+        </tr>
+      </table>
+      </div>
     </div>
+    
     
   </div>
   <div class="row">

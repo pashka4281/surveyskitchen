@@ -48,8 +48,7 @@ form {
     > div { background-color: white; }
     > div.sortable_item{
 		  position: relative; margin: 0; list-style: none; padding: 0;
-		  >.content-row{ margin: 0; padding-bottom: 5px; border: 1px dashed #CCC; }
-		  h6 { margin-top: 5px;}
+		  .item_header, h5{ cursor: move; }
     }
 
 	> div.question-item::before {
@@ -68,7 +67,8 @@ form {
 	}
 }
 .insert_buttons{
-	margin-top: 4px !important; margin-bottom: 4px !important;
+	margin-top: 13px !important; 
+	margin-bottom: 13px !important;
 	font-size: 10px;
   padding: 2px 4px 3px;
   width: 100%;

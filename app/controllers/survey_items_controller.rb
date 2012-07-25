@@ -25,6 +25,7 @@ class SurveyItemsController < ApplicationController
 		{ 'open_question' => 'SurveyItems::OpenQuestion',
 			'multiple_select_question' => nil,
 			'scale_question' => 'SurveyItems::ScaleQuestion',
+			'desc_text' => 'SurveyItems::DescText',
 			'page_break' => 'SurveyItems::PageBreak'}[name].constantize rescue nil
 	end
 	

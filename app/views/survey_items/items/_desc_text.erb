@@ -1,14 +1,11 @@
 <%= content_tag_for :div, item, class: "row insertable sortable_item", item_id: item.id do -%>
   <div class="row">
     <ul class="link-list manage_links">
+      <li><a href="#">Edit</a></li>
       <li><%= link_to 'Delete', '#', class: 'deleteLnk', confirm: 'Sure?' %></li>
     </ul>
-    <div class="fifteen columns centered">
-      <div class="six columns page_border"></div>
-      <div class="three columns page_break_texting">
-        <h5>Page break</h5>
-      </div>
-      <div class="seven columns page_border end"></div>
+    <div class="fifteen columns centered desc_text_content">
+      <%= item.text_content %>
   	</div>
   </div>
   <div class="row">
@@ -17,4 +14,3 @@
 	  </div>
   </div>
 <%- end -%>
-

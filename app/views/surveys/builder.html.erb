@@ -79,8 +79,10 @@
 			}
 			
 			this.removeItem = function(id){
+			  var self = this;
 			  $(this.survey_items + '[item_id=' + id + ']').slideUp(300, function(){
 			    $(this).remove();
+			    self.renewItemsIndexes();
 			  });
 			}
 			
@@ -194,11 +196,12 @@
 			
 			$('#build_list').sortable({ 
 				axis: 'y', 
-				cursor: 'move', 
 				items: 'div.sortable_item',
-				containment: 'parent',
-				handle: '.item_header, h5',
-				update: function(){ console.log(this); } 
+				//containment: 'parent',
+				handle: '.item_header, h5, .desc_text_content',
+				update: function(){ 
+				  builder_ui.renewItemsIndexes();
+				} 
 			});
 		});
 	</script>
