@@ -200,6 +200,14 @@
 				//containment: 'parent',
 				handle: '.item_header, h5, .desc_text_content',
 				update: function(){ 
+				  var info = $(this).sortable("serialize", {
+            key: 'survey[items_positions][]'
+          });
+          $.ajax({
+            url: "<%= survey_path(@survey) %>",
+            type: "PUT",
+            data: info
+          });
 				  builder_ui.renewItemsIndexes();
 				} 
 			});

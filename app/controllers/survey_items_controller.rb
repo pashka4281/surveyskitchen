@@ -18,15 +18,22 @@ class SurveyItemsController < ApplicationController
 	  @item.destroy
 	  render nothing: true, status: 200
   end
+  
+  def delete
+    @item = SurveyItem.find(params[:id])
+	  @item.update_attributes()
+	  render nothing: true, status: 200
+  end
 	
 	private
 	
 	def	get_item_constant(name)
-		{ 'open_question' => 'SurveyItems::OpenQuestion',
-			'multiple_select_question' => nil,
+		{ 'text_field_question' => 'SurveyItems::TextFieldQuestion',
+			'multiple_select_question' => 'SurveyItems::MultipleSelectQuestion',
 			'single_select_question' => 'SurveyItems::SingleSelectQuestion',
 			'scale_question' => 'SurveyItems::ScaleQuestion',
 			'desc_text' => 'SurveyItems::DescText',
+			'drop_down_question' => 'SurveyItems::DropDownQuestion',
 			'page_break' => 'SurveyItems::PageBreak'}[name].constantize rescue nil
 	end
 	

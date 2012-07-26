@@ -2,7 +2,9 @@ Surveyskitchen::Application.routes.draw do
 
   resources :surveys do
     get "builder", :on => :member
-    resources :survey_items, as: 'items', path: 'items'
+    resources :survey_items, as: 'items', path: 'items' do
+      delete :delete, as: :member
+    end
   end
 
   get "dashboard" => 'home#dashboard', :as => :dashboard

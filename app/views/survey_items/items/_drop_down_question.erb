@@ -11,19 +11,12 @@
       </div>
     </div>
     <div class="row">
-      <div class="fifteen columns centered scale_container">
-      <table>
-        <tr>
-          <% item.scale_size.times do %>
-            <td><input type="radio" name="scale" /></td>
-          <% end %>
-        </tr>
-        <tr>
-          <% item.scale_size.times do |v| %>
-            <td><span><%= v+1 %></span></td>
-          <% end %>
-        </tr>
-      </table>
+      <div class="fifteen columns centered">
+        <select name="drop_down_<%= item.id %>">
+          <% for var in item.variants %>
+			      <option value="<%= var %>" > <%= var %> </option>
+			    <% end %>
+			  </select>
       </div>
     </div>
     

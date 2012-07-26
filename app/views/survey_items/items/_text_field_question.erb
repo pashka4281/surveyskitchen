@@ -12,7 +12,11 @@
     
     <div class="row">
       <div class="fifteen columns centered">
-        <input type="text" />
+        <% if item.appearance == 'txt_field' %>
+          <input type="text" />
+        <% else %>
+          <textarea></textarea>
+        <% end %>
       </div>
     </div>
   </div>

@@ -4,19 +4,26 @@
       <li><a href="#">Edit</a></li>
       <li><%= link_to 'Delete', '#', class: 'deleteLnk', confirm: 'Sure?' %></li>
     </ul>
-  	<div class="fifteen columns centered">
-			<h6><%= item.title %></h6>
-			<fieldset>
-			  <% for var in item.variants %>
-				  <input type="radio" name="r_btn" value="<%= var %>" /> <%= var %> <br />
-				<% end %>
-				<br />
-			</fieldset>
-		</div>
+    <div class="row item_header">
+      <div class="sixteen columns">
+      	<h6><%= item.title%></h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="fifteen columns centered">
+		    <fieldset>
+		      <% for var in item.variants %>
+			      <input type="radio" name="r_btn" value="<%= var %>" /> <%= var %> <br />
+			    <% end %>
+			    <br />
+		    </fieldset>
+	    </div>
+    </div>
 	</div>
+	
 	<div class="row">
 		<div class="ten columns centered">
-  		<button class="tiny button sixteen insert_buttons vspace" >Insert here »</button>
+  		<button class="button secondary insert_buttons">Insert here »</button>
 		</div>
 	</div>
 <% end %>

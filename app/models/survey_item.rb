@@ -9,6 +9,29 @@ class SurveyItem < ActiveRecord::Base
   
   attr_writer :position
   
+  class << self
+    def custom_field_accessor(*args)
+      custom_field_reader(*args)
+      custom_field_writer(*args)
+    end
+    
+    def custom_field_reader(*args)
+      args.each do |arg|
+        define_method(arg) do
+          get_custom_field_value(arg)
+        end
+      end
+    end
+    
+    def custom_field_writer(*args)
+      args.each do |arg|
+        define_method(arg.to_s + '=') do |val|
+          set_custom_field(arg, val)
+        end
+      end
+    end
+  end
+  
   
   def set_custom_field(field_name, value)
     self.content = self.content.merge({field_name => value})

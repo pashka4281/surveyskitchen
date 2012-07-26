@@ -9,12 +9,13 @@ module ApplicationHelper
 
   def survey_items_html_array
     init = { 	multiple_fields_question: nil,
-      				open_question: nil,
+      				text_field_question: nil,
       				multiple_select_question: nil,
       				single_select_question: nil,
       				page_break: nil,
       				image: nil,
       				desc_text: nil,
+      				drop_down_question: nil,
       				scale_question: nil }.stringify_keys
     init.each_key{|x| init[x] = render("survey_items/forms/#{x}") }.to_json
   end

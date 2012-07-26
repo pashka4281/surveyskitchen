@@ -83,7 +83,7 @@
 .dk_options {
   a {
     background-color: #fff;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #F1F1F1;
     font-weight: bold;
     padding: 8px 10px;
     color: #333;	
@@ -114,11 +114,6 @@
   color: #333;
 }
 
-/* Set a max-height on the options inner */
-.dk_options_inner,
-.dk_touch .dk_options {
-  max-height: 250px;
-}
 
 /******  End Theme ******/
 
