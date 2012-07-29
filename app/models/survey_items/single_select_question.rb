@@ -1,6 +1,7 @@
 class SurveyItems::SingleSelectQuestion < SurveyItem
-  attr_accessible :variants
+  attr_accessible :variants, :include_txt_field
   custom_field_reader :variants
+  custom_field_accessor :include_txt_field
   
   def variants=(txt)
 	  set_custom_field(:variants, txt.split("\n").collect(&:chop))  

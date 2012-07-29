@@ -16,6 +16,9 @@
 			      <input type="radio" name="r_btn" value="<%= var %>" /> <%= var %> <br />
 			    <% end %>
 			    <br />
+			    <%- if item.include_txt_field -%>
+			      <input type="text" />
+			    <%- end -%>
 		    </fieldset>
 	    </div>
     </div>

@@ -1,0 +1,38 @@
+<% header('New Survey', subheader: 'This is a place where all starts') %>
+
+<%= render 'shared/nav_menu' %>
+
+
+<div class="fourteen columns">
+  <div class="row">
+    <div class="row">
+      <div class="row margin-left">
+        <div class="sixteen columns">
+          <dl class="sub-nav">
+          	<dt>Progress:</dt>
+          	<dd <%= raw (@step == 'basic_info' || @step.nil?)? 'class="active"' : '' %>>
+          	  <a>Basic info »</a>
+          	</dd>
+          	<dd <%= raw (@step == 'look_and_feel')? 'class="active"' : '' %>>
+          	  <a>Look and feel »</a>
+          	</dd>
+          	<dd <%= raw (@step == 'design')? 'class="active"' : '' %>>
+          	  <a>Choose design »</a>
+          	</dd>
+          	<dd><a>Survey Survey availabitly »</a></dd>
+          	<dd <%= raw (@step == 'finish')? 'class="active"' : '' %>>
+          	  <a>Finish »</a>
+          	</dd>
+          </dl>
+        </div>
+      </div>
+      
+      <div class="row margin-left">
+        <%= render "surveys/steps/#{@step}" %>
+      </div>
+      
+    </div>    
+    
+  </div>
+
+</div>

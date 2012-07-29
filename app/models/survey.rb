@@ -6,6 +6,10 @@ class Survey < ActiveRecord::Base
   has_many  :items, :dependent => :destroy, class_name: 'SurveyItem'
   serialize :items_positions
   
+  STEPS = %w(basic_info look_and_feel)
+  
+  validates :name, presence: true
+  
   def items_positions=(items)
     write_attribute(:items_positions, items.collect(&:to_i))
   end

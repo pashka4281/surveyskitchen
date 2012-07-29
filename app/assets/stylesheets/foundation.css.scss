@@ -313,8 +313,6 @@ abbr {
     content: "";
   }
 
-  /* Don't show links for images, or javascript/internal links */
-  /* line 74, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/typography.scss */
   pre, blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
@@ -371,12 +369,6 @@ abbr {
   clear: both;
 }
 /* line 8, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
-.row .row {
-  width: auto;
-  max-width: none;
-  min-width: 0;
-  margin: 0 -7.5px;
-}
 /* line 11, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row.collapse .column, .row.collapse .columns {
   padding: 0;
@@ -386,7 +378,7 @@ abbr {
   width: auto;
   max-width: none;
   min-width: 0;
-  margin: 0 -7.5px;
+  /*margin: 0 7.5px;*/
 }
 /* line 14, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 .row .row.collapse {
@@ -408,7 +400,7 @@ abbr {
 
 /* line 22, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 [class*="column"] + [class*="column"]:last-child {
-  float: right;
+  /* float: right; */
 }
 
 /* line 23, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
@@ -1803,7 +1795,7 @@ p.vevent abbr {
   line-height: 1;
   margin: 0;
   outline: none;
-  padding: 7px 9px 8px;
+  padding: 7px 7px 8px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -3130,18 +3122,18 @@ fieldset legend {
 
 /* Errors */
 /* line 55, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-.form-field.error input, input.input-text.alert {
+.form .field_with_errors input, input.input-text.alert {
   border-color: #c60f13;
   background-color: rgba(255, 0, 0, 0.15);
 }
 
 /* line 56, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-.form-field.error label, label.alert {
+.form .field_with_errors label, label.alert {
   color: #c60f13;
 }
 
 /* line 57, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/forms.scss */
-.form-field.error small, small.error {
+.form .field_with_errors small, small.error {
   padding: 6px 4px;
   border: solid 0 #C00000;
   border-width: 0 1px 1px 1px;
