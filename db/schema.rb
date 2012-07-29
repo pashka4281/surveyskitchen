@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120729155834) do
     t.string   "items_positions", :default => "'"
     t.datetime "updated_at"
     t.boolean  "setup_finished",  :default => false
+    t.integer  "category_id"
   end
 
   create_table "users", :force => true do |t|

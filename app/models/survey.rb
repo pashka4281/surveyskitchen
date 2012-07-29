@@ -1,8 +1,10 @@
 class Survey < ActiveRecord::Base
-  attr_accessible :account_id, :description, :name, :user_id, :user, :account, :items_positions
+  attr_accessible :account_id, :description, :category, :category_id, 
+    :name, :user_id, :user, :account, :items_positions
 
   belongs_to :account
   belongs_to :user
+  belongs_to :category
   has_many  :items, :dependent => :destroy, class_name: 'SurveyItem'
   serialize :items_positions
   
