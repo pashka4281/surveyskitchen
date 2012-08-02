@@ -1,9 +1,13 @@
 <%= content_tag_for :div, item, class: "row insertable sortable_item question-item", item_id: item.id do -%>
 	<div class="row content-row">
-	  <ul class="link-list manage_links">
-      <li><a href="#">Edit</a></li>
-      <li><%= link_to 'Delete', '#', class: 'deleteLnk', confirm: 'Sure?' %></li>
-    </ul>
+	  <div class="manage_links">
+	    <ul class="link-list ">
+	      <li><a class="moveGrabber"><img src="/images/icons/move.png"></a></li>
+        <li><a href="#"><img src="/images/icons/edit.png"></a></li>
+        <li><%= link_to image_tag("/images/icons/trashbox.png"), '#', class: 'deleteLnk', confirm: 'Sure?'%></li>
+      </ul>
+	  </div>
+	  
     <div class="row item_header">
       <div class="sixteen columns">
       	<h6><%= item.title%></h6>

@@ -1,12 +1,11 @@
 <% header('Questions builder', subheader: 'All changes here are automatically saved.', icon: '/images/builder_icon.png') %>
 
-<%=render 'shared/nav_menu' %>
+<%#=render 'shared/nav_menu' %>
 
-<div class="fourteen columns">
   <div class="row">
-    <div class="six columns top-span">
+    <div class="six columns top-span" style="display: none">
       <div id="sticky_box" style="height: 600px" class="relative horizontal-borders">
-        <%=render 'survey_items/new' %>
+        <%#=render 'survey_items/new' %>
 
         <div class="panel no-margin bottom-block">
           <div class="row">
@@ -22,8 +21,8 @@
 
       </div>
     </div>
-    <div class="ten columns top-span">
-      <div id="build_list" style="background-color: #97C597;" class="list">
+    <div class="twelve columns centered top-span">
+      <div id="build_list"  class="list">
 
 				<div id="zero-item" class="row insertable">
             <div class="ten columns centered">
@@ -53,8 +52,40 @@
       </div>
     </div>
   </div>
+  
+  <div id="newItemBar">
+    <div class="row">
+      
+      <div class="twelve columns centered">
+        <div class="row">
+          <div class="three columns">
+            <a class="button">Add New Item</a>
+          </div>
+          <div class="five columns offset-by-eight">
+            <div class="panel">
+              <div class="row">
+                <div class="four columns mobile-one">
+                  <img src="/images/trash_icon.png" alt="trash">
+                </div>
+                <div class="twelve columns mobile-three">
+                  <h6>Trash box.</h6>
+                  <span class="round label">0 items</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
+      </div>
+    </div>
+  
+  
+    
+  </div>
 
-</div>
 
 <%= content_for :js do %>
 	<script>
@@ -165,6 +196,8 @@
 		
 		// document ready 
 		$(function(){
+		  $('#surveyTypeSelector').dropkick();
+		
 			var newItemForm = $('#newItemForm');
 			if(!<%= @survey.items.any?.to_s %>){ 
 				$('#no-items-area').show();
@@ -198,7 +231,7 @@
 				axis: 'y', 
 				items: 'div.sortable_item',
 				//containment: 'parent',
-				handle: '.item_header, h5, .desc_text_content',
+				handle: '.moveGrabber',
 				update: function(){ 
 				  var info = $(this).sortable("serialize", {
             key: 'survey[items_positions][]'

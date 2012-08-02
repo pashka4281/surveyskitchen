@@ -134,6 +134,7 @@
   *display: inline;
   position: relative;
   zoom: 1;
+  .dk_label img{ vertical-align: middle; margin-right: 5px; }
 }
 
 .dk_open {
@@ -155,8 +156,10 @@
   }
   .dk_options_inner {
     overflow: auto;
-    position: relative;
-    list-style: none;
+		position: absolute;
+		list-style: none;
+		width: inherit;
+		bottom: 0;
     img{ vertical-align: middle; margin-right: 5px; }
   }
 

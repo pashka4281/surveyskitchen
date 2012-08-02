@@ -35,17 +35,4 @@
 			td{ text-align: center; }	
 		}
 	}
-	.manage_links{
-		position: absolute;
-		right: 10px;
-		z-index: 9999999;
-		display: none;
-		background-color: white;
-	}
-	&:hover{
-		.manage_links{
-			display: block;
-		}
-	}
-
 }

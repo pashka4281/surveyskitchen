@@ -1362,7 +1362,7 @@ div.alert-box a.close:hover, div.alert-box a.close:focus {
 div.panel {
   background: #f2f2f2;
   border: solid 1px #e6e6e6;
-  margin: 0 0 22px 0;
+  margin: 0;
   padding: 5px;
 }
 /* line 197, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/ui.scss */
@@ -1609,7 +1609,7 @@ ul.nice li span.bullet, ul.nice li span.number, ol.nice li span.bullet, ol.nice 
 /* Link List */
 /* line 284, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/ui.scss */
 ul.link-list {
-  margin: 0 0 0 24px;
+  margin: 0;
   padding: 0;
   list-style: none;
   overflow: hidden;
@@ -1617,9 +1617,11 @@ ul.link-list {
 /* line 286, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/ui.scss */
 ul.link-list li {
   list-style: none;
-  float: left;
-  margin-left: 10px;
-  display: block;
+	float: left;
+	margin-left: 5px;
+	display: block;
+	margin-right: 5px;
+	padding-top: 3px;
 }
 /* line 288, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/ui.scss */
 ul.link-list li a {

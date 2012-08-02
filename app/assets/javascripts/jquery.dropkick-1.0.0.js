@@ -104,6 +104,7 @@
         data.value     = _notBlank($select.val()) || _notBlank($original.attr('value'));
         data.label     = $original.text();
         data.options   = $options;
+        data.icon 		 = $original.attr('icon_src') == undefined ?  "" : '<img src="' + $original.attr('icon_src') +  '" alt="icon">';
       }
 
       // Build the dropdown HTML
@@ -219,14 +220,14 @@
     var value, label, data;
 
     value = option.attr('data-dk-dropdown-value');
-    label = option.text();
+    label = option.html();
     data  = $dk.data('dropkick');
 
     $select = data.$select;
     $select.val(value);
     $select.change();
 
-    $dk.find('.dk_label').text(label);
+    $dk.find('.dk_label').html(label);
 
     reset = reset || false;
 
@@ -274,7 +275,7 @@
     ;
 
     template = template.replace('{{ id }}', view.id);
-    template = template.replace('{{ label }}', view.label);
+    template = template.replace('{{ label }}', view.icon + view.label);
     template = template.replace('{{ tabindex }}', view.tabindex);
 
     if (view.options && view.options.length) {
@@ -288,7 +289,7 @@
 
         oTemplate = oTemplate.replace('{{ value }}', $option.val());
         oTemplate = oTemplate.replace('{{ current }}', (_notBlank($option.val()) === view.value) ? current : '');
-        oTemplate = oTemplate.replace('{{ text }}', icon + $option.text());
+        oTemplate = oTemplate.replace('{{ text }}', icon + $option.html());
 				//oTemplate = oTemplate.replace('{{ icon }}', icon);
 				
         options[options.length] = oTemplate;
