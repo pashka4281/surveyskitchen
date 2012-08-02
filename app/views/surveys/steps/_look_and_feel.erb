@@ -24,6 +24,9 @@
     <%= link_to "<< Basic info", edit_survey_path(@survey, step: 'basic_info'), class: 'button'%>
   </div>
   <div class="two columns offset-by-eleven">
-    <input type="submit" class="button right" value="Chose design »"></input>
+    <%= form_for @survey, html: {class: 'form'} do |f| %>
+      <%= hidden_field_tag 'step', 'look_and_fill' %>
+      <input type="submit" class="button right" value="Chose design »"></input>
+    <% end %>
   </div>  
 </div>

@@ -1,12 +1,14 @@
 class Survey < ActiveRecord::Base
   attr_accessible :account_id, :description, :category, :category_id, 
-    :name, :user_id, :user, :account, :items_positions
+    :name, :user_id, :user, :account, :items_positions, :prefill_items
 
   belongs_to :account
   belongs_to :user
   belongs_to :category
   has_many  :items, :dependent => :destroy, class_name: 'SurveyItem'
   serialize :items_positions
+  
+  attr_accessor :prefill_items
   
   STEPS = %w(basic_info look_and_feel)
   
@@ -29,8 +31,17 @@ class Survey < ActiveRecord::Base
   	self.items_positions.insert(position.to_i, item_id)
   end
   
-  before_create do
+  before_create :set_items_positions
+  
+  def set_items_positions
   	self.items_positions = []
+  end
+  
+  after_create :example_items
+  
+  def example_items
+    return unless self.prefill_items
+    #do something to fill this new survey with example items
   end
 end
 

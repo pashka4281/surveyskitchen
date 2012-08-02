@@ -204,7 +204,7 @@
             key: 'survey[items_positions][]'
           });
           $.ajax({
-            url: "<%= survey_path(@survey) %>",
+            url: "<%= survey_path(@survey, format: :js) %>",
             type: "PUT",
             data: info
           });

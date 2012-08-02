@@ -6,6 +6,8 @@ Surveyskitchen::Application.routes.draw do
       delete :delete, as: :member
     end
   end
+  
+  resources :categories
 
   get "dashboard" => 'home#dashboard', :as => :dashboard
 
