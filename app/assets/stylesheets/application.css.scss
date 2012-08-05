@@ -12,7 +12,6 @@ body {
 
 h1, h2, h3, h4, h5 { font-weight: 200;}
 .centr-text{ text-align: center; }
-.no-top-margine { margin-top: 0px;}
 .no-margin { margin: 0 0 0 0 !important; }
 .no-top-margin { margin-top: 0 !important; }
 .right { float: right !important; }
@@ -39,6 +38,7 @@ form {
 }
 .borders { border: 1px dashed #ccc; }
 .top-span{ padding-top: 3px; }
+.hspace{ margin-left: 3px; margin-right: 3px; }
 .vspace{ margin-top: 4px !important; margin-bottom: 4px !important; }
 .vspace-big{ margin-top: 10px !important; margin-bottom: 10px !important; }
 .bottom-space{ margin-bottom: 10px; }
@@ -51,8 +51,7 @@ form {
 		-o-border-radius: 10px;
 		counter-reset: li; /* Initiate a counter */
     margin-left: 0; /* Remove the default left margin */
-    padding-left: 10px; /* Remove the default left padding */
-    padding-right: 10px;
+    padding: 10px;
     position: relative;
     margin-bottom: 70px;
     > div { background-color: white; }
@@ -98,6 +97,7 @@ form {
 		color: #929292;
 	}
 }
+
 .insert_buttons{
 	visibility: hidden;
 	margin-top: 13px !important; 
@@ -109,17 +109,14 @@ form {
 #sticky_box{ margin-top: 5px;}
 
 
-
 #newItemBar{
 	position: fixed;
 	background-color: #588197;
 	bottom: 0;
-	z-index: 9999999;
+	z-index: 9999;
 	width: 100%;
 	padding: 5px;
 }
-
-
 
 
 

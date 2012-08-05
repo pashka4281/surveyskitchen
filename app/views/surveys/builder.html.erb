@@ -1,26 +1,9 @@
-<% header('Questions builder', subheader: 'All changes here are automatically saved.', icon: '/images/builder_icon.png') %>
+<% header("Questions builder » #{@survey.name}", subheader: 'All changes here are automatically saved.') %>
 
 <%#=render 'shared/nav_menu' %>
 
   <div class="row">
-    <div class="six columns top-span" style="display: none">
-      <div id="sticky_box" style="height: 600px" class="relative horizontal-borders">
-        <%=render 'survey_items/new' %>
-
-        <div class="panel no-margin bottom-block">
-          <div class="row">
-            <div class="three columns mobile-one">
-              <img src="/images/trash_icon.png" alt="trash">
-            </div>
-            <div class="thirteen columns mobile-three">
-              <h6>Trash box.</h6>
-              <span class="round label">0 items</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
+   
     <div class="twelve columns centered top-span">
       <div id="build_list"  class="list">
 
@@ -59,35 +42,55 @@
       <div class="twelve columns centered">
         <div class="row">
           <div class="three columns">
-            <a class="button" id="newItemBtn">Add New Item</a>
+            <a class="button" id="newItemBtn" href="#newItemContainer" rel="leanModal">
+              <img src="/images/icons/new_item.png">
+              <span>Add New Item</span>
+            </a>
           </div>
           <div class="three columns">
-            <a class="button success">Done editing</a>
+            <a class="button" id="trashBoxBtn" href="" rel="leanModal">
+              <img src="/images/icons/trashbox_big.png">
+              <span>Trash box (<%#= @survey.items.trashed.count %>0)</span>
+            </a>
           </div>
-          <div class="five columns offset-by-five">
-            <div class="panel">
-              <div class="row">
-                <div class="four columns mobile-one">
-                  <img src="/images/trash_icon.png" alt="trash">
-                </div>
-                <div class="twelve columns mobile-three">
-                  <h6>Trash box.</h6>
-                  <span class="round label">0 items</span>
-                </div>
-              </div>
-            </div>
+          <div class="four columns">
+            <a class="button" id="trashBoxBtn" href="" rel="leanModal">
+              <img src="/images/icons/settings_big.png">
+              <span>Survey Settings</span>
+            </a>
+          </div>
+          <div class="three columns offset-by-three">
+            <a class="button success right">Done editing</a>
+          </div>
+          
           </div>
         </div>
-        
-        
-        
         
       </div>
     </div>
   
-  
-    
   </div>
+
+
+
+  <div style="display: none" id="newItemContainer" class="reveal-modal expand">
+    <div class="modal_heading">
+      <h5>New Item</h5>
+    </div>
+    <div class="modal_content">
+      <%=render 'survey_items/new' %>
+    </div>
+      <div class="modal_footer row">
+      <div class="two columns offset-by-thirteen">
+        <a class="button modal_close secondary cancelBtn">Cancel</a>
+      </div>
+      <div class="one column">
+        <a class="button success">Done</a>
+      </div>
+  </div>
+  </div>
+
+
 
 
 <%= content_for :js do %>
@@ -190,6 +193,7 @@
 		// document ready 
 		$(function(){
 		  $('body').addClass('bottom-padding');
+		  $("a[rel*=leanModal]").leanModal({closeButton: ".modal_close", top: '15'});
 		  
 		  $('#surveyTypeSelector').dropkick();
 		
@@ -239,25 +243,13 @@
 				  builder_ui.renewItemsIndexes();
 				} 
 			});
-			$("#sticky_box").sticky({
+			/*$("#sticky_box").sticky({
 			  topSpacing: 0, 
 			  className: 'sticky', 
 			  wrapperClassName: 'my-wrapper' 
-			});
+			});*/
 		});
 	</script>
-<% end %>
-
-
-<%= content_for :head_panel do %>
-	<div class="panel vspace">
-		Survey settings to be placed here...<br />
-	  <button class="button">Press me</button>
-		<select>
-			<option>Yellow</option>
-			<option>Red</option>
-		</select>
-	</div>
 <% end %>
 
 

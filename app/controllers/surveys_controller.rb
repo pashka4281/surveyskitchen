@@ -15,8 +15,12 @@ class SurveysController < ApplicationController
   def update
     @survey = Survey.find(params[:id])
     if @survey.update_attributes(params[:survey])
-      @step = Survey::STEPS[Survey::STEPS.index(params[:step])+1] if Survey::STEPS.include?(params[:step])
-      render action: :edit
+      if request.xhr?
+        render nothing: true, status: 200
+      else
+        @step = Survey::STEPS[Survey::STEPS.index(params[:step])+1] if Survey::STEPS.include?(params[:step])
+        render action: :edit
+      end
     else
       render nothing: true, status: 403
     end

@@ -1781,6 +1781,8 @@ p.vevent abbr {
    globals.css */
 /* Normal Buttons ---------------------- */
 /* line 8, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
+.button span { margin-left: 25px; }
+.button img { position: absolute; top: 3px; left: 4px;}
 .button {
   width: auto;
   background: #2ba6cb;
@@ -3289,20 +3291,4 @@ div.panel {
   padding: 9px 18px 10px;
 }
 
-/* --------------------------------------------------
-   Table of Contents
------------------------------------------------------
-:: Shared Styles
-:: Page Name 1
-:: Page Name 2
-*/
-/* -----------------------------------------
-   Shared Styles
------------------------------------------ */
-/* -----------------------------------------
-   Page Name 1
------------------------------------------ */
-/* -----------------------------------------
-   Page Name 2
------------------------------------------ */
 
