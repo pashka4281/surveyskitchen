@@ -85,7 +85,7 @@
         <a class="button modal_close secondary cancelBtn">Cancel</a>
       </div>
       <div class="one column">
-        <a class="button success">Done</a>
+        <a class="button success modal_close" id="doneNewItemBtn">Done</a>
       </div>
   </div>
   </div>
@@ -134,7 +134,9 @@
 			}
 			
 			this.showButtons = function(){
-				$(this.insert_buttons).show().css({visibility: 'visible'});
+				$(this.insert_buttons).fadeIn(200, function(){
+				  $(this).css({visibility: 'visible'});
+				})
 			}
 			this.hideButtons = function(){
 				$(this.insert_buttons).fadeOut(200, function(){ 
@@ -218,12 +220,17 @@
 				type = $('#surveyTypeSelector').val();
 				survey.addItem(type, $(this).attr('itemindex'), newItemForm.serialize());
 				builder_ui.renewItemsIndexes();
+				builder_ui.hideButtons();
 			});
 			
 			//remove links click handler:
 			$(builder_ui.delete_links).live('click', function(){
 				survey.deleteItem($(this).parents('.sortable_item').attr('item_id'));
 				return false;
+			});
+			
+			$('#doneNewItemBtn').click(function(){
+			  builder_ui.showButtons();
 			});
 			
 			$('#build_list').sortable({ 
@@ -243,11 +250,7 @@
 				  builder_ui.renewItemsIndexes();
 				} 
 			});
-			/*$("#sticky_box").sticky({
-			  topSpacing: 0, 
-			  className: 'sticky', 
-			  wrapperClassName: 'my-wrapper' 
-			});*/
+			
 		});
 	</script>
 <% end %>
