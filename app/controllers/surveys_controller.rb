@@ -3,6 +3,10 @@ class SurveysController < ApplicationController
     @survey = Survey.find(params[:id], :include => :items)
   end
   
+  def index
+    @surveys = Survey.all
+  end
+  
   def	create
   	@survey = Survey.new(params[:survey])
   	if @survey.save

@@ -5,6 +5,14 @@
  *= require_tree .
  *= require_self
 */
+@mixin borderRadius($size) {
+  -moz-border-radius: $size;
+  -webkit-border-radius: $size;
+  -khtml-border-radius: $size;
+   border-radius: $size;
+}
+
+
 body {
 	font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	color:#222;
@@ -26,7 +34,6 @@ form {
 .min80height{ min-height: 80px; }
 .min120height{ min-height: 120px; }
 .vertical-resize{ resize: vertical; }
-#new_survey_item { min-height: 415px;}
 .bottom-block { position: absolute; bottom: 0; width: 100%;}
 .relative { position: relative;}
 /*.margin-left{ margin-left: 10px !important; }*/
@@ -44,11 +51,8 @@ form {
 .bottom-space{ margin-bottom: 10px; }
 .bottom-padding{ padding-bottom: 70px; }
 #build_list {
+		@include borderRadius(10px);
 		border: 4px solid #D3D0D0;
-		border-radius: 10px;
-		-moz-border-radius: 10px;
-		-webkit-border-radius: 10px;
-		-o-border-radius: 10px;
 		counter-reset: li; /* Initiate a counter */
     margin-left: 0; /* Remove the default left margin */
     padding: 10px;
@@ -65,11 +69,7 @@ form {
 				display: none;
 				background-color: white;
 				padding: 4px;
-				-webkit-border-radius: 4px;
-				-moz-border-radius: 4px;
-				-ms-border-radius: 4px;
-				-o-border-radius: 4px;
-				border-radius: 4px;
+				@include borderRadius(4px);
 				ul{
 					border: 1px dashed #777;
 					.moveGrabber{ cursor: move; }
@@ -117,6 +117,18 @@ form {
 	width: 100%;
 	padding: 5px;
 }
+
+.full-width{ width: 100%; }
+.searchbox-container{
+	margin-top: 20px !important;
+	input.searchbox{
+		@include borderRadius(10px);
+	}
+	img{ position: absolute; right: 14px; top: 4px; }
+}
+
+table.interactive tbody tr:hover{ background-color: #ECECEC; }
+
 
 
 

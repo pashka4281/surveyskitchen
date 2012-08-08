@@ -197,7 +197,8 @@
 		  $('body').addClass('bottom-padding');
 		  $("a[rel*=leanModal]").leanModal({closeButton: ".modal_close", top: '15'});
 		  
-		  $('#surveyTypeSelector').dropkick();
+		  var newSurveyTypeSelector = $('#surveyTypeSelector');
+		  newSurveyTypeSelector.dropkick();
 		
 			var newItemForm = $('#newItemForm');
 			if(!<%= @survey.items.any?.to_s %>){ 
@@ -217,7 +218,7 @@
 			
 			//insert buttons click handler:
 			$(builder_ui.insert_buttons).live('click', function(){
-				type = $('#surveyTypeSelector').val();
+				type = newSurveyTypeSelector.val();
 				survey.addItem(type, $(this).attr('itemindex'), newItemForm.serialize());
 				builder_ui.renewItemsIndexes();
 				builder_ui.hideButtons();
@@ -227,6 +228,10 @@
 			$(builder_ui.delete_links).live('click', function(){
 				survey.deleteItem($(this).parents('.sortable_item').attr('item_id'));
 				return false;
+			});
+			
+			$('.cancelBtn').click(function(){
+			  newSurveyTypeSelector.change();
 			});
 			
 			$('#doneNewItemBtn').click(function(){

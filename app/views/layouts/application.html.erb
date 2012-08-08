@@ -26,9 +26,12 @@
     <%= render 'shared/top_bar' %>
     
     <header class="row">
-			<div class="sixteen columns" id="header">
-				<%= yield :header %>
-			</div>
+			<div class="ten columns" id="header">
+        <%= yield :header %>
+      </div>
+      <div class="six columns end"> 
+        <%= yield :head_panel %>
+      </div>
 		</header>
 
     <div class="row">

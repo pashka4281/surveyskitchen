@@ -22,11 +22,12 @@
 	-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 	height: 65%;
-	border: 3px solid #555;
+	border: 3px solid #888;
 	.modal_heading{
 		padding: 8px 10px;
-		background: url(/images/hd-bg.png);
+		background-color: #888;
 		margin-bottom: 5px;
+		color: #fff;
 		h5{ margin: 0; }
 	}
 	.modal_content{ 
