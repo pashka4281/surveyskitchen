@@ -19,7 +19,7 @@ class SurveysController < ApplicationController
         render nothing: true, status: 200
       else
         @step = Survey::STEPS[Survey::STEPS.index(params[:step])+1] if Survey::STEPS.include?(params[:step])
-        render action: :edit
+        redirect_to @step == 'builder' ? [:builder, @survey] : edit_survey_path(@survey, step: @step)
       end
     else
       render nothing: true, status: 403

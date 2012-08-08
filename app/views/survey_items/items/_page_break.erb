@@ -1,4 +1,4 @@
-<%= content_tag_for :div, item, class: "row insertable sortable_item", item_id: item.id do -%>
+<%= content_tag_for :div, item, class: "row insertable sortable_item", item_id: item.id, style: "margin: 0px -14px;" do -%>
   <div class="row">
     <%= render 'survey_items/items/_tools_box'%>
     <div class="fifteen columns centered">
@@ -9,7 +9,7 @@
       <div class="seven columns page_border end mobile-four"></div>
   	</div>
   </div>
-  <div class="row">
+  <div class="row" style="border: 4px solid #D3D0D0; border-bottom: none">
   	<div class="ten columns centered">
   	  <button class="button secondary insert_buttons">Insert here »</button>
 	  </div>

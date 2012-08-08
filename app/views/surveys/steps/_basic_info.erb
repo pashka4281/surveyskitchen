@@ -1,16 +1,10 @@
 <div class="ten columns margin-left">
   <h4>Fill basic information fields:</h4>
   <%= form_for @survey, html: {class: 'form'} do |f| %>
-    <%= hidden_field_tag 'step', params[:step] %>
+    <%= hidden_field_tag 'step', 'basic_info' %>
     <fieldset>
       <label>Choose category:</label>
-      <select name="NewCategoryList" id="NewCategoryList" class="bottom-space">
-		    <option selected="selected" value="0">Select a Category</option>
-		    <optgroup label="Categories" />
-		    <% Category.all.each do |c| %>
-		      <option value="<%= c.id %>"><%= c.name %></option>
-		    <% end %>
-	    </select>
+	    <%= f.select(:category_id, Category.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Select'}, class: 'bottom-space')%>
       
       <label>New survey name:</label>
       <%= f.text_field :name, placeholder: 'Enter name for your surevey'%>
@@ -19,6 +13,6 @@
       <textarea class="min120height" placeholder="Enter here a brief description"></textarea>
      
     </fieldset> 
-    <input type="submit" class="button right" value="Look and feel »"></input>
+    <input type="submit" class="button right" value="Survey type »"></input>
   <% end %>
 </div>
