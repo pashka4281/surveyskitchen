@@ -16,6 +16,7 @@
 body {
 	font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	color:#222;
+	background: url(/images/textured_stripes.png)
 }
 
 h1, h2, h3, h4, h5 { font-weight: 200;}
@@ -52,6 +53,7 @@ form {
 .bottom-padding{ padding-bottom: 70px; }
 #build_list {
 		@include borderRadius(10px);
+		background-color: white; 
 		border: 4px solid #D3D0D0;
 		counter-reset: li; /* Initiate a counter */
     margin-left: 0; /* Remove the default left margin */
@@ -129,6 +131,26 @@ form {
 
 table.interactive tbody tr:hover{ background-color: #ECECEC; }
 
+.window { 
+	border: 3px solid #888;
+	.window-header { 
+		padding: 8px 10px; background-color: #888; margin-bottom: 5px; color: white;  
+		h5{ margin: 0; }
+	}
+	.window-content { 
+		padding: 5px; 
+		ul{ 
+			
+			list-style: none; 
+			li {
+				font-size: 14px;
+				span{ width: 100px; display: inline-block; font-weight: bold; }
+			}
+		}
+	}
+}
+
+/*  Survey Show Page  */
 
 
 
