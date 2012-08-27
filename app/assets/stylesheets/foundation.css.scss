@@ -1783,35 +1783,25 @@ p.vevent abbr {
 .button span { margin-left: 25px; }
 .button img { position: absolute; top: 3px; left: 4px;}
 .button {
-  width: auto;
-  background: #2ba6cb;
-  border: 1px solid #1e728c;
-  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  color: white;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 7px 7px 8px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  -webkit-transition: background-color 0.15s ease-in-out;
-  -moz-transition: background-color 0.15s ease-in-out;
-  -o-transition: background-color 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out;
-  /* Hovers */
-  /* Sizes */
-  /* Colors */
-  /* Radii */
-  /* Layout */
-  /* Disabled ---------- */
+	border: 0;
+	background: #222 url(/images/overlay-button.png) repeat-x 0 0;
+	display: inline-block;
+	padding: 5px 14px 10px;
+	color: white !important;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 1;
+	text-decoration: none;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+	position: relative;
+	cursor: pointer;
+	overflow: visible;
+	width: auto;
 }
 /* line 11, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button:hover {
@@ -1855,67 +1845,22 @@ p.vevent abbr {
   width: 100%;
   text-align: center;
 }
-/* line 23, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.primary {
-  background-color: #2ba6cb;
-  border: 1px solid #1e728c;
-}
-/* line 24, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.primary:hover {
-  background-color: #2284a1;
-}
-/* line 25, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.primary:focus {
-  -webkit-box-shadow: 0 0 4px #2ba6cb, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  -moz-box-shadow: 0 0 4px #2ba6cb, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  box-shadow: 0 0 4px #2ba6cb, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-}
-/* line 27, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.success {
-  background-color: #5da423;
-  border: 1px solid #396516;
-}
-/* line 28, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.success:hover {
-  background-color: #457a1a;
-}
-/* line 29, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.success:focus {
-  -webkit-box-shadow: 0 0 5px #5da423, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  -moz-box-shadow: 0 0 5px #5da423, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  box-shadow: 0 0 5px #5da423, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-}
-/* line 31, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.alert {
-  background-color: #c60f13;
-  border: 1px solid #7f0a0c;
-}
-/* line 32, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.alert:hover {
-  background-color: #970b0e;
-}
-/* line 33, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.alert:focus {
-  -webkit-box-shadow: 0 0 4px #c60f13, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  -moz-box-shadow: 0 0 4px #c60f13, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  box-shadow: 0 0 4px #c60f13, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-}
-/* line 35, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.secondary {
-  background-color: #e9e9e9;
-  color: #1d1d1d;
-  border: 1px solid #c3c3c3;
-}
-/* line 36, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.secondary:hover {
-  background-color: #d0d0d0;
-}
-/* line 37, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
-.button.secondary:focus {
-  -webkit-box-shadow: 0 0 5px #e9e9e9, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  -moz-box-shadow: 0 0 5px #e9e9e9, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  box-shadow: 0 0 5px #e9e9e9, 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-}
+
+.green.button { background-color: #91bd09; }
+	.green.button:hover { background-color: #749a02; }
+	.blue.button { background-color: #2daebf; }
+	.blue.button:hover { background-color: #007d9a; }
+	.red.button { background-color: #e33100; }
+	.red.button:hover { background-color: #872300; }
+	.magenta.button{ background-color: #a9014b; }
+	.magenta.button:hover { background-color: #630030; }
+	.orange.button { background-color: #ff5c00; }
+	.orange.button:hover { background-color: #d45500; }
+	.orangellow.button { background-color: #ffb515; }
+	.orangellow.button:hover { background-color: #fc9200; }
+	.white.button { background-color: #fff; border: 1px solid #ccc; color: #666 !important; font-weight: normal; text-shadow: 0 1px 1px rgba(255,255,255,1); }
+	.white.button:hover { background-color: #eee; }
+	
 
 /* line 45, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 .button.full-width {
@@ -1938,7 +1883,6 @@ p.vevent abbr {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-end
 /* Don't use native buttons on iOS */
 /* line 53, /var/www/foundendation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/buttons.scss */
 input[type=submit].button, button.button {

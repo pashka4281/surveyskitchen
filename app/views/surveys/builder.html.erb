@@ -9,14 +9,14 @@
 
 				<div id="zero-item" class="row insertable">
             <div class="ten columns centered">
-	            <button class="button secondary insert_buttons" >Insert here »</button>
+	            <a class="blue button insert_buttons">Insert here »</a>
 	          </div>
         </div>
         
         <div id="no-items-area" class="row insertable">
 	        <div class="row">
             <div class="ten columns centered">
-	            <button class="button secondary insert_buttons" >Insert here »</button>
+	            <a class="blue button insert_buttons">Insert here »</a>
 	          </div>
 	        </div>
           <div class="row">
@@ -42,25 +42,25 @@
       <div class="twelve columns centered">
         <div class="row">
           <div class="three columns">
-            <a class="button" id="newItemBtn" href="#newItemContainer" rel="leanModal">
+            <a class="blue button" id="newItemBtn" href="#newItemContainer" rel="leanModal">
               <img src="/images/icons/new_item.png">
               <span>Add New Item</span>
             </a>
           </div>
           <div class="three columns">
-            <a class="button" id="trashBoxBtn" href="" rel="leanModal">
+            <a class="orange button" id="trashBoxBtn" href="" rel="leanModal">
               <img src="/images/icons/trashbox_big.png">
               <span>Trash box (<%#= @survey.items.trashed.count %>0)</span>
             </a>
           </div>
           <div class="four columns">
-            <a class="button" id="trashBoxBtn" href="" rel="leanModal">
+            <a class="red button" id="trashBoxBtn" href="" rel="leanModal">
               <img src="/images/icons/settings_big.png">
               <span>Survey Settings</span>
             </a>
           </div>
           <div class="three columns offset-by-three">
-            <a class="button success right">Done editing</a>
+            <a class="green right button">Done editing</a>
           </div>
           
           </div>
@@ -82,10 +82,10 @@
     </div>
       <div class="modal_footer row">
       <div class="two columns offset-by-thirteen">
-        <a class="button modal_close secondary cancelBtn">Cancel</a>
+        <a class="red button modal_close secondary cancelBtn">Cancel</a>
       </div>
       <div class="one column">
-        <a class="button success modal_close" id="doneNewItemBtn">Done</a>
+        <a class="green button success modal_close" id="doneNewItemBtn">Done</a>
       </div>
   </div>
   </div>
