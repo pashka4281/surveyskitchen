@@ -2607,7 +2607,7 @@ ul.tabs-content.contained.vertical > li {
    globals.css */
 /* line 6, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/navbar.scss */
 .nav-bar {
-  height: 40px;
+  height: 32px;
   background: #4d4d4d;
   margin-top: 20px;
   padding: 0;
@@ -2621,7 +2621,7 @@ ul.tabs-content.contained.vertical > li {
   margin: 0;
   border: 1px solid #333333;
   border-right: none;
-  line-height: 38px;
+  line-height: 30px;
   -webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset;
   -moz-box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset;
   box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2) inset;
@@ -2641,7 +2641,7 @@ ul.tabs-content.contained.vertical > li {
 }
 /* line 13, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/navbar.scss */
 .nav-bar > li.active {
-  background: #80B0BE;
+  background: #2DAEBF;
 	border-color: #47707C;
 	-webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -2652,7 +2652,6 @@ ul.tabs-content.contained.vertical > li {
 /* line 14, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/navbar.scss */
 .nav-bar > li.active a {
   color: white;
-  cursor: default;
 }
 /* line 15, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/navbar.scss */
 .nav-bar > li.active:hover {
@@ -2690,7 +2689,7 @@ ul.tabs-content.contained.vertical > li {
   border-color: #e6e6e6 transparent transparent transparent;
   position: absolute;
   right: 20px;
-  top: 17px;
+  top: 14px;
 }
 /* line 27, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/navbar.scss */
 .nav-bar > li.has-flyout > a.flyout-toggle {

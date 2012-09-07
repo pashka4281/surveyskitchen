@@ -140,8 +140,7 @@ table.interactive tbody tr:hover{ background-color: #ECECEC; }
 	}
 	.window-content { 
 		padding: 5px; 
-		ul{ 
-			
+		ul{
 			list-style: none; 
 			li {
 				font-size: 14px;
@@ -151,7 +150,34 @@ table.interactive tbody tr:hover{ background-color: #ECECEC; }
 	}
 }
 
+ul.simple{
+	list-style: none;
+	li{
+		padding: 2px 5px;
+		&.odd{ background-color: #F0CECE; }
+		&.even{ background-color: #EEF0CE; }
+	}
+}
 
+.box{
+	padding: 10px;
+	background-color: #FFF;
+	border: 2px solid #CCC;
+	border-radius: 8px;
+}
+
+ul#survey_items_list{ 
+	li{
+		background-color: #F2F2FD;
+		background-image: -moz-linear-gradient(bottom, #E0E0EB 0%, #F2F2FD 100%);
+		background-image: -o-linear-gradient(bottom, #E0E0EB 0%, #F2F2FD 100%);
+		background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, white), color-stop(1, #00A3EF));
+		background-image: -webkit-linear-gradient(bottom, #E0E0EB 0%, #F2F2FD 100%);
+		background-image: linear-gradient(to top, #E0E0EB 0%, #F2F2FD 100%);
+		padding: 2px 6px;
+		&::before{ font-weight: 800;content: counter(li); counter-increment: li; }
+	}
+}
 
 /*  Survey Show Page  */
 

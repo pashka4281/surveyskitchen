@@ -3,7 +3,7 @@
 <%= render 'shared/nav_menu' %>
 
 <div class="twelve columns">
-  <div class="row">
+  <div class="row bottom-space">
     
     <div class="ten columns">
       <img src="http://placehold.it/500x120">
@@ -17,11 +17,33 @@
           <ul>
             <li><span>Created:</span> 10/10/12</li>
             <li><span>Created by:</span> <a href="#">Paul Ser</a></li>
-            <li><span>Created:</span> 10/10/12</li>
+            <li><span>Total views:</span> 25</li>
+            <li><span>Total submits:</span> 23</li>
           </ul>
         </div>
       </div>
       
+    </div>
+  </div>
+  <div class="row">
+    <div class="ten columns">
+      <div class="box">
+        <ul id="survey_items_list">
+          <% for item in @survey.sorted_items %>
+            <li><%= item.title %></li>
+          <% end %>
+        </ul>
+        <%= link_to 'Questions builder', [:builder, @survey]%>
+      </div>
+    </div>
+    <div class="five columns">
+      <div class="box">
+        <ul class="simple">
+          <li><%= link_to "Deploy", [:edit, @survey], class: 'green button full-width' %></li>
+          <li><%= link_to "Edit", [:edit, @survey], class: 'blue button full-width' %></li>
+          <li><%= link_to "Delete this survey", [:edit, @survey], class: 'red button full-width' %></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

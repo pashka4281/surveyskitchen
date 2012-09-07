@@ -35,7 +35,7 @@ class SurveysController < ApplicationController
   end
   
   def show
-    @survey = Survey.find(params[:id])
+    @survey = Survey.find(params[:id], :include => :items)
   end
   
   def edit
