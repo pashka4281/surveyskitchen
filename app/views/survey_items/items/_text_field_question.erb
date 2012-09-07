@@ -1,9 +1,6 @@
 <%= content_tag_for :div, item, class: "row insertable sortable_item question-item", item_id: item.id do -%>
   <div class="row content-row">
-    <ul class="link-list manage_links">
-      <li><a href="#">Edit</a></li>
-      <li><%= link_to 'Delete', '#', class: 'deleteLnk', confirm: 'Sure?' %></li>
-    </ul>
+    <%= render 'survey_items/items/_tools_box'%>
     <div class="row item_header">
       <div class="sixteen columns">
       	<h6><%= item.title %></h6>
@@ -22,7 +19,7 @@
   </div>
   <div class="row">
   	<div class="ten columns centered">
-  		<button class="button secondary insert_buttons">Insert here »</button>
+  		<a class="blue button insert_buttons">Insert here »</a>
   	</div>
  </div>
 <%- end -%>

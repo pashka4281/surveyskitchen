@@ -3,18 +3,8 @@
   <%= form_for @survey, html: {class: 'form'} do |f| %>
     <%= hidden_field_tag 'step', 'basic_info' %>
     <fieldset>
-      <div class="row">
-        <div class="fourteen columns">
-          <label>Choose category:</label>
-          <%= f.select :category_id,
-            Category.all.collect {|p| [ p.name, p.id ] }, 
-            {include_blank: 'Select a Category'}, {class: "bottom-space"} %>
-        </div>
-        <div class="two columns">
-          <%= link_to 'Edit categories', :categories %>
-        </div>
-      </div>
-      
+      <label>Choose category:</label>
+	    <%= f.select(:category_id, Category.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Select'}, class: 'bottom-space')%>
       
       <label>New survey name:</label>
       <%= f.text_field :name, placeholder: 'Enter name for your surevey'%>
@@ -28,7 +18,6 @@
       </label>
      
     </fieldset> 
-    <input type="submit" class="button right" value="Look and feel »"></input>
-    <%#= link_to 'Look and feel »', edit_survey_path(@survey, step: 'look_and_feel'), class: 'button right' %>
+    <input type="submit" class="blue button right" value="Survey type »"></input>
   <% end %>
 </div>

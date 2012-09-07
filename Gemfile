@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 
-
+#gem 'agent_orange' # =>  https://github.com/kevinelliott/agent_orange for detecting browser and os
 
 
 # Gems used only for assets and not required

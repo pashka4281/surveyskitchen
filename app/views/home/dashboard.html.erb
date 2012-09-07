@@ -3,7 +3,53 @@
 <%= render 'shared/nav_menu' %>
 
 <div class="fourteen columns">
-  <div style="border: 1px dotted; height: 500px"></div>
+  <div class="row">
+    <div class="row bottom-space">
+      <div class="five columns">
+        <div class="dashboard-box big">
+          <h1>0</h1>
+          <h2>new surveys passed</h2>
+        </div>
+      </div>
+      
+      <div class="five columns">
+        <div class="dashboard-box medium">
+          <h1>15</h1>
+          <h2>total surveys</h2>
+        </div>
+      </div>
+      
+      <div class="five columns">
+        <div class="dashboard-box small">
+          <h1>2</h1>
+          <h2>unfinished surveys</h2>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="row bottom-space">
+      
+      <div class="ten columns">
+        <div class="events-block">
+          <h1>Events:<h1>
+          <ul class="events">
+            <li>fff</li>
+            <li>fff</li>
+            <li>fff</li>
+            <li>fff</li>
+            <li>fff</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="five columns">
+        <div id="plot" style="height: 150px; background-color: #fff; border-radius: 7px;"></div>
+      </div>
+      
+    </div>
+  </div>
+  
   <ul class="pagination">
     <li class="arrow unavailable"><a href="">&laquo;</a></li>
     <li class="current"><a href="">1</a></li>
@@ -16,4 +62,70 @@
     <li class="arrow"><a href="">&raquo;</a></li>
   </ul>
 </div>
+
+<%= content_for :js do %>
+  <script type="text/javascript">
+  $(function () {
+      var sin = [];
+      for (var i = 0; i < 14; i += 0.5) {
+          sin.push([i, Math.sin(i)]);
+      }
+
+      var plot = $.plot($("#plot"),
+             [ { data: sin, label: "sin(x)"}], {
+                 series: {
+                     lines: { show: true },
+                     points: { show: true }
+                 },
+                 grid: { hoverable: true, clickable: true },
+                 yaxis: { min: -1.2, max: 1.2 }
+               });
+
+      function showTooltip(x, y, contents) {
+          $('<div id="tooltip">' + contents + '</div>').css( {
+              position: 'absolute',
+              display: 'none',
+              top: y + 5,
+              left: x + 5,
+              border: '1px solid #fdd',
+              padding: '2px',
+              'background-color': '#fee',
+              opacity: 0.80
+          }).appendTo("body").fadeIn(200);
+      }
+
+      var previousPoint = null;
+      $("#placeholder").bind("plothover", function (event, pos, item) {
+          $("#x").text(pos.x.toFixed(2));
+          $("#y").text(pos.y.toFixed(2));
+
+          if ($("#enableTooltip:checked").length > 0) {
+              if (item) {
+                  if (previousPoint != item.dataIndex) {
+                      previousPoint = item.dataIndex;
+                      
+                      $("#tooltip").remove();
+                      var x = item.datapoint[0].toFixed(2),
+                          y = item.datapoint[1].toFixed(2);
+                      
+                      showTooltip(item.pageX, item.pageY,
+                                  item.series.label + " of " + x + " = " + y);
+                  }
+              }
+              else {
+                  $("#tooltip").remove();
+                  previousPoint = null;            
+              }
+          }
+      });
+
+      $("#placeholder").bind("plotclick", function (event, pos, item) {
+          if (item) {
+              $("#clickdata").text("You clicked point " + item.dataIndex + " in " + item.series.label + ".");
+              plot.highlight(item.series, item.datapoint);
+          }
+      });
+  });
+  </script>
+<% end %>
 

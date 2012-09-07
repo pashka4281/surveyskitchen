@@ -1,19 +1,19 @@
 <%= content_tag_for :div, item, class: "row insertable sortable_item", item_id: item.id do -%>
+  <div class="row pageEnd"></div>
   <div class="row">
-    <ul class="link-list manage_links">
-      <li><%= link_to 'Delete', '#', class: 'deleteLnk', confirm: 'Sure?' %></li>
-    </ul>
+    <%= render 'survey_items/items/_tools_box'%>
     <div class="fifteen columns centered">
-      <div class="six columns page_border"></div>
+      <div class="six columns page_border mobile-four"></div>
       <div class="three columns page_break_texting">
         <h5>Page break</h5>
       </div>
-      <div class="seven columns page_border end"></div>
+      <div class="seven columns page_border end mobile-four"></div>
   	</div>
   </div>
-  <div class="row">
+  <div class="pageStart"></div>
+  <div class="row pageStartSides">
   	<div class="ten columns centered">
-  	  <button class="button secondary insert_buttons">Insert here »</button>
+  	  <a class="blue button insert_buttons">Insert here »</a>
 	  </div>
   </div>
 <%- end -%>

@@ -8,9 +8,7 @@ class Survey < ActiveRecord::Base
   has_many  :items, :dependent => :destroy, class_name: 'SurveyItem'
   serialize :items_positions
   
-  attr_accessor :prefill_items
-  
-  STEPS = %w(basic_info look_and_feel)
+  STEPS = %w(basic_info survey_type builder)
   
   validates :name, presence: true
   

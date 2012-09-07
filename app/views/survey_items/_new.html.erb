@@ -1,30 +1,39 @@
 <div class="row" id="new_survey_item">
-  <div class="fifteen columns centered">
+  <div class="sixteen columns">
+  
     
-    <dl class="tabs" id="newEditItemSwitch"></dl>
-
-    <form id="newItemForm">
-
-    	<select id="surveyTypeSelector" class="big" tabindex="1">
-        <optgroup label="Questions:">
-          <option value="text_field_question" icon_src="/images/ui-text-field.png">Text field</option>
-          <option value="multiple_select_question" icon_src="/images/ui-check-box.png">Multiple select</option>
-          <option value="single_select_question" icon_src="/images/ui-radio-button.png">Single select</option>
-          <option value="drop_down_question" icon_src="/images/ui-drop-down.png">Drop down</option>
-          <option value="scale_question" icon_src="/images/ui-slider.png">Scale question</option>
-        </optgroup>
-        <optgroup label="Page elements:">
-          <option value="image" icon_src="/images/ui-image.png">Image</option>
-          <option value="desc_text" icon_src="/images/text-block.png">Descriptive text</option>
-          <option value="page_break" icon_src="/images/page_white_width.png">Page break</option>
-        </optgroup>
-      </select>
-
-      <div id="new_item" class="top-span"></div>
+      <div class="row">
+        <div class="ten columns">
+          <form id="newItemForm">
+            <select id="surveyTypeSelector" class="big" tabindex="1">
+              <optgroup label="Questions:">
+                <option value="text_field_question" icon_src="/images/ui-text-field.png">Text field</option>
+                <option value="multiple_select_question" icon_src="/images/ui-check-box.png">Multiple select</option>
+                <option value="single_select_question" icon_src="/images/ui-radio-button.png">Single select</option>
+                <option value="drop_down_question" icon_src="/images/ui-drop-down.png">Drop down</option>
+                <option value="scale_question" icon_src="/images/ui-slider.png">Scale question</option>
+              </optgroup>
+              <optgroup label="Page elements:">
+                <option value="image" icon_src="/images/ui-image.png">Image</option>
+                <option value="desc_text" icon_src="/images/text-block.png">Descriptive text</option>
+                <option value="page_break" icon_src="/images/page_white_width.png">Page break</option>
+              </optgroup>
+            </select>
+            <div id="new_item" class="top-span"></div>
 
     </form>
-  </div>
+        </div>
+        <div class="six columns">
+          <label for="checkbox1">
+            <input type="checkbox" id="checkbox1" style="display: none;">
+            <span class="custom checkbox"></span> Label for Checkbox
+          </label>
+        </div>
+      </div>
+    	
 
+      
+  </div>
 </div>
 
 <%= content_for :js do -%>
