@@ -1,5 +1,5 @@
 class SurveyItem < ActiveRecord::Base
-  attr_accessible :content, :survey_id, :type, :survey, :title, :position
+  attr_accessible :content, :survey_id, :type, :survey, :title, :position, :deleted_at
   belongs_to :survey
 
   serialize :content, Hash
@@ -9,6 +9,7 @@ class SurveyItem < ActiveRecord::Base
   
   attr_writer :position
   scope :trashed, where('deleted_at NOT NULL')
+  scope :active, where('deleted_at is NULL')
   
   class << self
     def custom_field_accessor(*args)

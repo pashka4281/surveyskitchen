@@ -34,11 +34,15 @@
 		padding: 5px;
 		overflow-y: scroll;
 		overflow-x: hidden;
-		height: 72%;
+		position: absolute;
+		right: 0;
+		left: 0;
+		bottom: 40px;
+		top: 35px;
 	}
 	.modal_footer{ 
 		position: absolute;
-		bottom: 0;
+		bottom: -5px;
 		width: 100%;
 		padding-bottom: 5px;
 		padding-right: 30px;
@@ -60,7 +64,7 @@
 	.reveal-modal-bg { position: absolute; }
   .reveal-modal, .reveal-modal.small, .reveal-modal.medium, .reveal-modal.large, .reveal-modal.xlarge { 
   		width: 90%; top: 15px; left: 50%; margin-left: -40%; height: 95%;
-  		.modal_content{ height: 67%; }
+  		.modal_content{ bottom: 74px; }
  			.modal_footer{ padding-right: 0; }
   } 
 }

@@ -1,7 +1,8 @@
 Surveyskitchen::Application.routes.draw do
 
   resources :surveys do
-    get "builder", :on => :member
+    get :builder, :on => :member
+    get :deploy, :on => :member
     resources :survey_items, as: 'items', path: 'items' do
       delete :delete, as: :member
     end

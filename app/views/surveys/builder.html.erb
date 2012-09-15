@@ -48,7 +48,7 @@
             </a>
           </div>
           <div class="three columns">
-            <a class="orange button" id="trashBoxBtn" href="" rel="leanModal">
+            <a class="orange button" id="trashBoxBtn" href="#trashedItemsContainer" rel="leanModal">
               <img src="/images/icons/trashbox_big.png">
               <span>Trash box (<%#= @survey.items.trashed.count %>0)</span>
             </a>
@@ -80,14 +80,28 @@
     <div class="modal_content">
       <%=render 'survey_items/new' %>
     </div>
-      <div class="modal_footer row">
+    <div class="modal_footer row">
       <div class="two columns offset-by-thirteen">
         <a class="red button modal_close secondary cancelBtn">Cancel</a>
       </div>
       <div class="one column">
         <a class="green button success modal_close" id="doneNewItemBtn">Done</a>
       </div>
+  	</div>
   </div>
+
+  <div style="display: none" id="trashedItemsContainer" class="reveal-modal large">
+    <div class="modal_heading">
+      <h5>Trash box</h5>
+    </div>
+    <div class="modal_content">
+      <%=render 'survey_items/trashbox' %>
+    </div>
+    <div class="modal_footer row">
+      <div class="two columns offset-by-thirteen">
+        <a class="red button modal_close secondary cancelBtn">Close</a>
+      </div>
+  	</div>
   </div>
 
 
@@ -180,7 +194,7 @@
 			
 			this.deleteItem = function(id){
 			  var self = this;
-				$.ajax(this.base_path + '/items/' + id , {
+				$.ajax(this.base_path + '/items/' + id + '/delete', {
 					type: 'DELETE',
 					success: function(){ //resp contains new item markup
 						self.builder_ui.removeItem(id);

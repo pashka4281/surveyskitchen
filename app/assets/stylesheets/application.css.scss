@@ -44,7 +44,16 @@ form {
 	-moz-box-shadow: inset 0px 1px 0px rgba(150, 150, 150, 0.1);
 	box-shadow: inset 2px 0px 0px	rgba(150, 150, 150, 0.1);
 }
+.round-borders{
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	border-radius: 10px;
+	background-color: white;
+	border: 4px solid #D3D0D0;
+}
 .borders { border: 1px dashed #ccc; }
+.padded{ padding: 5px; }
 .top-span{ padding-top: 3px; }
 .hspace{ margin-left: 3px; margin-right: 3px; }
 .vspace{ margin-top: 4px !important; margin-bottom: 4px !important; }
@@ -167,6 +176,8 @@ ul.simple{
 }
 
 ul#survey_items_list{ 
+	counter-reset: item;
+	list-style: none;
 	li{
 		background-color: #F2F2FD;
 		background-image: -moz-linear-gradient(bottom, #E0E0EB 0%, #F2F2FD 100%);
@@ -175,14 +186,31 @@ ul#survey_items_list{
 		background-image: -webkit-linear-gradient(bottom, #E0E0EB 0%, #F2F2FD 100%);
 		background-image: linear-gradient(to top, #E0E0EB 0%, #F2F2FD 100%);
 		padding: 2px 6px;
-		&::before{ font-weight: 800;content: counter(li); counter-increment: li; }
+		&::before{ font-weight: 800;content: counter(item); counter-increment: item; margin-right: 10px;}
 	}
 }
 
 /*  Survey Show Page  */
 
+.bg-white{
+	background-color: white;
+	padding: 8px;
+}
 
 
-
-
-
+.alert{
+	clear: both;
+	border: 1px solid #C83348;
+	background-color: #EC7F7F;
+	-moz-border-radius: 10px;
+	-moz-box-shadow: 3px 3px 20px #ec7f7f;
+	-webkit-border-radius: 10px;
+	-webkit-box-shadow: 3px 3px 20px #EC7F7F;
+	border-radius: 10px;
+	box-shadow: 3px 3px 20px #EC7F7F;
+	padding: 10px;
+	margin-bottom: 15px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 150%;
+}

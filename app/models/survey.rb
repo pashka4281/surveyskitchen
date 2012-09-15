@@ -7,6 +7,7 @@ class Survey < ActiveRecord::Base
   belongs_to :category
   has_many  :items, :dependent => :destroy, class_name: 'SurveyItem'
   serialize :items_positions
+  attr_accessor :prefill_items
   
   STEPS = %w(basic_info survey_type builder)
   
@@ -18,7 +19,7 @@ class Survey < ActiveRecord::Base
 
   #returns an array of questions within the specified order (:questions_position)
   def sorted_items(params = {})
-    self.items.sort do |x1, x2| 
+    self.items.active.sort do |x1, x2| 
       self.items_positions.index(x1.id) <=> self.items_positions.index(x2.id)
     end
   end
@@ -36,10 +37,15 @@ class Survey < ActiveRecord::Base
   end
   
   after_create :example_items
+  before_save :generate_token
   
   def example_items
     return unless self.prefill_items
     #do something to fill this new survey with example items
+  end
+
+  def generate_token
+    self.token = rand(50**10).to_s(16)
   end
 end
 

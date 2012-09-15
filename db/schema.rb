@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120729155834) do
+ActiveRecord::Schema.define(:version => 20120911213024) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -28,10 +28,11 @@ ActiveRecord::Schema.define(:version => 20120729155834) do
   end
 
   create_table "survey_items", :force => true do |t|
-    t.integer "survey_id"
-    t.text    "content"
-    t.string  "type"
-    t.string  "title"
+    t.integer  "survey_id"
+    t.text     "content"
+    t.string   "type"
+    t.string   "title"
+    t.datetime "deleted_at"
   end
 
   create_table "surveys", :force => true do |t|
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20120729155834) do
     t.datetime "updated_at"
     t.boolean  "setup_finished",  :default => false
     t.integer  "category_id"
+    t.string   "token"
   end
 
   create_table "users", :force => true do |t|

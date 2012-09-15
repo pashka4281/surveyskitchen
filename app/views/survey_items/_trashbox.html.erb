@@ -1,0 +1,33 @@
+<div class="row" id="new_survey_item">
+  <div class="sixteen columns">
+  
+    
+      <div class="row">
+        <div class="ten columns">
+          <ul>
+            <% for item in @survey.items.trashed %>
+              <li><%= item %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="six columns">
+          <label for="checkbox1">
+            <input type="checkbox" id="checkbox1" style="display: none;">
+            <span class="custom checkbox"></span> Label for Checkbox
+          </label>
+        </div>
+      </div>
+    	      
+  </div>
+</div>
+
+<%= content_for :js do -%>
+  <script>
+    //document ready callback
+    $(function(){
+      //
+    });
+
+  </script>
+<%-end-%>
+

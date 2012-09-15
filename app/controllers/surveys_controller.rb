@@ -42,6 +42,10 @@ class SurveysController < ApplicationController
     @step = params[:step] || 'basic_info'
     @survey = Survey.find(params[:id])
   end
+
+  def deploy
+    @survey = Survey.find(params[:id])
+  end
   
 end
 
