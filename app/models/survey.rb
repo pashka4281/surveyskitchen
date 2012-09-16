@@ -37,7 +37,7 @@ class Survey < ActiveRecord::Base
   end
   
   after_create :example_items
-  before_save :generate_token
+  before_create :generate_token
   
   def example_items
     return unless self.prefill_items

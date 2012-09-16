@@ -1,4 +1,4 @@
-<% header("Questions builder » #{@survey.name}", subheader: 'All changes here are automatically saved.') %>
+<% header("Questions builder", subheader: 'All changes here are automatically saved.') %>
 
 <%#=render 'shared/nav_menu' %>
 
@@ -7,11 +7,19 @@
     <div class="twelve columns centered top-span">
       <div id="build_list"  class="list">
 
-				<div id="zero-item" class="row insertable">
-            <div class="ten columns centered">
-	            <a class="blue button insert_buttons">Insert here »</a>
-	          </div>
-        </div>
+      		<div class="row">
+      			<div class="fourteen columns">
+      				<h2 id="survey-name"><%= @survey.name%></h2>
+      				<a href="#"><img src="/images/icons/edit.png" alt="Move item"></a>
+      			</div>
+      			
+      		</div>
+
+			<div id="zero-item" class="row insertable">
+	            <div class="ten columns centered">
+		            <a class="blue button insert_buttons">Insert here »</a>
+		        </div>
+        	</div>
         
         <div id="no-items-area" class="row insertable">
 	        <div class="row">
@@ -50,7 +58,7 @@
           <div class="three columns">
             <a class="orange button" id="trashBoxBtn" href="#trashedItemsContainer" rel="leanModal">
               <img src="/images/icons/trashbox_big.png">
-              <span>Trash box (<%#= @survey.items.trashed.count %>0)</span>
+              <span>Trash box (<%= @survey.items.trashed.count %>)</span>
             </a>
           </div>
           <div class="four columns">
@@ -59,8 +67,8 @@
               <span>Survey Settings</span>
             </a>
           </div>
-          <div class="three columns offset-by-three">
-            <a class="green right button">Done editing</a>
+          <div class="three columns right-text">
+            <a class="green button">Done editing</a>
           </div>
           
           </div>
@@ -110,65 +118,118 @@
 <%= content_for :js do %>
 	<script>
 		function BuilderUI(params){
-			//constructor
-			this.working_area = params['working_area'];
-			this.survey_items = params['survey_items'];
-			this.insert_buttons = params['insert_buttons']; 
-			this.delete_links = $('.sortable_item .deleteLnk');
-					
+			//CONSTRUCTOR:
+			var self = this;
+			this.buildList 		= '#build_list';
+			this.survey_items 	= '.sortable_item';
+			this.insertButtons 	= '.insert_buttons'; 
+			this.delete_links 	= '.sortable_item .deleteLnk';
+			this.noItemsArea 	= '#no-items-area';
+			this.zeroItem 		= '#zero-item';
+			this.updateSurveyUrl= params['updateSurveyUrl'];
+
+			//editable survey title:
+			$('#survey-name').tinyEditor(self.updateSurveyUrl, {})
+
+			//making survey items sortable
+			$(this.buildList).sortable({ 
+				axis: 'y', 
+				items: 'div.sortable_item',
+				//containment: 'parent',
+				handle: '.moveGrabber',
+				update: function(){ 
+				  	var info = $(this).sortable("serialize", {
+            			key: 'survey[items_positions][]'
+          			});
+			        $.ajax({
+			            url: self.updateSurveyUrl,
+			            type: "PUT",
+			            data: info
+			        });
+				  	self.renewItemsIndexes();
+				} 
+			});
+
+			$('#doneNewItemBtn').click(function(){
+			  self.showButtons();
+			});	
+
+			//FUNCTIONS:
+			
 			this.insertItem = function(html, pos, total_items){
-				var btn = $(this.insert_buttons + '[itemindex='+ pos + ']:not(:hidden)');
+				var btn = $(this.insertButtons + '[itemindex='+ pos + ']');
 				$(html).insertAfter(btn.parents('.insertable')).hide().slideDown();
 				if(total_items == 0){ 
-					$('#zero-item').show();
-					$('#no-items-area').hide();
+					$(this.zeroItem).show();
+					$(this.noItemsArea).hide();
 				} 
 				this.renewItemsIndexes();
 			}
 			
-			this.removeItem = function(id){
-			  var self = this;
+			this.removeItem = function(id, total_items){
 			  $(this.survey_items + '[item_id=' + id + ']').slideUp(300, function(){
 			    $(this).remove();
-			    self.renewItemsIndexes();
+			    if(total_items == 0){
+					$(self.zeroItem).hide();
+					$(self.noItemsArea).show();
+				}
+				self.renewItemsIndexes();
 			  });
 			}
 			
 			this.renewItemsIndexes = function(){
-				$(this.working_area).find(this.insert_buttons + ':not(:hidden)').each(function(i, el){
-					$(el).attr('itemindex', i);
-				});
+				if($(this.noItemsArea).is(':hidden')){
+					$(this.buildList).find(this.zeroItem +' '+ this.insertButtons + ', .sortable_item ' + this.insertButtons).each(function(i, el){
+						$(el).attr('itemindex', i);
+					});
+				}else {
+					$(this.buildList).find(this.noItemsArea+' '+this.insertButtons).each(function(i, el){
+						$(el).attr('itemindex', i);
+					});
+				}
 			}
 			
 			this.renewItemsIndexes();
 			
 			//change all insert buttons labels to `label`
-			this.buttonsLabel = function(label){
-				$(this.insert_buttons).html(label);
-			}
+			this.buttonsLabel = function(label){ $(this.insertButtons).html(label) }
 			
-			this.showButtons = function(){
-				$(this.insert_buttons).fadeIn(200, function(){
-				  $(this).css({visibility: 'visible'});
-				})
-			}
-			this.hideButtons = function(){
-				$(this.insert_buttons).fadeOut(200, function(){ 
-				  $(this).css({visibility: 'hidden', display: 'block'}) 
-				})
-			}
-			
+			this.showButtons = function(){ $(this.insertButtons).css('display', 'block') }
+			this.hideButtons = function(){ $(this.insertButtons).fadeOut(200) }			
 		} 
 	
 		function Survey(params){
 			//constructor
+			var self = this;
 			this.survey_id = params['survey_id'];
 			this.base_path = '/surveys/' + this.survey_id; // e.g. "/survey/1"
 			this.builder_ui = params['builder_ui'];
 			this.total_items = params['total_items'];
+			this.newItemForm = $('#newItemForm');
+			this.newSurveyTypeSelector = $('#surveyTypeSelector');
+
+			this.newSurveyTypeSelector.dropkick();
+
+			if(self.total_items == 0){ 
+				$('#no-items-area').show();
+				$('#zero-item').hide();
+			}
+
+			//insert buttons click handler:
+			$(this.builder_ui.insertButtons).live('click', function(){
+				type = self.newSurveyTypeSelector.val();
+				self.addItem(type, $(this).attr('itemindex'), self.newItemForm.serialize());
+				self.builder_ui.renewItemsIndexes();
+				self.builder_ui.hideButtons();
+			});
+
+			$('.cancelBtn').click(function(){
+			  self.newSurveyTypeSelector.change();
+			});
+
 			
 			//callbacks:
-			this.afterItemAdd = undefined;
+			this.afterItemAdd 	= undefined;
 			this.onSuccCall  	= undefined;
 			this.onErrorCall	= undefined;
 			
@@ -197,8 +258,8 @@
 				$.ajax(this.base_path + '/items/' + id + '/delete', {
 					type: 'DELETE',
 					success: function(){ //resp contains new item markup
-						self.builder_ui.removeItem(id);
 						self.total_items -= 1;
+						self.builder_ui.removeItem(id, self.total_items);
 					},
 					error: function(){}
 				});
@@ -208,66 +269,22 @@
 		
 		// document ready 
 		$(function(){
-		  $('body').addClass('bottom-padding');
-		  $("a[rel*=leanModal]").leanModal({closeButton: ".modal_close", top: '15'});
-		  
-		  var newSurveyTypeSelector = $('#surveyTypeSelector');
-		  newSurveyTypeSelector.dropkick();
-		
-			var newItemForm = $('#newItemForm');
-			if(!<%= @survey.items.any?.to_s %>){ 
-				$('#no-items-area').show();
-				$('#zero-item').hide();
-			}
+		  	$('body').addClass('bottom-padding');
+		  	$("a[rel*=leanModal]").leanModal({closeButton: ".modal_close", top: '15'});
 			
 			var builder_ui = new BuilderUI({
-				working_area: '#build_list',
-				insert_buttons: '.insert_buttons',
-				survey_items: '.sortable_item'
-			}); 
-			
+				updateSurveyUrl: "<%= survey_path(@survey, format: :js) %>"
+			});
+
 			var survey = new Survey({survey_id: <%= @survey.id%>, 
 				builder_ui: builder_ui,
-				total_items: <%= @survey.items.count %> });			
-			
-			//insert buttons click handler:
-			$(builder_ui.insert_buttons).live('click', function(){
-				type = newSurveyTypeSelector.val();
-				survey.addItem(type, $(this).attr('itemindex'), newItemForm.serialize());
-				builder_ui.renewItemsIndexes();
-				builder_ui.hideButtons();
-			});
+				total_items: <%= @survey.items.active.count %> 
+			});			
 			
 			//remove links click handler:
 			$(builder_ui.delete_links).live('click', function(){
 				survey.deleteItem($(this).parents('.sortable_item').attr('item_id'));
 				return false;
-			});
-			
-			$('.cancelBtn').click(function(){
-			  newSurveyTypeSelector.change();
-			});
-			
-			$('#doneNewItemBtn').click(function(){
-			  builder_ui.showButtons();
-			});
-			
-			$('#build_list').sortable({ 
-				axis: 'y', 
-				items: 'div.sortable_item',
-				//containment: 'parent',
-				handle: '.moveGrabber',
-				update: function(){ 
-				  var info = $(this).sortable("serialize", {
-            key: 'survey[items_positions][]'
-          });
-          $.ajax({
-            url: "<%= survey_path(@survey, format: :js) %>",
-            type: "PUT",
-            data: info
-          });
-				  builder_ui.renewItemsIndexes();
-				} 
 			});
 			
 		});

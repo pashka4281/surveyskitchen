@@ -401,7 +401,7 @@ abbr {
 
 /* line 22, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
 [class*="column"] + [class*="column"]:last-child {
-  /* float: right; */
+   float: right; 
 }
 
 /* line 23, /var/www/foundation_generator/shared/bundle/ruby/1.9.1/bundler/gems/foundation-a6e45645cf38/stylesheets/foundation/grid.scss */
@@ -1784,6 +1784,7 @@ p.vevent abbr {
 .button span { margin-left: 25px; }
 .button img { position: absolute; top: 3px; left: 4px;}
 .button {
+  text-align: left;
 	border: 0;
 	background: #222 url(/images/overlay-button.png) repeat-x 0 0;
 	display: inline-block;

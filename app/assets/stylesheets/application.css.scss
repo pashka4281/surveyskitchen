@@ -24,6 +24,7 @@ h1, h2, h3, h4, h5 { font-weight: 200;}
 .no-margin { margin: 0 0 0 0 !important; }
 .no-top-margin { margin-top: 0 !important; }
 .right { float: right !important; }
+.right-text { text-align: right; }
 .subheader { position: relative; top: -12px; margin-bottom: 0; }
 header> div { margin-top: -17px;}
 
@@ -110,13 +111,14 @@ form {
 }
 
 .insert_buttons{
-	visibility: hidden;
+	/*visibility: hidden;*/
+	display: none;
 	margin-top: 13px !important; 
 	margin-bottom: 13px !important;
 	font-size: 10px;
-  padding: 2px 4px 3px;
-  width: 100%;
-  text-align: center;
+   	padding: 2px 4px 3px;
+  	width: 100%;
+  	text-align: center;
 }
 #sticky_box{ margin-top: 5px;}
 
