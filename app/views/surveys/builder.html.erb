@@ -8,11 +8,7 @@
       <div id="build_list"  class="list">
 
       		<div class="row">
-      			<div class="fourteen columns">
-      				<h2 id="survey-name"><%= @survey.name%></h2>
-      				<a href="#"><img src="/images/icons/edit.png" alt="Move item"></a>
-      			</div>
-      			
+      			<h2 id="survey-name"><%= @survey.name%></h2>
       		</div>
 
 			<div id="zero-item" class="row insertable">
@@ -129,7 +125,7 @@
 			this.updateSurveyUrl= params['updateSurveyUrl'];
 
 			//editable survey title:
-			$('#survey-name').tinyEditor(self.updateSurveyUrl, {})
+			$('#survey-name').tinyEditor(self.updateSurveyUrl, {postName: 'survey[name]'})
 
 			//making survey items sortable
 			$(this.buildList).sortable({ 
@@ -290,6 +286,3 @@
 		});
 	</script>
 <% end %>
-
-
-
