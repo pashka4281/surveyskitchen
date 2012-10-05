@@ -62,11 +62,11 @@
 /* Mobile */
 @media only screen and (max-width: 767px) { 
 	.reveal-modal-bg { position: absolute; }
-  .reveal-modal, .reveal-modal.small, .reveal-modal.medium, .reveal-modal.large, .reveal-modal.xlarge { 
-  		width: 90%; top: 15px; left: 50%; margin-left: -40%; height: 95%;
+  	.reveal-modal, .reveal-modal.small, .reveal-modal.medium, .reveal-modal.large, .reveal-modal.xlarge { 
+  		width: 90%; left: 50%; margin-left: -40%; height: 98%;
   		.modal_content{ bottom: 74px; }
- 			.modal_footer{ padding-right: 0; }
-  } 
+ 		.modal_footer{ padding-right: 0; }
+  	} 
 }
 
 

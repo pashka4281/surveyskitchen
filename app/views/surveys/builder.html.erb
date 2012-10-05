@@ -266,13 +266,13 @@
 		// document ready 
 		$(function(){
 		  	$('body').addClass('bottom-padding');
-		  	$("a[rel*=leanModal]").leanModal({closeButton: ".modal_close", top: '15'});
+		  	$("a[rel*=leanModal]").leanModal({closeButton: ".modal_close", top: '1%'});
 			
 			var builder_ui = new BuilderUI({
 				updateSurveyUrl: "<%= survey_path(@survey, format: :js) %>"
 			});
 
-			var survey = new Survey({survey_id: <%= @survey.id%>, 
+			var survey = new Survey({survey_id: <%= @survey.id %>, 
 				builder_ui: builder_ui,
 				total_items: <%= @survey.items.active.count %> 
 			});			

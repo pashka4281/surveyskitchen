@@ -6,7 +6,7 @@
   </h4>
   <%= devise_error_messages! %>
 
-  <%= form_for(resource, :url => :register) do |f| %>
+  <%= form_for(resource, :url => :register, class: 'form') do |f| %>
       <div class="row">
         <div class="four mobile-one columns">
           <%= f.label :first_name, class: 'right' %>

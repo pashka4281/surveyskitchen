@@ -10,10 +10,11 @@
     <div class="row">
       <div class="fifteen columns centered">
 		    <fieldset>
-		      <% for var in item.variants %>
-			      <input type="checkbox" name="r_btn" value="<%= var %>" /> <%= var %> <br />
-			    <% end %>
-			    <br />
+			    <ul class="simple">
+			    	<% for var in item.variants %>
+				      <li><input type="checkbox" name="r_btn" value="<%= var %>" /><%= var %></li>
+				    <% end %>
+				</ul>
 		    </fieldset>
 	    </div>
     </div>

@@ -15,25 +15,45 @@
       var wrapper = $('<div class="tinyEditorWrapper eight mobile-four"></div>');
       self.wrap(wrapper);
 
-      var form = $('<form method="' + defaults['method'] + '" action="' + url + '"></form>')
+      var form = $('<form method="' + defaults['method'] + '"></form>')
         .insertAfter(self)
         .css({'padding':0, 'margin':0});
       var editButton = $('<img src="/images/icons/edit.png" alt="Edit" class="tinyEditorButton" />').insertAfter(self);
 
+      var input = $('<input type="text" name="' + defaults['postName'] + '" class="tinyEditorInputField"></input>')
+          .appendTo(form)
+          .val(self.text())
+          .focus().hide()
+          .blur(hideEditor);
+
+      function hideEditor(){
+        self.show();
+        input.hide()
+      }
+
       editButton.click(function(){
         self.hide();
-        form.find('input').remove();
-		    var input = $('<input type="text" name="' + defaults['postName'] + '" class="tinyEditorInputField"></input>')
-          .appendTo(form).val(self.text()).focus();
+		    input.show()
+          .val(self.text())
+          .focus();
       });
 
       $('body').click(function(e){
         var target = $(e.target);
-        if(!target.hasClass('tinyEditorInputField') && !target.hasClass('tinyEditorButton')){
-          form.find('input').remove();
-          self.show();
-        }
+        if(!target.hasClass('tinyEditorInputField') && !target.hasClass('tinyEditorButton'))
+          hideEditor();
       });
+
+      // preventing form from being submitted in regular way, making it ajaxy :)
+      form.submit(function(e){
+        e.preventDefault();
+        $.ajax(url, {
+          type: options['method'],
+          success: function(){
+            hideEditor()
+          }
+        })
+      })
 
     }
 })(jQuery);

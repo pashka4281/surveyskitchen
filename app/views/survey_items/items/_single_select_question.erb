@@ -9,10 +9,11 @@
     <div class="row">
       <div class="fifteen columns centered">
 		    <fieldset>
-		      <% for var in item.variants %>
-			      <input type="radio" name="r_btn" value="<%= var %>" /> <%= var %> <br />
-			    <% end %>
-			    <br />
+		    	<ul class="simple">
+			    	<% for var in item.variants %>
+				      <li><input type="radio" name="r_btn" value="<%= var %>" /> <%= var %></li>
+				    <% end %>
+				</ul>
 			    <%- if item.include_txt_field -%>
 			      <input type="text" />
 			    <%- end -%>
