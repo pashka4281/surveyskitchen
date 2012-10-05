@@ -1,34 +1,22 @@
-<%= content_tag_for :div, item, class: "row insertable sortable_item question-item", item_id: item.id do -%>
-  <div class="row content-row">
+<%= div_for item, class: "insertable sortable_item question-item", item_id: item.id do -%>
+  <div class="navbar-inner pull-right">
     <%= render 'survey_items/items/_tools_box'%>
-        
-    <div class="row item_header">
-      <div class="sixteen columns">
-      	<h6><%= item.title%></h6>
-      </div>
-    </div>
-    <div class="row">
-      <div class="fifteen columns centered scale_container">
-      <table>
-        <tr>
-          <% item.scale_size.times do %>
-            <td><input type="radio" name="scale" /></td>
-          <% end %>
-        </tr>
-        <tr>
-          <% item.scale_size.times do |v| %>
-            <td><span><%= v+1 %></span></td>
-          <% end %>
-        </tr>
-      </table>
-      </div>
-    </div>
-    
-    
   </div>
-  <div class="row">
-  	<div class="ten columns centered">
-  		<a class="blue button insert_buttons">Insert here »</a>
-  	</div>
+  <div class="well">
+    <h5><%= item.title %></h5>
+    <table>
+      <tr>
+        <% item.scale_size.times do %>
+          <td><input type="radio" name="scale" /></td>
+        <% end %>
+      </tr>
+      <tr>
+        <% item.scale_size.times do |v| %>
+          <td><span><%= v+1 %></span></td>
+        <% end %>
+      </tr>
+    </table>
   </div>
+
+  <button class="btn btn-mini btn-block insert_buttons" type="button">Insert here »</button>
 <%- end -%>

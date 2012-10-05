@@ -1,4 +1,4 @@
-<%= content_tag_for :div, item, class: "row insertable sortable_item question-item", item_id: item.id do -%>
+<%= content_tag_for :div, item, class: "insertable sortable_item question-item", item_id: item.id do -%>
   <div class="row content-row">
     <%= render 'survey_items/items/_tools_box'%>
         
@@ -19,9 +19,6 @@
     
     
   </div>
-  <div class="row">
-  	<div class="ten columns centered">
-  		<a class="blue button insert_buttons">Insert here »</a>
-  	</div>
-  </div>
+  
+  <button class="btn btn-mini btn-block insert_buttons" type="button">Insert here »</button>
 <%- end -%>

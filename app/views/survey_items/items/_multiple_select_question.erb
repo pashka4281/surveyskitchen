@@ -1,28 +1,18 @@
-<%= content_tag_for :div, item, class: "row insertable sortable_item question-item", item_id: item.id do -%>
-	<div class="row content-row">
-	  <%= render 'survey_items/items/_tools_box'%>
-	  
-    <div class="row item_header">
-      <div class="sixteen columns">
-      	<h6><%= item.title%></h6>
-      </div>
-    </div>
-    <div class="row">
-      <div class="fifteen columns centered">
-		    <fieldset>
-			    <ul class="simple">
-			    	<% for var in item.variants %>
-				      <li><input type="checkbox" name="r_btn" value="<%= var %>" /><%= var %></li>
-				    <% end %>
-				</ul>
-		    </fieldset>
-	    </div>
-    </div>
-	</div>
+<%= content_tag_for :div, item, class: "insertable sortable_item question-item", item_id: item.id do -%>
+	<div class="navbar-inner pull-right">
+    	<%= render 'survey_items/items/_tools_box'%>
+  	</div>
+  	<div class="well well-small">
+  		<strong><%= item.title%></strong>
+    	<ul class="simple">
+	    	<% for var in item.variants %>
+		      <li><input type="checkbox" name="r_btn" value="<%= var %>" /><%= var %></li>
+		    <% end %>
+		</ul>
+  	</div>
+
 	
 	<div class="row">
-		<div class="ten columns centered">
-  		<a class="blue button insert_buttons">Insert here »</a>
-		</div>
+      <button class="btn btn-mini btn-primary insert_buttons" type="button">Insert here »</button>
 	</div>
 <% end %>
