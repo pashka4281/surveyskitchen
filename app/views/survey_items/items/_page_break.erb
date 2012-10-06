@@ -1,20 +1,19 @@
-<%= content_tag_for :div, item, class: "insertable sortable_item", item_id: item.id do -%>
-  <div class="row pageEnd"></div>
-  <div class="row">
-    <%= render 'survey_items/items/_tools_box'%>
-    <div class="fifteen columns centered">
-      <div class="six columns page_border mobile-four"></div>
-      <div class="three columns page_break_texting">
+<%= div_for item, class: "insertable sortable_item", item_id: item.id do -%>
+  <div class="pageEnd"></div>
+    <div class="navbar-inner pull-right">
+      <%= render 'survey_items/items/_tools_box'%>
+    </div>
+    <div class="row">
+      <div class="span4 page_border"></div>
+      <div class="span2 page_break_texting">
         <h5>Page break</h5>
       </div>
-      <div class="seven columns page_border end mobile-four"></div>
+      <div class="span4 page_border"></div>
   	</div>
+  <div class="pageStart">
+    <button class="btn btn-mini btn-block insert_buttons" type="button">Insert here »</button>
   </div>
-  <div class="pageStart"></div>
-  <div class="row pageStartSides">
-  	<div class="ten columns centered">
-  	  <a class="blue button insert_buttons">Insert here »</a>
-	  </div>
-  </div>
+
+  
 <%- end -%>
 

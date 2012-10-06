@@ -1,10 +1,10 @@
-<%= content_tag_for :div, item, class: "insertable sortable_item", item_id: item.id do -%>
-  <div class="navbar-inner pull-right">
-    <%= render 'survey_items/items/_tools_box'%>
-  </div>
-  <div class="well">
-    <%= item.text_content %>
-  </div>
+<%= div_for item, class: "insertable sortable_item", item_id: item.id do -%>
+	<div class="navbar-inner pull-right">
+	    <%= render 'survey_items/items/_tools_box'%>
+	</div>
+	<div class="well">
+	    <%= item.text_content %>
+	</div>
 
-  <button class="btn btn-mini btn-block insert_buttons" type="button">Insert here »</button>
+	<button class="btn btn-mini btn-block insert_buttons" type="button">Insert here »</button>
 <%- end -%>

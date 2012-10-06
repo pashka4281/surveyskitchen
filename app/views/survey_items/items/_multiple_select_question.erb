@@ -4,15 +4,17 @@
   	</div>
   	<div class="well well-small">
   		<strong><%= item.title%></strong>
-    	<ul class="simple">
+  		<div class="clear"></div>
+    	<ul class="unstyled">
 	    	<% for var in item.variants %>
-		      <li><input type="checkbox" name="r_btn" value="<%= var %>" /><%= var %></li>
+		    	<li>
+			      	<label class="checkbox">
+						<input type="checkbox" name="r_btn" value="<%= var %>" /><%= var %>
+					</label>
+				</li>
 		    <% end %>
 		</ul>
   	</div>
-
 	
-	<div class="row">
-      <button class="btn btn-mini btn-primary insert_buttons" type="button">Insert here »</button>
-	</div>
+	<button class="btn btn-mini btn-block insert_buttons" type="button">Insert here »</button>
 <% end %>

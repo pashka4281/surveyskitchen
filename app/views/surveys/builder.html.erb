@@ -1,91 +1,59 @@
 <% header("Questions builder", subheader: 'All changes here are automatically saved.') %>
 
-      <div id="build_list"  class="list">
+    	<div id="build_list"  class="list">
 
-      		<div class="row">
-      			<h2 id="survey-name"><%= @survey.name%></h2>
-      		</div>
 
-			<div id="zero-item" class="row insertable">
-	            <div class="ten columns centered">
-		            <a class="blue button insert_buttons">Insert here »</a>
-		        </div>
+      		<h2 id="survey-name"><%= @survey.name%></h2>
+
+			<div id="zero-item" class="span12 insertable">
+	            <button class="btn btn-mini btn-block insert_buttons" type="button">Insert here »</button>
         	</div>
         
-        <div id="no-items-area" class="row insertable">
-	        <div class="row">
-            <div class="ten columns centered">
-	            <a class="blue button insert_buttons">Insert here »</a>
-	          </div>
-	        </div>
-          <div class="row">
-            <div id="work-area-texting" class="fifteen columns centered centr-text vspace-big">
-              <h3>This is your working area.</h3>
-              <h5>Start building survey by inserting questions here.</h5>
-	          </div>
-          </div>
+	        <div id="no-items-area" class="insertable">
+		        <a class="blue button insert_buttons">Insert here »</a>
 
-        </div>
+            	<div id="work-area-texting" class="fifteen columns centered centr-text vspace-big">
+            		<h3>This is your working area.</h3>
+            		<h5>Start building survey by inserting questions here.</h5>
+	        	</div>
+        	</div>
         
-        <%- @survey.sorted_items.each do |i| -%>
-          <%= render_survey_item(i) %>
-        <%- end -%>
+	        <%- @survey.sorted_items.each do |i| -%>
+	          <%= render_survey_item(i) %>
+	        <%- end -%>
 
-      </div>
+    	</div>
   
-  <div id="newItemBar">
-    <div class="row">
-      
-      <div class="twelve columns centered">
-        <div class="row">
-          <div class="three columns">
-            <a class="blue button" id="newItemBtn" href="#newItemContainer" rel="leanModal">
-              <img src="/images/icons/new_item.png">
-              <span>Add New Item</span>
-            </a>
-          </div>
-          <div class="three columns">
-            <a class="orange button" id="trashBoxBtn" href="#trashedItemsContainer" rel="leanModal">
-              <img src="/images/icons/trashbox_big.png">
-              <span>Trash box (<%= @survey.items.trashed.count %>)</span>
-            </a>
-          </div>
-          <div class="four columns">
-            <a class="red button" id="trashBoxBtn" href="" rel="leanModal">
-              <img src="/images/icons/settings_big.png">
-              <span>Survey Settings</span>
-            </a>
-          </div>
-          <div class="three columns right-text">
-            <a class="green button">Done editing</a>
-          </div>
-          
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  
-  </div>
 
+	<div class="navbar navbar-fixed-bottom" id="newItemBar">
+	  <div class="navbar-inner">
+	  		<div class="container">
+	  			<div class="btn-group pull-left">
+				    <a href="#newItemContainer" role="button" data-toggle="modal" class="btn btn-primary">
+				    	<i class="icon-plus-sign"></i> New Item
+				    </a>
+				    <a class="btn btn-info" href="#"><i class="icon-trash"></i> Trash box (0 items)</a>
+				    <a class="btn btn-warning" href="#"><i class="icon-wrench"></i> Survey settings</a>
+				</div>
+		  		
+				<a class="btn btn-success pull-right" href="#"><i class="icon-ok"></i> Done</a>
+			</div>
+	  </div>
+	</div>
 
+	<div class="modal hide fade" id="newItemContainer" data-remote="<%= new_survey_item_path(@survey) %>">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    <h3>New Item</h3>
+	  </div>
+	  <div class="modal-body">
+	  </div>
+	  <div class="modal-footer">
+	    <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</a>
+	    <a href="#" class="btn btn-primary" id="doneNewItemBtn">Done</a>
+	  </div>
+	</div>
 
-  <div style="display: none" id="newItemContainer" class="reveal-modal large">
-    <div class="modal_heading">
-      <h5>New Item</h5>
-    </div>
-    <div class="modal_content">
-      <%=render 'survey_items/new' %>
-    </div>
-    <div class="modal_footer row">
-      <div class="two columns offset-by-thirteen">
-        <a class="red button modal_close secondary cancelBtn">Cancel</a>
-      </div>
-      <div class="one column">
-        <a class="green button success modal_close" id="doneNewItemBtn">Done</a>
-      </div>
-  	</div>
-  </div>
 
   <div style="display: none" id="trashedItemsContainer" class="reveal-modal large">
     <div class="modal_heading">
@@ -259,7 +227,6 @@
 		// document ready 
 		$(function(){
 		  	$('body').addClass('bottom-padding');
-		  	$("a[rel*=leanModal]").leanModal({closeButton: ".modal_close", top: '1%'});
 			
 			var builder_ui = new BuilderUI({
 				updateSurveyUrl: "<%= survey_path(@survey, format: :js) %>"

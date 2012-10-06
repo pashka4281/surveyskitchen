@@ -1,5 +1,9 @@
 class SurveyItemsController < ApplicationController
 	helper :all
+
+	def new
+		render layout: false
+	end
 	
 	def	create
 		@survey = Survey.find(params[:survey_id])

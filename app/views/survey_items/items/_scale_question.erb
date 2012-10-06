@@ -2,20 +2,16 @@
   <div class="navbar-inner pull-right">
     <%= render 'survey_items/items/_tools_box'%>
   </div>
-  <div class="well">
-    <h5><%= item.title %></h5>
-    <table>
-      <tr>
-        <% item.scale_size.times do %>
-          <td><input type="radio" name="scale" /></td>
-        <% end %>
-      </tr>
-      <tr>
-        <% item.scale_size.times do |v| %>
-          <td><span><%= v+1 %></span></td>
-        <% end %>
-      </tr>
-    </table>
+  <div class="well well-small">
+    <strong><%= item.title %></strong>
+    <div class="clear"></div>
+
+    <% item.scale_size.times do |v| %>
+      <label class="radio inline">
+        <input type="radio" name="scale"/><%= v+1 %>
+      </label>
+    <% end %>
+    
   </div>
 
   <button class="btn btn-mini btn-block insert_buttons" type="button">Insert here »</button>

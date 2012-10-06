@@ -1,0 +1,44 @@
+<div id="new_survey_item">
+  <div id="item_type_buttons">
+    <a href="#" class="btn btn-large" data-item-type="text_field_question">
+      <i class=""></i>Text field</a>
+    <a href="#" class="btn btn-large" data-item-type="multiple_select_question">
+      <i class=""></i>Multiple select</a>
+    <a href="#" class="btn btn-large" data-item-type="single_select_question">
+      <i class=""></i>Single select</a>
+    <a href="#" class="btn btn-large" data-item-type="drop_down_question">
+      <i class=""></i>Drop down</a>
+    <a href="#" class="btn btn-large" data-item-type="scale_question">
+      <i class=""></i>Scale question</a>
+    <a href="#" class="btn btn-large" data-item-type="image">
+      <i class=""></i>Image</a>
+    <a href="#" class="btn btn-large" data-item-type="desc_text">
+      <i class=""></i>Descriptive text</a>
+    <a href="#" class="btn btn-large" data-item-type="page_break">
+      <i class=""></i>Page break</a>
+  </div>
+  <div id="new_item" class="top-span"></div>
+
+  <label for="checkbox1">
+    <input type="checkbox" id="checkbox1" style="display: none;">
+    <span class="custom checkbox"></span> Label for Checkbox
+  </label>
+</div>
+
+  <script type="text/javascript">
+    var surveyTypeSelector = $('#surveyTypeSelector');
+    var itemsHtmlArray = <%= raw(survey_items_html_array()) %>;
+
+    function renderSelectedItem(e){
+       var val = $(e.target).val();
+       $('#new_item').html(itemsHtmlArray[val]);
+       $("#new_item textarea").autoGrow();
+    }
+
+    //document ready callback
+    $(function(){
+      surveyTypeSelector.change(renderSelectedItem).change(); // attaching event handler and triggering that event
+      $('#surveyTypeSelector').dropkick();
+    });
+
+  </script>

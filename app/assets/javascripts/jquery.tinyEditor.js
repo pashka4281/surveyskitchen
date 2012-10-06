@@ -12,13 +12,13 @@
       options = $.extend(defaults, options);
 
       
-      var wrapper = $('<div class="tinyEditorWrapper eight mobile-four"></div>');
+      var wrapper = $('<div class="tinyEditorWrapper"></div>');
       self.wrap(wrapper);
 
       var form = $('<form method="' + defaults['method'] + '"></form>')
-        .insertAfter(self)
-        .css({'padding':0, 'margin':0});
-      var editButton = $('<img src="/images/icons/edit.png" alt="Edit" class="tinyEditorButton" />').insertAfter(self);
+        .insertAfter(self);
+      var editButton = $('<span class="tinyEditorButton label label-success"><i class="icon-pencil" /> edit</span>')
+        .insertAfter(self);
 
       var input = $('<input type="text" name="' + defaults['postName'] + '" class="tinyEditorInputField"></input>')
           .appendTo(form)

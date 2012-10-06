@@ -1,25 +1,17 @@
 <%= content_tag_for :div, item, class: "insertable sortable_item question-item", item_id: item.id do -%>
-  <div class="row content-row">
+  <div class="navbar-inner pull-right">
     <%= render 'survey_items/items/_tools_box'%>
-    <div class="row item_header">
-      <div class="sixteen columns">
-      	<h6><%= item.title %></h6>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="fifteen columns centered">
-        <% if item.appearance == 'txt_field' %>
-          <input type="text" />
-        <% else %>
-          <textarea></textarea>
-        <% end %>
-      </div>
-    </div>
   </div>
-  <div class="row">
-  	<div class="ten columns centered">
-  		<a class="blue button insert_buttons">Insert here »</a>
-  	</div>
- </div>
+  <div class="well well-small">
+    <strong><%= item.title%></strong>
+    <div class="clear"></div>
+    <% if item.appearance == 'txt_field' %>
+      <input type="text" class="span9" />
+    <% else %>
+      <textarea class="span9"></textarea>
+    <% end %>
+    
+  </div>
+
+  <button class="btn btn-mini btn-block insert_buttons">Insert here »</button>
 <%- end -%>

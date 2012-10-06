@@ -1,12 +1,12 @@
 .tinyEditorWrapper{
 	padding-right: 40px;
 	position: relative;
-  display: inline-block;
+  display: block;
   height: 60px;
   padding-left: 15px;
 	.tinyEditorButton{
     float: left;
-    margin-top: 16px;
+    margin-top: 23px;
     margin-left: 10px;
     cursor: pointer;
 	}
@@ -22,8 +22,9 @@
       background-color: #FCFCFC;
       position: absolute;
       z-index: 9999;
-      top: -3px;
+      top: 7px;
       left: -7px;
+      height: 40px;
     }
   }
 }

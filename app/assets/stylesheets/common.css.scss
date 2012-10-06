@@ -1,0 +1,30 @@
+#build_list{
+	padding: 7px;
+	border-radius: 15px;
+	border: 4px solid #DDDDDD;
+	margin-bottom: 30px;
+	#no-items-area, #zero-item{ display: none; }
+	.sortable_item{
+		margin-bottom: 22px;
+	}
+	.insert_buttons{ 
+		display: none; 
+		margin-bottom: 16px; 
+	}
+}
+
+#newItemBar{ position: fixed; border-top: 1px solid #aaa; }
+
+
+$blue-color: #CFCFCF;
+
+.navbar-inner .btn-group{
+	padding: 0 10px;
+}
+
+
+@media (max-width: 767px) {
+	#build_list{
+		.pull-right{ float: none; }
+	}
+}

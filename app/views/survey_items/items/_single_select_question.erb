@@ -3,10 +3,14 @@
 		<%= render 'survey_items/items/_tools_box'%>
   	</div>
   	<div class="well well-small">
-  		<h5><%= item.title%></h5>
-    	<ul class="simple">
+  		<strong><%= item.title%></strong>
+    	<ul class="unstyled">
 	    	<% for var in item.variants %>
-		      <li><input type="radio" name="r_btn" value="<%= var %>" /> <%= var %></li>
+		    	<li>
+			      	<label class="radio">
+						<input type="radio" name="r_btn" value="<%= var %>" /><%= var %>
+					</label>
+				</li>
 		    <% end %>
 		</ul>
 		<%- if item.include_txt_field -%>
