@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module ApplicationHelper
 
   def header(content, params={})
@@ -22,6 +23,10 @@ module ApplicationHelper
 
   def render_survey_item(item)
     render(partial: "survey_items/items/#{item.type.demodulize.underscore}", locals:{item: item})
+  end
+
+  def insert_button
+    raw '<button class="btn btn-mini btn-success btn-block insert_buttons" type="button">Insert here »</button>'
   end
 
 end

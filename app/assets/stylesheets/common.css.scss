@@ -1,9 +1,11 @@
+.btn:focus{ outline: none; }
 #build_list{
 	padding: 7px;
 	border-radius: 15px;
 	border: 4px solid #DDDDDD;
 	margin-bottom: 30px;
 	#no-items-area, #zero-item{ display: none; }
+	#work-area-texting{ text-align: center;color: #BBB;border: 3px dashed #CCC;}
 	.sortable_item{
 		margin-bottom: 22px;
 	}
@@ -14,7 +16,10 @@
 }
 
 #newItemBar{ position: fixed; border-top: 1px solid #aaa; }
-
+#item_type_buttons{ 
+	text-align: center;
+	button{ margin-top: 5px; }
+}
 
 $blue-color: #CFCFCF;
 

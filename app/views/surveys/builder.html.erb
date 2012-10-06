@@ -3,15 +3,14 @@
     	<div id="build_list"  class="list">
 
 
-      		<h2 id="survey-name"><%= @survey.name%></h2>
+      		<h2 id="survey-name"><%= @survey.name %></h2>
 
 			<div id="zero-item" class="span12 insertable">
-	            <button class="btn btn-mini btn-block insert_buttons" type="button">Insert here »</button>
+	            <%= insert_button %>
         	</div>
         
 	        <div id="no-items-area" class="insertable">
-		        <a class="blue button insert_buttons">Insert here »</a>
-
+	        	<%= insert_button %>
             	<div id="work-area-texting" class="fifteen columns centered centr-text vspace-big">
             		<h3>This is your working area.</h3>
             		<h5>Start building survey by inserting questions here.</h5>
@@ -29,6 +28,9 @@
 	  <div class="navbar-inner">
 	  		<div class="container">
 	  			<div class="btn-group pull-left">
+	  				<!--  <%= link_to new_survey_item_path(@survey, format: :js), class: 'btn btn-primary', remote: true do %>
+				    	<i class="icon-plus-sign"></i> New Item
+				    <% end %> -->
 				    <a href="#newItemContainer" role="button" data-toggle="modal" class="btn btn-primary">
 				    	<i class="icon-plus-sign"></i> New Item
 				    </a>
@@ -50,7 +52,7 @@
 	  </div>
 	  <div class="modal-footer">
 	    <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</a>
-	    <a href="#" class="btn btn-primary" id="doneNewItemBtn">Done</a>
+	    <a href="#" class="btn btn-primary" data-dismiss="modal" id="doneNewItemBtn">Done</a>
 	  </div>
 	</div>
 
@@ -84,6 +86,7 @@
 			this.noItemsArea 	= '#no-items-area';
 			this.zeroItem 		= '#zero-item';
 			this.updateSurveyUrl= params['updateSurveyUrl'];
+			this.new_item_form_data = null;
 
 			//editable survey title:
 			$('#survey-name').tinyEditor(self.updateSurveyUrl, {postName: 'survey[name]'})
@@ -108,7 +111,8 @@
 			});
 
 			$('#doneNewItemBtn').click(function(){
-			  self.showButtons();
+				self.new_item_form_data = $('#newItemForm').serialize();
+				self.showButtons();
 			});	
 
 			//FUNCTIONS:
@@ -162,7 +166,6 @@
 			this.base_path = '/surveys/' + this.survey_id; // e.g. "/survey/1"
 			this.builder_ui = params['builder_ui'];
 			this.total_items = params['total_items'];
-			this.newItemForm = $('#newItemForm');
 			this.newSurveyTypeSelector = $('#surveyTypeSelector');
 
 			this.newSurveyTypeSelector.dropkick();
@@ -174,29 +177,23 @@
 
 			//insert buttons click handler:
 			$(this.builder_ui.insertButtons).live('click', function(){
-				type = self.newSurveyTypeSelector.val();
-				self.addItem(type, $(this).attr('itemindex'), self.newItemForm.serialize());
+				self.addItem($(this).attr('itemindex'), self.builder_ui.new_item_form_data);
 				self.builder_ui.renewItemsIndexes();
 				self.builder_ui.hideButtons();
 			});
 
-			$('.cancelBtn').click(function(){
-			  self.newSurveyTypeSelector.change();
-			});
-
 			
 			//callbacks:
-			this.afterItemAdd 	= undefined;
+			this.afterItemAdd	= undefined;
 			this.onSuccCall  	= undefined;
 			this.onErrorCall	= undefined;
 			
 			//functions			
-			this.addItem = function(type, pos, params){
+			this.addItem = function(pos, params){
 				var self = this;
 				$.ajax(this.base_path + '/items', {
 					type: 'POST',
 					data: {
-						item_type: type,
 						item_params: params,
 						item_position: pos
 					}, 

@@ -16,3 +16,10 @@
 //= require twitter/bootstrap
 //= require common
 //= require_tree .
+
+
+$(function(){
+	$('body').on('hidden', '.modal', function(){
+		$(this).removeData('modal');
+	})
+});
