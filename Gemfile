@@ -34,3 +34,4 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'devise'
 gem 'devise_invitable'
+gem 'pg', '0.14.0' #for heroku support
