@@ -8,7 +8,7 @@ class SurveyItem < ActiveRecord::Base
   after_create  :add_position
   
   attr_writer :position
-  scope :trashed, where('deleted_at <> NULL')
+  scope :trashed, where('deleted_at NOT NULL')
   scope :active, where(deleted_at: nil)
   
   class << self
