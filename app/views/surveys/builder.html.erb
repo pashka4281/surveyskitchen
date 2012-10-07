@@ -1,11 +1,9 @@
 <% header("Questions builder", subheader: 'All changes here are automatically saved.') %>
 
     	<div id="build_list"  class="list">
-
-
       		<h2 id="survey-name"><%= @survey.name %></h2>
 
-			<div id="zero-item" class="span12 insertable">
+			<div id="zero-item" class="insertable">
 	            <%= insert_button %>
         	</div>
         
@@ -138,48 +136,55 @@
 			  });
 			}
 			
-			this.renewItemsIndexes = function(){
+			this._currentButtons = function(){
 				if($(this.noItemsArea).is(':hidden')){
-					$(this.buildList).find(this.zeroItem +' '+ this.insertButtons + ', .sortable_item ' + this.insertButtons).each(function(i, el){
-						$(el).attr('itemindex', i);
-					});
+					return $(this.buildList).find(this.zeroItem +' '+ this.insertButtons + ', .sortable_item ' + this.insertButtons);
 				}else {
-					$(this.buildList).find(this.noItemsArea+' '+this.insertButtons).each(function(i, el){
-						$(el).attr('itemindex', i);
-					});
+					return $(this.buildList).find(this.noItemsArea+' '+this.insertButtons)
 				}
 			}
 			
-			this.renewItemsIndexes();
-			
 			//change all insert buttons labels to `label`
 			this.buttonsLabel = function(label){ $(this.insertButtons).html(label) }
+			this.showButtons = function(){ self._currentButtons().css('display', 'block') }
+			this.hideButtons = function(){ self._currentButtons().fadeOut(200) }
+
+			this.renewItemsIndexes = function(){
+				$(this.insertButtons).removeAttr('itemindex'); //cleaning itemindexes
+				self._currentButtons().each(function(i, el){
+					$(el).attr('itemindex', i);
+				});
+			}
 			
-			this.showButtons = function(){ $(this.insertButtons).css('display', 'block') }
-			this.hideButtons = function(){ $(this.insertButtons).fadeOut(200) }			
+			this.renewItemsIndexes();
 		} 
 	
 		function Survey(params){
-			//constructor
 			var self = this;
+			//constructor
 			this.survey_id = params['survey_id'];
 			this.base_path = '/surveys/' + this.survey_id; // e.g. "/survey/1"
-			this.builder_ui = params['builder_ui'];
-			this.total_items = params['total_items'];
 			this.newSurveyTypeSelector = $('#surveyTypeSelector');
-
 			this.newSurveyTypeSelector.dropkick();
-
+			this.total_items = params['total_items'];
 			if(self.total_items == 0){ 
 				$('#no-items-area').show();
 				$('#zero-item').hide();
 			}
+
+			this.builder_ui = new BuilderUI({updateSurveyUrl: params['survey_update_url']});
 
 			//insert buttons click handler:
 			$(this.builder_ui.insertButtons).live('click', function(){
 				self.addItem($(this).attr('itemindex'), self.builder_ui.new_item_form_data);
 				self.builder_ui.renewItemsIndexes();
 				self.builder_ui.hideButtons();
+			});
+
+			//remove links click handler:
+			$(this.builder_ui.delete_links).live('click', function(){
+				self.deleteItem($(this).parents('.sortable_item').attr('item_id'));
+				return false;
 			});
 
 			
@@ -223,23 +228,13 @@
 		
 		// document ready 
 		$(function(){
-		  	$('body').addClass('bottom-padding');
-			
-			var builder_ui = new BuilderUI({
-				updateSurveyUrl: "<%= survey_path(@survey, format: :js) %>"
-			});
+		  	//$('body').addClass('bottom-padding');
 
-			var survey = new Survey({survey_id: <%= @survey.id %>, 
-				builder_ui: builder_ui,
+			var survey = new Survey({
+				survey_id: <%= @survey.id %>,
+				survey_update_url: "<%= survey_path(@survey, format: :js) %>",
 				total_items: <%= @survey.items.active.count %> 
-			});			
-			
-			//remove links click handler:
-			$(builder_ui.delete_links).live('click', function(){
-				survey.deleteItem($(this).parents('.sortable_item').attr('item_id'));
-				return false;
 			});
-			
 		});
 	</script>
 <% end %>

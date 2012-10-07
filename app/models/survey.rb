@@ -5,7 +5,7 @@ class Survey < ActiveRecord::Base
   belongs_to :account
   belongs_to :user
   belongs_to :category
-  has_many  :items, :dependent => :destroy, class_name: 'SurveyItem'
+  has_many  :items, dependent: :destroy, class_name: 'SurveyItem'
   serialize :items_positions
   attr_accessor :prefill_items
   

@@ -26,7 +26,8 @@ module ApplicationHelper
   end
 
   def insert_button
-    raw '<button class="btn btn-mini btn-success btn-block insert_buttons" type="button">Insert here »</button>'
+    raw '<button class="btn btn-mini btn-success btn-block insert_buttons">
+    <i class="icon-circle-arrow-left"></i> Insert here <i class="icon-circle-arrow-right"></i></button>'
   end
 
 end

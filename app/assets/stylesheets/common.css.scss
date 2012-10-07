@@ -1,17 +1,29 @@
+@mixin borderRadius($size) {
+  -moz-border-radius: $size;
+  -webkit-border-radius: $size;
+  -khtml-border-radius: $size;
+   border-radius: $size;
+}
+
 .btn:focus{ outline: none; }
 #build_list{
+	@include borderRadius(15px);
 	padding: 7px;
-	border-radius: 15px;
 	border: 4px solid #DDDDDD;
 	margin-bottom: 30px;
-	#no-items-area, #zero-item{ display: none; }
-	#work-area-texting{ text-align: center;color: #BBB;border: 3px dashed #CCC;}
+	#no-items-area{
+        display: none;
+        #work-area-texting{
+            color: #929292;text-align: center;border: 3px dashed #CCC;
+        }
+	}
 	.sortable_item{
 		margin-bottom: 22px;
 	}
 	.insert_buttons{ 
 		display: none; 
-		margin-bottom: 16px; 
+		margin-bottom: 16px;
+		font-size: 14px;
 	}
 }
 
@@ -27,6 +39,17 @@ $blue-color: #CFCFCF;
 	padding: 0 10px;
 }
 
+
+#hover{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 9999999;
+	top: 0;
+	left: 0;
+	background-color: black;
+	opacity: 0.9;
+}
 
 @media (max-width: 767px) {
 	#build_list{
