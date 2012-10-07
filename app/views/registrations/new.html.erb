@@ -7,60 +7,34 @@
   <%= devise_error_messages! %>
 
   <%= form_for(resource, :url => :register, class: 'form') do |f| %>
-      <div class="row">
+
         <div class="four mobile-one columns">
           <%= f.label :first_name, class: 'right' %>
-        </div>
-        <div class="twelve mobile-three columns">
           <%= f.text_field :first_name, placeholder: 'Your first name', class: 'ten' %>
         </div>
-      </div>
-      <div class="row">
         <div class="four mobile-one columns">
           <%= f.label :last_name, class: 'right' %>
-        </div>
-        <div class="twelve mobile-three columns">
           <%= f.text_field :last_name, placeholder: 'Your last name', class: 'ten' %>
         </div>
-      </div>
-      <div class="row">
         <div class="four mobile-one columns">
           <%= f.label :account_name, class: 'right' %>
-        </div>
-        <div class="twelve mobile-three columns">
           <%= f.text_field :account_name, placeholder: 'Choose an account name', class: 'ten' %>
         </div>
-      </div>
-      <div class="row">
         <div class="four mobile-one columns">
           <%= f.label :email, class: 'right' %>
-        </div>
-        <div class="twelve mobile-three columns">
           <%= f.text_field :email, placeholder: 'Email address', class: 'ten' %>
         </div>
-      </div>
-      <div class="row">
         <div class="four mobile-two columns">
           <%= f.label :password, class: 'right' %>
-        </div>
-        <div class="twelve mobile-three columns">
           <%= f.password_field :password, placeholder: 'Password', class: 'seven' %>
         </div>
-      </div>
-      <div class="row">
         <div class="four mobile-two columns">
           <%= f.label :password_confirmation, 'Confirm password: ', class: 'right' %>
-        </div>
-        <div class="twelve mobile-three columns">
           <%= f.password_field :password_confirmation, placeholder: 'Confirm password', class: 'seven' %>
         </div>
-      </div>
-      <div class="row">
-        <div class="two mobile-one columns"></div>
         <div class="ten mobile-three columns">
           <%= f.submit "Sign up now!", class: 'button' %>
         </div>
-      </div>
 
   <% end %>
 </div>

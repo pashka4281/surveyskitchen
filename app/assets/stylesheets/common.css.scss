@@ -4,13 +4,15 @@
   -khtml-border-radius: $size;
    border-radius: $size;
 }
-
+body{ background: url(/assets/bg-image.png) }
+div.paddend-content{ padding: 10px; background-color: #fff; }
 .btn:focus{ outline: none; }
 #build_list{
 	@include borderRadius(15px);
 	padding: 7px;
-	border: 4px solid #DDDDDD;
+	border: 4px solid #B1B1B1;
 	margin-bottom: 30px;
+	background-color: #fff;
 	#no-items-area{
         display: none;
         #work-area-texting{

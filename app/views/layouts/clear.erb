@@ -1,44 +1,63 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]>
-<html class="ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>
-<html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>
-<html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8"/>
-  <!-- Uncomment to make IE8 render like IE7 -->
-  <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Surveyskitchen" %></title>
+    <%= csrf_meta_tags %>
 
-  <!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
 
-  <title><%= content_for?(:title) ? yield(:title) : "SurveysKitchen" %></title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
 
-  <!-- Included CSS Files -->
-  <%= stylesheet_link_tag "application" %>
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <!-- Size should be 144 x 144 pixels -->
+    <%= favicon_link_tag 'images/apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
 
-  <%= csrf_meta_tags %>
-</head>
-<body>
-    <%= render 'shared/top_bar' %>
-    
-    <header class="row">
-			<div class="ten columns" id="header">
-        <%= yield :header %>
-      </div>
-      <div class="six columns end"> 
-        <%= yield :head_panel %>
-      </div>
-		</header>
+    <!-- For iPhone with high-resolution Retina display: -->
+    <!-- Size should be 114 x 114 pixels -->
+    <%= favicon_link_tag 'images/apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
 
-    <div class="row">
-      <%= yield %>
-    </div>
-</body>
+    <!-- For first- and second-generation iPad: -->
+    <!-- Size should be 72 x 72 pixels -->
+    <%= favicon_link_tag 'images/apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
 
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <!-- Size should be 57 x 57 pixels -->
+    <%= favicon_link_tag 'images/apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+
+    <!-- For all other devices -->
+    <!-- Size should be 32 x 32 pixels -->
+    <%= favicon_link_tag 'images/favicon.ico', :rel => 'shortcut icon' %>
+  </head>
+  <body>
+
+    <%= render 'shared/top_bar_marketing' %>
+
+    <div class="container">
+      <div class="row">
+        
+        <div class="span12">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div><!--/row-->
+
+      <footer>
+        <p>© Company 2012</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Javascripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
-    <%= yield :js %>
+    <%= yield :js if content_for? :js %>
+
+  </body>
 </html>

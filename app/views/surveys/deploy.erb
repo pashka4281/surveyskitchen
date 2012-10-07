@@ -1,50 +1,62 @@
 <% header("\"#{@survey.name}\" > Deploy") %>
 
-<%= render 'shared/nav_menu' %>
-
-<div class="twelve columns end">
-
-  <div class="round-borders padded">
-
-    <dl class="tabs">
-      <dd class="active"><a href="#public">Public</a></dd>
-      <dd><a href="#private">Private</a></dd>
-    </dl>
-
-    <ul class="tabs-content">
-      <li class="active link-block" id="publicTab">
-        <div class="row">
-          Survey public link:
-          <span class="survey-deploy-link">http://mycompany.surveyskitchen.com/123456</span>
-        </div>
-        <div class="row">
-          Embed JavaScript code:
-          <span class="survey-deploy-link">
-            <%= escape_javascript('<script src="http://surveymonkey.com/12324.js"></script>').gsub("\\", '') %>
-          </span>
-        </div>
-      </li>
-      <li id="privateTab" class="link-block">
-        <div class="row">
-          Survey private link:
-          <span class="survey-deploy-link">http://mycompany.surveyskitchen.com/123456</span>
-        </div>
-        <div class="row">
-          Embed JavaScript code:
-          <span class="survey-deploy-link">
-            <%= escape_javascript("<script src=\"http://surveymonkey.com/#{@survey.token}.js\"></script>").gsub("\\", '') %>
-          </span>
-        </div>
-      </li>
+<div class="paddend-content">
+  <div class="tabbable"> <!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
+      <li><a href="#tab2" data-toggle="tab">Section 2</a></li>
     </ul>
-
-    <input type="checkbox">I need SSL secured links!</input>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab1">
+        <table class="table">
+          <thead>
+            <tr></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Survey public link:</td>
+              <td>
+                <span class="survey-deploy-link">http://mycompany.surveyskitchen.com/123456</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Embed JavaScript code:</td>
+              <td>
+                <span class="survey-deploy-link">
+                  <%= escape_javascript('<script src="http://surveymonkey.com/12324.js"></script>').gsub("\\", '') %>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="tab2">
+        <table class="table">
+          <thead>
+            <tr></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Survey private link:</td>
+              <td>
+                <span class="survey-deploy-link">http://mycompany.surveyskitchen.com/123456</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Embed JavaScript code:</td>
+              <td>
+                <span class="survey-deploy-link">
+                  <%= escape_javascript("<script src=\"http://surveymonkey.com/#{@survey.token}.js\"></script>").gsub("\\", '') %>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
+  <input type="checkbox">I need SSL secured links!</input>
 </div>
 
-<% content_for :js do %>
-  <script type="text/javascript">
-    $(document).foundationTabs();
-  </script>
-<% end %>
+
