@@ -7,7 +7,7 @@ class SurveyItems::SingleSelectQuestion < SurveyItem
   end
 
   def variants
-    get_custom_field_value(:variants).join("\n")
+    (get_custom_field_value(:variants) || []).join("\n")
   end
 
   def variants_array
