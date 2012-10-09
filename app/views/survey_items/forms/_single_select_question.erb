@@ -1,15 +1,16 @@
-  <div class="sixteen columns">
-		<label>Question title:</label>
-    <textarea name="title" class="vertical-resize" placeholder="Place question description here" id="new_survey_item_title"></textarea>
-	</div>
-  <div class="sixteen columns">
-    <label>Varaints goes here</label>
-    <textarea name="variants" class="min120height vertical-resize" placeholder="One variant per line"></textarea>
-  </div>
-  <div class="sixteen columns vspace">
-    <label for="radio1">
-      <input type="checkbox" name="include_txt_field" value="1"></input>
-      <span class="custom radio"></span> Include optional text field
+<%= form_for @survey_item || SurveyItems::SingleSelectQuestion.new, url: '#', id: 'single_select_question_form' do |f| %>
+	<label>Question title:</label>
+	<%= f.text_area :title, name: 'title', rows: 2,  
+		class: 'full-width', placeholder: "Place question description here" %>
+	
+	<label>Varaints goes here</label>
+	<%= f.text_area :variants, name: 'variants', rows: 3,  
+		class: 'full-width', placeholder: "Place question description here" %>
+
+	<label class="checkbox">
+      <%= f.check_box :include_txt_field, name: 'include_txt_field' %>
+      Include optional text field
     </label>
-	</div>
-<input type="hidden" name="item_type" value="single_select_question">
+  
+	<input type="hidden" name="item_type" value="single_select_question">
+<% end %>

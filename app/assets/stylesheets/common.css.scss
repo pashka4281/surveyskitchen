@@ -4,8 +4,11 @@
   -khtml-border-radius: $size;
    border-radius: $size;
 }
+textarea{ box-sizing: border-box; }
+.full-width{ width: 100%; }
 body{ background: url(/assets/bg-image.png) }
 div.paddend-content{ padding: 10px; background-color: #fff; }
+#new_survey_item textarea{ resize: vertical; }
 .btn:focus{ outline: none; }
 #build_list{
 	@include borderRadius(15px);
@@ -21,6 +24,7 @@ div.paddend-content{ padding: 10px; background-color: #fff; }
 	}
 	.sortable_item{
 		margin-bottom: 22px;
+		ul.unstyled, select, input[type="text"], textarea{ margin-top: 10px; }
 	}
 	.insert_buttons{ 
 		display: none; 
@@ -28,7 +32,9 @@ div.paddend-content{ padding: 10px; background-color: #fff; }
 		font-size: 14px;
 	}
 }
-
+#newItem{
+	form{ margin-bottom: 0; }
+}
 #newItemBar{ position: fixed; border-top: 1px solid #aaa; }
 #item_type_buttons{ 
 	text-align: center;

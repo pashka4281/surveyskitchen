@@ -1,0 +1,3 @@
+<%= form_for @survey_item do |form| -%>
+	<%= render "survey_items/forms/#{@survey_item.type.demodulize.underscore}", f: form %>
+<%- end -%>

@@ -1,16 +1,13 @@
-
-  <div class="sixteen columns">
+<%= form_for @survey_item || SurveyItems::PageBreak.new, url: '#', id: 'page_break_form' do |f| %>
     <label>Page header</label>
     <input type="text" placeholder="Page heading text"/>
-  </div>
-  <div class="sixteen columns">
+
     <label>Page description</label>
     <textarea class="min80height vertical-resize" placeholder="Short page description text" ></textarea>
-  </div>
-  
-  <div class="sixteen columns">
+
   	<div class="panel">
         <p><span class="secondary label">NOTE:</span> header and description will be applied to the page above this break.</p>
-			</div>
-  </div>
+	</div>
+
   <input type="hidden" name="item_type" value="page_break">
+<% end %>

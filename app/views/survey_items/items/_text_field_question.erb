@@ -1,6 +1,6 @@
 <%= content_tag_for :div, item, class: "insertable sortable_item question-item", item_id: item.id do -%>
   <div class="navbar-inner pull-right">
-    <%= render 'survey_items/items/_tools_box'%>
+    <%= render 'survey_items/items/_tools_box', item: item %>
   </div>
   <div class="well well-small">
     <strong><%= item.title%></strong>

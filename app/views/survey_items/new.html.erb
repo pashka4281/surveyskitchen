@@ -1,28 +1,25 @@
-
-    <div id="new_survey_item">
-      <div id="item_type_buttons">
-        <button href="#" class="btn btn-large" data-item-type="text_field_question">
-          <i class="icon-text-height"></i> Text field</button>
-        <button href="#" class="btn btn-large" data-item-type="multiple_select_question">
-          <i class="icon-check"></i> Multiple select</button>
-        <button href="#" class="btn btn-large" data-item-type="single_select_question">
-          <i class="icon-list-alt"></i> Single select</button>
-        <button href="#" class="btn btn-large" data-item-type="drop_down_question">
-          <i class="icon-chevron-down"></i> Drop down</button>
-        <button href="#" class="btn btn-large" data-item-type="scale_question">
-          <i class="icon-resize-full"></i> Scale question</button>
-        <button href="#" class="btn btn-large" data-item-type="image">
-          <i class="icon-picture"></i> Image</button>
-        <button href="#" class="btn btn-large" data-item-type="desc_text">
-          <i class="icon-font"></i> Descriptive text</button>
-        <button href="#" class="btn btn-large" data-item-type="page_break">
-          <i class="icon-file"></i> Page break</button>
-      </div>
-      <form id="newItemForm">
-        <div id="new_item"></div>
-      </form>
-    </div>
+<div id="new_survey_item">
+  <div id="item_type_buttons">
+    <button href="#" class="btn btn-large" data-item-type="text_field_question">
+      <i class="icon-text-height"></i> Text field</button>
+    <button href="#" class="btn btn-large" data-item-type="multiple_select_question">
+      <i class="icon-check"></i> Multiple select</button>
+    <button href="#" class="btn btn-large" data-item-type="single_select_question">
+      <i class="icon-list-alt"></i> Single select</button>
+    <button href="#" class="btn btn-large" data-item-type="drop_down_question">
+      <i class="icon-chevron-down"></i> Drop down</button>
+    <button href="#" class="btn btn-large" data-item-type="scale_question">
+      <i class="icon-resize-full"></i> Scale question</button>
+    <button href="#" class="btn btn-large" data-item-type="image">
+      <i class="icon-picture"></i> Image</button>
+    <button href="#" class="btn btn-large" data-item-type="desc_text">
+      <i class="icon-font"></i> Descriptive text</button>
+    <button href="#" class="btn btn-large" data-item-type="page_break">
+      <i class="icon-file"></i> Page break</button>
+    
   </div>
+  <div id="newItem"></div>
+</div>
 
   <script type="text/javascript">
     var itemsHtmlArray = <%= raw(survey_items_html_array()) %>;
@@ -31,8 +28,8 @@
       var val = $(e.target).data('item-type');
       $('#item_type_buttons').remove();
       $('#new_survey_item').parents('.modal').find('.modal-header h3').text('New ' + $(e.target).text());
-      $('#new_item').html(itemsHtmlArray[val]);
-      //$("#new_item textarea").autoGrow();
+      $('#newItem').html(itemsHtmlArray[val]);
+      //$("#newItemForm textarea").autoGrow();
     }
 
     //document ready callback

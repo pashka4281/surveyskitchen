@@ -1,15 +1,16 @@
-  <div class="sixteen columns">
-		<label>Question title:</label>
-    <textarea name="title" class="vertical-resize" placeholder="Place question description here" id="new_survey_item_title"></textarea>
-	</div>
-  <div class="sixteen columns">
+<%= form_for @survey_item || SurveyItems::DropDownQuestion.new, url: '#', id: 'drop_down_question_form' do |f| %>
+	<label>Question title:</label>
+	<%= f.text_area :title, name: 'title', rows: 2,  
+		class: 'full-width', placeholder: "Place question description here" %>
+
     <label>Varaints goes here</label>
-    <textarea name="variants" class="min120height vertical-resize" placeholder="One variant per line"></textarea>
-  </div>
-  <div class="sixteen columns">
-    <label for="radio1">
-      <input type="checkbox" name="include_empty" value="1"></input>
-      <span class="custom radio"></span> Include empty variant ("Please select")
-    </label>
-	</div>
+    <%= f.text_area :variants, name: 'variants', rows: 3,  
+		class: 'full-width', placeholder: "One variant per line" %>
+
+	<label class="checkbox">
+    	<input type="checkbox" name="include_empty" value="1"></input>
+    	Include empty variant ("Please select")
+	</label>
+
   <input type="hidden" name="item_type" value="drop_down_question">
+<% end %>

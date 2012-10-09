@@ -1,11 +1,19 @@
-<div class="sixteen columns">
+<%= form_for @survey_item || SurveyItems::ScaleQuestion.new, url: '#', id: 'scale_question_form' do |f| %>
 	<label>Question title:</label>
-	<textarea name="title" class="vertical-resize" placeholder="Place question description here" id="new_survey_item_title"></textarea>
-</div>
-<div class="sixteen columns">
+	<%= f.text_area :title, name: 'title', rows: 2,  
+		class: 'full-width', placeholder: "Place question description here" %>
+
 	<label>Scale size:</label>
-    <input type="radio" name="scale_size" value="3" checked>3 options</input>
-    <input type="radio" name="scale_size" value="5">5 options</input>
-    <input type="radio" name="scale_size" value="10" checked>10 options</input>
-</div>
-<input type="hidden" name="item_type" value="scale_question">
+    <label class="radio inline">
+		<%= f.radio_button :scale_size, 3, name: 'scale_size' %> 3 options
+	</label>
+	<label class="radio inline">
+		<%= f.radio_button :scale_size, 5, name: 'scale_size' %> 5 options
+	</label>
+	<label class="radio inline">
+		<%= f.radio_button :scale_size, 10, name: 'scale_size' %> 10 options
+	</label>
+
+
+	<input type="hidden" name="item_type" value="scale_question">
+<% end %>

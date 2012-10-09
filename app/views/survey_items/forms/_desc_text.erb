@@ -1,7 +1,7 @@
-<div id="desc_text_item">
-  <div class="sixteen columns">
+<%= form_for @survey_item || SurveyItems::DescText.new, url: '#', id: 'desc_text_item_form' do |f| %>
     <label>Place here some text:</label>
-    <textarea name="text_content" class="min120height vertical-resize" placeholder="Description text" ></textarea>
-  </div>
-  <input type="hidden" name="item_type" value="desc_text">
-</div>
+    <%= f.text_area :text_content, name: 'text_content', rows: 3,  
+    	class: 'min120height full-width', placeholder: "Description text" %>
+
+	<input type="hidden" name="item_type" value="desc_text">
+<% end%>

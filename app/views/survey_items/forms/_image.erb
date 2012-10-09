@@ -1,11 +1,9 @@
-<div id="image_item">
-  <div class="sixteen columns">
+<%= form_for SurveyItem.new, url: '#', id: 'image_item_form' do |f| %>
     <label>Get image from Url</label>
     <input type="text" placeholder="URL for the image"/>
-  </div>
-  <div class="sixteen columns">
+
     <label>Upload image</label>
     <input type="file" ></input>
-  </div>
-  <input type="hidden" name="item_type" value="image">
-</div>
+	
+	<input type="hidden" name="item_type" value="image">
+<% end %>

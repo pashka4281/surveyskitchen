@@ -1,11 +1,11 @@
 <%= div_for item, class: "insertable sortable_item question-item", item_id: item.id do -%>
 	<div class="navbar-inner pull-right">
-		<%= render 'survey_items/items/_tools_box'%>
+		<%= render 'survey_items/items/_tools_box', item: item %>
   	</div>
   	<div class="well well-small">
   		<strong><%= item.title%></strong>
     	<ul class="unstyled">
-	    	<% for var in item.variants %>
+	    	<% for var in item.variants_array %>
 		    	<li>
 			      	<label class="radio">
 						<input type="radio" name="r_btn" value="<%= var %>" /><%= var %>

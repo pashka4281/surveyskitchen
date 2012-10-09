@@ -1,10 +1,15 @@
+<%= form_for @survey_item || SurveyItems::TextFieldQuestion.new, url: '#', html:{ id: 'text_field_question_form'} do |f| %>
 	<label>Question title:</label>
-  <textarea name="title" class="vertical-resize" placeholder="Place question description here" id="new_survey_item_title"></textarea>
+	<%= f.text_area :title, name: 'title', rows: 2,  
+		class: 'full-width', placeholder: "Place question description here" %>
 
+	<label class="">Appearance:</label>
+	<label class="radio inline">
+		<%= f.radio_button :appearance,'txt_field', name: 'appearance' %> Text field
+	</label>
+	<label class="radio inline">
+		<%= f.radio_button :appearance,'txt_area', name: 'appearance' %> Text area
+	</label>
 
-<div class="sixteen columns">
-	<label class="top-span">Appearance:</label>
-  <input type="radio" name="appearance" value="txt_field" checked>Text field</input>
-  <input type="radio" name="appearance" value="txt_area">Text area</input>
-</div>
-<input type="hidden" name="item_type" value="text_field_question">
+	<input type="hidden" name="item_type" value="text_field_question">
+<% end %>

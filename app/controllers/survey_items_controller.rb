@@ -2,12 +2,20 @@ class SurveyItemsController < ApplicationController
 	helper :all
 
 	def new
-		 render layout: false
+		render layout: false
+	end
+
+	def edit
+		@survey = Survey.find(params[:survey_id])
+		@survey_item = @survey.items.find(params[:id])
+		render layout: false
 	end
 	
 	def	create
 		@survey = Survey.find(params[:survey_id])
 		item_params = Rack::Utils.parse_nested_query(params[:item_params])
+		item_params.delete('utf8')
+		item_params.delete('authenticity_token')
 		type = item_params.delete('item_type')
 		@item = get_item_constant(type).
 			new(item_params.merge(survey: @survey, position: params[:item_position]))
