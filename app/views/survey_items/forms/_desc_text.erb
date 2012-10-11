@@ -2,6 +2,6 @@
     <label>Place here some text:</label>
     <%= f.text_area :text_content, name: 'text_content', rows: 3,  
     	class: 'min120height full-width', placeholder: "Description text" %>
-
+    <%= hidden_field_tag :item_id, @survey_item.id %>
 	<input type="hidden" name="item_type" value="desc_text">
 <% end%>

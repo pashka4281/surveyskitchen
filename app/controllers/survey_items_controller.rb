@@ -10,6 +10,12 @@ class SurveyItemsController < ApplicationController
 		@survey_item = @survey.items.find(params[:id])
 		render layout: false
 	end
+
+	def update
+		p params
+		@survey = Survey.find(params[:survey_id])
+		@survey_item = @survey.items.find(params[:id])
+	end
 	
 	def	create
 		@survey = Survey.find(params[:survey_id])

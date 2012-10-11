@@ -9,8 +9,8 @@
 			this.noItemsArea 	= '#no-items-area';
 			this.zeroItem 		= '#zero-item';
 			this.updateSurveyUrl= params['updateSurveyUrl'];
+			this.survey_id 		= params['survey_id']
 			this.new_item_form_data = null;
-
 			//editable survey title:
 			$('#survey-name').tinyEditor(self.updateSurveyUrl, {postName: 'survey[name]'})
 
@@ -34,12 +34,18 @@
 			});
 
 			$('#doneNewItemBtn').click(function(){
-				self.new_item_form_data = $('#newItem > form').serialize();
+				$('#editItemContainer > form').serialize();
 				self.showButtons();
 			});
 
+			$('#doneEditItemBtn').click(function(){
+				$.ajax('/surveys/' + self.survey_id + '/items/' + $('#editItemContainer form input[name=item_id]').val(), {
+					type: 'PUT',
+					data: $('#editItemContainer form').serialize()
+				})
+			});
+
 			$(this.edit_links).click(function(){
-				console.log(this)
 				return false;
 			});
 
@@ -90,19 +96,22 @@
 		} 
 	
 		function Survey(params){
-			var self = this;
 			//constructor
 			this.survey_id = params['survey_id'];
 			this.base_path = '/surveys/' + this.survey_id; // e.g. "/survey/1"
 			this.newSurveyTypeSelector = $('#surveyTypeSelector');
 			this.newSurveyTypeSelector.dropkick();
 			this.total_items = params['total_items'];
-			if(self.total_items == 0){ 
+			if(this.total_items == 0){ 
 				$('#no-items-area').show();
 				$('#zero-item').hide();
 			}
+			var self = this;
 
-			this.builder_ui = new BuilderUI({updateSurveyUrl: params['survey_update_url']});
+			this.builder_ui = new BuilderUI({
+				updateSurveyUrl: params['survey_update_url'],
+				survey_id: self.survey_id
+			});
 
 			//insert buttons click handler:
 			$(this.builder_ui.insertButtons).live('click', function(){

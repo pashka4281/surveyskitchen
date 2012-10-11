@@ -17,6 +17,17 @@
 //= require common
 //= require_tree .
 
+// (function($) {
+
+// 	$.fn.highlightSurveyItem = function(options) {
+// 		var self = this,
+// 			current_bg = this.css('background-color');
+// 		console.log(current_bg)
+		
+// 		return this;
+// 	};
+// })(jQuery);
+
 
 $(function(){
 	$('body').on('hidden', '.modal', function(){
