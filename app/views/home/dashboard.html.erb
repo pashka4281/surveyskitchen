@@ -1,7 +1,7 @@
 <% header('Dasboard', subheader: 'This is a place where all starts') %>
 
-
-<div class="row">
+<div class="padded-content">
+  <div class="row-fluid">
       <div class="span4">
         <div class="dashboard-box big">
           <h1>0</h1>
@@ -53,69 +53,13 @@
     <li><a href="">13</a></li>
     <li class="arrow"><a href="">&raquo;</a></li>
   </ul>
+</div>
+
 
 <%= content_for :js do %>
   <script type="text/javascript">
   $(function () {
-      var sin = [];
-      for (var i = 0; i < 14; i += 0.5) {
-          sin.push([i, Math.sin(i)]);
-      }
-
-      var plot = $.plot($("#plot"),
-             [ { data: sin, label: "sin(x)"}], {
-                 series: {
-                     lines: { show: true },
-                     points: { show: true }
-                 },
-                 grid: { hoverable: true, clickable: true },
-                 yaxis: { min: -1.2, max: 1.2 }
-               });
-
-      function showTooltip(x, y, contents) {
-          $('<div id="tooltip">' + contents + '</div>').css( {
-              position: 'absolute',
-              display: 'none',
-              top: y + 5,
-              left: x + 5,
-              border: '1px solid #fdd',
-              padding: '2px',
-              'background-color': '#fee',
-              opacity: 0.80
-          }).appendTo("body").fadeIn(200);
-      }
-
-      var previousPoint = null;
-      $("#placeholder").bind("plothover", function (event, pos, item) {
-          $("#x").text(pos.x.toFixed(2));
-          $("#y").text(pos.y.toFixed(2));
-
-          if ($("#enableTooltip:checked").length > 0) {
-              if (item) {
-                  if (previousPoint != item.dataIndex) {
-                      previousPoint = item.dataIndex;
-                      
-                      $("#tooltip").remove();
-                      var x = item.datapoint[0].toFixed(2),
-                          y = item.datapoint[1].toFixed(2);
-                      
-                      showTooltip(item.pageX, item.pageY,
-                                  item.series.label + " of " + x + " = " + y);
-                  }
-              }
-              else {
-                  $("#tooltip").remove();
-                  previousPoint = null;            
-              }
-          }
-      });
-
-      $("#placeholder").bind("plotclick", function (event, pos, item) {
-          if (item) {
-              $("#clickdata").text("You clicked point " + item.dataIndex + " in " + item.series.label + ".");
-              plot.highlight(item.series, item.datapoint);
-          }
-      });
+      
   });
   </script>
 <% end %>

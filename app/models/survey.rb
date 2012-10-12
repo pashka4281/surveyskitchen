@@ -45,7 +45,7 @@ class Survey < ActiveRecord::Base
   end
 
   def generate_token
-    self.token = rand(50**10).to_s(16)
+    self.token = rand(50**10).to_s(7)
   end
 end
 
