@@ -9,5 +9,6 @@
         <p><span class="secondary label">NOTE:</span> header and description will be applied to the page above this break.</p>
 	</div>
 
-  <input type="hidden" name="item_type" value="page_break">
+	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
+	<input type="hidden" name="item_type" value="page_break">
 <% end %>

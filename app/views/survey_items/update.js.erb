@@ -1,3 +1,5 @@
-$('#<%= dom_id(@survey_item)%> .well').effect("highlight", {}, 3000);
+$('#<%= dom_id(@survey_item)%>')
+	.replaceWith("<%= j render("/survey_items/items/#{@survey_item.type.demodulize.underscore}", item: @survey_item) %>");
+$('#<%= dom_id(@survey_item)%> .well').effect("highlight", {color: '#F8BD00'}, 1000);
 
 // $('#<%= dom_id(@survey_item)%>').highlightSurveyItem();
