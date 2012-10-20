@@ -1,0 +1,11 @@
+<div class="padded-content">
+	<h2><%= @survey.name %></h2>
+	<form action='#'>
+		<%- @survey.sorted_items.each do |i| -%>
+			<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i %>
+		<% end %>
+
+		<input type="submit" class="btn button" value="Done"></input>
+	</form>
+</div>
+

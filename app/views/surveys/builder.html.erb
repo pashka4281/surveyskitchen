@@ -33,7 +33,7 @@
 				    <a class="btn btn-warning" href="#"><i class="icon-wrench"></i> Survey settings</a>
 				</div>
 		  		
-				<a class="btn btn-success pull-right" href="#"><i class="icon-ok"></i> Done</a>
+				<a href="<%= deploy_survey_path(@survey) %>" class="btn btn-success pull-right"><i class="icon-ok"></i> Done</a>
 			</div>
 	  </div>
 	</div>
@@ -87,7 +87,6 @@
 <%= content_for :js do %>
 	<script>
 
-		
 		
 		// document ready 
 		$(function(){

@@ -1,9 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails'#, '3.2.3'
 gem 'twitter-bootstrap-rails'
 #gem 'agent_orange' # =>  https://github.com/kevinelliott/agent_orange for detecting browser and os
 
+gem 'jquery-rails'
+gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'devise'
+gem 'devise_invitable'
+gem 'carrierwave'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,8 +34,6 @@ group :test do
   gem 'factory_girl_rails'
 end
 
-gem 'jquery-rails'
-gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'devise'
-gem 'devise_invitable'
-gem 'pg', '0.14.0' #for heroku support
+group :production do
+  gem 'pg', '0.14.0' #for heroku support
+end

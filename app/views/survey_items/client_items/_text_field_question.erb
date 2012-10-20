@@ -1,0 +1,12 @@
+<%= content_tag_for :div, item, class: "insertable sortable_item question-item", item_id: item.id do -%>
+  <div class="well well-small">
+    <strong><%= item.title%></strong>
+    <div class="clear"></div>
+    <% if item.appearance == 'txt_field' %>
+      <input type="text" class="span9" />
+    <% else %>
+      <textarea class="span9"></textarea>
+    <% end %>
+    
+  </div>
+<%- end -%>

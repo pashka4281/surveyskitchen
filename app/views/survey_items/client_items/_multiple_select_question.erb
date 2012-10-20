@@ -1,0 +1,15 @@
+<%= content_tag_for :div, item, class: "insertable sortable_item question-item", item_id: item.id do -%>
+  	<div class="well well-small">
+  		<strong><%= item.title%></strong>
+  		<div class="clear"></div>
+    	<ul class="unstyled">
+	    	<% for var in item.variants_array %>
+		    	<li>
+			      	<label class="checkbox">
+						<input type="checkbox" name="r_btn" value="<%= var %>" /><%= var %>
+					</label>
+				</li>
+		    <% end %>
+		</ul>
+  	</div>
+<% end %>

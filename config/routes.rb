@@ -7,6 +7,10 @@ Surveyskitchen::Application.routes.draw do
       delete :delete, as: :member
     end
   end
+
+  namespace :s do
+    get ':id', to: 'surveys#show'
+  end
   
   resources :categories
 

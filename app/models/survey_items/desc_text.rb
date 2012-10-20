@@ -10,4 +10,3 @@ class SurveyItems::DescText < SurveyItem
   end
 
 end
-

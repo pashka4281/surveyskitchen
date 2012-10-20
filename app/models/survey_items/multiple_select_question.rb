@@ -1,5 +1,5 @@
 class SurveyItems::MultipleSelectQuestion < SurveyItem
-  attr_accessible :variants
+  attr_accessible :variants, :include_txt_field
   custom_field_accessor :include_txt_field
   
   def variants=(txt)
