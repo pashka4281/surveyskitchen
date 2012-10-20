@@ -23,6 +23,20 @@ class Survey < ActiveRecord::Base
       self.items_positions.index(x1.id) <=> self.items_positions.index(x2.id)
     end
   end
+
+  #returns 2-dimensions array of items 
+  def paged_items
+    result = [[]]
+    i = 0
+    sorted_items.each do |x|
+      if x.is_a?(SurveyItems::PageBreak)
+        result << []; i += 1
+      else
+        result[i] << x
+      end
+    end
+    result
+  end
   
   #position - item num in the list
   #item_id - SurveyItem id

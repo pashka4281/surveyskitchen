@@ -17,6 +17,7 @@ class SurveysController < ApplicationController
   end
   
   def update
+    # render text: params.inspect and return
     @survey = Survey.find(params[:id])
     if @survey.update_attributes(params[:survey])
       if request.xhr?

@@ -15,7 +15,7 @@
       var wrapper = $('<div class="tinyEditorWrapper"></div>');
       self.wrap(wrapper);
 
-      var form = $('<form method="' + defaults['method'] + '"></form>')
+      var form = $('<form method="' + defaults['method'] + '" action="' + url + '"></form>')
         .insertAfter(self);
       var editButton = $('<span class="tinyEditorButton label label-success"><i class="icon-pencil" /> edit</span>')
         .insertAfter(self);

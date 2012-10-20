@@ -1,11 +1,19 @@
 <div class="padded-content">
-	<h2><%= @survey.name %></h2>
 	<form action='#'>
-		<%- @survey.sorted_items.each do |i| -%>
-			<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i %>
+		<div class="padded-content a-page">
+			<h2><%= @survey.name %></h2>
+			<%- @paged_items.shift.each do |first_page_element| -%>
+				<%= render "/survey_items/client_items/#{first_page_element.type.demodulize.underscore}", item: first_page_element %>
+			<%- end -%>
+		</div>
+		<%- @paged_items.each do |page_elements| -%>
+			<div class="padded-content a-page">
+		
+				<%- page_elements.each do |i| -%>
+					<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i %>
+				<% end %>
+			</div>
 		<% end %>
-
 		<input type="submit" class="btn button" value="Done"></input>
 	</form>
 </div>
-

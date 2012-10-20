@@ -3,5 +3,6 @@ class S::SurveysController < ApplicationController
 
 	def show
 		@survey = Survey.find(params[:id])
+		@paged_items = @survey.paged_items
 	end
 end
