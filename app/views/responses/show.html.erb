@@ -1,0 +1,10 @@
+<div class="padded-content">
+	<ul class="unstyled">
+		<% @response.content.each do |x,y| %>
+			<li>
+				<strong><%= @survey_items.select{|s| s.id.to_s == x }.first.title %></strong> <br />
+				<%= y %>
+			</li>
+		<% end %>
+	</ul>
+</div>

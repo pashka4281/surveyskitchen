@@ -53,6 +53,11 @@ class SurveysController < ApplicationController
     @trashed_items = @survey.items.trashed
     render layout: false
   end
+
+  def responses
+    @survey = Survey.find(params[:id])
+    @responses = @survey.responses
+  end
   
 end
 

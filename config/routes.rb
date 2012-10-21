@@ -4,14 +4,16 @@ Surveyskitchen::Application.routes.draw do
     get :builder, on: :member
     get :deploy,  on: :member
     get :trashbox, on: :member
+    get :responses, on: :member
     resources :survey_items, as: 'items', path: 'items' do
       delete :delete, as: :member
     end
+    resources :responses, only: [:show, :destroy]
   end
 
   namespace :s do
     get   ':token', to: 'surveys#show', as: :show_survey
-    post  ':token/create_result', to: 'surveys#create_result', as: :create_result
+    post  ':token', to: 'surveys#create_result', as: :create_result
   end
   
   resources :categories

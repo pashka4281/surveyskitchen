@@ -2,31 +2,39 @@
   <div class="page-header">
     <h1>Surveys</h1>
   </div>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Setup finished</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @surveys.each do |survey| %>
+  <% if @surveys.any? %>
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td><%= link_to survey.name, survey_path(survey) %></td>
-          <td><%= survey.description %></td>
-          <td><%= survey.setup_finished %></td>
-          <td>
-            <%= link_to 'Questions builder', builder_survey_path(survey), :class => 'btn btn-mini'  %>
-            <%= link_to 'Edit', edit_survey_path(survey), :class => 'btn btn-mini' %>
-            <%= link_to 'Deploy', deploy_survey_path(survey), class: 'btn btn-mini btn-success' %>
-          </td>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Setup finished</th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @surveys.each do |survey| %>
+          <tr>
+            <td><%= link_to survey.name, survey_path(survey) %></td>
+            <td><%= survey.description %></td>
+            <td><%= survey.setup_finished %></td>
+            <td>
+              <%= link_to 'Questions builder', builder_survey_path(survey), :class => 'btn btn-mini'  %>
+              <%= link_to 'Edit', edit_survey_path(survey), :class => 'btn btn-mini' %>
+
+              <%= link_to 'Deploy', deploy_survey_path(survey), class: 'btn btn-mini btn-success' %>
+              <%= link_to 'Responses', responses_survey_path(survey), class: 'btn btn-mini' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>  
+    <h5>There is not items to display currently</h5>
+  <% end %>
 
   <%= link_to t('.new', :default => t("helpers.links.new")), new_survey_path, :class => 'btn btn-primary' %>
 
 </div>
+
+<%= content_for :head_panel, render('shared/searchbox') %>
