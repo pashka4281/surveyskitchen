@@ -1,12 +1,12 @@
-<%= div_for item, class: "survey_item", item_id: item.id do -%>
+<%= div_for item, class: "survey_item" do -%>
   	<div class="well well-small">
-  		<strong><%= item.title%></strong>
+  		<strong><%= item.title %></strong>
   		<div class="clear"></div>
     	<ul class="unstyled">
-	    	<% for var in item.variants_array %>
+	    	<% item.variants_array.each_with_index do |var, i| %>
 		    	<li>
 			      	<label class="checkbox">
-						<input type="checkbox" name="r_btn" value="<%= var %>" /><%= var %>
+						<input type="checkbox" name="response[item-<%= item.id %>][<%= i %>]" value="1" /><%= var %>
 					</label>
 				</li>
 		    <% end %>

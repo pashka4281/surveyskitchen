@@ -1,5 +1,5 @@
 <div class="padded-content">
-	<form action='#'>
+	<%= form_tag s_create_result_path(token: @survey.token) do |f| %>
 		<div class="padded-content a-page">
 			<h2><%= @survey.name %></h2>
 			<%- @paged_items.shift.each do |first_page_element| -%>
@@ -14,5 +14,5 @@
 			</div>
 		<% end %>
 		<input type="submit" class="btn button" value="Done"></input>
-	</form>
+	<% end %>
 </div>

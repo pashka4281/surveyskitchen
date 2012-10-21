@@ -27,7 +27,9 @@
     function renderSelectedItem(e){
       var val = $(e.target).data('item-type');
       $('#item_type_buttons').remove();
-      $('#new_survey_item').parents('.modal').find('.modal-header h3').text('New ' + $(e.target).text());
+      $('#new_survey_item')
+        .data('selected-item', true) //boolean indicator that shows that we selected item type
+        .parents('.modal').find('.modal-header h3').text('New ' + $(e.target).text());
       $('#newItem').html(itemsHtmlArray[val]);
       //$("#newItemForm textarea").autoGrow();
     }

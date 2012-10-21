@@ -34,9 +34,13 @@ function BuilderUI(params){
 		} 
 	});
 
+	$('.sortable_item .moveGrabber').click(function(){ return false; })
+
 	$('#doneNewItemBtn').click(function(){
-		self.new_item_form_data = $('#newItemContainer form').serialize();
-		self.showButtons();
+		if($('#new_survey_item').data('selected-item')){
+			self.new_item_form_data = $('#newItemContainer form').serialize();
+			self.showButtons();
+		}
 	});
 
 	$('#doneEditItemBtn').click(function(){

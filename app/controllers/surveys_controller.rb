@@ -47,6 +47,12 @@ class SurveysController < ApplicationController
   def deploy
     @survey = Survey.find(params[:id])
   end
+
+  def trashbox
+    @survey = Survey.find(params[:id])
+    @trashed_items = @survey.items.trashed
+    render layout: false
+  end
   
 end
 

@@ -1,4 +1,4 @@
-<%= div_for item, class: "survey_item", item_id: item.id do -%>
+<%= div_for item, class: "survey_item" do -%>
 
   <div class="well well-small">
     <strong><%= item.title %></strong>
@@ -6,7 +6,7 @@
 
     <% item.scale_size.times do |v| %>
       <label class="radio inline">
-        <input type="radio" name="scale"/><%= v+1 %>
+        <input type="radio" name="response[item-<%= item.id %>]" /><%= v+1 %>
       </label>
     <% end %>
     

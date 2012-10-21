@@ -1,11 +1,11 @@
-<%= div_for item, class: "survey_item", item_id: item.id do -%>
+<%= div_for item, class: "survey_item" do -%>
   	<div class="well well-small">
   		<strong><%= item.title%></strong>
     	<ul class="unstyled">
-	    	<% for var in item.variants_array %>
+	    	<% item.variants_array.each_with_index do |var, i| %>
 		    	<li>
 			      	<label class="radio">
-						<input type="radio" name="r_btn" value="<%= var %>" /><%= var %>
+						<input type="radio" name="response[item-<%= item.id %>]" value="<%= i %>" /><%= var %>
 					</label>
 				</li>
 		    <% end %>

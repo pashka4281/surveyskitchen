@@ -1,8 +1,8 @@
-<%= div_for item, class: "survey_item", item_id: item.id do -%>
+<%= div_for item, class: "survey_item" do -%>
   <div class="well well-small">
     <strong><%= item.title %></strong>
     <div class="clear"></div>
-    <select name="drop_down_<%= item.id %>" class="span9">
+    <select name="response[item-<%= item.id %>]" class="span9">
       <% for var in item.variants_array %>
         <option value="<%= var %>" > <%= var %> </option>
       <% end %>
