@@ -9,7 +9,8 @@ Surveyskitchen::Application.routes.draw do
   end
 
   namespace :s do
-    get ':id', to: 'surveys#show'
+    get   ':id', to: 'surveys#show', as: :show_survey
+    post  ':id/create_result', to: 'surveys#create_result', as: :create_result
   end
   
   resources :categories

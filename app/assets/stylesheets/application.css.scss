@@ -2,24 +2,11 @@
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
- *= require_tree .
- *= require_self
+ *= require bootstrap_and_overrides
+ *= require common
+ *= require dashboard
+ *= require deploy
+ *= require sprite-animation
+ *= require survey
+ *= require tiny_editor
 */
-
-
-.alert{
-	clear: both;
-	border: 1px solid #C83348;
-	background-color: #EC7F7F;
-	-moz-border-radius: 10px;
-	-moz-box-shadow: 3px 3px 20px #ec7f7f;
-	-webkit-border-radius: 10px;
-	-webkit-box-shadow: 3px 3px 20px #EC7F7F;
-	border-radius: 10px;
-	box-shadow: 3px 3px 20px #EC7F7F;
-	padding: 10px;
-	margin-bottom: 15px;
-	font-size: 12px;
-	text-align: center;
-	line-height: 150%;
-}

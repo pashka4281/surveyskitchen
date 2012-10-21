@@ -5,4 +5,8 @@ class S::SurveysController < ApplicationController
 		@survey = Survey.find(params[:id])
 		@paged_items = @survey.paged_items
 	end
+
+	def create_result
+		@survey = Survey.find(params[:id])
+	end
 end

@@ -8,7 +8,6 @@
 		</div>
 		<%- @paged_items.each do |page_elements| -%>
 			<div class="padded-content a-page">
-		
 				<%- page_elements.each do |i| -%>
 					<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i %>
 				<% end %>

@@ -8,7 +8,7 @@ $default_shadow: 0px 0px 18px #555;
 
 textarea{ box-sizing: border-box; }
 .full-width{ width: 100%; }
-body{ background: url(/assets/bg-image.png) }
+body{ background: url(/images/bg-image.png) }
 div.padded-content{ padding: 10px; background-color: #fff; box-shadow: $default_shadow; }
 #new_survey_item textarea{ resize: vertical; }
 .btn:focus{ outline: none; }
