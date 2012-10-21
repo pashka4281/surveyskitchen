@@ -12,6 +12,11 @@ class S::SurveysController < ApplicationController
 
 	def create_result
 		@survey = Survey.find_by_token!(params[:token])
-		render text: params.to_yaml
+		@survey.responses.create(
+			user_agent_string: request.env['HTTP_USER_AGENT'],
+			response_data: params[:response],
+			remote_ip: request.remote_ip
+		)
+		render 'passed'
 	end
 end

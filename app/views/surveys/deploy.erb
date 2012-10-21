@@ -3,8 +3,8 @@
 <div class="padded-content">
   <div class="tabbable"> <!-- Only required for left/right tabs -->
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
-      <li><a href="#tab2" data-toggle="tab">Section 2</a></li>
+      <li class="active"><a href="#tab1" data-toggle="tab">Public</a></li>
+      <li><a href="#tab2" data-toggle="tab">Private</a></li>
     </ul>
     <div class="tab-content">
       <div class="tab-pane active" id="tab1">
@@ -16,14 +16,14 @@
             <tr>
               <td>Survey public link:</td>
               <td>
-                <span class="survey-deploy-link">http://mycompany.surveyskitchen.com/123456</span>
+                <span class="survey-deploy-link"><%= APP_HOST + s_show_survey_path(token: @survey.token) %></span>
               </td>
             </tr>
             <tr>
               <td>Embed JavaScript code:</td>
               <td>
                 <span class="survey-deploy-link">
-                  <%= escape_javascript('<script src="http://surveymonkey.com/12324.js"></script>').gsub("\\", '') %>
+                  <%= escape_javascript('<script src="http://surveymonkey.com/s/12324.js"></script>').gsub("\\", '') %>
                 </span>
               </td>
             </tr>

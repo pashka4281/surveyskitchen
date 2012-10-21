@@ -28,6 +28,7 @@ GEM
     activesupport (3.2.8)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    agent_orange (0.1.4)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.3)
@@ -152,6 +153,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  agent_orange
   bcrypt-ruby (~> 3.0.0)
   carrierwave
   coffee-rails (~> 3.2.1)
