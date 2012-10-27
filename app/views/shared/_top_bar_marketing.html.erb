@@ -20,8 +20,8 @@
              <div class="dropdown-menu">
                <%= form_for(User.new, :url => :login) do |f| %>
                  <fieldset class='textbox' style="padding:10px">
-                   <input style="margin-top: 8px" type="text" placeholder="Username" />
-                   <input style="margin-top: 8px" type="password" placeholder="Passsword" />
+                  <%= f.text_field :email, placeholder: 'Email address' %>
+                  <%= f.password_field :password, placeholder: 'Password', class: 'six' %>
                    <input class="btn-primary" name="commit" type="submit" value="Sign In" />
                  </fieldset>
                <% end %>
