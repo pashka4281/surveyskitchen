@@ -1,16 +1,16 @@
 class SurveysController < ApplicationController
   def builder
-    @survey = Survey.find(params[:id], :include => :items)
+    @survey = current_account.surveys.find(params[:id], :include => :items)
   end
   
   def index
-    @surveys = Survey.all
+    @surveys = current_account.surveys
   end
   
   def	create
-  	@survey = Survey.new(params[:survey])
+  	@survey = current_user.surveys.new(params[:survey].merge(account: current_account))
   	if @survey.save
-  	  redirect_to edit_survey_path(@survey, step: 'look_and_feel')
+  	  redirect_to builder_survey_path(@survey)
 	  else
 	    render action: :new
     end
@@ -23,8 +23,8 @@ class SurveysController < ApplicationController
       if request.xhr?
         render nothing: true, status: 200
       else
-        @step = Survey::STEPS[Survey::STEPS.index(params[:step])+1] if Survey::STEPS.include?(params[:step])
-        redirect_to @step == 'builder' ? [:builder, @survey] : edit_survey_path(@survey, step: @step)
+        flash[:notice] = "Changes saved"
+        redirect_to @survey
       end
     else
       render nothing: true, status: 400

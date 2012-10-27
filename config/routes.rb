@@ -1,5 +1,7 @@
 Surveyskitchen::Application.routes.draw do
 
+  root to: 'home#index'
+
   resources :surveys do
     get :builder, on: :member
     get :deploy,  on: :member
@@ -18,7 +20,7 @@ Surveyskitchen::Application.routes.draw do
   
   resources :categories
 
-  get "dashboard" => 'home#dashboard', :as => :dashboard
+  get "dashboard" => 'users#dashboard', :as => :dashboard
 
 
   devise_for :users, skip: [:sessions, :registrations],  controllers: {

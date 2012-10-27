@@ -1,40 +1,32 @@
-<div class="ten columns offset-by-one">
-  <h3>Register</h3>
-  <h4 class="subheader">
-    Foundation 3 uses a modular scale to generate typography. That means a great,
-    logical vertical rhythm whether you use the SCSS version, or just download the CSS.
-  </h4>
-  <%= devise_error_messages! %>
 
-  <%= form_for(resource, :url => :register, class: 'form') do |f| %>
+<div class="padded-content">
+  <div class="row">
+    <div class="span6">
+      <h3>Register</h3>
+      <%= devise_error_messages! %>
 
-        <div class="four mobile-one columns">
-          <%= f.label :first_name, class: 'right' %>
-          <%= f.text_field :first_name, placeholder: 'Your first name', class: 'ten' %>
-        </div>
-        <div class="four mobile-one columns">
-          <%= f.label :last_name, class: 'right' %>
-          <%= f.text_field :last_name, placeholder: 'Your last name', class: 'ten' %>
-        </div>
-        <div class="four mobile-one columns">
-          <%= f.label :account_name, class: 'right' %>
-          <%= f.text_field :account_name, placeholder: 'Choose an account name', class: 'ten' %>
-        </div>
-        <div class="four mobile-one columns">
-          <%= f.label :email, class: 'right' %>
-          <%= f.text_field :email, placeholder: 'Email address', class: 'ten' %>
-        </div>
-        <div class="four mobile-two columns">
-          <%= f.label :password, class: 'right' %>
-          <%= f.password_field :password, placeholder: 'Password', class: 'seven' %>
-        </div>
-        <div class="four mobile-two columns">
-          <%= f.label :password_confirmation, 'Confirm password: ', class: 'right' %>
-          <%= f.password_field :password_confirmation, placeholder: 'Confirm password', class: 'seven' %>
-        </div>
-        <div class="ten mobile-three columns">
-          <%= f.submit "Sign up now!", class: 'button' %>
-        </div>
+      <%= form_for(resource, :url => :register, class: 'form') do |f| %>
+        <%= f.label :first_name, class: 'right' %>
+        <%= f.text_field :first_name, placeholder: 'Your first name', class: 'span6' %>
 
-  <% end %>
+        <%= f.label :last_name, class: 'right' %>
+        <%= f.text_field :last_name, placeholder: 'Your last name', class: 'span6' %>
+
+        <%= f.label :account_name, class: 'right' %>
+        <%= f.text_field :account_name, placeholder: 'Your account name', class: 'span6' %>
+
+        <%= f.label :email, class: 'right' %>
+        <%= f.text_field :email, placeholder: 'Email address', class: 'span6' %>
+
+        <%= f.label :password, class: 'right' %>
+        <%= f.password_field :password, placeholder: 'Password', class: 'span6' %>
+
+        <%= f.label :password_confirmation, 'Confirm password: ', class: 'right' %>
+        <%= f.password_field :password_confirmation, placeholder: 'Confirm password', class: 'span6' %>
+        <br />
+        <%= f.submit "Sign up now!", class: 'btn btn-primary' %>
+
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -1,7 +1,7 @@
 <%= form_for @survey_item || SurveyItems::TextFieldQuestion.new, url: '#', html:{ id: 'text_field_question_form'} do |f| %>
 	<label>Question title:</label>
 	<%= f.text_area :title, name: 'survey_item[title]', rows: 2,  
-		class: 'full-width', placeholder: "Place question description here" %>
+		class: 'width-90', placeholder: "Place question description here" %>
 
 	<label class="">Appearance:</label>
 	<label class="radio inline">

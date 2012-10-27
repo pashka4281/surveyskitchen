@@ -1,41 +1,20 @@
-<div class="ten columns offset-by-one">
+<div class="padded-content">
   <h3>Sign in</h3>
   <%= devise_error_messages! %>
 
   <%= form_for(resource, :url => :login) do |f| %>
-      <div class="row">
-        <div class="four mobile-one columns">
-          <%= f.label :email, class: 'right' %>
-        </div>
-        <div class="twelve mobile-three columns">
-          <%= f.text_field :email, placeholder: 'Email address', class: 'six' %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="four mobile-one columns">
-          <%= f.label :password, class: 'right' %>
-        </div>
-        <div class="twelve mobile-three columns">
-          <%= f.password_field :password, placeholder: 'Password', class: 'six' %>
-        </div>
-      </div>
-      <% if devise_mapping.rememberable? -%>
-          <div class="row">
-            <div class="four mobile-two columns">
-              <%= f.label :remember_me, class: 'right' %>
-            </div>
-            <div class="twelve mobile-three columns">
-              <%= f.check_box :remember_me %>
-            </div>
-          </div>
-      <% end%>
+    <%= f.label :email, class: 'right' %>
+    <%= f.text_field :email, placeholder: 'Email address', class: 'six' %>
 
-      <div class="row">
-        <div class="four mobile-one columns"></div>
-        <div class="twelve mobile-three columns">
-          <%= f.submit "Sign in", class: 'button' %>
-        </div>
-      </div>
+    <%= f.label :password, class: 'right' %>
+    <%= f.password_field :password, placeholder: 'Password', class: 'six' %>
 
+    <% if devise_mapping.rememberable? -%>
+        <%= f.label :remember_me, class: 'checkbox' do %>
+          <%= f.check_box :remember_me, class: 'checkbox' %> Remember me
+        <% end %>
+    <% end%>
+
+    <%= f.submit "Sign in", class: 'btn' %>
   <% end %>
 </div>

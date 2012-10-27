@@ -1,7 +1,7 @@
 <%= form_for @survey_item || SurveyItems::DescText.new, url: '#', id: 'desc_text_item_form' do |f| %>
     <label>Place here some text:</label>
     <%= f.text_area :text_content, name: 'survey_item[text_content]', rows: 3,  
-    	class: 'min120height full-width', placeholder: "Description text" %>
+    	class: 'min120height width-90', placeholder: "Description text" %>
 
     <%= hidden_field_tag :item_id, @survey_item.try(:id) %>
 	<input type="hidden" name="item_type" value="desc_text">

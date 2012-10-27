@@ -1,56 +1,18 @@
-<%= form_for @survey, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :account_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :account_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :user_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :user_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, :class => 'text_area' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :items_positions, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :items_positions, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :setup_finished, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.check_box :setup_finished, :class => 'check_box' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :category_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :category_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :token, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :token, :class => 'text_field' %>
-    </div>
-  </div>
-
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                surveys_path, :class => 'btn' %>
-  </div>
+<%= form_for @survey, html: {class: 'form'} do |f| %>
+  <fieldset>
+    <%= f.label :name, 'Survey name:' %>
+    <%= f.text_field :name, class: 'span5', placeholder: 'Enter name for your surevey'  %>
+    
+    <%= f.label :category_id, 'Choose category:' %>
+    <%= f.select(:category_id, Category.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Select'}, class: 'span5')%>
+    
+    <%= f.label :description, 'Survey description:' %>
+    <%= f.text_area :description, rows: 5, class: 'span5', placeholder: 'Enter a brief description here' %>
+    
+    <label for="survey_prefill_items" class="checkbox">
+      <%=f.check_box :prefill_items, class: 'checkbox' %> Prefill survey with example items
+    </label>
+   
+  </fieldset>
+  <%= f.submit class: 'btn btn-success' %>
 <% end %>

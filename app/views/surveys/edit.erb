@@ -1,39 +1,10 @@
-<% header('New Survey', subheader: 'This is a place where all starts') %>
+<div class="padded-content">
+  <%= ribbed_header 'Edit Survey' %>
 
-<%= render 'shared/nav_menu' %>
-
-
-<div class="fourteen columns">
   <div class="row">
-    <div class="row">
-      <div class="round-borders padded">
-        <div class="row margin-left">
-          <div class="sixteen columns">
-            <dl class="sub-nav">
-              <dd <%= raw (@step == 'basic_info' || @step.nil?)? 'class="active"' : '' %>>
-                <a>Basic info »</a>
-              </dd>
-              <dd <%= raw (@step == 'survey_type')? 'class="active"' : '' %>>
-                <a>Survey type »</a>
-              </dd>
-              <dd <%= raw (@step == 'design')? 'class="active"' : '' %>>
-                <a>Choose design »</a>
-              </dd>
-              <dd><a>Survey availabitly »</a></dd>
-              <dd <%= raw (@step == 'finish')? 'class="active"' : '' %>>
-                <a>Finish »</a>
-              </dd>
-            </dl>
-          </div>
-        </div>
-
-        <div class="row margin-left">
-          <%= render "surveys/steps/#{@step}" %>
-        </div>        
-      </div>
-        
-    </div>    
-    
+    <div class="span6">
+      <%= render 'form' %>
+    </div>
   </div>
-
+  
 </div>

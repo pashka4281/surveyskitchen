@@ -1,11 +1,11 @@
 <%= form_for @survey_item || SurveyItems::MultipleSelectQuestion.new, url: '#', id: 'multiple_select_question_form' do |f| %>
 	<label>Question title:</label>
 	<%= f.text_area :title, name: 'survey_item[title]', rows: 2,  
-		class: 'full-width', placeholder: "Place question description here" %>
+		class: 'width-90', placeholder: "Place question description here" %>
 
     <label>Varaints goes here</label>
     <%= f.text_area :variants, name: 'survey_item[variants]', rows: 3,  
-		class: 'full-width', placeholder: "One variant per line" %>
+		class: 'width-90', placeholder: "One variant per line" %>
 
 	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
 	<input type="hidden" name="item_type" value="multiple_select_question">

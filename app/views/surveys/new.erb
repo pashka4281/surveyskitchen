@@ -1,29 +1,10 @@
-<% header('New Survey', subheader: 'This is a place where all starts') %>
+<div class="padded-content">
+  <%= ribbed_header 'New Survey' %>
 
-<%= render 'shared/nav_menu' %>
-
-
-<div class="fourteen columns">
   <div class="row">
-    <div class="row">
-      <div class="row margin-left">
-        <div class="sixteen columns">
-          <dl class="sub-nav">
-          	<dd class="active"><a href="#">Basic info »</a></dd>
-          	<dd><a>Look and feel »</a></dd>
-          	<dd><a>Choose design »</a></dd>
-          	<dd><a>Survey Survey availabitly »</a></dd>
-          	<dd><a>Finish »</a></dd>
-          </dl>
-        </div>
-      </div>
-      
-      <div class="row margin-left">
-        <%= render "surveys/steps/basic_info" %>
-      </div>
-      
-    </div>    
-    
+    <div class="span6">
+      <%= render 'form' %>
+    </div>
   </div>
-
+  
 </div>

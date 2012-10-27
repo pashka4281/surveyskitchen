@@ -1,6 +1,8 @@
 <% header('Dasboard', subheader: 'This is a place where all starts') %>
 
 <div class="padded-content">
+  <%= ribbed_header 'Dashboard' %>
+
   <div class="row-fluid">
       <div class="span4">
         <div class="dashboard-box big">
@@ -11,8 +13,8 @@
       
       <div class="span4">
         <div class="dashboard-box medium">
-          <h1>15</h1>
-          <h2>total surveys</h2>
+          <h1><%= current_account.surveys.count %></h1>
+          <h2>total surveys count</h2>
         </div>
       </div>
       
@@ -24,23 +26,17 @@
       </div>
 
 </div>
-    
-    <div class="bottom-space">
-      
-      <div class="ten">
-        <div class="events-block">
-          <h1>Events:<h1>
-          <ul class="events">
-            <li>fff</li>
-            <li>fff</li>
-            <li>fff</li>
-            <li>fff</li>
-            <li>fff</li>
-          </ul>
-        </div>
-      </div>
-      
-    </div>
+
+<div class="events-block">
+  <h1>Events:<h1>
+  <ul class="events">
+    <li>fff</li>
+    <li>fff</li>
+    <li>fff</li>
+    <li>fff</li>
+    <li>fff</li>
+  </ul>
+</div>
   
   <ul class="pagination">
     <li class="arrow unavailable"><a href="">&laquo;</a></li>
