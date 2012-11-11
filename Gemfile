@@ -9,6 +9,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'devise'
 gem 'devise_invitable'
 gem 'carrierwave'
+# gem 'geokit'
 
 # Gems used only for assets and not required
 # in production environments by default.
