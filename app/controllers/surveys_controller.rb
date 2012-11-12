@@ -56,7 +56,7 @@ class SurveysController < ApplicationController
 
   def responses
     @survey = Survey.find(params[:id])
-    @responses = @survey.responses
+    @responses = @survey.responses.order('created_at DESC')
   end
   
 end

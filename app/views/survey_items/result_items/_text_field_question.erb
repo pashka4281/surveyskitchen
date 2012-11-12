@@ -1,0 +1,6 @@
+<%= content_tag_for :li, item, class: "result-item", item_id: item.id do -%>
+  <div class="well well-small">
+    <strong><%= item.title %></strong> <br />
+    <%= result %>
+  </div>
+<%- end -%>

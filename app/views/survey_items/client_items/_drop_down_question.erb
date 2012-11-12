@@ -3,9 +3,14 @@
     <strong><%= item.title %></strong>
     <div class="clear"></div>
     <select name="response[item-<%= item.id %>]" class="span9">
+      <%- if item.include_empty -%><option> Please select an option </option><%- end -%>
       <% for var in item.variants_array %>
         <option value="<%= var %>" > <%= var %> </option>
       <% end %>
     </select>
+
+    <%- if item.include_txt_field -%>
+      <input type="text" />
+    <%- end -%>
   </div>
 <%- end -%>

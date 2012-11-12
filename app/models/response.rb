@@ -14,6 +14,10 @@ class Response < ActiveRecord::Base
    	read_attribute(:content) || {}
   end
 
+  def agent
+    AgentOrange::UserAgent.new(self.user_agent_string)
+  end
+
   private
 
   def write_property(field_name, val)

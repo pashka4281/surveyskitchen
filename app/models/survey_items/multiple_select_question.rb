@@ -3,7 +3,7 @@ class SurveyItems::MultipleSelectQuestion < SurveyItem
   custom_field_accessor :include_txt_field
   
   def variants=(txt)
-	  set_custom_field(:variants, txt.split("\n"))  
+	  set_custom_field(:variants, txt.split("\n").collect(&:strip))  
   end
   
   def variants
