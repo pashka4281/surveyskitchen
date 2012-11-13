@@ -1,7 +1,7 @@
 <div class="padded-content">
-  <div class="page-header">
-    <h1>Responses for "<%= @survey.name %>"</h1>
-  </div>
+  <%= ribbed_header "Responses for \"#{@survey.name}\"" %>
+  <%= render 'shared/responses_nav' %>
+
   <% if @responses.any? %>
     <table class="table table-striped">
       <thead>
@@ -9,14 +9,16 @@
           <th></th>
           <th>Date</th>
           <th>IP</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <% @responses.each do |resp| %>
           <tr>
             <td><%= link_to 'details', survey_response_path(@survey, resp), class: 'button btn' %></td>
-            <td><%= resp.created_at %></td>
+            <td><%= resp.created_at.to_s(:date_and_time)  %></td>
             <td><%= resp.remote_ip %></td>
+            <td><%= link_to "Remove", [@survey, resp], method: :delete, class: 'btn btn-mini btn-danger', confirm: 'Are you sure?' %></td>
           </tr>
         <% end %>
       </tbody>

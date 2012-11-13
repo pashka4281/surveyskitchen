@@ -8,22 +8,22 @@
         <tr>
           <th>Name</th>
           <th>Description</th>
-          <th>Setup finished</th>
+          <th>Created</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <% @surveys.each do |survey| %>
           <tr>
-            <td><%= link_to survey.name, survey_path(survey) %></td>
+            <td><%= link_to "#{survey.category.name} > #{survey.name}", survey_path(survey) %></td>
             <td><%= survey.description %></td>
-            <td><%= survey.setup_finished %></td>
+            <td><%= survey.created_at.to_s(:date_and_time) %></td>
             <td>
               <%= link_to 'Questions builder', builder_survey_path(survey), :class => 'btn btn-mini'  %>
               <%= link_to 'Edit', edit_survey_path(survey), :class => 'btn btn-mini' %>
 
               <%= link_to 'Deploy', deploy_survey_path(survey), class: 'btn btn-mini btn-success' %>
-              <%= link_to 'Responses', responses_survey_path(survey), class: 'btn btn-mini' %>
+              <%= link_to 'Responses', [survey, :responses], class: 'btn btn-mini' %>
             </td>
           </tr>
         <% end %>

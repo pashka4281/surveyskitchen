@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121021135701) do
+ActiveRecord::Schema.define(:version => 20121112070058) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20121021135701) do
     t.boolean  "setup_finished",  :default => false
     t.integer  "category_id"
     t.string   "token"
+    t.datetime "created_at"
   end
 
   create_table "users", :force => true do |t|

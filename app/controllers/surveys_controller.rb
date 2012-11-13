@@ -54,7 +54,7 @@ class SurveysController < ApplicationController
     render layout: false
   end
 
-  def responses
+  def report
     @survey = Survey.find(params[:id])
     @responses = @survey.responses.order('created_at DESC')
   end

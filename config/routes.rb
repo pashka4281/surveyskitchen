@@ -6,11 +6,11 @@ Surveyskitchen::Application.routes.draw do
     get :builder, on: :member
     get :deploy,  on: :member
     get :trashbox, on: :member
-    get :responses, on: :member
+    get :report, on: :member
     resources :survey_items, as: 'items', path: 'items' do
       delete :delete, as: :member
     end
-    resources :responses, only: [:show, :destroy]
+    resources :responses, only: [:show, :destroy, :index]
   end
 
   namespace :s do

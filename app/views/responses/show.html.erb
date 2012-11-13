@@ -1,8 +1,14 @@
 <div class="padded-content">
+	<%= ribbed_header "\"#{@survey.name}\" > Responses > ##{@response.id}" %>
+
+<!-- 	<div class="btn-group">
+		<%= link_to "<< Back to responses", [@survey, :responses], class: 'btn btn-small' %>
+	</div> -->
+
 	<ul class="unstyled">
-		<% @response.content.each do |x,y| %>
-			<% s_item = @survey_items.select{|s| s.id.to_s == x }.first %>
-			<%= render "/survey_items/result_items/#{s_item.type.demodulize.underscore}", item: s_item, result: y %>
+		<% @response.content.each_with_index do |x,i| %>
+			<% s_item = @survey_items.select{|s| s.id.to_s == x[0] }.first %>
+			<%= render "/survey_items/result_item", item: s_item, result: x[1], index: i %>
 		<% end %>
 	</ul>
 </div>

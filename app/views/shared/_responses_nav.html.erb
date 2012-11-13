@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs">
+  <%=content_tag :li, class: (request.path =~ /(responses)(\/)?/ ? 'active' : '')  do -%>
+    <%= link_to 'Responses', [@survey, :responses] %>
+  <%-end-%>
+  <%=content_tag :li, class: (request.path =~ /(report)(\/)?/ ? 'active' : '')  do -%>
+    <%= link_to 'Report', [:report, @survey] %>
+  <%-end-%>
+</ul>

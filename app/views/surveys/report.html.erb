@@ -1,0 +1,27 @@
+<div class="padded-content">
+  <%= ribbed_header "Report for \"#{@survey.name}\"" %>
+  <%= render 'shared/responses_nav' %>
+
+  <% if @responses.any? %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Date</th>
+          <th>IP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @responses.each do |resp| %>
+          <tr>
+            <td><%= link_to 'details', survey_response_path(@survey, resp), class: 'button btn' %></td>
+            <td><%= resp.created_at %></td>
+            <td><%= resp.remote_ip %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>  
+    <h5>There is not items to display currently</h5>
+  <% end %>
+</div>
