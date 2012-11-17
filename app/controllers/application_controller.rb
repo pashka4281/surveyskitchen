@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
 		current_user.account rescue nil
 	end
 
+	def current_user_admin?
+		unless current_user.try(:admin)
+	  		redirect_to '/dashboard', alert: 'Access denied' and return false
+		end
+	end
+
 end
