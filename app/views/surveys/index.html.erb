@@ -6,8 +6,8 @@
     <table class="table table-striped">
       <thead>
         <tr>
+          <th>Category</th>
           <th>Name</th>
-          <th>Description</th>
           <th>Created</th>
           <th></th>
         </tr>
@@ -15,8 +15,11 @@
       <tbody>
         <% @surveys.each do |survey| %>
           <tr>
-            <td><%= link_to "#{survey.category.name} > #{survey.name}", survey_path(survey) %></td>
-            <td><%= survey.description %></td>
+            <td><%= survey.category.name %></td>
+            <td>
+              <%= link_to survey.name, survey_path(survey) %> | 
+              <%= survey_desc_link(survey.description) %>
+            </td>
             <td><%= survey.created_at.to_s(:date_and_time) %></td>
             <td>
               <%= link_to 'Questions builder', builder_survey_path(survey), :class => 'btn btn-mini'  %>
