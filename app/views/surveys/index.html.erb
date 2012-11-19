@@ -17,12 +17,10 @@
           <tr>
             <td><%= survey.category.name %></td>
             <td>
-              <%= link_to survey.name, survey_path(survey) %> | 
-              <%= survey_desc_link(survey.description) %>
+              <%= link_to survey.name, builder_survey_path(survey) %>
             </td>
             <td><%= survey.created_at.to_s(:date_and_time) %></td>
             <td>
-              <%= link_to 'Questions builder', builder_survey_path(survey), :class => 'btn btn-mini'  %>
               <%= link_to 'Edit', edit_survey_path(survey), :class => 'btn btn-mini' %>
 
               <%= link_to 'Deploy', deploy_survey_path(survey), class: 'btn btn-mini btn-success' %>

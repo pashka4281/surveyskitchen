@@ -14,7 +14,6 @@ module ApplicationHelper
       				multiple_select_question: nil,
       				single_select_question: nil,
       				page_break: nil,
-      				image: nil,
       				desc_text: nil,
       				drop_down_question: nil,
       				scale_question: nil }.stringify_keys

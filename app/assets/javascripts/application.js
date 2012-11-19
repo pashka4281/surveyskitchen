@@ -11,22 +11,16 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-ui
+//= require jquery-ui-1.9.1.custom.min
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require twitter/bootstrap/bootstrap-modal
+//= require twitter/bootstrap/bootstrap-alert
+//= require twitter/bootstrap/bootstrap-transition
+//= require twitter/bootstrap/bootstrap-dropdown
 //= require common
 //= require_tree .
 
-// (function($) {
-
-// 	$.fn.highlightSurveyItem = function(options) {
-// 		var self = this,
-// 			current_bg = this.css('background-color');
-// 		console.log(current_bg)
-		
-// 		return this;
-// 	};
-// })(jQuery);
+// require twitter/bootstrap
 
 
 $(function(){

@@ -71,6 +71,7 @@ form .field_with_errors{
 	input, textarea, select{ background-color: #FFCBC8; }
 }
 footer{ margin-top: 15px; }
+a.simple_link:hover{ text-decoration: none; }
 
 @media (max-width: 767px) {
 	#build_list{

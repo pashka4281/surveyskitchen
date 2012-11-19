@@ -12,9 +12,6 @@ function BuilderUI(params){
 	this.survey_id 		= params['survey_id']
 	this.new_item_form_data = null;
 
-	//editable survey title:
-	$('#survey-name').tinyEditor(self.updateSurveyUrl, {postName: 'survey[name]'})
-
 	//making survey items sortable
 	$(this.buildList).sortable({ 
 		axis: 'y', 

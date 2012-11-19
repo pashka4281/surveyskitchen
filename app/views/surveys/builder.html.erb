@@ -1,7 +1,14 @@
 <% header("Questions builder", subheader: 'All changes here are automatically saved.') %>
 
     	<div id="build_list"  class="list">
-      		<h2 id="survey-name"><%= @survey.name %></h2>
+      		<h2 id="survey-name">
+      			<%= @survey.name %>
+
+      			<%= link_to [:edit, @survey], class: 'simple_link' do %>
+      				<span class="label label-info"><i class="icon-pencil"></i> Edit survey</span>
+      			<% end %>
+      		</h2>
+      		
 
 			<div id="zero-item" class="insertable">
 	            <%= insert_button %>
@@ -20,7 +27,6 @@
 	        <%- end -%>
 
     	</div>
-  
 
 	<div class="navbar navbar-fixed-bottom" id="newItemBar">
 	  <div class="navbar-inner">

@@ -35,10 +35,6 @@ class SurveysController < ApplicationController
     @survey = Survey.new
   end
   
-  def show
-    @survey = Survey.find(params[:id], :include => :items)
-  end
-  
   def edit
     @step = params[:step] || 'basic_info'
     @survey = Survey.find(params[:id])
