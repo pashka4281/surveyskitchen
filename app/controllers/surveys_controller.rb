@@ -24,7 +24,7 @@ class SurveysController < ApplicationController
         render nothing: true, status: 200
       else
         flash[:notice] = "Changes saved"
-        redirect_to @survey
+        redirect_to [:edit, @survey]
       end
     else
       render nothing: true, status: 400

@@ -1,7 +1,7 @@
 <%= div_for item, class: "survey_item" do -%>
 
   <div class="well well-small">
-    <strong><%= item.title %></strong>
+  	<strong><%= "#{counter}. #{item.title}" %></strong>
     <div class="clear"></div>
 
     <% item.scale_size.times do |v| %>

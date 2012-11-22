@@ -1,15 +1,19 @@
+<h2><%= @survey.name %></h2>
+
 <div class="padded-content">
 	<%= form_tag s_create_result_path(token: @survey.token) do |f| %>
-		<div class="padded-content a-page">
-			<h2><%= @survey.name %></h2>
-			<%- @paged_items.shift.each do |first_page_element| -%>
-				<%= render "/survey_items/client_items/#{first_page_element.type.demodulize.underscore}", item: first_page_element %>
+		<% counter = 0 %>
+		<div class="a-page">
+			<%- @paged_items.shift.each do |i| -%>
+				<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
+				<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
 			<%- end -%>
 		</div>
 		<%- @paged_items.each do |page_elements| -%>
-			<div class="padded-content a-page">
+			<div class="a-page">
 				<%- page_elements.each do |i| -%>
-					<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i %>
+					<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
+					<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
 				<% end %>
 			</div>
 		<% end %>

@@ -1,10 +1,6 @@
 <%= content_tag_for :li, item, class: "result-item", item_id: item.id do -%>
   <div class="well well-small">
 
-  	<div class="navbar-inner pull-right">
-	    <h4><%= index +1 %><h4>
-	</div>
-
-    <%= render "/survey_items/result_items/#{item.type.demodulize.underscore}", item: item, result: result %>
+    <%= render "/survey_items/result_items/#{item.type.demodulize.underscore}", item: item, result: result, counter: index + 1 %>
   </div>
 <%- end -%>
