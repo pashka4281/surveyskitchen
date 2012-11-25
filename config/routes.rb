@@ -22,16 +22,12 @@ Surveyskitchen::Application.routes.draw do
   
   resources :categories
 
-  get "dashboard" => 'users#dashboard', :as => :dashboard
+  get 'dashboard' => 'users#dashboard', :as => :dashboard
 
-
-  devise_for :users, skip: [:sessions, :registrations],  controllers: {
-      omniauth_callbacks: 'external_sessions', sessions: 'sessions', registrations: 'registrations' } do
-    get   'login',    to: 'sessions#new'
-    post  'login',    to: 'sessions#create'
-    get   'logout',   to: 'sessions#destroy'
-    get   'register', to: 'registrations#new'
-    post  'register', to: 'registrations#create'
-  end
+  get   'login',    to: 'sessions#new'
+  post  'login',    to: 'sessions#create'
+  get   'logout',   to: 'sessions#destroy'
+  get   'register', to: 'registrations#new'
+  post  'register', to: 'registrations#create'
 
 end

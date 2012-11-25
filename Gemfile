@@ -6,8 +6,8 @@ gem 'agent_orange' # =>  https://github.com/kevinelliott/agent_orange for detect
 
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'devise'
-gem 'devise_invitable'
+# gem 'devise'
+# gem 'devise_invitable'
 gem 'carrierwave'
 gem 'rails_admin'
 # gem 'geokit'
