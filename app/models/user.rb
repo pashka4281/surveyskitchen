@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   belongs_to :account
 
   validates :account_name, presence: true, length: {minimum: 6}, on: :create
+  validate :unique_account
   validates_presence_of :password, on: :create
 
   attr_accessor :account_name
@@ -19,6 +20,10 @@ class User < ActiveRecord::Base
 
   private
 
+  def set_full_name
+    self.full_name = [first_name, last_name].join(' ')
+  end
+
   def setup_account
     unless self.invited?
       a = Account.create(name: self.account_name, owner: self)
@@ -26,7 +31,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def set_full_name
-    self.full_name = [first_name, last_name].join(' ')
+  def unique_account
+    errors.add(:base, "Such account name is already taken, select another one") if Account.find_by_name(account_name)
   end
 end
