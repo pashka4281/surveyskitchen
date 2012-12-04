@@ -4,4 +4,13 @@ class HomeController < ApplicationController
   	redirect_to :dashboard and return if current_user
   	render layout: 'clear'
   end
+
+
+  def about
+  	
+  end
+
+  def tos
+  	
+  end
 end

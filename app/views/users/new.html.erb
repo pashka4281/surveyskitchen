@@ -3,9 +3,9 @@
   <div class="row">
     <div class="span6">
       <h3>Register</h3>
-      <%= devise_error_messages! %>
+      <%#= devise_error_messages! %>
 
-      <%= form_for(resource, :url => :register, class: 'form') do |f| %>
+      <%= form_for(@user, :url => :register, class: 'form') do |f| %>
         <%= f.label :first_name, class: 'right' %>
         <%= f.text_field :first_name, placeholder: 'Your first name', class: 'span6' %>
 

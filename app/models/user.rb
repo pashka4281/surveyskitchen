@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   validates :account_name, presence: true, length: {minimum: 6}, on: :create
   validate :unique_account
   validates_presence_of :password, on: :create
+  validates_presence_of :first_name, :last_name
 
   attr_accessor :account_name
 

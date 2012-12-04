@@ -1,14 +1,17 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container-fluid">
-      <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
       <a class="brand" href="/">Surveyskitchen</a>
       <div class="container-fluid nav-collapse">
         <ul class="nav">
+          <%=content_tag :li, class: (request.path =~ /(about)(\/)?/ ? 'active' : '')  do -%>
+            <%= link_to 'About', :register %>
+          <%-end-%>
+          <%=content_tag :li, class: (request.path =~ /(about)(\/)?/ ? 'active' : '')  do -%>
+            <%= link_to 'Terms of service', :register %>
+          <%-end-%>          
+        </ul>
+        <ul class="nav pull-right">
           <%=content_tag :li, class: (request.path =~ /(register)(\/)?/ ? 'active' : '')  do -%>
             <%= link_to 'register', :register %>
           <%-end-%>

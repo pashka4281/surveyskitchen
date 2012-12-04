@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
+		render layout: 'clear'
 	end
 	
 	def create
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
 		if @user.save
 			redirect_to :dashboard, notice: "Congratulations! Your account successfully created."
 		else
-			render "new", layout: 'application'
+			render "new", layout: 'clear'
 		end
 	end
 
