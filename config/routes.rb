@@ -4,6 +4,9 @@ Surveyskitchen::Application.routes.draw do
 
   root to: 'home#index'
 
+  get :tos, to: 'home#tos'
+  get :about, to: 'home#about'
+
   resources :surveys do
     get :builder, on: :member
     get :deploy,  on: :member

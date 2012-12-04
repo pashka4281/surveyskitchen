@@ -7,10 +7,10 @@ class HomeController < ApplicationController
 
 
   def about
-  	
+  	render layout: 'clear'
   end
 
   def tos
-  	
+  	render layout: 'clear'
   end
 end
