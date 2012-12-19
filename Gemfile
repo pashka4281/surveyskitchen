@@ -8,6 +8,10 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'carrierwave'
 gem 'rails_admin'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 # gem 'geokit'
 
 # Gems used only for assets and not required

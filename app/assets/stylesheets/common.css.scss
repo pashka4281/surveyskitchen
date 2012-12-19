@@ -73,6 +73,23 @@ form .field_with_errors{
 footer{ margin-top: 15px; }
 a.simple_link:hover{ text-decoration: none; }
 
+
+
+a[class^="sign-in-"]{
+	&:hover{ background-position: 0 22px; }
+	&:active{ background-position: 0 46px; }
+	height: 22px;
+	width: 150px;
+	display: inline-block;
+}
+a.sign-in-facebook{	background-image: url(/images/signin_facebook.png);}
+a.sign-in-twitter{	background-image: url(/images/signin_twitter.png);}
+
+
+h2{
+	small{ min-width: 180px; display: inline-block; }
+}
+
 @media (max-width: 767px) {
 	#build_list{
 		.pull-right{ float: none; }

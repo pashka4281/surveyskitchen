@@ -3,20 +3,19 @@
 	border: 3px solid #7C9AF3;
 	padding: 28px 19px;
 	text-shadow: 2px 2px #6C8169;
+	position: relative;
+	h2{ font-size: 22px; line-height: 1px; position: absolute; bottom: 20px; }
 	&.big{ 
-		height: 130px; margin-top: 0; background-color: #446FEE; color: white;
-		h1{ font-size: 83px; margin: 0; }
-		h2{ font-size: 27px; }
+		height: 100px; margin-top: 0; background-color: #446FEE; color: white;
+		h1{ font-size: 50px; margin: 0; }
 	}
 	&.medium{ 
-		height: 100px; margin-top: 30px; background-color: #6A8CF1; color: white;
-		h1{ font-size: 54px; margin: 0; }
-		h2{ font-size: 27px; }
+		height: 70px; margin-top: 30px; background-color: #6A8CF1; color: white;
+		h1{ font-size: 35px; margin: 0; }
 	}
 	&.small{ 
-		height: 80px; margin-top: 50px; background-color: #8FA8F5; color: white;
-		h1{ font-size: 34px; margin: 0; }
-		h2{ font-size: 27px; }
+		height: 50px; margin-top: 50px; background-color: #8FA8F5; color: white;
+		h1{ font-size: 25px; margin: 0; }
 	}
 	h1{ line-height: 1; }
 }

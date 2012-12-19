@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-	before_filter :authenticate_user!, only: [:dashboard]
+	before_filter :authenticate_user!, except: [:new, :create]
 	
 	def dashboard
-		
+		@surveys = current_account.surveys.all(:include => :responses)
+		@responses = current_account.responses
 	end
 
 	def new
@@ -19,25 +20,12 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def update
-	    @user = User.find(current_user.id)
-	    email_changed = @user.email != params[:user][:email]
-	    password_changed = !params[:user][:password].blank?
+	def profile
+		@user = current_user
+	end
 
-	    successfully_updated = if email_changed or password_changed
-	      @user.update_with_password(params[:user])
-	    else
-	      @user.update_without_password(params[:user])
-	    end
-
-	    if successfully_updated
-	      # Sign in the user bypassing validation in case his password changed
-	      sign_in @user, :bypass => true
-	      redirect_to :edit_profile, notice: 'Profile updated'
-	    else
-	      flash[:alert] = "Some errors occurred while updating.."
-	      render "edit", layout: 'application'
-	    end
+	def update_profile
+	    
   	end
   	
 end

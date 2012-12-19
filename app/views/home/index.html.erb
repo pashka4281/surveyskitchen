@@ -11,10 +11,18 @@
 
 	<br />
 
-	<h3>We're launching soon!</h3>
-	<div class="progress progress-striped active">
-	  <div class="bar" style="width: 70%;">70%</div>
+	<h5>Visit <%= link_to "sign in form", :login %> form to enter the site or choose from the providers below:</h5>
+	<div class="center-content">
+		<%= link_to "", "/auth/facebook", class: 'sign-in-facebook' %>
+		<%#= link_to "", "/auth/twitter", class: 'sign-in-twitter' %>
 	</div>
+
+	<h3>Get ready for something special soon!</h3>
+	<div class="progress progress-striped active">
+	  <div class="bar" style="width: 70%;"></div>
+	</div>
+
+	
 
 	<div>
 		<%= link_to "@pashka4281", 'https://twitter.com/pashka4281' %>

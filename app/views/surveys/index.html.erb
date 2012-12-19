@@ -31,10 +31,10 @@
       </tbody>
     </table>
   <% else %>  
-    <h5>There is not items to display currently</h5>
+    <h5>There are not items to display currently</h5>
   <% end %>
 
-  <%= link_to t('.new', :default => t("helpers.links.new")), new_survey_path, :class => 'btn btn-primary' %>
+  <%= link_to 'New survey', new_survey_path, :class => 'btn btn-primary' %>
 
 </div>
 

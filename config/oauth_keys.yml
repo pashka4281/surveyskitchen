@@ -1,0 +1,19 @@
+facebook: 
+  development: &default
+    key: '271152339655027'
+    secret: 594708d823a496004a0f7e5d50289dfd
+  test: 
+    <<: *default
+  production:
+    key: '471767956202786'
+    secret: bd6574653119cabe38d31e5a8404e558
+
+twitter: 
+  development: &default
+    key: 'uBlAF9UGFcyK4tCR3XMFA'
+    secret: JSXae3cwRJatcrImzQzn6Qr8DpgDcNqE4dAAmSrvU
+  test: 
+    <<: *default
+  production:
+    key: ''
+    secret: 
