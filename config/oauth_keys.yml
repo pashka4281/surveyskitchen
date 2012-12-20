@@ -10,10 +10,10 @@ facebook:
 
 twitter: 
   development: &default
-    key: 'uBlAF9UGFcyK4tCR3XMFA'
-    secret: JSXae3cwRJatcrImzQzn6Qr8DpgDcNqE4dAAmSrvU
+    key: 'kC8rorYKaTVJKEjOhPdA'
+    secret: 8Lf32uzNDdFTQD0iZJUBPTksr5el4EEa8dD0IWqhM
   test: 
     <<: *default
   production:
-    key: ''
-    secret: 
+    key: 'E7R1f65QeAOVUh1FvUXFIA'
+    secret: tLfxJVynXQKhwHzd6fz0wcp4R8CQaAoEo5w7MDidudE
