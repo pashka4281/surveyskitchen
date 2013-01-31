@@ -1,39 +1,25 @@
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">
-      <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <a class="brand" href="/dashboard">SurveysKitchen</a>
-      <div class="container-fluid nav-collapse">
-        <ul class="nav">
-          <%=content_tag :li, class: (request.path =~ /(dashboard)(\/)?/ ? 'active' : '')  do -%>
-            <%= link_to 'Dashboard', :dashboard %>
-          <%-end-%>
-          <%=content_tag :li, class: (request.path =~ /(surveys)(\/)?/ ? 'active' : '')  do -%>
-            <%= link_to 'Surveys', :surveys %>
-          <%-end-%>
-          <%= content_tag(:li){ link_to('Admin', :rails_admin) } if current_user.admin? %>
-        </ul>
-
-        <ul class="nav pull-right">
-          <li class="dropdown" id="menu1">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
-              <%= raw %(<span class="label label-success">Account owner</span>) if current_account.owner == current_user %>
-              <strong><%= current_user.full_name %></strong>
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Account info", :account_info %></li>
-              <li><%= link_to "User profile", :profile %></li>
-              <li class="divider"></li>
-              <li><a href="/logout">Log out</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div><!--/.nav-collapse -->
+<div id="navbar">
+  <!-- <a class="brand" href="/dashboard">SurveysKitchen</a> -->
+  <div id="navbar-content">
+    <div class="nav-wrapper">
+      <ul class="nav left">
+        <%=content_tag :li, class: (request.path =~ /(dashboard)(\/)?/ ? 'active' : '')  do -%>
+          <%= link_to raw('<i class="icon-home"></i> Dashboard'), :dashboard %>
+        <%-end-%>
+        <%=content_tag :li, class: (request.path =~ /(surveys\/new)(\/)?/ ? 'active' : '')  do -%>
+          <%= link_to raw('<i class="icon-plus-circle"></i> Add Survey'), :new_survey %>
+        <%-end-%>
+        <%= content_tag(:li){ link_to(raw('<i class="icon-wrench"></i> Admin'), :rails_admin) } if current_user.admin? %>
+      </ul>
     </div>
+
+
+    <ul class="simple-nav right">
+      <li><%= link_to "Account", :account_info %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Profile", :profile %></li>
+      <li class="divider"></li>
+      <li><a href="/logout">Log out</a></li>
+    </ul>
   </div>
 </div>

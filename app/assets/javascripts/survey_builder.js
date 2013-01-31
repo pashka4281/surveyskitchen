@@ -101,8 +101,7 @@ function Survey(params){
 	//constructor
 	this.survey_id = params['survey_id'];
 	this.base_path = '/surveys/' + this.survey_id; // e.g. "/survey/1"
-	this.newSurveyTypeSelector = $('#surveyTypeSelector');
-	this.newSurveyTypeSelector.dropkick();
+
 	this.total_items = params['total_items'];
 	if(this.total_items == 0){ 
 		$('#no-items-area').show();
@@ -116,14 +115,14 @@ function Survey(params){
 	});
 
 	//insert buttons click handler:
-	$(this.builder_ui.insertButtons).live('click', function(){
+	$(document).on('click', this.builder_ui.insertButtons, function(){
 		self.addItem($(this).attr('itemindex'), self.builder_ui.new_item_form_data);
 		self.builder_ui.renewItemsIndexes();
 		self.builder_ui.hideButtons();
 	});
 
 	//remove links click handler:
-	$(this.builder_ui.delete_links).live('click', function(){
+	$(document).on('click', this.builder_ui.delete_links, function(){
 		self.deleteItem($(this).parents('.sortable_item').attr('item_id'));
 		return false;
 	});

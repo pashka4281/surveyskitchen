@@ -2,12 +2,14 @@
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
- *= require bootstrap_and_overrides
+ *= require reset
  *= require common
  *= require dashboard
  *= require deploy
  *= require sprite-animation
  *= require survey
  *= require tiny_editor
- *= require ribbon
+ *= require modals
+ *= require survey_builder
+ *= require icon_font
 */

@@ -29,14 +29,9 @@ module ApplicationHelper
     <i class="icon-circle-arrow-left"></i> Insert here <i class="icon-circle-arrow-right"></i></button>'
   end
 
-  def ribbed_header(text)
+  def page_header(text)
     raw <<-EOS
-      <div class="ribbon">
-        <div class="ribbon-stitches-top"></div>
-        <strong class="ribbon-content"><h1>#{text}</h1></strong>
-        <div class="ribbon-stitches-bottom"></div>
-      </div>
-      <div class="ribbon-spacer"></div>
+      <div class="page-header"><h1>#{text}</h1></div>
     EOS
   end
 

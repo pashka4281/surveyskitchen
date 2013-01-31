@@ -1,10 +1,9 @@
-<div class="padded-content">
-  <%= ribbed_header 'Edit Survey' %>
+
+  <%= page_header "Edit Survey (#{link_to('builder', builder_survey_path(@survey))})" %>
 
   <div class="row">
     <div class="span6">
       <%= render 'form' %>
     </div>
   </div>
-  
-</div>
+ 

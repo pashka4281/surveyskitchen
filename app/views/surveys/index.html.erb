@@ -1,6 +1,5 @@
 
-<div class="padded-content">
-  <%= ribbed_header 'Surveys' %>
+  <%= page_header 'Surveys' %>
 
   <% if @surveys.any? %>
     <table class="table table-striped">
@@ -36,6 +35,5 @@
 
   <%= link_to 'New survey', new_survey_path, :class => 'btn btn-primary' %>
 
-</div>
 
 <%= content_for :head_panel, render('shared/searchbox') %>

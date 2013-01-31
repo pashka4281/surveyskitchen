@@ -1,14 +1,8 @@
 <% header("Questions builder", subheader: 'All changes here are automatically saved.') %>
 
-    	<div id="build_list"  class="list">
-      		<h2 id="survey-name">
-      			<%= @survey.name %>
+<%= page_header "Survey builder &raquo; #{@survey.name} (#{link_to('edit', [:edit, @survey], class: 'simple_link')})" %>
 
-      			<%= link_to [:edit, @survey], class: 'simple_link' do %>
-      				<span class="label label-info"><i class="icon-pencil"></i> Edit survey</span>
-      			<% end %>
-      		</h2>
-      		
+    	<div id="build_list"  class="list">
 
 			<div id="zero-item" class="insertable">
 	            <%= insert_button %>

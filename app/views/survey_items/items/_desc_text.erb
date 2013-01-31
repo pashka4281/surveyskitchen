@@ -1,10 +1,8 @@
-<%= div_for item, class: "insertable sortable_item", item_id: item.id do -%>
+<%= div_for item, class: "insertable survey_item", item_id: item.id do -%>
 	<div class="navbar-inner pull-right">
 	    <%= render 'survey_items/items/_tools_box', item: item %>
 	</div>
-	<div class="well">
-	    <%= item.text_content %>
-	</div>
+	<div class="item-content"><p><%= item.text_content %></p></div>
 
 	<%= insert_button %>
 <%- end -%>

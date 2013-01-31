@@ -1,0 +1,62 @@
+#new_survey_item textarea{ resize: vertical; }
+.btn:focus{ outline: none; }
+#build_list{
+	padding: 7px;
+	margin-bottom: 30px;
+	background-color: #fff;
+	counter-reset:section;
+	#no-items-area{
+        display: none;
+        #work-area-texting{
+            color: #929292;text-align: center;border: 3px dashed #CCC;
+        }
+	}
+	.survey_item{
+		position: relative;
+		padding: 10px;
+		border-bottom: 1px dashed #ccc;
+		border-top: 1px dashed #ccc;
+		margin-bottom: 22px;
+		padding-left: 30px;
+		&::before{ 
+			counter-increment:section; 
+			content:"# " counter(section) ". "; 
+			position: absolute; 
+			left: -6px; 
+			color: #777;
+		}
+		.item-content{ margin-right: 100px; }
+		strong{ font-weight: 700; }
+		input[type="text"], select, textarea{
+			outline: none;
+			border: 1px solid #ccc;
+			padding: 3px;
+			width: 70%;
+			font-size: 16px;
+		}
+		ul, textare, input, p, select{ color: rgb(70, 70, 70); }
+		ul.unstyled, select, input[type="text"], textarea{ margin-top: 10px; }
+
+		.manage_links{
+			position: absolute;
+			right: 10px;
+			a{
+				color: #bbb;
+				&:hover{ color: #000; }
+			}
+		}
+	}
+	.insert_buttons{ 
+		display: none; 
+		margin-bottom: 16px;
+		font-size: 14px;
+	}
+}
+#newItem{
+	form{ margin-bottom: 0; }
+}
+#newItemBar{ position: fixed; border-top: 1px solid #aaa; }
+#item_type_buttons{ 
+	text-align: center;
+	button{ margin-top: 5px; }
+}

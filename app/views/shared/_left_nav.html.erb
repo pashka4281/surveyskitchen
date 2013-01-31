@@ -1,0 +1,12 @@
+<ul>
+	<li>
+		<a href="#"><i class="icon-help-1"></i>How to start</a>
+	</li>
+	<%=content_tag :li, class: (request.path =~ /(surveys)(\/)?/ ? 'active' : '')  do -%>
+        <%= link_to raw("<i class=\"icon-edit-1\"></i> Surveys (#{current_account.surveys.count})"), :surveys %>
+    <%-end-%>
+	<%=content_tag :li, class: (request.path =~ /(responses)(\/)?/ ? 'active' : '')  do -%>
+        <%= link_to raw("<i class=\"icon-chart-bar\"></i> Responses (#{current_account.responses.count})"), :surveys %>
+    <%-end-%>
+	<li><a href="#"><i class="icon-users-1"></i> Clients</a></li>
+</ul>

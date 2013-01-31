@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
     <title><%= content_for?(:title) ? yield(:title) : "Surveyskitchen" %></title>
     <%= csrf_meta_tags %>
 
@@ -20,23 +20,20 @@
     <%= favicon_link_tag '/favicon.ico', :rel => 'shortcut icon' %>
   </head>
   <body>
-
     <%= render 'shared/top_bar' %>
+    <div id="sides-padding">
+      <div id="content-wrapper">
+        <div id="main-content">
+          <div id="content-pretty">          <%= yield %></div>
 
-    <div class="container">
-      <div class="row">
-        
-        <div class="span12">
-          <%= bootstrap_flash %>
-          <%= yield %>
         </div>
-      </div><!--/row-->
+        <div id="left-nav"><%= render 'shared/left_nav' %></div>
+      </div>
+    </div>
 
-      <footer>
-        <p>© SurveysKitchen 2012</p>
-      </footer>
-
-    </div> <!-- /container -->
+    <footer>
+      <p>© SurveysKitchen 2012</p>
+    </footer>
 
     <!-- Javascripts
     ================================================== -->
