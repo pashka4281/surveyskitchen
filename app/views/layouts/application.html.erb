@@ -24,7 +24,7 @@
     <div id="sides-padding">
       <div id="content-wrapper">
         <div id="main-content">
-          <div id="content-pretty">          <%= yield %></div>
+          <div id="content-pretty"><%= yield %></div>
 
         </div>
         <div id="left-nav"><%= render 'shared/left_nav' %></div>
@@ -32,7 +32,9 @@
     </div>
 
     <footer>
-      <p>© SurveysKitchen 2012</p>
+      <div class="content">
+        <p>© SurveysKitchen <%= Time.now.year %></p>
+      </div>
     </footer>
 
     <!-- Javascripts

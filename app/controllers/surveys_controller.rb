@@ -1,4 +1,6 @@
 class SurveysController < ApplicationController
+  before_filter :authenticate_user!
+
   def builder
     @survey = current_account.surveys.find(params[:id], :include => :items)
   end

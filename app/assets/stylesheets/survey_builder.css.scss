@@ -43,6 +43,7 @@
 			a{
 				color: #bbb;
 				&:hover{ color: #000; }
+				&.deleteLnk:hover{ color: #ff0000; }
 			}
 		}
 	}

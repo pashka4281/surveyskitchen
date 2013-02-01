@@ -1,7 +1,7 @@
 class SurveyItems::DescText < SurveyItem
-	attr_accessible :text_content
+  attr_accessible :text_content
 	
-	def text_content=(txt)
+  def text_content=(txt)
 	  set_custom_field(:text_content, txt)  
   end
   

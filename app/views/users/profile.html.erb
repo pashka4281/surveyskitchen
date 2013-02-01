@@ -1,24 +1,18 @@
+<%= page_header "Profile" %>
 
-<div class="padded-content">
-  <div class="row">
-    <div class="span6">
-      <h3>Profile</h3>
-      <%= form_for(@user, :url => :profile_update, class: 'form') do |f| %>
-        <%= f.label :first_name, class: 'right' %>
-        <%= f.text_field :first_name, placeholder: 'Your first name', class: 'span6' %>
+<%= form_for(@user, :url => :profile_update, class: 'form') do |f| %>
+  <%= f.label :first_name, class: 'right' %>
+  <%= f.text_field :first_name, placeholder: 'Your first name', class: 'span6' %>
 
-        <%= f.label :last_name, class: 'right' %>
-        <%= f.text_field :last_name, placeholder: 'Your last name', class: 'span6' %>
+  <%= f.label :last_name, class: 'right' %>
+  <%= f.text_field :last_name, placeholder: 'Your last name', class: 'span6' %>
 
-        <%= f.label :account_name, class: 'right' %>
-        <%= f.text_field :account_name, placeholder: 'Your account name', class: 'span6' %>
+  <%= f.label :account_name, class: 'right' %>
+  <%= f.text_field :account_name, placeholder: 'Your account name', class: 'span6' %>
 
-        <%= f.label :email, class: 'right' %>
-        <%= f.text_field :email, placeholder: 'Email address', class: 'span6' %>
-        <br />
-        <%#= f.submit "Sign up now!", class: 'btn btn-primary' %>
+  <%= f.label :email, class: 'right' %>
+  <%= f.text_field :email, placeholder: 'Email address', class: 'span6' %>
+  <br />
+  <%#= f.submit "Sign up now!", class: 'btn btn-primary' %>
 
-      <% end %>
-    </div>
-  </div>
-</div>
+<% end %>

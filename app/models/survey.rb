@@ -12,7 +12,8 @@ class Survey < ActiveRecord::Base
   
   STEPS = %w(basic_info survey_type builder)
   
-  validates :name, :category_id, presence: true
+  validates :name, presence: true
+  validates :category_id, presence: true, :unless => :seed_item?
   
   def items_positions=(items)
     write_attribute(:items_positions, items.collect(&:to_i))

@@ -1,14 +1,15 @@
 <%= form_for @survey, html: {class: 'form'} do |f| %>
   <fieldset>
-    <%= f.label :name, 'Survey name:' %>
-    <%= f.text_field :name, class: 'span5', placeholder: 'Enter name for your surevey'  %>
-    
-    <%= f.label :category_id, 'Choose category:' %>
-    <%= f.select(:category_id, Category.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Select'}, class: 'span5')%>
-    
-    <%= f.label :description, 'Survey description:' %>
-    <%= f.text_area :description, rows: 5, class: 'span5', placeholder: 'Enter a brief description here' %>
-    
+    <%= f.label :name do %> Survey name:
+      <%= f.text_field :name, class: 'span5', placeholder: 'Enter name for your surevey'  %>
+    <% end %>
+
+    <%= f.label :category_id do %> Choose category:
+      <%= f.select(:category_id, Category.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Select'}, class: 'span5')%>
+    <% end %>
+    <%= f.label :description do %> Survey description:
+      <%= f.text_area :description, rows: 5, class: 'span5', placeholder: 'Enter a brief description here' %>
+    <% end %>
     <!-- <label for="survey_prefill_items" class="checkbox">
       <%=f.check_box :prefill_items, class: 'checkbox' %> Prefill survey with example items
     </label>

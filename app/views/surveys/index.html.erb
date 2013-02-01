@@ -1,39 +1,11 @@
 
-  <%= page_header 'Surveys' %>
+  <%= page_header "Surveys" %>
 
   <% if @surveys.any? %>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Category</th>
-          <th>Name</th>
-          <th>Created</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @surveys.each do |survey| %>
-          <tr>
-            <td><%= survey.category.name %></td>
-            <td>
-              <%= link_to survey.name, builder_survey_path(survey) %>
-            </td>
-            <td><%= survey.created_at.to_s(:date_and_time) %></td>
-            <td>
-              <%= link_to 'Edit', edit_survey_path(survey), :class => 'btn btn-mini' %>
-
-              <%= link_to 'Deploy', deploy_survey_path(survey), class: 'btn btn-mini btn-success' %>
-              <%= link_to 'Responses', [survey, :responses], class: 'btn btn-mini' %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% else %>  
+    <div id="surveys_list"><%= render @surveys %></div>
+  <% else %>
     <h5>There are not items to display currently</h5>
   <% end %>
-
-  <%= link_to 'New survey', new_survey_path, :class => 'btn btn-primary' %>
 
 
 <%= content_for :head_panel, render('shared/searchbox') %>
