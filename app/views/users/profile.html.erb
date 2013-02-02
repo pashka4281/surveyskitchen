@@ -1,18 +1,37 @@
 <%= page_header "Profile" %>
 
-<%= form_for(@user, :url => :profile_update, class: 'form') do |f| %>
-  <%= f.label :first_name, class: 'right' %>
-  <%= f.text_field :first_name, placeholder: 'Your first name', class: 'span6' %>
-
-  <%= f.label :last_name, class: 'right' %>
-  <%= f.text_field :last_name, placeholder: 'Your last name', class: 'span6' %>
-
-  <%= f.label :account_name, class: 'right' %>
-  <%= f.text_field :account_name, placeholder: 'Your account name', class: 'span6' %>
-
-  <%= f.label :email, class: 'right' %>
-  <%= f.text_field :email, placeholder: 'Email address', class: 'span6' %>
-  <br />
+<%= form_for(@user, :url => :profile_update, html:{ class: 'form' }) do |f| %>
+  <%= f.label :account_name do %> Account name:
+    <div class="uneditable"><%= @user.account.name %></div>
+  <% end %>
+  <%= f.label :first_name do %> First name:
+    <%= f.text_field :first_name, placeholder: 'Your first name', class: 'span6' %>
+  <% end %>
+  <%= f.label :last_name do %> Last name:
+    <%= f.text_field :last_name, placeholder: 'Your last name', class: 'span6' %>
+  <% end %>
+  <%= f.label :email do %> Email:
+    <%= f.text_field :email, placeholder: 'Email address', class: 'span6' %>
+  <% end %>
   <%#= f.submit "Sign up now!", class: 'btn btn-primary' %>
+<div class="spacer"></div>
+  <h3>Authentications:</h3>
 
+  <div class="authentication">
+    <span>Facebook: </span>
+    <% if fb_auth = @user.facebook_auth %>
+      <%= fb_auth.linked_name %>
+    <% else %>
+      <%= link_to "Connect to Facebook", "#", class: 'big_btn fb-auth-btn' %>
+    <% end %>
+  </div>
+
+  <div class="authentication">
+    <span>Twitter: </span> 
+    <% if tw_auth = @user.twitter_auth %>
+      <%= tw_auth.linked_name %>
+    <% else %>
+      <%= link_to "Connect to Twiiter", "#", class: 'big_btn tw-auth-btn' %>
+    <% end %>
+  </div>
 <% end %>

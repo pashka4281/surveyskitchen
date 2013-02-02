@@ -22,6 +22,14 @@ class User < ActiveRecord::Base
   after_create :setup_account
   before_save :set_full_name
 
+  def facebook_auth
+    authentications.facebook.first
+  end
+
+  def twitter_auth
+    authentications.twitter.first
+  end
+
 #private methods:
   private
 
