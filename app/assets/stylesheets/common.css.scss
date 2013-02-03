@@ -29,6 +29,8 @@ body{
 	}
 }
 
+.clear{clear: both; height: 1px;}
+
 $blue-color: #CFCFCF;
 
 
@@ -61,7 +63,7 @@ footer{
 }
 a.simple_link:hover{ text-decoration: none; }
 
-
+strong{ font-weight: 700; }
 
 a[class^="sign-in-"]{
 	&:hover{ background-position: 0 22px; }
@@ -358,6 +360,7 @@ form.form{
 	}
 	.tw-auth-btn{ background-image: url('/images/icons/twitter.png'); background-repeat: no-repeat; }
 	.fb-auth-btn{ background-image: url('/images/icons/facebook.png'); background-repeat: no-repeat; }
+	.go-auth-btn{ background-image: url('/images/icons/google.png'); background-repeat: no-repeat; }
 }
 //SURVEYS LIST PAGE
 #surveys_list{
@@ -392,7 +395,33 @@ form.form{
 	}
 }
 
+//REPORT PAGE
+$report-item-color: #CDDBFD;
 
+#report{
+	counter-reset: section;
+	.report-item{
+		margin-bottom: 15px;
+		position: relative;
+		border: 1px solid $report-item-color;
+		.report-item-header{
+			padding: 5px 5px 5px 45px;
+			background-color: $report-item-color;
+		}
+		.report-item-body{
+			padding: 7px;
+		}
+		&::before {
+			counter-increment: section;
+			content: "# " counter(section) ". ";
+			position: absolute;
+			left: 7px;
+			top: 6px;
+			color: #7779AD;
+			font-weight: bold;
+		}
+	}
+}
 
 @media (max-width: 767px) {
 	#build_list{

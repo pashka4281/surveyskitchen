@@ -11,7 +11,9 @@ class SurveyItem < ActiveRecord::Base
   # scope :trashed, where('deleted_at NOT NULL') #mysql compatible syntax
   scope :trashed, where('deleted_at <> NULL') #postgres compatible syntax
   scope :active, where(deleted_at: nil)
-  
+
+  scope :question_items, where('type NOT IN(?)', %w(SurveyItems::PageBreak SurveyItems::DescText))
+
   class << self
     def custom_field_accessor(*args)
       custom_field_reader(*args)

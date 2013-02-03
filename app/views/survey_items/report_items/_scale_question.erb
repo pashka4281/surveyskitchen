@@ -1,0 +1,6 @@
+<strong><%= "#{counter}. #{item.title}" %></strong> <br />
+<% item.scale_size.times do |v| %>
+  <label class="radio inline">
+    <input type="radio" disabled="disabled" <%= 'checked="true"' if result.to_i == v+1 %>/><%= v+1 %>
+  </label>
+<% end %>

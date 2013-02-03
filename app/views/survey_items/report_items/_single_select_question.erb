@@ -1,0 +1,12 @@
+<strong><%= "#{counter}. #{item.title}" %></strong> <br />
+
+<ul class="unstyled">
+	<% item.variants_array.each_with_index do |variant, i| %>
+    	<li>
+	      	<label class="radio">
+				<input type="radio" disabled="disabled" <%= 'checked="true"' if result.to_i == i %>/>
+				<%= variant %>
+			</label>
+		</li>
+    <% end %>
+</ul>

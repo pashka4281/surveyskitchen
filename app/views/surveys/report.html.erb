@@ -1,13 +1,15 @@
-<div class="padded-content">
-  <%= ribbed_header "Report for \"#{@survey.name}\"" %>
-  <%= render 'shared/responses_nav' %>
 
-  <ul class="unstyled">
-    <% @survey.items.each_with_index do |item,i| %>
-      <li>
-        <%= item.title %>
-      </li>
-    <% end %>
-  </ul>
+<%= page_header "#{@survey.name} -- Report" %>
 
+<div id="report">
+	<% @survey.sorted_question_items.each_with_index do |item,i| %>
+		<div class="report-item">
+			<div class="report-item-header">
+				<h4><%= item.title %></h4>
+			</div>
+			<div class="report-item-body">
+dddf
+			</div>
+		</div>
+	<% end %>
 </div>

@@ -14,22 +14,23 @@
             padding: 25px;
         }
 	}
-	.survey_item{
-		position: relative;
-		padding: 10px;
-		border-bottom: 1px dashed #ccc;
-		border-top: 1px dashed #ccc;
-		margin-bottom: 22px;
-		padding-left: 30px;
-		&::before{ 
+	.countable{
+		border-bottom: 1px dashed #cccccc;
+		border-top: 1px dashed #cccccc;
+		&::before{
 			counter-increment:section; 
 			content:"# " counter(section) ". "; 
 			position: absolute; 
 			left: -6px; 
 			color: #777;
 		}
+	}
+	.survey_item{
+		position: relative;
+		padding: 10px;
+		margin-bottom: 22px;
+		padding-left: 30px;
 		.item-content{ margin-right: 100px; }
-		strong{ font-weight: 700; }
 		input[type="text"], select, textarea{
 			outline: none;
 			border: 1px solid #ccc;

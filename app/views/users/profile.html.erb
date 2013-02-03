@@ -22,7 +22,7 @@
     <% if fb_auth = @user.facebook_auth %>
       <%= fb_auth.linked_name %>
     <% else %>
-      <%= link_to "Connect to Facebook", "#", class: 'big_btn fb-auth-btn' %>
+      <%= link_to "Connect with Facebook", "#", class: 'big_btn fb-auth-btn' %>
     <% end %>
   </div>
 
@@ -31,7 +31,16 @@
     <% if tw_auth = @user.twitter_auth %>
       <%= tw_auth.linked_name %>
     <% else %>
-      <%= link_to "Connect to Twiiter", "#", class: 'big_btn tw-auth-btn' %>
+      <%= link_to "Connect with Twiiter", "#", class: 'big_btn tw-auth-btn' %>
+    <% end %>
+  </div>
+
+  <div class="authentication">
+    <span>Google: </span> 
+    <% if tw_auth = @user.google_auth %>
+      <%= tw_auth.linked_name %>
+    <% else %>
+      <%= link_to "Connect with Google", "#", class: 'big_btn go-auth-btn' %>
     <% end %>
   </div>
 <% end %>

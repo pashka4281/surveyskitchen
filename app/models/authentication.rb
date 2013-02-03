@@ -5,6 +5,7 @@ class Authentication < ActiveRecord::Base
   
   scope :facebook, where(provider: 'facebook')
   scope :twitter,  where(provider: 'twitter')
+  scope :google,  where(provider: 'google')
 
   def self.create_from_oauth(auth_h, user, provider)
   	self.create(

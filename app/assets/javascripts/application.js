@@ -11,9 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-ui-1.9.1.custom.min
 //= require jquery_ujs
 //= require common
+//= require raphael
 //= require_tree .
 
 

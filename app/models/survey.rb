@@ -26,6 +26,13 @@ class Survey < ActiveRecord::Base
     end
   end
 
+  #returns an array of questions within the specified order (:questions_position)
+  def sorted_question_items
+    self.items.active.question_items.sort do |x1, x2| 
+      self.items_positions.index(x1.id) <=> self.items_positions.index(x2.id)
+    end
+  end
+
   #returns 2-dimensions array of items 
   def paged_items
     result = [[]]
