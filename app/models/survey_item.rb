@@ -14,6 +14,11 @@ class SurveyItem < ActiveRecord::Base
 
   scope :question_items, where('type NOT IN(?)', %w(SurveyItems::PageBreak SurveyItems::DescText))
 
+  #survey type specific report data
+  def report_data
+    raise NotImplementedError.new("You must override this method in descendant class.")
+  end
+
   class << self
     def custom_field_accessor(*args)
       custom_field_reader(*args)

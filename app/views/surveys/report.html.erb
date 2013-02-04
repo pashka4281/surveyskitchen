@@ -2,14 +2,13 @@
 <%= page_header "#{@survey.name} -- Report" %>
 
 <div id="report">
-	<% @survey.sorted_question_items.each_with_index do |item,i| %>
-		<div class="report-item">
-			<div class="report-item-header">
-				<h4><%= item.title %></h4>
-			</div>
-			<div class="report-item-body">
-dddf
-			</div>
-		</div>
+	<% @survey.sorted_question_items.each_with_index do |s_item,i| %>
+		<%= render "/survey_items/report_item", item: s_item, index: i %>
 	<% end %>
 </div>
+
+<% content_for :js do %>
+<script type="text/javascript">
+	$('.star-rating').jDisplayStars();
+</script>
+<% end %>

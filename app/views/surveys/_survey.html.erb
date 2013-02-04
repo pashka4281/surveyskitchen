@@ -8,7 +8,7 @@
 	<div>
 		<%= link_to 'Edit', edit_survey_path(survey), :class => 'btn small' %>
 		<%= link_to 'Deploy', deploy_survey_path(survey), class: 'btn small' %>
-		<%= link_to 'Responses', [survey, :responses], class: 'btn small' %>
+		<%= link_to "Responses (#{survey.responses.count})", [survey, :responses], class: 'btn small' %>
 		<%= link_to 'Report', [:report, survey], class: 'btn small' %>
 	</div>
 <% end %>

@@ -1,9 +1,7 @@
-<strong><%= "#{counter}. #{item.title}" %></strong> <br />
-
 <ul class="unstyled">
 	<% item.variants_array.each_with_index do |variant, i| %>
     	<li>
-    		<input type="checkbox" disabled="disabled" <%= 'checked="1"' if result.keys.collect(&:to_i).include?(i) %> ></input>
+    		<input type="checkbox" disabled="disabled" ></input>
     		<%= variant %>
     	</li>
 	<% end %>
