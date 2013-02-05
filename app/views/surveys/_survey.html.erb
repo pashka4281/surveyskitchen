@@ -6,9 +6,9 @@
 	</div>
 	<div class="survey-desc"><%= survey.description %></div>
 	<div>
-		<%= link_to 'Edit', edit_survey_path(survey), :class => 'btn small' %>
-		<%= link_to 'Deploy', deploy_survey_path(survey), class: 'btn small' %>
-		<%= link_to "Responses (#{survey.responses.count})", [survey, :responses], class: 'btn small' %>
-		<%= link_to 'Report', [:report, survey], class: 'btn small' %>
+		<%= link_to edit_survey_path(survey), class: 'btn small' do %><i class="icon-pencil-2"></i>Edit<% end %>
+		<%= link_to deploy_survey_path(survey), class: 'btn small' do %><i class="icon-share"></i>Share<% end %>
+		<%= link_to [survey, :responses], class: 'btn small' do %><i class="icon-chat-1"></i>Responses (<%=survey.responses.count%>)<% end %>
+		<%= link_to [:report, survey], class: 'btn small' do %><i class="icon-doc-text"></i>Report<% end %>
 	</div>
 <% end %>

@@ -1,1 +1,12 @@
-<strong><%= "#{counter}. #{item.title}" %></strong>
+<% 	resp_arr = @responses_content.map{|x| x[item.id.to_s]}.compact %>
+<ul class="report-variants">
+	<% item.variants_array.each_with_index do |variant, i| %>
+		<% percentage = (resp_arr.count(variant).to_f / resp_arr.count * 100).round %>
+    	<li>
+    		<span><%= variant %></span> 
+    		<div class="bar-wrapper">
+    			<div class="bar-line green" style="width: <%= percentage %>%"><%= percentage %>%</div>
+    		</div>
+		</li>
+    <% end %>
+</ul>

@@ -54,7 +54,7 @@ class SurveysController < ApplicationController
 
   def report
     @survey = Survey.find(params[:id])
-    @responses = @survey.responses.order('created_at DESC')
+    @responses_content = @survey.responses.map(&:content)
   end
   
 end

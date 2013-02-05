@@ -197,6 +197,7 @@ h5{ font-size: 0.9em;}
 				font: 11px/41px Arial, sans-serif;
 				color: #ddd;
 				text-transform: uppercase;
+				text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
 				&:hover{ text-decoration: underline; }
 			}
 		}
@@ -281,7 +282,7 @@ h5{ font-size: 0.9em;}
 	border-top-right-radius: 10px;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #ADADAD;
-	h1,h2,h3,h4{ color: rgb(100, 100, 100);	}
+	h1,h2,h3,h4{ color: rgb(100, 100, 100); text-shadow: 0px 1px rgb(255, 255, 255)	}
 	h1{ font-size: 23px; }
 	a.light{ color: rgb(165, 165, 165); }
 }
@@ -351,7 +352,7 @@ form.form{
 		border-radius: 6px;
 		border: 3px solid rgb(192, 192, 192);
 		display: inline-block;
-		width: 220px;
+		width: 250px;
 		padding-left: 40px;
 		&:hover{ border: 3px solid rgb(122, 122, 122); }
 	}
@@ -419,6 +420,40 @@ $report-item-color: #CDDBFD;
 			top: 6px;
 			color: #7779AD;
 			font-weight: bold;
+		}
+		.bar-wrapper{
+			display: inline-block;
+			right: 0;
+			position: absolute;
+			left: 250px;
+			.bar-line{
+				display: inline-block;
+				height: 20px;
+				padding-top: 3px;
+				color: white;
+				text-align: center;
+				font-size: 12px;
+				min-width: 35px;
+				background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+				background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.3)));
+				background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+				background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+				background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+				background-image: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#4d000000',GradientType=0 );
+				&.red{ background-color: rgb(255, 50, 50) }
+				&.yellow{ background-color: rgb(255, 189, 50) }
+				&.green{ background-color: rgb(74, 216, 74) }
+			}
+		}
+		ul.report-variants{
+			li{ 
+				min-height: 24px;
+				position: relative;
+				padding: 2px;
+				span{ display: inline-block; width: 250px; }
+				&:nth-child(odd){ background-color: rgb(236, 236, 236) }
+			}
 		}
 	}
 }
