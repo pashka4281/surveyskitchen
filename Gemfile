@@ -11,6 +11,8 @@ gem 'rails_admin'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+
+gem 'russian'
 # gem 'geokit'
 
 # Gems used only for assets and not required

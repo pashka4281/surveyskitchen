@@ -21,4 +21,11 @@ $(function(){
 	$('body').on('hidden', '.modal', function(){
 		$(this).removeData('modal');
 	})
+
+	//flash mesages close button
+	$(document).on('click', '.flash-message a.close', function(){
+		$(this).parents('.flash-message-outer').fadeOut(300, function(){
+			$(this).remove();
+		})
+	})
 });

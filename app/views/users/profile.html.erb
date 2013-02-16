@@ -1,18 +1,22 @@
 <%= page_header "Profile" %>
 
 <%= form_for(@user, :url => :profile_update, html:{ class: 'form' }) do |f| %>
-  <%= f.label :account_name do %> Account name:
-    <div class="uneditable"><%= @user.account.name %></div>
-  <% end %>
-  <%= f.label :first_name do %> First name:
-    <%= f.text_field :first_name, placeholder: 'Your first name', class: 'span6' %>
-  <% end %>
-  <%= f.label :last_name do %> Last name:
-    <%= f.text_field :last_name, placeholder: 'Your last name', class: 'span6' %>
-  <% end %>
-  <%= f.label :email do %> Email:
-    <%= f.text_field :email, placeholder: 'Email address', class: 'span6' %>
-  <% end %>
+  <div class="fields">
+    <%= f.label :account_name do %> Account name:
+      <div class="uneditable"><%= @user.account.name %></div>
+    <% end %>
+    <%= f.label :first_name do %> First name:
+      <div class="uneditable"><%= @user.first_name %></div>
+    <% end %>
+    <%= f.label :last_name do %> Last name:
+      <div class="uneditable"><%= @user.last_name %></div>
+    <% end %>
+    <%= f.label :email do %> Email:
+      <div class="uneditable"><%= @user.email %></div>
+    <% end %>
+  </div>
+  
+  <%= link_to "Change fields...", "", id: 'change-profile-details-lnk' %>
   <%#= f.submit "Sign up now!", class: 'btn btn-primary' %>
 <div class="spacer"></div>
   <h3>Authentications:</h3>

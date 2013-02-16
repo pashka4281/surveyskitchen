@@ -13,7 +13,7 @@ function BuilderUI(params){
 	this.new_item_form_data = null;
 
 	//making survey items sortable
-	$(this.buildList).sortable({ 
+	/*$(this.buildList).sortable({ 
 		axis: 'y', 
 		items: 'div.sortable_item',
 		//containment: 'parent',
@@ -29,7 +29,7 @@ function BuilderUI(params){
 	        });
 		  	self.renewItemsIndexes();
 		} 
-	});
+	});*/
 
 	$('.sortable_item .moveGrabber').click(function(){ return false; })
 

@@ -21,22 +21,19 @@
   </head>
   <body>
     <%= render 'shared/top_bar' %>
+
+    <%= flash_messages %>
+    
     <div id="sides-padding">
       <div id="content-wrapper">
         <div id="main-content">
           <div id="content-pretty"><%= yield %></div>
-
         </div>
-        <div id="left-nav"><%= render 'shared/left_nav' %></div>
+        <div id="left-nav"><%= render 'shared/left_nav' %><%= yield :sidebar if content_for?(:sidebar) %></div>
       </div>
     </div>
 
-    <footer>
-      <div class="content">
-        <p>© SurveysKitchen <%= Time.now.year %></p>
-      </div>
-    </footer>
-
+    <%= yield :after_content if content_for?(:after_content) %>
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

@@ -2,11 +2,14 @@ class Survey < ActiveRecord::Base
   attr_accessible :account_id, :description, :category, :category_id, 
     :name, :user_id, :user, :account, :items_positions, :prefill_items
 
+    default_scope order('created_at DESC')
+
   belongs_to :account
   belongs_to :user
   belongs_to :category
   has_many   :items, dependent: :destroy, class_name: 'SurveyItem'
-  has_many   :responses
+  has_many   :responses, dependent: :destroy
+  has_many   :events, as: :eventable, dependent: :destroy
   serialize  :items_positions
   attr_accessor :prefill_items
   
@@ -53,14 +56,14 @@ class Survey < ActiveRecord::Base
   	self.items_positions.insert(position.to_i, item_id)
   end
   
-  before_create :set_items_positions
+  after_create :example_items, :event_on_created
+  before_create :set_items_positions, :generate_token
+
+  private
   
   def set_items_positions
-  	self.items_positions = []
+    self.items_positions = []
   end
-  
-  after_create :example_items
-  before_create :generate_token
   
   def example_items
     return unless self.prefill_items
@@ -69,6 +72,11 @@ class Survey < ActiveRecord::Base
 
   def generate_token
     self.token = rand(20**7).to_s(16)
+  end
+
+  #create an event that there is a new survey
+  def event_on_created
+    self.events << Events::SurveyCreatedEvent.create(account_id: account_id)
   end
 end
 

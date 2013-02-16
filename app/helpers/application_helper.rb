@@ -35,5 +35,18 @@ module ApplicationHelper
     EOS
   end
 
+  def flash_messages
+    raw(flash.collect do |key, value|
+      <<-EOS
+      <div class="flash-message-outer #{key}">
+        <div class="flash-message">
+          #{value}
+          <a class="close" href="javascript:void(0)">x</a>
+        </div>
+      </div>
+      EOS
+    end.join(''))
+  end
+
 end
 

@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    attributes:
+  models:
+    survey:
+      on_created_event: "Survey \"%{survey_name}\" was created"

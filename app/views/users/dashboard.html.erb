@@ -27,14 +27,15 @@
 
 </div>
 
-<div class="events-block">
-  <h1>Events:<h1>
-  <ul class="events">
-    <li>Event1</li>
-    <li>Event2</li>
-    <li>Event3</li>
-    <li>Event4</li>
-    <li>Event5</li>
+<div id="events-block">
+  <h1>Events:</h1>
+  <ul>
+    <% for event in current_account.events %>
+       <li>
+        <%= event.message %>
+        <div class="date"><%= event.created_at %></div>
+      </li>
+    <% end %>
   </ul>
 </div>
   

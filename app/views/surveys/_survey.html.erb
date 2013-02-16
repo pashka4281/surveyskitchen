@@ -11,4 +11,5 @@
 		<%= link_to [survey, :responses], class: 'btn small' do %><i class="icon-chat-1"></i>Responses (<%=survey.responses.count%>)<% end %>
 		<%= link_to [:report, survey], class: 'btn small' do %><i class="icon-doc-text"></i>Report<% end %>
 	</div>
+	<%= link_to "Delete this survey", survey, method: :delete, confirm: 'Are you sure you want to do it?', class: 'delete-survey-lnk' %>
 <% end %>
