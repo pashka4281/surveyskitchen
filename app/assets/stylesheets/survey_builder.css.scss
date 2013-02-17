@@ -20,50 +20,61 @@
 			counter-increment:section; 
 			content:"# " counter(section) ". "; 
 			position: absolute; 
-			left: 5px; 
+			left: 5px;
+			top: 10px;
 			color: #777;
 		}
 	}
 	.survey_item{
-		border: 1px solid rgb(190, 190, 190);
 		position: relative;
-		padding: 10px;
-		margin-bottom: 22px;
-		padding-left: 40px;
-		box-shadow: 0 0 6px rgb(175, 175, 175);
-		border-radius: 4px;
-		background-color: rgb(247, 247, 247);
-		&:hover{ 
-			box-shadow: 0 0 10px rgb(148, 148, 148);
-		}
-		.item-content{ margin-right: 100px; }
-		input[type="text"], select, textarea{
-			outline: none;
-			border: 1px solid #ccc;
-			padding: 3px;
-			width: 70%;
-			font-size: 16px;
-			&:focus{
-				border: 1px solid #888;
-			}
-		}
-		ul, textare, input, p, select{ color: rgb(70, 70, 70); }
-		ul.unstyled, select, input[type="text"], textarea{ margin-top: 10px; }
-
 		.manage_links{
 			position: absolute;
 			right: 10px;
+			top: 7px;
 			a{
 				color: #bbb;
+				display: inline-block;
 				&:hover{ color: #000; }
 				&.deleteLnk:hover{ color: #ff0000; }
 			}
 		}
+		.item-inner{
+			border: 1px solid rgb(190, 190, 190);
+			padding: 10px;
+			margin-bottom: 10px;
+			padding-left: 40px;
+			box-shadow: 0 0 6px rgb(175, 175, 175);
+			border-radius: 4px;
+			background-color: rgb(247, 247, 247);
+			&:hover{ 
+				box-shadow: 0 0 10px rgb(148, 148, 148);
+			}
+			.item-content{ margin-right: 100px; }
+			input[type="text"], select, textarea{
+				outline: none;
+				border: 1px solid #ccc;
+				padding: 3px;
+				width: 70%;
+				font-size: 16px;
+				&:focus{
+					border: 1px solid #888;
+				}
+			}
+			ul, textare, input, p, select{ color: rgb(70, 70, 70); }
+			ul.unstyled, select, input[type="text"], textarea{ margin-top: 10px; }
+		}
+	}
+	.insert-button-wrapper{
+		text-align: center;
 	}
 	.insert_buttons{ 
-		display: none; 
-		margin-bottom: 16px;
-		font-size: 14px;
+		display: inline-block; 
+		margin-bottom: 10px;
+		font-size: 12px;
+		width: 70%;
+		visibility: hidden;
+		padding: 1px;
+		font-weight: bolder;
 	}
 }
 #newItem{
@@ -80,12 +91,14 @@
 		z-index: 10000;
 		margin-left: -140px;
 	}
-	a{
+	button{
 		width: 100%;
 		margin-bottom: 2px;
 		margin-top: 2px;
 		font-size: 12px;
+		text-align: left;
 	}
+	#cancel-btn{ display: none; }
 }
 #item_type_buttons{ 
 	text-align: center;

@@ -16,8 +16,8 @@
 	width: 560px;
 	margin-left: -280px;
 	background-color: #ffffff;
-	border: 1px solid #999;
-	border: 1px solid rgba(0, 0, 0, 0.3);
+	border: 5px solid #999;
+	border: 5px solid rgba(0, 0, 0, 0.3);
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
@@ -33,14 +33,22 @@
 	}
 	> div{ padding: 7px; }
 	.modal-header{
-		padding-left: 25px;
+		padding-left: 15px;
+		border-bottom: 1px solid #ccc;
 		.close{
 			position: absolute;
-			left: -5px;
-			top: -5px;
+			left: -17px;
+			top: -17px;
+			background-image: url(/images/icons/close.png);
+			height: 30px;
+			width: 30px;
 		}
 	}
 	.modal-body{
 		
+	}
+	.modal-footer{
+		border-top: 1px solid #999;
+		background-color: #E0E0E0;
 	}
 }

@@ -26,38 +26,38 @@
 <!-- New survey item modal -->
 	<div class="modal hide fade" id="newItemContainer">
 	  <div class="modal-header">
-	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    <a href="#" class="close"></a>
 	    <h3>New Item</h3>
 	  </div>
 	  <div class="modal-body"></div>
 	  <div class="modal-footer">
 	    <a href="#" class="btn close">Cancel</a>
-	    <a href="#" class="btn btn-primary" data-dismiss="modal" id="doneNewItemBtn">Done</a>
+	    <a href="#" class="btn close" id="doneNewItemBtn">Done</a>
 	  </div>
 	</div>
 
 <!-- edit survey item modal -->
 	<div class="modal hide" id="editItemContainer">
 	  <div class="modal-header">
-	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    <a href="#" class="close"></a>
 	    <h3>Edit Item</h3>
 	  </div>
 	  <div class="modal-body"></div>
 	  <div class="modal-footer">
-	    <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">Cancel</a>
-	    <a href="#" class="btn btn-primary" data-dismiss="modal" id="doneEditItemBtn">Done</a>
+	    <a href="#" class="btn close">Cancel</a>
+	    <a href="#" class="btn btn-primary" id="doneEditItemBtn">Done</a>
 	  </div>
 	</div>
 
 <!-- trashed survey items modal -->
 	<div class="modal hide fade" id="trashedItemsContainer">
 	  <div class="modal-header">
-	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    <a href="#" class="close"></a>
 	    <h3>Trash box</h3>
 	  </div>
 	  <div class="modal-body"></div>
 	  <div class="modal-footer">
-	    <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">Close</a>
+	    <a href="#" class="btn close">Close</a>
 	  </div>
 	</div>
 <% end %>
@@ -66,13 +66,16 @@
 <div>
 	<div id="sticky-anchor"></div>
 	<div id="newItemBar">
-	    <a href="<%= new_survey_item_path(@survey) %>" data-target="#newItemContainer" role="button" data-toggle="modal" class="btn btn-primary">
-	    	<i class="icon-plus-sign"></i> New Item
-	    </a>
-	    <a href="<%= trashbox_survey_path(@survey) %>" class="btn btn-info" data-target="#trashedItemsContainer" data-toggle="modal" role="button">
+		<button class="btn btn-primary" id="cancel-btn">
+	    	<i class="icon-cancel"></i> Cancel
+	    </button>
+	    <button data-url="<%= new_survey_item_path(@survey) %>" id="new-item-btn" data-target="#newItemContainer" data-toggle="modal" class="btn btn-primary">
+	    	<i class="icon-list-add"></i> New Item
+	    </button>
+	    <button data-url="<%= trashbox_survey_path(@survey) %>" class="btn btn-info" data-target="#trashedItemsContainer" data-toggle="modal" role="button">
 	    	<i class="icon-trash"></i> Trash box (<%= @survey.items.trashed.count %>)
-	    </a>
-	    <a class="btn btn-warning" href="#"><i class="icon-wrench"></i> Survey settings</a>
+	    </button>
+	    <button class="btn btn-warning"><i class="icon-wrench"></i> Survey settings</button>
 	</div>
 </div>
 

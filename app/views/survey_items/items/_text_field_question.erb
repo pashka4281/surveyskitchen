@@ -1,16 +1,16 @@
 <%= content_tag_for :div, item, class: "countable survey_item question-item", item_id: item.id do -%>
-  <div class="navbar-inner pull-right">
-    <%= render 'survey_items/items/_tools_box', item: item %>
-  </div>
-  <div class="item-content">
-    <strong><%= item.title%></strong>
-    <div class="clear"></div>
-    <% if item.appearance == 'txt_field' %>
-      <input type="text" class="span9" />
-    <% else %>
-      <textarea class="span9"></textarea>
-    <% end %>
-    
+  <%= render 'survey_items/items/_tools_box', item: item %>
+  <div class="item-inner">
+    <div class="item-content">
+      <strong><%= item.title%></strong>
+      <div class="clear"></div>
+      <% if item.appearance == 'txt_field' %>
+        <input type="text" class="span9" />
+      <% else %>
+        <textarea class="span9"></textarea>
+      <% end %>
+      
+    </div>
   </div>
 
   <%= insert_button %>

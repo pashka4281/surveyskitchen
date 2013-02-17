@@ -1,20 +1,20 @@
 <%= content_tag_for :div, item, class: "countable survey_item question-item", item_id: item.id do -%>
-  <div class="navbar-inner pull-right">
-      <%= render 'survey_items/items/_tools_box', item: item %>
-  </div>
-  <div class="item-content">
-    <strong><%= item.title %></strong>
-    <div class="clear"></div>
-    <select name="drop_down_<%= item.id %>" class="span9">
-      <%- if item.include_empty -%><option> Please select an option </option><%- end -%>
-      <% for var in item.variants_array %>
-        <option value="<%= var %>" > <%= var %> </option>
-      <% end %>
-    </select>
+  <%= render 'survey_items/items/_tools_box', item: item %>
+  <div class="item-inner">
+    <div class="item-content">
+      <strong><%= item.title %></strong>
+      <div class="clear"></div>
+      <select name="drop_down_<%= item.id %>" class="span9">
+        <%- if item.include_empty -%><option> Please select an option </option><%- end -%>
+        <% for var in item.variants_array %>
+          <option value="<%= var %>" > <%= var %> </option>
+        <% end %>
+      </select>
 
-    <%- if item.include_txt_field -%>
-      <input type="text" />
-    <%- end -%>
+      <%- if item.include_txt_field -%>
+        <input type="text" />
+      <%- end -%>
+    </div>
   </div>
   
   <%= insert_button %>

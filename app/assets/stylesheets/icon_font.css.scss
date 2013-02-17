@@ -19,7 +19,7 @@
   width: 1em;
   margin-right: 0.2em;
   text-align: center;
-  opacity: 0.8;
+/* opacity .8 */
 /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
 /* Animation center compensation - magrins should be symmetric */
@@ -31,6 +31,8 @@
 /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
+.icon-plus:before { content: '\2b'; } /* '+' */
+.icon-plus-squared:before { content: '\229e'; } /* '⊞' */
 .icon-home-1:before { content: '\e809'; } /* '' */
 .icon-home:before { content: '\2302'; } /* '⌂' */
 .icon-home-2:before { content: '\e80a'; } /* '' */
@@ -57,6 +59,7 @@
 .icon-plus-circle:before { content: '\e803'; } /* '' */
 .icon-minus-circle:before { content: '\2796'; } /* '➖' */
 .icon-cw:before { content: '\27f3'; } /* '⟳' */
+.icon-list-add:before { content: '\e003'; } /* '' */
 .icon-user-add:before { content: '\e700'; } /* '' */
 .icon-ok-circle2:before { content: '\e702'; } /* '' */
 .icon-tag:before { content: '\e70c'; } /* '' */
@@ -76,7 +79,6 @@
 .icon-left-open-big:before { content: '\e765'; } /* '' */
 .icon-right-open-big:before { content: '\e766'; } /* '' */
 .icon-font:before { content: '\e779'; } /* '' */
-.icon-font-1:before { content: '\e810'; } /* '' */
 .icon-text-height:before { content: '\e77c'; } /* '' */
 .icon-suitcase:before { content: '\e78e'; } /* '' */
 .icon-chart-pie:before { content: '\e7a2'; } /* '' */
@@ -92,7 +94,6 @@
 .icon-facebook-squared:before { content: '\f30e'; } /* '' */
 .icon-linkedin-circled:before { content: '\f319'; } /* '' */
 .icon-picture:before { content: '🌄'; } /* '\1f304' */
-.icon-picture-1:before { content: '\e811'; } /* '' */
 .icon-user:before { content: '👤'; } /* '\1f464' */
 .icon-users:before { content: '👥'; } /* '\1f465' */
 .icon-users-1:before { content: '\e801'; } /* '' */
@@ -107,7 +108,6 @@
 .icon-newspaper:before { content: '📰'; } /* '\1f4f0' */
 .icon-search:before { content: '🔍'; } /* '\1f50d' */
 .icon-search-1:before { content: '🔎'; } /* '\1f50e' */
-.icon-lock:before { content: '🔒'; } /* '\1f512' */
 .icon-wrench:before { content: '🔧'; } /* '\1f527' */
 .icon-chart-area:before { content: '🔾'; } /* '\1f53e' */
 .icon-clock:before { content: '🕔'; } /* '\1f554' */

@@ -1,8 +1,6 @@
 <%= div_for item, class: "insertable survey_item", item_id: item.id do -%>
+  <%= render 'survey_items/items/_tools_box', item: item %>
   <div class="pageEnd"></div>
-    <div class="navbar-inner pull-right">
-      <%= render 'survey_items/items/_tools_box', item: item %>
-    </div>
     <div class="row">
       <div class="span4 page_border"></div>
       <div class="span2 page_break_texting">

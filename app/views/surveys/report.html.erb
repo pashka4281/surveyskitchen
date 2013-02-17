@@ -2,8 +2,13 @@
 <%= page_header "#{@survey.name} -- Report" %>
 
 <div id="report">
-	<% @survey.sorted_question_items.each_with_index do |s_item,i| %>
-		<%= render "/survey_items/report_item", item: s_item, index: i %>
+	<% if @responses_content.any? %>
+		<% @survey.sorted_question_items.each_with_index do |s_item,i| %>
+			<%= render "/survey_items/report_item", item: s_item, index: i %>
+		<% end %>
+	<% else %>
+		<h3>I'm really sorry but at the moment there is no data to show up :(</h3>
+		share this survey to get more responses 
 	<% end %>
 </div>
 

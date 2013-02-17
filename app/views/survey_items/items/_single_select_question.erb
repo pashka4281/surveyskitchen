@@ -1,21 +1,21 @@
 <%= div_for item, class: "countable survey_item question-item", item_id: item.id do -%>
-	<div class="navbar-inner pull-right">
-		<%= render 'survey_items/items/_tools_box', item: item %>
-  	</div>
-  	<div class="item-content">
-  		<strong><%= item.title%></strong>
-    	<ul class="unstyled">
-	    	<% for var in item.variants_array %>
-		    	<li>
-			      	<label class="radio">
-						<input type="radio" name="r_btn" value="<%= var %>" /><%= var %>
-					</label>
-				</li>
-		    <% end %>
-		</ul>
-		<%- if item.include_txt_field -%>
-	      <input type="text" />
-	    <%- end -%>
+	<%= render 'survey_items/items/_tools_box', item: item %>
+	<div class="item-inner">	
+	  	<div class="item-content">
+	  		<strong><%= item.title%></strong>
+	    	<ul class="unstyled">
+		    	<% for var in item.variants_array %>
+			    	<li>
+				      	<label class="radio">
+							<input type="radio" name="r_btn" value="<%= var %>" /><%= var %>
+						</label>
+					</li>
+			    <% end %>
+			</ul>
+			<%- if item.include_txt_field -%>
+		      <input type="text" />
+		    <%- end -%>
+	  	</div>
   	</div>
 
 	

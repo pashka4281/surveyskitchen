@@ -25,8 +25,8 @@ module ApplicationHelper
   end
 
   def insert_button
-    raw '<button class="btn btn-mini btn-success btn-block insert_buttons">
-    <i class="icon-circle-arrow-left"></i> Insert here <i class="icon-circle-arrow-right"></i></button>'
+    raw '<div class="insert-button-wrapper"><button class="btn insert_buttons success">
+    <i class="icon-angle-double-left"></i> Insert here <i class="icon-angle-double-right"></i></button></div>'
   end
 
   def page_header(text)
