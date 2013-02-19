@@ -5,17 +5,12 @@
 
     <label>Varaints goes here</label>
     <%= f.text_area :variants, name: 'survey_item[variants]', rows: 3,  
-		class: 'width-90', placeholder: "One variant per line" %>
+		class: 'tall', placeholder: "One variant per line" %>
 
 	<label class="checkbox">
-    	<%= f.check_box :include_empty, name: 'survey_item[include_empty]' %>
+    	<%= f.check_box :include_txt_field, name: 'survey_item[include_txt_field]' %>
     	Include empty variant ("Please select")
 	</label>
-
-	<label class="checkbox">
-      <%= f.check_box :include_txt_field, name: 'survey_item[include_txt_field]' %>
-      Include optional text field
-    </label>
 
 	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
 	<input type="hidden" name="item_type" value="drop_down_question">

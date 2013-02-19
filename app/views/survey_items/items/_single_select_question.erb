@@ -1,7 +1,7 @@
 <%= div_for item, class: "countable survey_item question-item", item_id: item.id do -%>
 	<%= render 'survey_items/items/_tools_box', item: item %>
-	<div class="item-inner">	
-	  	<div class="item-content">
+	<div class="item-inner">
+		<div class="item-content">
 	  		<strong><%= item.title%></strong>
 	    	<ul class="unstyled">
 		    	<% for var in item.variants_array %>
@@ -13,7 +13,7 @@
 			    <% end %>
 			</ul>
 			<%- if item.include_txt_field -%>
-		      <input type="text" />
+		      <input type="text"></input>
 		    <%- end -%>
 	  	</div>
   	</div>

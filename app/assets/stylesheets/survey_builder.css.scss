@@ -54,7 +54,7 @@
 				outline: none;
 				border: 1px solid #ccc;
 				padding: 3px;
-				width: 70%;
+				width: 85%;
 				font-size: 16px;
 				&:focus{
 					border: 1px solid #888;
@@ -78,7 +78,23 @@
 	}
 }
 #newItem{
-	form{ margin-bottom: 0; }
+	form{ 
+		margin-bottom: 0;
+		input[type="text"], select, textarea{
+			outline: none;
+			border: 1px solid #ccc;
+			padding: 3px;
+			width: 100%;
+			font-size: 14px;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			&:focus{
+				border: 1px solid #888;
+			}
+		}
+		textarea.tall{height: 6em;}
+		label.checkbox{ display: block; }
+	}
 }
 #newItemBar{
 	color: #000;

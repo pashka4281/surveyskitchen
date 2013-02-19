@@ -4,5 +4,8 @@ class SurveyItems::TextFieldQuestion < SurveyItem
 	
 	custom_field_accessor :appearance
 
+	after_initialize do
+		self.appearance ||= 'txt_area' 
+	end
 end
 

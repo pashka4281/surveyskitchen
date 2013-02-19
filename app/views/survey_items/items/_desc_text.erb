@@ -1,7 +1,7 @@
 <%= div_for item, class: "survey_item", item_id: item.id do -%>
 	<%= render 'survey_items/items/_tools_box', item: item %>
 	<div class="item-inner">
-		<div class="item-content"><p><%= item.text_content %></p></div>
+		<p><%= item.text_content %></p>
 	</div>
 
 	<%= insert_button %>
