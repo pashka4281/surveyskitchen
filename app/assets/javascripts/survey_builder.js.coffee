@@ -12,7 +12,7 @@ class this.BuilderUI
 		@delete_links 	= '.survey_item .deleteLnk'
 		@edit_links 	= '.survey_item .editSurveyItem'
 		@updateSurveyUrl= params['updateSurveyUrl']
-		@survey_id 		= params['survey_id']
+		@survey_id		= params['survey_id']
 		@new_item_form_data = null
 		@renewItemsIndexes()
 
@@ -21,19 +21,21 @@ class this.BuilderUI
 		$(@cancel_btn).hide().click =>
 			@new_item_form_data = null
 			@.hideButtons()
-			@._toggle_cancel_btn()
+			@.toggle_cancel_btn()
 
 		$('#doneNewItemBtn').click =>
 			if($('#new_survey_item').data('selected-item'))
 				@new_item_form_data = $('#newItemContainer form').serialize()
 				@.showButtons()
-				@._toggle_cancel_btn()
+				@.toggle_cancel_btn()
+			false
 
 		$('#doneEditItemBtn').click =>
 			$.ajax
 				url: "/surveys/#{@survey_id}/items/" + $('#editItemContainer form input[name=item_id]').val()
 				type: 'PUT'
 				data: $('#editItemContainer form').serialize()
+			false
 
 		$(@edit_links).click => false
 
@@ -52,18 +54,18 @@ class this.BuilderUI
 			$("#{@noItemsArea}, #{@zero_item}").toggle() if @total_items is 0
 		@renewItemsIndexes()
 
-	_currentButtons: ->
-		if($(@noItemsArea).is(':hidden'))
-			return $(@buildList).find("#{@zero_item} #{@insertButtons}, .survey_item #{@insertButtons}")
-		else
-			return $(@buildList).find("#{@noItemsArea} #{@insertButtons}")
-
-	_toggle_cancel_btn: ->
+	toggle_cancel_btn: ->
 		if $(@cancel_btn).is(':hidden')
 			$("#newItemBar .btn:not(#{@cancel_btn})").attr('disabled', 'disabled')
 		else
 			$("#newItemBar .btn").removeAttr('disabled')
 		$("#{@cancel_btn}, #new-item-btn").toggle()
+
+	_currentButtons: ->
+		if($(@noItemsArea).is(':hidden'))
+			return $(@buildList).find("#{@zero_item} #{@insertButtons}, .survey_item #{@insertButtons}")
+		else
+			return $(@buildList).find("#{@noItemsArea} #{@insertButtons}")
 
 	#change all insert buttons labels to `label`
 	buttonsLabel: (label) ->  $(@insertButtons).html(label)
@@ -82,18 +84,19 @@ class this.Survey
 		@base_path = "/surveys/#{@survey_id}" # e.g. "/survey/1"
 		@total_items = params['total_items']
 		$('#no-items-area, #zero-item').toggle() if @total_items is 0
-		@builder_ui = new BuilderUI(updateSurveyUrl: params['survey_update_url'], survey_id: self.survey_id)
+		@builder_ui = new BuilderUI(updateSurveyUrl: params['survey_update_url'], survey_id: @survey_id)
 		@self = this
 
 		#insert buttons click handler:
-		$(document).on 'click', @builder_ui.insertButtons, =>
-			@addItem($(@).attr('itemindex'), @builder_ui.new_item_form_data)
+		$(document).on 'click', @builder_ui.insertButtons, (el) =>
+			@addItem($(el.currentTarget).attr('itemindex'), @builder_ui.new_item_form_data)
 			@builder_ui.renewItemsIndexes()
 			@builder_ui.hideButtons()
+			@builder_ui.toggle_cancel_btn()
 
 		#remove links click handler:
-		$(document).on 'click', @builder_ui.delete_links, =>
-			@deleteItem($(@).parents('.survey_item').attr('item_id'))
+		$(document).on 'click', @builder_ui.delete_links, (el) =>
+			@deleteItem($(el.currentTarget).parents('.survey_item').attr('item_id'))
 			false
 
 		#callbacks:
@@ -109,12 +112,12 @@ class this.Survey
 			data:
 				item_params: params
 				item_position: pos
-			success: (resp) -> #resp contains new item markup
+			success: (resp) -> #resp contains new item markup	
 				self.builder_ui.insertItem(resp, pos, @total_items)
 				@total_items += 1
 				if(@afterItemAdd != undefined)
 					@afterItemAdd(resp, pos)
-	
+
 	deleteItem: (id) =>
 		it = this
 		$.ajax "#{@base_path}/items/#{id}/delete",
