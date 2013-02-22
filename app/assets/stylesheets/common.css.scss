@@ -77,8 +77,12 @@ a.sign-in-facebook{	background-image: url(/images/signin_facebook.png);}
 a.sign-in-twitter{	background-image: url(/images/signin_twitter.png);}
 
 
-h2{
-	small{ min-width: 180px; display: inline-block; }
+h3{
+	small{ 
+		min-width: 210px;
+		display: inline-block;
+		font-size: 16px;
+	}
 }
 h1{ font-size: 1.15em;}
 h2{ font-size: 1.8em;}
@@ -449,6 +453,14 @@ $report-item-color: #CDDBFD;
 		}
 		.report-item-body{
 			padding: 7px;
+			.responses-separator{
+				width: 1px;
+				height: 16px;
+				display: inline-block;
+				margin: 0 8px;
+				border-right: 1px solid #ccc;
+				border-left: 1px solid #F3F3F3;
+			}
 		}
 		&::before {
 			counter-increment: section;

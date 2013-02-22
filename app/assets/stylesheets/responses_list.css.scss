@@ -1,0 +1,23 @@
+#responses-list{
+	.response{
+		padding: 7px;
+		position: relative;
+		margin-bottom: 2px;
+
+		&:nth-child(odd) { background-color: #E9E9E9 }
+		&:nth-child(even) { background-color: #F3F3F3 }
+
+		span[class^="icon-"]{
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+		}
+		.icon-browser{
+			&.chrome{ background-image: url(/images/responses/chrome.png) }
+			&.safari{ background-image: url(/images/responses/safari.png) }
+			&.firefox{ background-image: url(/images/responses/firefox.png) }
+			&.opera{ background-image: url(/images/responses/opera.png) }
+			&.ie{ background-image: url(/images/responses/ie.png) }
+		}
+	}
+}

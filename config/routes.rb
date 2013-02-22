@@ -24,8 +24,7 @@ Surveyskitchen::Application.routes.draw do
   end
 
   namespace :account do
-    get 'info', to: 'settings#info'
-    resource :settings, only: [:edit, :update, :show]
+    get 'info', to: 'info#index'
   end
   
   resources :categories

@@ -3,27 +3,10 @@
   <%= render 'shared/responses_nav' %>
 
   <% if @responses.any? %>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Date</th>
-          <th>IP</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @responses.each do |resp| %>
-          <tr>
-            <td><%= link_to 'details', survey_response_path(@survey, resp), class: 'button btn' %></td>
-            <td><%= resp.created_at.to_s(:date_and_time)  %></td>
-            <td><%= resp.remote_ip %></td>
-            <td><%= link_to "Remove", [@survey, resp], method: :delete, class: 'btn btn-mini btn-danger', confirm: 'Are you sure?' %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <ul id="responses-list">
+      <%= render @responses %>
+    </ul>
   <% else %>  
-    <h5>There is not items to display currently</h5>
+    <h5>There are not items to display currently</h5>
   <% end %>
 </div>
