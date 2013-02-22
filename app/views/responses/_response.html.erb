@@ -1,7 +1,16 @@
-<%= content_tag :li, response, class: "response" do %>
+<%= content_tag :li, response, class: "response f32" do %>
 	<%= link_to 'details', survey_response_path(@survey, response), class: 'button' %>
 	<span class="icon-browser <%= response.agent.device.engine.browser.type %>"></span>
 	<td><%= response.created_at.to_s(:date_and_time)  %></td>
 	<td><%= response.remote_ip %></td>
-	<td><%= link_to "Remove", [@survey, response], method: :delete, class: 'button', confirm: 'Are you sure?' %></td>
+	
+	<%= link_to [@survey, response], method: :delete, class: 'delete-link', confirm: 'Are you sure? You can not restore it in the future.' do %>
+		<i class="icon-trash-1"></i>
+	<% end %>
+
+	<% if response.geodata %>
+		<span class="flag <%= response.geodata[:country_code].downcase %>"></span>
+	<% else %>
+		<span class="flag"></span>
+	<% end %>
 <% end %>

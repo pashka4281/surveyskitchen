@@ -13,7 +13,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
 gem 'russian'
-# gem 'geokit'
+gem 'geoip-c' # apt-get install libgeoip-dev  to make it install
 
 # Gems used only for assets and not required
 # in production environments by default.

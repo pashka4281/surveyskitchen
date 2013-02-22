@@ -1,6 +1,9 @@
 <div class="padded-content">
-  <%= page_header "Responses for \"#{@survey.name}\"" %>
-  <%= render 'shared/responses_nav' %>
+  <%= 
+    page_header "<b>#{@survey.name}</b> 
+    (#{link_to('edit', [:edit, @survey], class: 'light')} | #{link_to('builder', [:builder, @survey], class: 'light')} | #{link_to('report', [:report, @survey], class: 'light')})
+    --Responses" 
+    %>
 
   <% if @responses.any? %>
     <ul id="responses-list">

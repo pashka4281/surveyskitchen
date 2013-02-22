@@ -18,6 +18,10 @@ class Response < ActiveRecord::Base
     AgentOrange::UserAgent.new(self.user_agent_string)
   end
 
+  def geodata
+    GeoTools.get_info_by_ip self.remote_ip
+  end
+
   private
 
   def write_property(field_name, val)

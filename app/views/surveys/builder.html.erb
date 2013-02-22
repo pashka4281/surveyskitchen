@@ -1,6 +1,10 @@
 <% header("Questions builder", subheader: 'All changes here are automatically saved.') %>
 
-<%= page_header "#{@survey.name} (#{link_to('edit', [:edit, @survey], class: 'light')}) -- Survey Builder" %>
+<%= 
+	page_header "<b>#{@survey.name}</b> 
+	(#{link_to('edit', [:edit, @survey], class: 'light')} | #{link_to('builder', [:builder, @survey], class: 'light')} | #{link_to('report', [:report, @survey], class: 'light')})
+	-- Builder" 
+%>
 
     	<div id="build_list"  class="list">
 
