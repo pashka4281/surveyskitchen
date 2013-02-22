@@ -13,11 +13,23 @@
 			height: 40px;
 		}
 		.icon-browser{
+			vertical-align: middle;
+			margin-left: 15px;
 			&.chrome{ background-image: url(/images/responses/chrome.png) }
 			&.safari{ background-image: url(/images/responses/safari.png) }
 			&.firefox{ background-image: url(/images/responses/firefox.png) }
 			&.opera{ background-image: url(/images/responses/opera.png) }
 			&.ie{ background-image: url(/images/responses/ie.png) }
+		}
+		.btn{ margin-left: 15px; }
+		.flag{ margin-left: 15px; vertical-align: middle }
+
+		.response-date{
+			margin-left: 15px;
+			font-size: 13px;
+			color: #632828;
+			width: 183px;
+			display: inline-block;
 		}
 
 		.delete-link{
