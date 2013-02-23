@@ -209,6 +209,7 @@ DEPENDENCIES
   factory_girl_rails
   geoip-c
   jquery-rails
+  kaminari
   omniauth
   omniauth-facebook
   omniauth-twitter

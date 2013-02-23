@@ -1,5 +1,8 @@
-
-<%= page_header "#{@survey.name} -- Report" %>
+<%= 
+    page_header "<b>#{@survey.name}</b> 
+    (#{link_to('edit', [:edit, @survey], class: 'light')} | #{link_to('builder', [:builder, @survey], class: 'light')} | #{link_to('responses', [@survey, :responses], class: 'light')})
+    --Report" 
+%>
 
 <div id="report">
 	<% if @responses_content.any? %>
@@ -12,8 +15,41 @@
 	<% end %>
 </div>
 
+
+<%= content_for :after_content do %>
+<!-- New survey item modal -->
+	<div class="modal hide fade" id="shareReportContainer">
+	  <div class="modal-header">
+	    <a href="#" class="close"></a>
+	    <h3>Share report</h3>
+	  </div>
+	  <div class="modal-body">
+	  	<a href="#" class="btn">Export to PDF</a>
+	  	<a href="#" class="btn">Send by email</a>
+	  	<a href="#" class="btn">Send to Facebook</a>
+	  </div>
+	  <div class="modal-footer">
+	    <a href="#" class="btn close">Cancel</a>
+	  </div>
+	</div>
+<% end %>
+
+
+<%= content_for :sidebar do %>
+	<% if @responses_content.any? %>
+	<div>
+		<div id="sticky-anchor"></div>
+		<div id="stickyBar">
+		    <button data-target="#shareReportContainer" data-toggle="modal" class="btn btn-primary">
+		    	<i class="icon-export"></i> Export report
+		    </button>
+		</div>
+	</div>
+	<% end %>
+<% end %>
+
 <% content_for :js do %>
-<script type="text/javascript">
+<script>
 	$('.star-rating').jDisplayStars();
 </script>
 <% end %>

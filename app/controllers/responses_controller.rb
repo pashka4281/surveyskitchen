@@ -8,6 +8,6 @@ class ResponsesController < ApplicationController
 
 	def index
 		@survey = Survey.find(params[:survey_id])
-		@responses = @survey.responses.order('created_at DESC')
+		@responses = @survey.responses.order('created_at DESC').page(params[:page])
 	end
 end

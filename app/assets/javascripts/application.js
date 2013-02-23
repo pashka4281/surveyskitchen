@@ -15,7 +15,14 @@
 //= require common
 //= require_tree .
 
-
+function sticky_relocate() {
+	var window_top = $(window).scrollTop();
+	var div_top = $('#sticky-anchor').offset().top;
+	if (window_top > div_top)
+		$('#stickyBar').addClass('stick')
+	else
+		$('#stickyBar').removeClass('stick')
+}
 
 $(function(){
 	$('body').on('hidden', '.modal', function(){
@@ -28,4 +35,8 @@ $(function(){
 			$(this).remove();
 		})
 	})
+	if($('#stickyBar').length > 0){
+		$(window).scroll(sticky_relocate);
+		sticky_relocate();
+	}
 });

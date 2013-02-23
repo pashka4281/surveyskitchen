@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211143644) do
+ActiveRecord::Schema.define(:version => 20130223003613) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20130211143644) do
     t.string   "token"
     t.datetime "created_at"
     t.boolean  "seed_item",       :default => false
+    t.boolean  "active",          :default => true
   end
 
   create_table "users", :force => true do |t|

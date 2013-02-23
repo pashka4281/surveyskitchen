@@ -19,6 +19,7 @@ $(document).on 'click', '[data-toggle="modal"]', ->
 	_modal = $(_this.data('target')).removeClass('hide')
 	$('<div id="modal-bg"></div>').appendTo('body')
 	url = if _this.is('a') then _this.attr('href') else _this.data('url')
+	if url is undefined then return false
 	$.ajax url,
 		method: 'GET'
 		dataType: 'html'

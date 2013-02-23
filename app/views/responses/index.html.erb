@@ -3,12 +3,13 @@
     page_header "<b>#{@survey.name}</b> 
     (#{link_to('edit', [:edit, @survey], class: 'light')} | #{link_to('builder', [:builder, @survey], class: 'light')} | #{link_to('report', [:report, @survey], class: 'light')})
     --Responses" 
-    %>
+  %>
 
   <% if @responses.any? %>
     <ul id="responses-list">
       <%= render @responses %>
     </ul>
+    <%= paginate @responses %>
   <% else %>  
     <h5>There are not items to display currently</h5>
   <% end %>

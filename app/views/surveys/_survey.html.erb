@@ -1,15 +1,21 @@
-<%= div_for survey do %>
-	<div class="survey-header">
-		<h3><%= link_to survey.name, builder_survey_path(survey) %></h3>
-		<h5><%= survey.category.name %></h5>
-		<div class="survey-date"><%= survey.created_at.to_s(:date_and_time) %></div>
+<%= div_for survey, class: survey.active ? 'active' : '' do %>
+	<%= link_to [:switch, survey], class: 'switch-btn' do %><i class="icon-off"></i><% end %>
+	<div class="survey-status"><%= survey.active ? 'Active' : 'Stopped' %></div>
+
+	<div class="left-padder">
+		<div class="survey-header">
+			<h3><%= link_to survey.name, builder_survey_path(survey) %></h3>
+			<h5><%= survey.category.name %></h5>
+			<div class="survey-date"><%= survey.created_at.to_s(:date_and_time) %></div>
+		</div>
+		<div class="survey-desc"><%= survey.description %></div>
+		<div>
+			<%= link_to edit_survey_path(survey), class: 'btn small' do %><i class="icon-pencil-2"></i>Edit<% end %>
+			<%= link_to deploy_survey_path(survey), class: 'btn small' do %><i class="icon-share"></i>Share<% end %>
+			<%= link_to [survey, :responses], class: 'btn small' do %><i class="icon-chat-1"></i>Responses (<%=survey.responses.count%>)<% end %>
+			<%= link_to [:report, survey], class: 'btn small' do %><i class="icon-doc-text"></i>Report<% end %>
+		</div>
+		<%= link_to "Delete this survey", survey, method: :delete, confirm: 'Are you sure you want to do it?', class: 'delete-survey-lnk' %>
 	</div>
-	<div class="survey-desc"><%= survey.description %></div>
-	<div>
-		<%= link_to edit_survey_path(survey), class: 'btn small' do %><i class="icon-pencil-2"></i>Edit<% end %>
-		<%= link_to deploy_survey_path(survey), class: 'btn small' do %><i class="icon-share"></i>Share<% end %>
-		<%= link_to [survey, :responses], class: 'btn small' do %><i class="icon-chat-1"></i>Responses (<%=survey.responses.count%>)<% end %>
-		<%= link_to [:report, survey], class: 'btn small' do %><i class="icon-doc-text"></i>Report<% end %>
-	</div>
-	<%= link_to "Delete this survey", survey, method: :delete, confirm: 'Are you sure you want to do it?', class: 'delete-survey-lnk' %>
+	
 <% end %>

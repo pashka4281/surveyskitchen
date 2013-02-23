@@ -22,6 +22,10 @@ class Response < ActiveRecord::Base
     GeoTools.get_info_by_ip self.remote_ip
   end
 
+  def completeness
+    
+  end
+
   private
 
   def write_property(field_name, val)

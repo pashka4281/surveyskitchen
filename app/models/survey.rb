@@ -1,6 +1,6 @@
 class Survey < ActiveRecord::Base
   attr_accessible :account_id, :description, :category, :category_id, 
-    :name, :user_id, :user, :account, :items_positions, :prefill_items
+    :name, :user_id, :user, :account, :items_positions, :prefill_items, :active
 
     default_scope order('created_at DESC')
 
@@ -54,6 +54,10 @@ class Survey < ActiveRecord::Base
   #item_id - SurveyItem id
   def	insert_item(position, item_id)
   	self.items_positions.insert(position.to_i, item_id)
+  end
+
+  def switch!
+    update_attributes(active: !self.active)
   end
   
   after_create :example_items, :event_on_created

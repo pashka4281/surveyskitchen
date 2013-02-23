@@ -8,4 +8,23 @@
   <% end %>
 
 
-<%= content_for :head_panel, render('shared/searchbox') %>
+<% content_for :js do %>
+<script>
+	$(document).on('click', '#surveys_list .switch-btn', function(){
+		_this = $(this);
+		$.ajax({
+			url: _this.attr('href'),
+			type: 'PUT',
+			dataType: 'json',
+			success: function(resp){
+				if(resp.active)
+					{ _this.parents('.survey').addClass('active'); _this.siblings('.survey-status').text('Active') }
+				else
+					{ _this.parents('.survey').removeClass('active'); _this.siblings('.survey-status').text('Stopped') }
+			}
+		})
+		return false;
+	});
+</script>
+<% end %>
+

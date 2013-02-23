@@ -238,6 +238,7 @@ h5{ font-size: 0.9em;}
 				border: 4px solid #b1b1b1;
 				margin-bottom: 30px;
 				background-color: #fff;
+				min-height: 200px;
 			}
 		}
 
@@ -407,6 +408,30 @@ form.form{
 		border-bottom: none;
 		margin-bottom: 10px;
 		position: relative;
+		.switch-btn{ 
+			position: absolute;
+			font-size: 30px;
+			top: 15px; 
+			color: #FF1049;
+			box-shadow: 0 0 22px #F00;
+			border-radius: 100px;
+			padding: 5px 0;
+			border: 1px solid #FFCBCB;
+			&:hover{ box-shadow: 0 0 25px #F00; }
+		}
+		&.active .switch-btn { color: #05BB05; box-shadow: 0 0 22px #05BB05; border: 1px solid #CBFFD1; }
+		.survey-status{
+			position: absolute;
+			top: 67px;
+			font-size: 11px;
+			text-align: center;
+			color: #ff0000;
+			width: 60px;
+			left: 0px;
+		}
+		&.active .survey-status {color: #009400; }
+
+		.left-padder{ padding-left: 60px }
 		.survey-header{
 			padding-right: 160px;
 			position: relative;
@@ -478,7 +503,7 @@ $report-item-color: #CDDBFD;
 			display: inline-block;
 			right: 0;
 			position: absolute;
-			left: 250px;
+			left: 350px;
 			.bar-line{
 				display: inline-block;
 				height: 20px;
@@ -504,7 +529,7 @@ $report-item-color: #CDDBFD;
 				min-height: 24px;
 				position: relative;
 				padding: 2px;
-				span{ display: inline-block; width: 250px; }
+				span{ display: inline-block; width: 350px; }
 				&:nth-child(odd){ background-color: rgb(236, 236, 236) }
 			}
 		}
@@ -577,6 +602,28 @@ $report-item-color: #CDDBFD;
 			}
 		}
 	}
+}
+
+
+#stickyBar{
+	color: #000;
+	font-size: 2em;
+	padding: 0.5ex;
+	width: 140px;
+	&.stick {
+		position: fixed;
+		top: 0;
+		z-index: 10000;
+		margin-left: -140px;
+	}
+	button{
+		width: 100%;
+		margin-bottom: 2px;
+		margin-top: 2px;
+		font-size: 12px;
+		text-align: left;
+	}
+	#cancel-btn{ display: none; }
 }
 
 @media (max-width: 767px) {

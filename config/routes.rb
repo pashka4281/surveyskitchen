@@ -12,6 +12,7 @@ Surveyskitchen::Application.routes.draw do
     get :deploy,  on: :member
     get :trashbox, on: :member
     get :report, on: :member
+    put :switch, on: :member
     resources :survey_items, as: 'items', path: 'items' do
       delete :delete, as: :member
     end

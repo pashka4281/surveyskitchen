@@ -1,5 +1,6 @@
 class SurveysController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :get_survey, only: [:update, :destroy, :edit, :deploy, :trashbox, :report, :switch]
 
   def builder
     @survey = current_account.surveys.find(params[:id], :include => :items)
@@ -20,7 +21,6 @@ class SurveysController < ApplicationController
   
   def update
     # render text: params.inspect and return
-    @survey = current_account.surveys.find(params[:id])
     if @survey.update_attributes(params[:survey])
       if request.xhr?
         render nothing: true, status: 200
@@ -34,9 +34,13 @@ class SurveysController < ApplicationController
   end
 
   def destroy
-    @survey = current_account.surveys.find(params[:id])
     @survey.destroy
     redirect_to action: :index
+  end
+
+  def switch
+    @survey.update_attributes(active: !@survey.active)
+    render json: {active: @survey.active}.to_json
   end
   
   def new
@@ -44,23 +48,24 @@ class SurveysController < ApplicationController
   end
   
   def edit
-    @step = params[:step] || 'basic_info'
-    @survey = current_account.surveys.find(params[:id])
   end
 
   def deploy
-    @survey = current_account.surveys.find(params[:id])
   end
 
   def trashbox
-    @survey = current_account.surveys.find(params[:id])
     @trashed_items = @survey.items.trashed
     render layout: false
   end
 
   def report
-    @survey = current_account.surveys.find(params[:id])
     @responses_content = @survey.responses.map(&:content)
+  end
+
+  private
+
+  def get_survey
+    @survey = current_account.surveys.find(params[:id])
   end
   
 end
