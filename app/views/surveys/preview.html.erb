@@ -1,0 +1,19 @@
+<h2><%= @survey.name %></h2>
+
+<div class="padded-content">
+	<% counter = 0 %>
+	<div class="a-page">
+		<%- @paged_items.shift.each do |i| -%>
+			<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
+			<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
+		<%- end -%>
+	</div>
+	<%- @paged_items.each do |page_elements| -%>
+		<div class="a-page">
+			<%- page_elements.each do |i| -%>
+				<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
+				<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
+			<% end %>
+		</div>
+	<% end %>
+</div>

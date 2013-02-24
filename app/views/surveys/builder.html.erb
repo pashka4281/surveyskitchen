@@ -1,10 +1,6 @@
 <% header("Questions builder", subheader: 'All changes here are automatically saved.') %>
 
-<%= 
-	page_header "<b>#{@survey.name}</b> 
-	(#{link_to('edit', [:edit, @survey], class: 'light')} | #{link_to('responses', [@survey, :responses], class: 'light')} | #{link_to('report', [:report, @survey], class: 'light')})
-	-- Builder" 
-%>
+<%= page_header "<b>#{@survey.name}</b> -- Builder", nomargin: true, default_survey_menu: true %>
 
     	<div id="build_list"  class="list">
 
@@ -79,8 +75,8 @@
 	    <button data-url="<%= trashbox_survey_path(@survey) %>" class="btn btn-info" data-target="#trashedItemsContainer" data-toggle="modal" role="button">
 	    	<i class="icon-trash"></i> Trash box (<%= @survey.items.trashed.count %>)
 	    </button>
-	    <button class="btn btn-warning"><i class="icon-wrench"></i> Survey settings</button>
-	    <button class="btn btn-warning"><i class="icon-wrench"></i> Preview </button>
+	    <!-- <button class="btn btn-warning"><i class="icon-wrench"></i> Survey settings</button> -->
+	    <button class="btn btn-warning" id="preview-btn"><i class="icon-eye"></i> Preview </button>
 	</div>
 </div>
 
@@ -96,6 +92,9 @@
 				survey_update_url: "<%= survey_path(@survey, format: :js) %>",
 				total_items: <%= @survey.items.active.count %> 
 			});
+			$(document).on('click', '#preview-btn', function(){
+				window.open("<%= preview_survey_path(@survey) %>",'_blank');
+			})
 		});
 	</script>
 <% end %>

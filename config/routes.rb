@@ -8,11 +8,12 @@ Surveyskitchen::Application.routes.draw do
   get :about, to: 'home#about'
 
   resources :surveys do
-    get :builder, on: :member
-    get :deploy,  on: :member
-    get :trashbox, on: :member
-    get :report, on: :member
-    put :switch, on: :member
+    get :builder,   on: :member
+    get :share,     on: :member
+    get :trashbox,  on: :member
+    get :report,    on: :member
+    put :switch,    on: :member
+    get :preview,   on: :member
     resources :survey_items, as: 'items', path: 'items' do
       delete :delete, as: :member
     end

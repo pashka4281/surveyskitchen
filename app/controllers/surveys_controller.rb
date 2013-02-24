@@ -1,6 +1,6 @@
 class SurveysController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :get_survey, only: [:update, :destroy, :edit, :deploy, :trashbox, :report, :switch]
+  before_filter :get_survey, only: [:update, :destroy, :edit, :share, :trashbox, :report, :switch, :preview]
 
   def builder
     @survey = current_account.surveys.find(params[:id], :include => :items)
@@ -50,7 +50,12 @@ class SurveysController < ApplicationController
   def edit
   end
 
-  def deploy
+  def preview
+    @paged_items = @survey.paged_items
+    render layout: 'clients'
+  end
+
+  def share
   end
 
   def trashbox

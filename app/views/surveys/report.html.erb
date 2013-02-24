@@ -1,7 +1,5 @@
 <%= 
-    page_header "<b>#{@survey.name}</b> 
-    (#{link_to('edit', [:edit, @survey], class: 'light')} | #{link_to('builder', [:builder, @survey], class: 'light')} | #{link_to('responses', [@survey, :responses], class: 'light')})
-    --Report" 
+    page_header "<b>#{@survey.name}</b> -- Report", default_survey_menu: true
 %>
 
 <div id="report">

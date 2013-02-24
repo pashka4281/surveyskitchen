@@ -288,12 +288,14 @@ h5{ font-size: 0.9em;}
 	border-top-right-radius: 10px;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #ADADAD;
+	.subheader{ margin-top: 5px; }
+	&.nomargin{ margin-bottom: 0 }
+	b{ font-weight: 700; }
 	h1,h2,h3,h4{ 
 		color: rgb(100, 100, 100); text-shadow: 0px 1px rgb(255, 255, 255);
-		b{ font-weight: 700; }
 	}
 	h1{ font-size: 23px; }
-	a.light{ color: rgb(165, 165, 165); }
+	a.light{ color: rgb(165, 165, 165); padding: 2px; &:hover{ color: #636363 } }
 }
 
 form.form{
@@ -417,9 +419,14 @@ form.form{
 			border-radius: 100px;
 			padding: 5px 0;
 			border: 1px solid #FFCBCB;
-			&:hover{ box-shadow: 0 0 25px #F00; }
+			&:hover{ box-shadow: 0 0 25px #FF8383; }
 		}
-		&.active .switch-btn { color: #05BB05; box-shadow: 0 0 22px #05BB05; border: 1px solid #CBFFD1; }
+		&.active .switch-btn { 
+			color: #05BB05; 
+			box-shadow: 0 0 22px #05BB05; 
+			border: 1px solid #CBFFD1; 
+			&:hover{ box-shadow: 0 0 25px #81FF6F; }
+		}
 		.survey-status{
 			position: absolute;
 			top: 67px;

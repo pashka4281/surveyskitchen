@@ -1,8 +1,6 @@
 <div class="padded-content">
   <%= 
-    page_header "<b>#{@survey.name}</b> 
-    (#{link_to('edit', [:edit, @survey], class: 'light')} | #{link_to('builder', [:builder, @survey], class: 'light')} | #{link_to('report', [:report, @survey], class: 'light')})
-    --Responses" 
+    page_header "<b>#{@survey.name}</b> -- Responses", default_survey_menu: true
   %>
 
   <% if @responses.any? %>

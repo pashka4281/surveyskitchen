@@ -24,6 +24,9 @@ class this.BuilderUI
 			@.toggle_cancel_btn()
 
 		$('#doneNewItemBtn').click =>
+			textarea = $('#rich-text-area')
+			textarea.val(CKEDITOR.instances['rich-text-area'].getData());
+
 			if($('#new_survey_item').data('selected-item'))
 				@new_item_form_data = $('#newItemContainer form').serialize()
 				@.showButtons()
@@ -31,6 +34,8 @@ class this.BuilderUI
 			false
 
 		$('#doneEditItemBtn').click =>
+			textarea = $('#rich-text-area')
+			textarea.val(CKEDITOR.instances['rich-text-area'].getData());
 			$.ajax
 				url: "/surveys/#{@survey_id}/items/" + $('#editItemContainer form input[name=item_id]').val()
 				type: 'PUT'
@@ -56,9 +61,9 @@ class this.BuilderUI
 
 	toggle_cancel_btn: ->
 		if $(@cancel_btn).is(':hidden')
-			$("#newItemBar .btn:not(#{@cancel_btn})").attr('disabled', 'disabled')
+			$("#stickyBar .btn:not(#{@cancel_btn})").attr('disabled', 'disabled')
 		else
-			$("#newItemBar .btn").removeAttr('disabled')
+			$("#stickyBar .btn").removeAttr 'disabled'
 		$("#{@cancel_btn}, #new-item-btn").toggle()
 
 	_currentButtons: ->
@@ -73,7 +78,7 @@ class this.BuilderUI
 	hideButtons: -> @._currentButtons().css({'visibility': 'hidden'})
 
 	renewItemsIndexes: ->
-		$(@insertButtons).removeAttr('itemindex'); #cleaning itemindexes
+		$(@insertButtons).removeAttr('itemindex') #cleaning itemindexes
 		@._currentButtons().each (i, el) =>
 			$(el).attr('itemindex', i)
 
@@ -89,6 +94,9 @@ class this.Survey
 
 		#insert buttons click handler:
 		$(document).on 'click', @builder_ui.insertButtons, (el) =>
+			console.log @builder_ui.new_item_form_data
+			console.log $(el.currentTarget).attr('itemindex')
+
 			@addItem($(el.currentTarget).attr('itemindex'), @builder_ui.new_item_form_data)
 			@builder_ui.renewItemsIndexes()
 			@builder_ui.hideButtons()

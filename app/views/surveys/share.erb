@@ -1,0 +1,23 @@
+<%= page_header "<b>#{@survey.name}</b> -- Share", default_survey_menu: true %>
+
+<div id="share-link-block" class="share-block">
+  <h3>1. Share link</h3>
+  <div class="share-description">
+    Most common way to share your survey. 
+    Send this link to people you want to answer your questions.
+  </div>
+  <div class="survey-share-block">
+    <%= APP_HOST + s_show_survey_path(token: @survey.token) %>
+  </div>
+</div>
+
+<div id="share-js-block">
+  <h3>2. Javascript embed code</h3>
+  <div class="share-description">
+    With javascript code you can embed survey on the page of your site. 
+    Copy this script and place it before <%= "</body>" %> tag on the page. 
+  </div>
+  <div class="survey-share-block" class="share-block">
+    <%= escape_javascript("<script src=\"http://surveyskitchen.com/#{@survey.token}.js\"></script>").gsub("\\", '') %>
+  </div>
+</div>
