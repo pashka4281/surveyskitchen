@@ -1,0 +1,4 @@
+<%= content_tag :li, item do %>
+    <div class="trashed-item-header">< Rich text fragment ></div>
+    <div class="trashed-item-content"><%=raw(item.text_content).truncate(100) %></div>
+<% end %>

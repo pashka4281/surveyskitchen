@@ -31,13 +31,15 @@ class SurveyItemsController < ApplicationController
 	end
 	
 	def destroy
-  		@item = SurveyItem.find(params[:id])
+		@survey = Survey.find(params[:survey_id])
+  		@item = @survey.items.find(params[:id])
   		@item.destroy
   		render nothing: true, status: 200
   	end
   
   	def delete
-    	@item = SurveyItem.find(params[:item_id])
+    	@survey = Survey.find(params[:survey_id])
+  		@item = @survey.items.find(params[:id])
 	  	@item.update_attributes(:deleted_at => Time.now)
 	  	render nothing: true, status: 200
   	end

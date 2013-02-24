@@ -1,17 +1,5 @@
-  <div class="sixteen columns">
-  
-        <div class="ten columns">
-          <ul>
-            <% for item in @survey.items.trashed %>
-              <li><%= item %></li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="six columns">
-          <label for="checkbox1">
-            <input type="checkbox" id="checkbox1" style="display: none;">
-            <span class="custom checkbox"></span> Label for Checkbox
-          </label>
-        </div>
-    	      
-  </div>
+<ul id="trashed-items-list">
+  <% @survey.items.trashed.each_with_index do |s_item,i| %>
+    <%= render "/survey_items/trashed_items/#{s_item.type.demodulize.underscore}", item: s_item, index: i %>
+  <% end %>
+</ul>
