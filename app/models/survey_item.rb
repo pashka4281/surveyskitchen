@@ -8,7 +8,7 @@ class SurveyItem < ActiveRecord::Base
   after_create  :add_position
   
   attr_writer :position
-  scope :trashed, where('deleted_at NOT NULL') #mysql compatible syntax
+  scope :trashed, where('deleted_at IS NOT NULL') #mysql compatible syntax
   # scope :trashed, where('deleted_at <> NULL') #postgres compatible syntax
   scope :active, where(deleted_at: nil)
 
