@@ -38,8 +38,9 @@ class SurveyItemsController < ApplicationController
   	end
   
   	def delete
+  		p params
     	@survey = Survey.find(params[:survey_id])
-  		@item = @survey.items.find(params[:id])
+  		@item = @survey.items.find(params[:item_id])
 	  	@item.update_attributes(:deleted_at => Time.now)
 	  	render nothing: true, status: 200
   	end

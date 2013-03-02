@@ -2,25 +2,24 @@
 
 <%= page_header "<b>#{@survey.name}</b> -- Builder", nomargin: true, default_survey_menu: true %>
 
-    	<div id="build_list"  class="list">
-
-			<div id="zero-item" class="insertable">
-	            <%= insert_button %>
-        	</div>
-        
-	        <div id="no-items-area" class="insertable">
-	        	<%= insert_button %>
-            	<div id="work-area-texting" class="fifteen columns centered centr-text vspace-big">
-            		<h3>This is your working area.</h3>
-            		<h5>Start building survey by inserting items here.</h5>
-	        	</div>
-        	</div>
-        
-	        <%- @survey.sorted_items.each do |i| -%>
-	          <%= render_survey_item(i) %>
-	        <%- end -%>
-
+	<div id="build_list"  class="list">
+		<div id="zero-item" class="insertable">
+            <%= insert_button %>
     	</div>
+    
+        <div id="no-items-area" class="insertable">
+        	<%= insert_button %>
+        	<div id="work-area-texting" class="fifteen columns centered centr-text vspace-big">
+        		<h3>This is your working area.</h3>
+        		<h5>Start building survey by inserting items here.</h5>
+        	</div>
+    	</div>
+    
+        <%- @survey.sorted_items.each do |i| -%>
+        	<%= render_survey_item(i) %>
+        <%- end -%>
+
+	</div>
 
 <%= content_for :after_content do %>
 <!-- New survey item modal -->
@@ -85,6 +84,7 @@
 
 <%= content_for :js do %>
 	<script type="text/javascript" src="/javascripts/ckeditor/ckeditor.js"></script>
+
 	<script>
 		var itemsHtmlArray = <%= raw(survey_items_html_array()) %>;
 

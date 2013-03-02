@@ -49,17 +49,22 @@ class this.BuilderUI
 	#FUNCTIONS:
 	insertItem: (html, pos, total_items) ->
 		btn = $(@insertButtons + "[itemindex=#{pos}]")
+		console.log btn
+		console.log btn.parents('.insertable')
 		$(html).insertAfter(btn.parents('.insertable')).hide().slideDown()
-		if @total_items is 0
+		console.log total_items
+		if total_items is 0
 			$(@noItemsArea).hide()
 			$(@zero_item).show()
 		@renewItemsIndexes()
 
 	removeItem: (id, total_items) =>
-		$(@survey_items + "[item_id=#{id}]").slideUp 300, =>
+		console.log total_items
+		self = this
+		$(@survey_items + "[item_id=#{id}]").slideUp 300, ->
 			$(@).remove()
-			$("#{@noItemsArea}, #{@zero_item}").toggle() if @total_items is 0
-		@renewItemsIndexes()
+			$("#{self.noItemsArea}, #{self.zero_item}").toggle() if total_items is 0
+			self.renewItemsIndexes()
 
 	toggle_cancel_btn: ->
 		if $(@cancel_btn).is(':hidden')
@@ -96,9 +101,8 @@ class this.Survey
 
 		#insert buttons click handler:
 		$(document).on 'click', @builder_ui.insertButtons, (el) =>
-			console.log @builder_ui.new_item_form_data
-			console.log $(el.currentTarget).attr('itemindex')
-
+			console.log $(el.currentTarget)
+			console.log $(el.currentTarget).prop('itemindex')
 			@addItem($(el.currentTarget).attr('itemindex'), @builder_ui.new_item_form_data)
 			@builder_ui.renewItemsIndexes()
 			@builder_ui.hideButtons()
@@ -122,16 +126,16 @@ class this.Survey
 			data:
 				item_params: params
 				item_position: pos
-			success: (resp) -> #resp contains new item markup	
-				self.builder_ui.insertItem(resp, pos, @total_items)
-				@total_items += 1
+			success: (resp) -> #resp contains new item markup
+				self.builder_ui.insertItem(resp, pos, self.total_items)
+				self.total_items += 1
 				if(@afterItemAdd != undefined)
 					@afterItemAdd(resp, pos)
 
 	deleteItem: (id) =>
-		it = this
+		self = this
 		$.ajax "#{@base_path}/items/#{id}/delete",
 			type: 'DELETE'
 			success: -> #resp contains new item markup
-				@total_items -= 1
-				it.builder_ui.removeItem(id, @total_items)
+				self.total_items -= 1
+				self.builder_ui.removeItem(id, self.total_items)
