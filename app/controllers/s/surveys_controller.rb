@@ -8,10 +8,15 @@ class S::SurveysController < ApplicationController
 	def show
 		@survey = Survey.find_by_token!(params[:token])
 		@paged_items = @survey.paged_items
+		@deactivated = true unless @survey.active
 	end
 
 	def create_result
 		@survey = Survey.find_by_token!(params[:token])
+		unless @survey.active
+			@deactivated = true
+			render action: :show
+		end
 		@survey.responses.create(
 			user_agent_string: request.env['HTTP_USER_AGENT'],
 			response_data: params[:response],
