@@ -15,7 +15,8 @@ gem 'omniauth-facebook'
 gem 'russian'
 gem 'geoip-c' # apt-get install libgeoip-dev  to make it install
 gem 'kaminari' #for pagination. Used also by rails_admin
-
+gem 'whenever'
+gem 'mysql2'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -28,6 +29,7 @@ end
 group :development do
   gem 'sqlite3'
   gem 'capistrano'
+  gem 'rvm-capistrano'
 end
 
 group :development, :test do
@@ -39,8 +41,4 @@ group :test do
   gem 'factory_girl'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
-end
-
-group :production do
-  gem 'pg', '0.14.0' #for heroku support
 end

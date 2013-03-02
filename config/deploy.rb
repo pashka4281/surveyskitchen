@@ -17,7 +17,7 @@ set :scm, 'git'
 set :scm_verbose, true
 set :git_enable_submodules, 1
 set :deploy_via, :remote_cache
-set :repository, "git@bitbucket.org:pashka4281/surveyskitchen.git" #server ip: 198.101.157.165
+set :repository, "git@bitbucket.org:pashka4281/surveyskitchen.git"
 set :branch, "master"
 
 set :user, 'ubuntu'
