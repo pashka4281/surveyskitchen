@@ -16,6 +16,8 @@ module ApplicationHelper
       				page_break: nil,
       				desc_text: nil,
       				drop_down_question: nil,
+              video_question: nil,
+              single_select_grid: nil,
       				scale_question: nil }.stringify_keys
     init.each_key{|x| init[x] = render("survey_items/forms/#{x}") }.to_json
   end

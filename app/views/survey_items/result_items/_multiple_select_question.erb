@@ -1,10 +1,13 @@
-<strong><%= "#{counter}. #{item.title}" %></strong> <br />
-
-<ul class="unstyled">
-	<% item.variants_array.each_with_index do |variant, i| %>
-    	<li>
-    		<input type="checkbox" disabled="disabled" <%= 'checked="1"' if result.keys.collect(&:to_i).include?(i) %> ></input>
-    		<%= variant %>
-    	</li>
-	<% end %>
-</ul>
+<td class="reponse-item-title">
+	<%= "#{counter}. #{item.title}" %>
+</td>
+<td class="reponse-content">
+	<ul class="unstyled">
+		<% item.variants_array.each_with_index do |variant, i| %>
+	    	<li>
+	    		<input type="checkbox" disabled="disabled" <%= 'checked="1"' if result.keys.collect(&:to_i).include?(i) %> ></input>
+	    		<%= variant %>
+	    	</li>
+		<% end %>
+	</ul>
+</td>

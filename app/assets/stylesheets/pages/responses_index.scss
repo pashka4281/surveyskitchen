@@ -1,3 +1,15 @@
+.icon-browser{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	&.chrome{ background-image: url(/images/responses/chrome.png) }
+	&.safari{ background-image: url(/images/responses/safari.png) }
+	&.firefox{ background-image: url(/images/responses/firefox.png) }
+	&.opera{ background-image: url(/images/responses/opera.png) }
+	&.ie{ background-image: url(/images/responses/ie.png) }
+}
+
 #responses-list{
 	.response{
 		padding: 7px;
@@ -8,20 +20,7 @@
 		&:nth-child(even) { background-color: #F3F3F3 }
 
 		> *{margin-left: 15px;}
-
-		span[class^="icon-"]{
-			display: inline-block;
-			width: 16px;
-			height: 16px;
-		}
-		.icon-browser{
-			vertical-align: middle;
-			&.chrome{ background-image: url(/images/responses/chrome.png) }
-			&.safari{ background-image: url(/images/responses/safari.png) }
-			&.firefox{ background-image: url(/images/responses/firefox.png) }
-			&.opera{ background-image: url(/images/responses/opera.png) }
-			&.ie{ background-image: url(/images/responses/ie.png) }
-		}
+		
 		.flag{ vertical-align: middle }
 
 		.response-date{

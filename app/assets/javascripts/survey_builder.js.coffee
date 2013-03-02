@@ -25,7 +25,8 @@ class this.BuilderUI
 
 		$('#doneNewItemBtn').click =>
 			textarea = $('#rich-text-area')
-			textarea.val(CKEDITOR.instances['rich-text-area'].getData());
+			if textarea.length > 0
+				textarea.val(CKEDITOR.instances['rich-text-area'].getData());
 
 			if($('#new_survey_item').data('selected-item'))
 				@new_item_form_data = $('#newItemContainer form').serialize()
@@ -35,7 +36,8 @@ class this.BuilderUI
 
 		$('#doneEditItemBtn').click =>
 			textarea = $('#rich-text-area')
-			textarea.val(CKEDITOR.instances['rich-text-area'].getData());
+			if textarea.length > 0
+				textarea.val(CKEDITOR.instances['rich-text-area'].getData());
 			$.ajax
 				url: "/surveys/#{@survey_id}/items/" + $('#editItemContainer form input[name=item_id]').val()
 				type: 'PUT'

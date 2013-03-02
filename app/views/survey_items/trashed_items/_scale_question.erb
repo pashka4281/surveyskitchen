@@ -1,3 +1,8 @@
-<%= content_tag :li, item do %>
-    <div class="trashed-item-header"><%= item.title %></div>
+<%= content_tag :li, item, class: 'trashed-item', item_id: item.id do %>
+	<%= link_to content_tag(:i, '', class: 'icon-cw'), '#', class: 'restoreLnk' %>
+	<%= link_to content_tag(:i, '', class: 'icon-trash'), '#', class: 'deleteLnk' %>
+	<div class="trashed-item-header">
+    	<i class="icon-resize-full"></i>
+    	<%= item.title %>
+    </div>
 <% end %>

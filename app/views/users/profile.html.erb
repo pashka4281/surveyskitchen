@@ -14,6 +14,9 @@
     <%= f.label :email do %> Email:
       <div class="uneditable"><%= @user.email %></div>
     <% end %>
+    <%= f.label :email do %> Password:
+      <div class="uneditable">******</div>
+    <% end %>
   </div>
   
   <%= link_to "Change fields...", "", id: 'change-profile-details-lnk' %>

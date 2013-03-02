@@ -1,39 +1,33 @@
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">
-      <a class="brand" href="/">Surveyskitchen</a>
-      <div class="container-fluid nav-collapse">
-        <ul class="nav">
-          <%=content_tag :li, class: (request.path =~ /(about)(\/)?/ ? 'active' : '')  do -%>
-            <%= link_to 'About', :about %>
-          <%-end-%>
-          <%=content_tag :li, class: (request.path =~ /(tos)(\/)?/ ? 'active' : '')  do -%>
-            <%= link_to 'Terms of service', :tos %>
-          <%-end-%>          
-        </ul>
-        <ul class="nav pull-right">
-          <%=content_tag :li, class: (request.path =~ /(register)(\/)?/ ? 'active' : '')  do -%>
-            <%= link_to 'register', :register %>
-          <%-end-%>
-          <li class="dropdown" id="menu1">
-             <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
-               Login
-                <b class="caret"></b>
-             </a>
-             <div class="dropdown-menu">
-               <%= form_tag :login do %>
-               <fieldset class='textbox' style="padding:10px">
-                  <%= text_field_tag :email, '', placeholder: 'Email address', class: 'six' %>
-                  <%= password_field_tag :password, nil, placeholder: 'Password', class: 'six' %>
+<div id="navbar">
+  <!-- <a class="brand" href="/dashboard">SurveysKitchen</a> -->
+  <div class="content">
 
-                  <input class="btn-primary" name="commit" type="submit" value="Sign In" />
-                </fieldset>
-              <% end %>
-             </div>
-          </li>
-        </ul>
-      </div>
+    <div class="nav-wrapper">
+      <ul class="nav left">
+        <%=content_tag :li, class: (request.path =~ /\A\/(tos)(\/)?\z/ ? 'active' : '')  do -%>
+          <%= link_to 'Features', :tos %>
+        <%-end-%>
+        <%=content_tag :li, class: (request.path =~ /\A\/(about)(\/)?\z/ ? 'active' : '')  do -%>
+          <%= link_to 'About', :about %>
+        <%-end-%>
+        <%=content_tag :li, class: (request.path =~ /\A\/(tos)(\/)?\z/ ? 'active' : '')  do -%>
+          <%= link_to 'Terms of service', :tos %>
+        <%-end-%>
+        <%=content_tag :li, class: (request.path =~ /\A\/(tos)(\/)?\z/ ? 'active' : '')  do -%>
+          <%= link_to 'Pricing', :tos %>
+        <%-end-%>
+      </ul>
     </div>
+
+    <%= link_to "/", id: 'home-link' do %>
+      <span>S</span>urveys<span>K</span>itchen
+    <% end %>
+
+
+    <ul class="simple-nav right">
+      <li><%= link_to "Login", :login %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Register", :register %></li>
+    </ul>
   </div>
 </div>
-

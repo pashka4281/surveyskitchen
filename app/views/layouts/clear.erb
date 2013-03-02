@@ -19,23 +19,19 @@
 
     <%= favicon_link_tag '/favicon.ico', :rel => 'shortcut icon' %>
   </head>
-  <body>
+  <body class="marketing-body">
 
     <%= render 'shared/top_bar_marketing' %>
 
-    <div class="container">
-      <div class="row">
-        
-        <div class="span12">
-          <%= yield %>
-        </div>
-      </div><!--/row-->
-
-      <footer>
-        <p>© SurveysKitchen 2012</p>
-      </footer>
-
+    <div class="container-marketing">
+      <%= yield %>
     </div> <!-- /container -->
+
+    <footer>
+      <p>© SurveysKitchen 2012 - <%= Time.now.year %></p>
+    </footer>
+
+
 
     <!-- Javascripts
     ================================================== -->

@@ -331,7 +331,23 @@ footer{ margin-top: 15px; text-align: center; }
 .survey_item{ 
 	margin-bottom: 20px; 
 	textarea{ min-height: 50px; }
+	.grid-table{
+		font-size: 13px;
+		width: 100%;
+		margin: 10px auto;
+		tr{ line-height: 20px; }
+		td{ 
+			border-bottom: 1px dotted #ccc;
+			text-align: center;
+			&:not([class="grid-row-title"]){ 
+				width: 15%;
+				&:nth-child(even){ background-color: #ECECEC }
+			}
+		}
+		.grid-row-title{  text-align: left; }
+	}
 }
+
 
 
 

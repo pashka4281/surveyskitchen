@@ -1,3 +1,18 @@
-<%= content_tag :li, item do %>
-    <div class="trashed-item-header"><%= item.title %></div>
-<% end %>
+<td class="reponse-item-title">
+	<%= "#{counter}. #{item.title}" %>
+</td>
+<td class="reponse-content">
+	<ul class="unstyled">
+		<% item.variants_array.each_with_index do |variant, i| %>
+	    	<li>
+		      	<label class="radio">
+					<% if result == variant %>
+						<strong><%= variant %></strong>
+					<% else %>
+						<%= variant %>
+					<% end %>
+				</label>
+			</li>
+	    <% end %>
+	</ul>
+</td>

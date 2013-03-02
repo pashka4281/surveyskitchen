@@ -7,6 +7,11 @@
     <%= f.text_area :variants, name: 'survey_item[variants]', rows: 3,  
 		class: 'width-90', placeholder: "One variant per line" %>
 
+	<label class="checkbox">
+    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
+    	Make this item require user input
+    </label>
+
 	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
 	<input type="hidden" name="item_type" value="multiple_select_question">
 <% end %>

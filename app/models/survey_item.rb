@@ -1,5 +1,5 @@
 class SurveyItem < ActiveRecord::Base
-  attr_accessible :content, :survey_id, :type, :survey, :title, :position, :deleted_at
+  attr_accessible :content, :survey_id, :type, :survey, :title, :position, :deleted_at, :required_field
   belongs_to :survey
 
   serialize :content, Hash
@@ -12,7 +12,7 @@ class SurveyItem < ActiveRecord::Base
   # scope :trashed, where('deleted_at <> NULL') #postgres compatible syntax
   scope :active, where(deleted_at: nil)
 
-  scope :question_items, where('type NOT IN(?)', %w(SurveyItems::PageBreak SurveyItems::DescText))
+  scope :question_items, where('type NOT IN(?)', %w(SurveyItems::PageBreak SurveyItems::DescText SurveyItems::VideoQuestion))
 
   #survey type specific report data
   def report_data

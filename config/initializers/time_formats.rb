@@ -3,5 +3,5 @@ Time::DATE_FORMATS.merge!(
   us_with_time: '%m/%d/%y, %l:%M %p',
   short_day: '%e %B %Y',
   long_day: '%A, %e %B %Y',
-  date_and_time: '%d %B %Y, %l:%M %p'
+  date_and_time: '%B %d, %Y, %l:%M %p'
 )

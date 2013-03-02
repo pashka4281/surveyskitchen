@@ -3,29 +3,6 @@
 <div class="padded-content">
   <%= page_header 'Dashboard' %>
 
-  <div class="row">
-      <div class="column one-third">
-        <div class="dashboard-box big">
-          <h1><%= @responses.count %></h1>
-          <h2>all responses</h2>
-        </div>
-      </div>
-      
-      <div class="column one-third">
-        <div class="dashboard-box medium">
-          <h1><%= @surveys.count %></h1>
-          <h2>all surveys</h2>
-        </div>
-      </div>
-      
-      <div class="column one-third">
-        <div class="dashboard-box small">
-          <h1><%= @surveys.select{|x| x.responses.count == 0}.count %></h1>
-          <h2>waiting for responses</h2>
-        </div>
-      </div>
-
-</div>
 
 <div id="events-block">
   <h1>Events:</h1>

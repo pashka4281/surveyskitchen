@@ -1,7 +1,5 @@
 <div class="padded-content">
-  <%= 
-    page_header "<b>#{@survey.name}</b> -- Responses", default_survey_menu: true
-  %>
+  <%= page_header "<b>#{@survey.name}</b> -- Responses", default_survey_menu: true %>
 
   <% if @responses.any? %>
     <ul id="responses-list">

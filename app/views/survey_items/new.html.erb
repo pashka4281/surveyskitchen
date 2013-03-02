@@ -14,27 +14,11 @@
       <i class="icon-font"></i> Rich text box</button>
     <button href="#" class="btn btn-large" data-item-type="page_break">
       <i class="icon-doc-alt"></i> Page separator</button>
+    <button href="#" class="btn btn-large" data-item-type="video_question">
+      <i class="icon-doc-alt"></i> Video item</button>
+    <button href="#" class="btn btn-large" data-item-type="single_select_grid">
+      <i class="icon-doc-alt"></i> Single select grid</button>
     
   </div>
   <div id="newItem"></div>
 </div>
-
-  <script type="text/javascript">
-    var itemsHtmlArray = <%= raw(survey_items_html_array()) %>;
-
-    function renderSelectedItem(e){
-      var val = $(e.target).data('item-type');
-      $('#item_type_buttons').remove();
-      $('#new_survey_item')
-        .data('selected-item', true) //boolean indicator that shows that we selected item type
-        .parents('.modal').find('.modal-header h3').text('New ' + $(e.target).text());
-      $('#newItem').html(itemsHtmlArray[val]);
-      CKEDITOR.replace( "rich-text-area" );
-    }
-
-    //document ready callback
-    $(function(){
-      $('#item_type_buttons button').click(renderSelectedItem);
-    });
-
-  </script>

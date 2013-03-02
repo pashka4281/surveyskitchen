@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223003613) do
+ActiveRecord::Schema.define(:version => 20130302052321) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130223003613) do
     t.string   "type"
     t.string   "title"
     t.datetime "deleted_at"
+    t.boolean  "required_field", :default => false
   end
 
   create_table "surveys", :force => true do |t|

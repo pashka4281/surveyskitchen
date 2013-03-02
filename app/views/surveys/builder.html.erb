@@ -85,6 +85,20 @@
 
 <%= content_for :js do %>
 	<script>
+		var itemsHtmlArray = <%= raw(survey_items_html_array()) %>;
+
+	    function renderSelectedItem(e){
+	      var val = $(e.target).data('item-type');
+	      $('#item_type_buttons').remove();
+	      $('#new_survey_item')
+	        .data('selected-item', true) //boolean indicator that shows that we selected item type
+	        .parents('.modal').find('.modal-header h3').text('New ' + $(e.target).text());
+	      $('#newItem').html(itemsHtmlArray[val]);
+	      rich_text_area = $('#rich-text-area');
+	      if(rich_text_area.length > 0)
+	      	CKEDITOR.replace( "rich-text-area" );
+	    }
+
 		// document ready 
 		$(function(){
 			var survey = new Survey({
@@ -92,6 +106,8 @@
 				survey_update_url: "<%= survey_path(@survey, format: :js) %>",
 				total_items: <%= @survey.items.active.count %> 
 			});
+			$(document).on('click', '#item_type_buttons button', renderSelectedItem);
+
 			$(document).on('click', '#preview-btn', function(){
 				window.open("<%= preview_survey_path(@survey) %>",'_blank');
 			})

@@ -11,6 +11,11 @@
 		<%= f.radio_button :appearance,'txt_area', name: 'survey_item[appearance]' %> Text area
 	</label>
 
+	<label class="checkbox">
+    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
+    	Make this item require user input
+    </label>
+
 	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
 	<input type="hidden" name="item_type" value="text_field_question">
 <% end %>

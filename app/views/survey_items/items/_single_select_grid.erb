@@ -1,0 +1,30 @@
+<%= div_for item, class: "countable survey_item question-item", item_id: item.id do -%>
+  <%= render 'survey_items/items/_tools_box', item: item %>
+  <div class="item-inner">
+    <div class="item-content">
+      <strong><%= item.title %></strong>
+      <div class="clear"></div>
+
+      <table class="grid-table" cellspacing="0">
+        <tr>
+          <td>&nbsp;</td>
+          <% item.columns_array.each do |v| %>
+            <td><%= v %></td>
+          <% end %>
+        </tr>
+        <% item.rows_array.each do |v| %>
+          <tr>
+            <td class="grid-row-title"><%= v %></td>
+            <% item.columns_array.each do |v| %>
+              <td><input type="radio" name="scale"></input></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+
+      
+    </div>
+  </div>
+
+  <%= insert_button %>
+<%- end -%>
