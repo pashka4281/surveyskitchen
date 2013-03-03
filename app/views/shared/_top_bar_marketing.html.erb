@@ -10,9 +10,6 @@
         <%=content_tag :li, class: (request.path =~ /\A\/(about)(\/)?\z/ ? 'active' : '')  do -%>
           <%= link_to 'About', :about %>
         <%-end-%>
-        <%=content_tag :li, class: (request.path =~ /\A\/(tos)(\/)?\z/ ? 'active' : '')  do -%>
-          <%= link_to 'Terms of service', :tos %>
-        <%-end-%>
         <%=content_tag :li, class: (request.path =~ /\A\/(plans)(\/)?\z/ ? 'active' : '')  do -%>
           <%= link_to 'Plans & Pricing', :plans %>
         <%-end-%>
