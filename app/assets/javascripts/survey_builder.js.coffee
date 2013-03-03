@@ -46,13 +46,24 @@ class this.BuilderUI
 
 		$(@edit_links).click => false
 
+		$('#new-item-btn').click =>
+			@new_item_modal()
+
+	new_item_modal: (item = 'none') ->
+		$('<div id="modal-bg"></div>').appendTo('body')
+		modal = $('#newItemContainer').removeClass('hide')
+		switch item
+			when 'none'
+				modal.find('#item_type_buttons').show()
+				modal.find('#newItem').hide()
+
 	#FUNCTIONS:
 	insertItem: (html, pos, total_items) ->
 		btn = $(@insertButtons + "[itemindex=#{pos}]")
 		console.log btn
-		console.log btn.parents('.insertable')
-		$(html).insertAfter(btn.parents('.insertable')).hide().slideDown()
-		console.log total_items
+		console.log btn.parents('.survey_item')
+		$(html).insertAfter(btn.parents('.survey_item')).hide().slideDown()
+
 		if total_items is 0
 			$(@noItemsArea).hide()
 			$(@zero_item).show()
@@ -101,8 +112,6 @@ class this.Survey
 
 		#insert buttons click handler:
 		$(document).on 'click', @builder_ui.insertButtons, (el) =>
-			console.log $(el.currentTarget)
-			console.log $(el.currentTarget).prop('itemindex')
 			@addItem($(el.currentTarget).attr('itemindex'), @builder_ui.new_item_form_data)
 			@builder_ui.renewItemsIndexes()
 			@builder_ui.hideButtons()
