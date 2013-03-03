@@ -43,11 +43,18 @@
 	counter-reset:section;
 	#no-items-area{
         display: none;
+        img{
+        	position: absolute;
+			bottom: 10px;
+			left: 10px;
+        }
         #work-area-texting{
             color: #929292;
             text-align: center;
             border: 3px dashed #CCC;
             padding: 25px;
+            position: relative;
+			height: 130px;
         }
 	}
 	.countable{

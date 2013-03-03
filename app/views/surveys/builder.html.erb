@@ -11,6 +11,7 @@
         	<div id="work-area-texting" class="fifteen columns centered centr-text vspace-big">
         		<h3>This is your working area.</h3>
         		<h5>Start building survey by inserting items here.</h5>
+        		<img src="/images/builder-arrow.png"></img>
         	</div>
     	</div>
     
@@ -22,7 +23,7 @@
 
 <%= content_for :after_content do %>
 <!-- New survey item modal -->
-	<div class="modal hide fade" id="newItemContainer">
+	<div class="modal hide" id="newItemContainer">
 		<div class="modal-header">
 			<a href="#" class="close"></a>
 			<h3>New Item</h3>
@@ -35,7 +36,7 @@
 		</div>
 		<div class="modal-footer">
 			<a href="#" class="btn close">Cancel</a>
-			<a href="#" class="btn close" id="doneNewItemBtn">Done</a>
+			<a href="#" class="btn" id="doneNewItemBtn">Done</a>
 		</div>
 	</div>
 
@@ -48,7 +49,7 @@
 	  <div class="modal-body"></div>
 	  <div class="modal-footer">
 	    <a href="#" class="btn close">Cancel</a>
-	    <a href="#" class="btn close" id="doneEditItemBtn">Done</a>
+	    <a href="#" class="btn" id="doneEditItemBtn">Done</a>
 	  </div>
 	</div>
 
@@ -90,18 +91,17 @@
 	<script type="text/javascript" src="/javascripts/ckeditor/ckeditor.js"></script>
 
 	<script>
+
 		var itemsHtmlArray = <%= raw(survey_items_html_array()) %>;
 
 	    function renderSelectedItem(e){
-	      var val = $(e.target).data('item-type');
-	      $('#item_type_buttons').hide();
-	      $('#new_survey_item')
-	        .data('selected-item', true) //boolean indicator that shows that we selected item type
-	        .parents('.modal').find('.modal-header h3').text('New ' + $(e.target).text());
-	      $('#newItem').html(itemsHtmlArray[val]).show();
-	      rich_text_area = $('#rich-text-area');
-	      if(rich_text_area.length > 0)
-	      	CKEDITOR.replace( "rich-text-area" );
+			var val = $(e.target).data('item-type');
+			$('#item_type_buttons').hide();
+			$('#new_survey_item')
+				.data('selected-item', true) //boolean indicator that shows that we selected item type
+				.parents('.modal').find('.modal-header h3').text('New ' + $(e.target).text());
+			$('#newItem').html(itemsHtmlArray[val]).show();
+			createEditor();
 	    }
 
 		// document ready 

@@ -32,6 +32,7 @@ class this.BuilderUI
 				@new_item_form_data = $('#newItemContainer form').serialize()
 				@.showButtons()
 				@.toggle_cancel_btn()
+			@close_modals()
 			false
 
 		$('#doneEditItemBtn').click =>
@@ -42,12 +43,19 @@ class this.BuilderUI
 				url: "/surveys/#{@survey_id}/items/" + $('#editItemContainer form input[name=item_id]').val()
 				type: 'PUT'
 				data: $('#editItemContainer form').serialize()
+			@close_modals()
 			false
 
 		$(@edit_links).click => false
 
 		$('#new-item-btn').click =>
 			@new_item_modal()
+		
+
+	close_modals: ->
+		CKEDITOR.instances[name].destroy(true) for name of CKEDITOR.instances
+		$('#modal-bg').remove()
+		$('.modal').addClass('hide')
 
 	new_item_modal: (item = 'none') ->
 		$('<div id="modal-bg"></div>').appendTo('body')
