@@ -101,7 +101,7 @@
 				.data('selected-item', true) //boolean indicator that shows that we selected item type
 				.parents('.modal').find('.modal-header h3').text('New ' + $(e.target).text());
 			$('#newItem').html(itemsHtmlArray[val]).show();
-			createEditor();
+			init_ck_editor();
 	    }
 
 		// document ready 
