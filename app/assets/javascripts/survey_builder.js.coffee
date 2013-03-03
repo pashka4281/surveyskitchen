@@ -60,21 +60,17 @@ class this.BuilderUI
 	#FUNCTIONS:
 	insertItem: (html, pos, total_items) ->
 		btn = $(@insertButtons + "[itemindex=#{pos}]")
-		console.log btn
-		console.log btn.parents('.survey_item')
 		$(html).insertAfter(btn.parents('.survey_item')).hide().slideDown()
 
 		if total_items is 0
 			$(@noItemsArea).hide()
-			$(@zero_item).show()
 		@renewItemsIndexes()
 
 	removeItem: (id, total_items) =>
-		console.log total_items
 		self = this
 		$(@survey_items + "[item_id=#{id}]").slideUp 300, ->
 			$(@).remove()
-			$("#{self.noItemsArea}, #{self.zero_item}").toggle() if total_items is 0
+			$(self.noItemsArea).show() if total_items is 0
 			self.renewItemsIndexes()
 
 	toggle_cancel_btn: ->
@@ -85,10 +81,7 @@ class this.BuilderUI
 		$("#{@cancel_btn}, #new-item-btn").toggle()
 
 	_currentButtons: ->
-		if($(@noItemsArea).is(':hidden'))
-			return $(@buildList).find("#{@zero_item} #{@insertButtons}, .survey_item #{@insertButtons}")
-		else
-			return $(@buildList).find("#{@noItemsArea} #{@insertButtons}")
+		return $(@buildList).find(".survey_item #{@insertButtons}")
 
 	#change all insert buttons labels to `label`
 	buttonsLabel: (label) ->  $(@insertButtons).html(label)
@@ -106,7 +99,7 @@ class this.Survey
 		@survey_id = params['survey_id']
 		@base_path = "/surveys/#{@survey_id}" # e.g. "/survey/1"
 		@total_items = params['total_items']
-		$('#no-items-area, #zero-item').toggle() if @total_items is 0
+		$('#no-items-area').show() if @total_items is 0
 		@builder_ui = new BuilderUI(updateSurveyUrl: params['survey_update_url'], survey_id: @survey_id)
 		@self = this
 
