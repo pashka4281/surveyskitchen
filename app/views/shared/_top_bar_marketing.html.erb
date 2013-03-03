@@ -4,7 +4,7 @@
 
     <div class="nav-wrapper">
       <ul class="nav left">
-        <%=content_tag :li, class: (request.path =~ /\A\/(tos)(\/)?\z/ ? 'active' : '')  do -%>
+        <%=content_tag :li, class: (request.path =~ /\A\/(features)(\/)?\z/ ? 'active' : '')  do -%>
           <%= link_to 'Features', :tos %>
         <%-end-%>
         <%=content_tag :li, class: (request.path =~ /\A\/(about)(\/)?\z/ ? 'active' : '')  do -%>
@@ -13,8 +13,8 @@
         <%=content_tag :li, class: (request.path =~ /\A\/(tos)(\/)?\z/ ? 'active' : '')  do -%>
           <%= link_to 'Terms of service', :tos %>
         <%-end-%>
-        <%=content_tag :li, class: (request.path =~ /\A\/(tos)(\/)?\z/ ? 'active' : '')  do -%>
-          <%= link_to 'Pricing', :tos %>
+        <%=content_tag :li, class: (request.path =~ /\A\/(plans)(\/)?\z/ ? 'active' : '')  do -%>
+          <%= link_to 'Plans & Pricing', :plans %>
         <%-end-%>
       </ul>
     </div>
@@ -26,8 +26,6 @@
 
     <ul class="simple-nav right">
       <li><%= link_to "Login", :login %></li>
-      <li class="divider"></li>
-      <li><%= link_to "Register", :register %></li>
     </ul>
   </div>
 </div>

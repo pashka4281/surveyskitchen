@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  layout 'clear'
 
   def index
   	redirect_to :dashboard and return if current_user
@@ -7,10 +8,14 @@ class HomeController < ApplicationController
 
 
   def about
-  	render layout: 'clear'
+
   end
 
   def tos
-  	render layout: 'clear'
+
+  end
+
+  def plans
+    
   end
 end

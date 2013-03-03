@@ -58,7 +58,7 @@
 }
 
 .marketing-section{
-	border: 3px solid rgb(140, 144, 155);
+	border: 1px solid rgb(140, 144, 155);
 	border-radius: 10px;
 	padding: 7px;
 	background-color: #FFFFFF;
@@ -69,6 +69,12 @@
 	-webkit-box-shadow: 0 0px 8px #242424;
 	-moz-box-shadow: 0 0px 8px #242424;
 	box-shadow: 0 0px 8px #242424;
+	img.left{
+		border-radius: 10px;
+		margin: 5px;
+		display: inline;
+		float: left;
+	}
 	h3{ margin-bottom: 15px; }
 	ol{
 		li{ 
@@ -84,8 +90,28 @@
 	display: inline-block;
 	color: white;
 	text-decoration: none;
-	background-color: rgb(118, 207, 76);
+	background-color: rgb(214, 38, 38);
 	border-radius: 7px;
-	border: 1px solid rgb(112, 165, 87);
-	&:hover{ background-color: rgb(110, 185, 75) }
+	border: 1px solid rgb(255, 68, 68);
+	sup{font-size: 11px;}
+	&:hover{ background-color: rgb(255, 0, 0) }
+}
+
+
+//PLANS
+
+#plans-wrapper{
+	height: 300px;
+	display: block;
+	margin: 0 auto;
+	width: 865px;
+	.plan-block{
+		text-align: center;
+		padding: 7px;
+		float: left;
+		width: 260px;
+		margin: 10px;
+		border: 2px solid #ccc;
+		background-color: #fff;
+	}
 }

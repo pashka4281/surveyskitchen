@@ -100,6 +100,8 @@
 			$('#new_survey_item')
 				.data('selected-item', true) //boolean indicator that shows that we selected item type
 				.parents('.modal').find('.modal-header h3').text('New ' + $(e.target).text());
+			console.log(itemsHtmlArray)
+			console.log(val)
 			$('#newItem').html(itemsHtmlArray[val]).show();
 			init_ck_editor();
 	    }
