@@ -64,7 +64,7 @@
 			content:"# " counter(section) ". "; 
 			position: absolute; 
 			left: 5px;
-			top: 7px;
+			top: 9px;
 			color: #777;
 			z-index: 5;
 		}
@@ -75,15 +75,14 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			height: 32px;
 			right: 0;
 			background-color: #ebebeb;
-			padding: 5px 5px 5px 40px;
+			padding: 5px 5px 5px 50px;
 			border: 1px solid #bebebe;
 			border-top-left-radius: 5px;
 			border-top-right-radius: 5px;
 			a{
-				color: #bbb;
+				color: rgb(48, 48, 48);
 				display: inline-block;
 				&:hover{ color: #000; }
 				&.deleteLnk:hover{ color: #ff0000; }
@@ -91,14 +90,12 @@
 		}
 		.item-inner{
 			border: 1px solid rgb(190, 190, 190);
-			padding: 40px 10px 10px 40px;
+			padding: 50px 10px 10px 10px;
 			margin-bottom: 10px;
 			box-shadow: 0 0 6px rgb(175, 175, 175);
 			border-radius: 4px;
 			background-color: rgb(247, 247, 247);
-			&:hover{ 
-				box-shadow: 0 0 10px rgb(148, 148, 148);
-			}
+
 			.item-content{ margin-right: 100px; }
 			input[type="text"], select, textarea{
 				outline: none;

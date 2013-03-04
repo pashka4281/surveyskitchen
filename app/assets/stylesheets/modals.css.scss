@@ -13,7 +13,7 @@
 	top: 10%;
 	left: 50%;
 	z-index: 1050;
-	width: 620px;
+	width: 636px;
 	margin-left: -280px;
 	background-color: #ffffff;
 	border: 5px solid #999;
@@ -28,13 +28,16 @@
 	-webkit-background-clip: padding-box;
 	-moz-background-clip: padding-box;
 	background-clip: padding-box;
+	min-height: 280px;
+	//bottom: 10%;
 	&.hide{
 		display: none;
 	}
 	> div{ padding: 7px; }
 	.modal-header{
 		padding-left: 15px;
-		border-bottom: 1px solid #ccc;
+		background-color: rgb(233, 233, 233);
+		border-bottom: 1px solid #999999;
 		.close{
 			position: absolute;
 			left: -17px;
@@ -45,10 +48,19 @@
 		}
 	}
 	.modal-body{
-		
+		/*overflow-y: scroll;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 36px;
+		bottom: 43px;*/
 	}
 	.modal-footer{
 		border-top: 1px solid #999;
 		background-color: #E0E0E0;
+		/*position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;*/
 	}
 }

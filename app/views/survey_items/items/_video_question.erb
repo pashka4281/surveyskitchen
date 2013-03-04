@@ -1,11 +1,10 @@
 <%= div_for item, class: "countable survey_item", item_id: item.id do -%>
-      <%= render 'survey_items/items/_tools_box', item: item %>
+  <%= render 'survey_items/items/_tools_box', item: item %>
   <div class="item-inner">
 
     <div class="item-content">
       <div class="clear high"></div>
     
-
       <% if !item.youtube_id.blank? %>
         <iframe id="player" type="text/html" width="<%= item.frame_size.split('x')[0] %>" height="<%= item.frame_size.split('x')[1] %>" 
           src="http://www.youtube.com/embed/<%= item.youtube_id %>?enablejsapi=1&origin=http://example.com" frameborder="0">

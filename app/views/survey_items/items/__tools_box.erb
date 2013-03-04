@@ -1,7 +1,11 @@
 <div class="item_tools">
-    <a class="moveGrabber" href="#"><i class="icon-move"></i></a>
-    <a href="<%= edit_survey_item_path(@survey, item) %>" class="item-edit-link" data-target="#editItemContainer" data-toggle="modal">
-    	<i class="icon-pencil"></i>
+    <a class="moveGrabber btn" href="#">
+    	<i class="icon-move"></i> Copy/Move
     </a>
-    <%= link_to content_tag(:i, '', class: 'icon-trash'), '#', class: 'deleteLnk btn-danger' %>
+    <a href="<%= edit_survey_item_path(@survey, item) %>" class="item-edit-link btn" data-target="#editItemContainer" data-toggle="modal">
+    	<i class="icon-pencil"></i> Edit
+    </a>
+    <a class="deleteLnk btn-danger btn" href="#">
+    	<i class="icon-trash"></i> Remove
+    </a>
 </div>
