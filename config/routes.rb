@@ -7,6 +7,7 @@ Surveyskitchen::Application.routes.draw do
   get :tos, to: 'home#tos'
   get :about, to: 'home#about'
   get :plans, to: 'home#plans'
+  get :features, to: 'home#features'
 
   resources :surveys do
     get :builder,   on: :member

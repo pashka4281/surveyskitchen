@@ -8,14 +8,15 @@ class HomeController < ApplicationController
 
 
   def about
-
   end
 
   def tos
-
   end
 
   def plans
+  end
+
+  def features
     
   end
 end
