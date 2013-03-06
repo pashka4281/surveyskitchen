@@ -17,6 +17,5 @@ class HomeController < ApplicationController
   end
 
   def features
-    
   end
 end

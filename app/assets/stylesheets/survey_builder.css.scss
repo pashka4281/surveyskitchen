@@ -81,12 +81,7 @@
 			border: 1px solid #bebebe;
 			border-top-left-radius: 5px;
 			border-top-right-radius: 5px;
-			a{
-				color: rgb(48, 48, 48);
-				display: inline-block;
-				&:hover{ color: #000; }
-				&.deleteLnk:hover{ color: #ff0000; }
-			}
+			button.deleteLnk{ color: #ff0000; }
 		}
 		.item-inner{
 			border: 1px solid rgb(190, 190, 190);

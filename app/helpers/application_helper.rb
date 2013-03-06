@@ -28,7 +28,7 @@ module ApplicationHelper
 
   def insert_button
     raw '<div class="insert-button-wrapper"><button class="btn insert_buttons success">
-    <i class="icon-angle-double-left"></i> Insert here <i class="icon-angle-double-right"></i></button></div>'
+    <i class="icon-angle-double-left"></i> <span>Insert here</span> <i class="icon-angle-double-right"></i></button></div>'
   end
 
   def page_header(text, opts = {nomargin: false, submenu: nil, default_survey_menu: nil})

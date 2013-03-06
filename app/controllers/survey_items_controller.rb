@@ -34,15 +34,26 @@ class SurveyItemsController < ApplicationController
 		@survey = Survey.find(params[:survey_id])
   		@item = @survey.items.find(params[:id])
   		@item.destroy
-  		render nothing: true, status: 200
   	end
   
   	def delete
-  		p params
     	@survey = Survey.find(params[:survey_id])
   		@item = @survey.items.find(params[:item_id])
 	  	@item.update_attributes(:deleted_at => Time.now)
 	  	render nothing: true, status: 200
+  	end  	
+
+  	def copy
+    	@survey = Survey.find(params[:survey_id])
+  		@item = @survey.items.find(params[:item_id])
+	  	@new_item = SurveyItem.new(@item.attributes.merge(position: params[:item_position]))
+
+	  	if @new_item.save
+	  		@new_item = SurveyItem.find(@new_item.id)
+			render(partial: "survey_items/items/#{@item.type.demodulize.underscore}", locals:{item: @new_item})
+		else
+			render js: "alert('error')", status: :unprocessible_entry
+		end
   	end
 	
 	private

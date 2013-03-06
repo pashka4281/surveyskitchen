@@ -12,11 +12,11 @@
             <td><%= v %></td>
           <% end %>
         </tr>
-        <% item.rows_array.each do |v| %>
+        <% item.rows_array.each_with_index do |row_title, i| %>
           <tr>
-            <td class="grid-row-title"><%= v %></td>
+            <td class="grid-row-title"><%= row_title %></td>
             <% item.columns_array.each do |v| %>
-              <td><input type="radio" name="scale"></input></td>
+              <td><input type="radio" name="response[item-<%= item.id %>][<%= i %>]"></input></td>
             <% end %>
           </tr>
         <% end %>

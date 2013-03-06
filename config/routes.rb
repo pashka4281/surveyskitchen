@@ -18,6 +18,7 @@ Surveyskitchen::Application.routes.draw do
     get :preview,   on: :member
     resources :survey_items, as: 'items', path: 'items' do
       delete :delete, as: :member
+      post :copy, as: :member
     end
     resources :responses, only: [:show, :destroy, :index]
   end
