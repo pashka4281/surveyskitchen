@@ -5,11 +5,26 @@
 
 	<div class="marketing-section">
 		<h3>Simple but yet powerful </h3>
-		<img src="/images/marketing/surveys-list.png" class="left">
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<div class="row">
+			<div class="img-block column half-width">
+				<img src="/images/marketing/surveys-list.png" alt="Surveys list image">
+				<div class="description">
+					<h4>Surveys list</h4>
+					Manage all your surveys in one place. Activate/deactivate survey right from the list.
+				</div>
+			</div>
+			
+			<div class="img-block column half-width">
+				<img src="/images/marketing/survey-builder.png" alt="Survey builder image">
+				<div class="description">
+					<h4>Awesome survey builder</h4>
+					We created great survey builder to utilize all that power SurveysKitchen put into surveys.
+					Self-explanationary easy to use and working same good on both destktop and mobile browsers.
+				</div>
+			</div>
+		</div>
 
-		<img src="/images/marketing/survey-builder.png" class="left">
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 		<%= link_to "/plans", class: 'signup-btn' do %>
 			Start cooking surveys <br>
 			<sup>View plans & prices</sup>
@@ -44,7 +59,7 @@
 	</div>
 
 	<div class="marketing-section">
-		<h3>8 different survey item types for everyone's needs:</h3>
+		<h3>10 different survey item types for everyone's needs:</h3>
 		<ol>
 			<li>
 				<h4>Rich text fragment </h4> 
@@ -54,12 +69,15 @@
 			</li>
 			<li>
 				<h4>Drop down item</h4>
+				blah-blah...
 			</li>
 			<li>
 				<h4>Multiple select item</h4>
+				blah-blah...
 			</li>
 			<li>
 				<h4>Scale item</h4>
+				blah-blah...
 			</li>
 			<li>
 				<h4>Single select item</h4>
@@ -74,6 +92,14 @@
 				<h4>Video item</h4>
 				With help of video item you can easily embed any video from YouTube or Vimeo. 
 				Just put the link of the clip into textbox, choose desired frame size and you're all done. 
+			</li>
+			<li>
+				<h4>Single select grid</h4>
+				blah-blah...
+			</li>
+			<li>
+				<h4>Date/Time item</h4>
+				blah-blah...
 			</li>
 			<li>
 				<h4>Page break item</h4>
@@ -97,10 +123,7 @@
 	<br />
 
 	<h5>Visit <%= link_to "sign in form", :login %> to enter the site or choose from the providers below:</h5>
-	<div class="center-content">
-		<%= link_to "", "/auth/facebook", class: 'sign-in-facebook' %>
-		<%= link_to "", "/auth/twitter", class: 'sign-in-twitter' %>
-	</div>
+	
 
 	<h3>Get ready for something special soon!</h3>
 	<div class="progress progress-striped active">

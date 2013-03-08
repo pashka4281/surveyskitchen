@@ -129,7 +129,7 @@ h5{ font-size: 0.9em;}
 	content: " ";
 	display: table;
 }
-.row{ display: inline-block; }
+.row{ display: inline-block;width: 100%; }
 .column{ float: left; }
 .column.one-third{ width: 33.333333%; }
 .column.half-width{

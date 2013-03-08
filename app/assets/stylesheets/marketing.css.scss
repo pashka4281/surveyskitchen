@@ -100,7 +100,7 @@
 
 //PLANS
 #plans-wrapper{
-	height: 300px;
+	height: 430px;
 	display: block;
 	margin: 0 auto;
 	width: 820px;
@@ -112,11 +112,12 @@
 		margin: 25px 10px 10px 10px;
 		border: 2px solid #ccc;
 		background-color: rgb(247, 247, 247);
-		height: 250px;
+		height: 380px;
 		&.popular{
-			height: 280px;
+			height: 410px;
 			margin: 10px 10px 10px 10px;
 			border: 2px solid rgb(122, 151, 126);
+			background-color: rgb(220, 255, 213);
 		}
 		.start-btn{
 			text-decoration: none;
@@ -132,5 +133,58 @@
 				border: 2px solid rgb(47, 121, 255);
 			}
 		}
+	}
+}
+
+
+.img-block{
+	.description{
+		h4{line-height: 1.5em; font-weight: 600;color: rgb(68, 148, 211);}
+	}
+}
+
+.login-box{
+	background-color: #fff;
+	padding: 20px 20px 16px 20px;
+	-webkit-border-radius: 6px;
+	-moz-boder-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+	-moz-box-shadow: 0 2px 6px rgba(0,0,0,.18);
+	box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+	background: linear-gradient(top,#FFF,#F5F5F5);
+	background: -o-linear-gradient(top,#FFF,#F5F5F5);
+	background: -moz-linear-gradient(top,#FFF,#F5F5F5);
+	background: -webkit-linear-gradient(top,#FFF,#F5F5F5);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF',endColorstr='#F5F5F5',GradientType=0);
+	background: -ms-linear-gradient(top,#FFF,#F5F5F5);
+
+	form{
+		input[type="text"], select, textarea, input[type="password"]{
+			outline: none;
+			border: 1px solid #ccc;
+			padding: 3px;
+			width: 300px;
+			font-size: 16px;
+			&:focus{
+				border: 1px solid #888;
+			}
+		}
+		ul, textare, input, p, select{ color: rgb(70, 70, 70); }
+		ul.unstyled, select, input[type="text"],input[type="password"], textarea{ margin-top: 5px; }
+
+		label{
+			display: block;
+			margin-top: 10px;
+			span{
+				display: block;
+			}
+		}
+	}
+	.providers .btn{
+		display:block;
+		margin-top: 10px;
+		padding: 3px 3px 0 3px;
+		width: 300px;
 	}
 }

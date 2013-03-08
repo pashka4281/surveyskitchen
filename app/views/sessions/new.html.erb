@@ -1,13 +1,45 @@
-<div class="padded-content">
-  <h3>Sign in</h3>
 
-  <%= form_tag :login do %>
-    <%= label_tag :email, nil, class: 'right' %>
-    <%= text_field_tag :email, '', placeholder: 'Email address', class: 'six' %>
+	<div class="login-box">
+		<div class="row">
+			<div class="column half-width">
+				<h3>Sign in with credentials</h3>
 
-    <%= label :password, nil, class: 'right' %>
-    <%= password_field_tag :password, nil, placeholder: 'Password', class: 'six' %>
-    <br />
-    <%= submit_tag "Sign in", class: 'btn' %>
-  <% end %>
-</div>
+				<%= form_tag :login do %>
+					<%= label_tag :email do %>
+						<span>Enter your email here: </span> 
+						<%= text_field_tag :email, '', placeholder: 'Email address', class: 'six' %>
+					<% end %>
+
+					<%= label_tag :password do %>
+						<span>Enter your password: </span> 
+						<%= password_field_tag :password, nil, placeholder: 'Password', class: 'six' %>
+					<% end %>
+					<br />
+					<%= submit_tag "Sign in", class: 'btn' %>
+				<% end %>
+
+
+			</div>
+			<div class="column half-width providers">
+				<h3>Or choose from providers list below</h3>
+					<!--
+					<%= link_to "", "/auth/facebook", class: 'sign-in-facebook' %>
+					<%= link_to "", "/auth/twitter", class: 'sign-in-twitter' %> 
+				-->
+					<%= link_to "/auth/facebook", class: 'btn' do %>
+						<img src="/images/icons/facebook.png" style="vertical-align:middle">Sign in with Facebook
+					<% end %>
+					<%= link_to "/auth/google", class: 'btn' do %>
+						<img src="/images/icons/google.png" style="vertical-align:middle">Sign in with Google
+					<% end %>
+					<%= link_to "/auth/twitter", class: 'btn' do %>
+						<img src="/images/icons/twitter.png" style="vertical-align:middle">Sign in with Twitter
+					<% end %>
+
+			</div>
+		</div>
+
+
+	</div>
+
+
