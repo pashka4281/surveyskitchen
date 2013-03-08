@@ -66,9 +66,9 @@
 	font-size: 16px;
 	font-family: "Sanchez", serif;
 	color: rgb(48, 48, 48);
-	-webkit-box-shadow: 0 0px 8px #242424;
-	-moz-box-shadow: 0 0px 8px #242424;
-	box-shadow: 0 0px 8px #242424;
+	-webkit-box-shadow: 0 0px 8px rgb(134, 134, 134);;
+	-moz-box-shadow: 0 0px 8px rgb(134, 134, 134);;
+	box-shadow: 0 0px 8px rgb(134, 134, 134);;
 	img.left{
 		border-radius: 10px;
 		margin: 5px;
@@ -186,5 +186,10 @@
 		margin-top: 10px;
 		padding: 3px 3px 0 3px;
 		width: 300px;
+	}
+	.sign-in-description{
+		margin-top: 10px;
+		color: rgb(95, 95, 95);
+		font-size: 13px;
 	}
 }

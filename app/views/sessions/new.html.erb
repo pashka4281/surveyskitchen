@@ -15,7 +15,7 @@
 						<%= password_field_tag :password, nil, placeholder: 'Password', class: 'six' %>
 					<% end %>
 					<br />
-					<%= submit_tag "Sign in", class: 'btn' %>
+					<%= submit_tag "Sign in", class: 'btn success' %>
 				<% end %>
 
 
@@ -35,11 +35,13 @@
 					<%= link_to "/auth/twitter", class: 'btn' do %>
 						<img src="/images/icons/twitter.png" style="vertical-align:middle">Sign in with Twitter
 					<% end %>
-
 			</div>
 		</div>
 
-
+		<div class="sign-in-description">
+			We don't share your data with any third party services, we dont' use your email to send spam or ads. 
+			Your credentials are protected by our <a href="/tos">Terms of use</a> and <a href="#">ssl secured connection</a>.
+		</div>
 	</div>
 
 
