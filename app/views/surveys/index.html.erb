@@ -4,7 +4,9 @@
   <% if @surveys.any? %>
     <div id="surveys_list"><%= render @surveys %></div>
   <% else %>
-    <h5>There are not items to display currently</h5>
+    <h4>There are not items to display currently</h4>
+    <br>
+    <%= link_to "Create your first survey", :new_survey, class: 'btn' %>
   <% end %>
 
 
