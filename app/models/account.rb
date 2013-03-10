@@ -5,6 +5,8 @@ class Account < ActiveRecord::Base
   has_many :surveys
   has_many :events, dependent: :destroy
   has_many :responses, through: :surveys
+  has_many :clients
+  has_many :client_lists
 
   belongs_to :owner, class_name: 'User', :foreign_key => :owner_id
 end

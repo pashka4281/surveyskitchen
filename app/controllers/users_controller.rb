@@ -19,13 +19,5 @@ class UsersController < ApplicationController
 			render "new", layout: 'clear'
 		end
 	end
-
-	def profile
-		@user = current_user
-	end
-
-	def update_profile
-	    
-  	end
   	
 end

@@ -358,6 +358,7 @@ form.painted{
 	background-color: rgb(245, 245, 245);
 	padding: 7px;
 	margin-bottom: 15px;
+	border: 2px solid #ccc;
 }
 .fields{
 	label{
@@ -374,6 +375,9 @@ form.painted{
 			&:focus{
 				border: 1px solid #888;
 			}
+		}
+		input[type="password"]{
+			width: 200px;margin-right: 200px;
 		}
 	}
 	.uneditable{

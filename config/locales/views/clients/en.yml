@@ -1,0 +1,8 @@
+en:
+  clients:
+    new:
+      title: "New Survey"
+    index:
+      title: "Clients"
+      no_items: "There are no clients at the moment."
+      add_link: "Add clients"

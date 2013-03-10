@@ -1,9 +1,8 @@
 <ul>
 	<%=content_tag :li, class: (request.path =~ /\A\/(surveys)(\/)?\z/ ? 'active' : '')  do -%>
-        <%= link_to raw("<i class=\"icon-edit-1\"></i> Surveys (#{current_account.surveys.count})"), :surveys %>
+        <%= link_to raw("<i class=\"icon-edit-1\"></i> #{t('layout.surveys')} (#{current_account.surveys.count})"), :surveys %>
     <%-end-%>
-	<%=content_tag :li, class: (request.path =~ /\/(responses)(\/)?\z/ ? 'active' : '')  do -%>
-        <%= link_to raw("<i class=\"icon-chart-bar\"></i> Responses (#{current_account.responses.count})"), :surveys %>
+    <%=content_tag :li, class: (request.path =~ /\A\/(clients)(\/)?\z/ ? 'active' : '')  do -%>
+        <%= link_to raw("<i class=\"icon-users-1\"></i> #{t('layout.clients')} (#{current_account.clients.count})"), :clients %>
     <%-end-%>
-	<li><a href="#"><i class="icon-users-1"></i> Clients</a></li>
 </ul>

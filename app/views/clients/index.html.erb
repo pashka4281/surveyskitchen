@@ -1,0 +1,9 @@
+  <%= page_header t("clients.index.title") %>
+
+  <% if @clients.any? %>
+    <div id="surveys_list"><%= render @clients %></div>
+  <% else %>
+    <h4><%= t("clients.index.no_items") %></h4>
+    <br>
+    <%= link_to t("clients.index.add_link"), :new_client, class: 'btn' %>
+  <% end %>

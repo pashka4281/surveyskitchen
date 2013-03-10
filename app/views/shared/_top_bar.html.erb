@@ -4,7 +4,7 @@
     <div class="nav-wrapper">
       <ul class="nav left">
         <%=content_tag :li, class: (request.path =~ /\A\/(dashboard)(\/)?\z/ ? 'active' : '')  do -%>
-          <%= link_to raw('<i class="icon-home"></i> Dashboard'), :dashboard %>
+          <%= link_to raw('<i class="icon-home"></i> ' + t("layout.dashboard_link")), :dashboard %>
         <%-end-%>
         <%=content_tag :li, class: (request.path =~ /\A\/(surveys\/new)(\/)?\z/ ? 'active' : '')  do -%>
           <%= link_to raw('<i class="icon-plus-circle"></i> ' + t("layout.add_survey_link")), :new_survey %>

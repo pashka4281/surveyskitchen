@@ -5,3 +5,6 @@ en:
     log_out_link: "Log out"
     dashboard_link: "Dashboard"
     add_survey_link: "Add survey"
+    
+    surveys: "Surveys"
+    clients: "Clients"

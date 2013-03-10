@@ -32,6 +32,7 @@ Surveyskitchen::Application.routes.draw do
     get 'info', to: 'info#index'
   end
   
+  resources :clients
   resources :categories
 
   get 'dashboard' => 'users#dashboard', :as => :dashboard
@@ -43,8 +44,6 @@ Surveyskitchen::Application.routes.draw do
   post  'register', to: 'users#create'
 
   resource :profile
-  # get 'profile', to: 'users#profile'
-  # put 'profile_update', to: 'users#profile_update'
 
   match '/auth/:provider/callback', to: 'external_sessions#callback', provider: /twitter|facebook/
 

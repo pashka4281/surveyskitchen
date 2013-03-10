@@ -1,0 +1,22 @@
+.vertical_accordion{
+	.tab{
+		.handle{
+			label{
+				display: block;
+				padding: 7px;
+			}
+			background-color: #ccc;
+			margin-bottom: 1px;
+		}
+		.content{
+			display:none;
+			padding: 7px;
+		}
+	}
+	.tab.active{
+		.handle{
+			background-color: #bbb;
+		}
+		.content{ display: block; }
+	}
+}

@@ -1,5 +1,5 @@
 <%= form_for @survey, html: {class: 'form'} do |f| %>
-  <fieldset>
+  <div class="fields">
     <%= f.label :name do %> <%= t("surveys.form.name") %>
       <%= f.text_field :name, class: 'span5', placeholder: t("surveys.form.name_placeholder")  %>
     <% end %>
@@ -15,6 +15,6 @@
     </label>
   -->
    
-  </fieldset>
+  </div>
   <%= f.submit class: 'btn btn-success' %>
 <% end %>

@@ -17,6 +17,7 @@ gem 'geoip-c' # apt-get install libgeoip-dev  to make it install
 gem 'kaminari' #for pagination. Used also by rails_admin
 gem 'whenever'
 gem 'mysql2'
+gem 'inherited_resources'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
