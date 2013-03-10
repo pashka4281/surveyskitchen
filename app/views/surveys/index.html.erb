@@ -1,12 +1,12 @@
 
-  <%= page_header "Surveys" %>
+  <%= page_header t("surveys.index.title") %>
 
   <% if @surveys.any? %>
     <div id="surveys_list"><%= render @surveys %></div>
   <% else %>
-    <h4>There are not items to display currently</h4>
+    <h4><%= t("surveys.index.no_items") %></h4>
     <br>
-    <%= link_to "Create your first survey", :new_survey, class: 'btn' %>
+    <%= link_to t("surveys.index.create_link"), :new_survey, class: 'btn' %>
   <% end %>
 
 
@@ -20,9 +20,9 @@
 			dataType: 'json',
 			success: function(resp){
 				if(resp.active)
-					{ _this.parents('.survey').addClass('active'); _this.siblings('.survey-status').text('Active') }
+					{ _this.parents('.survey').addClass('active'); _this.siblings('.survey-status').text('<%= t("surveys.index.active")%>') }
 				else
-					{ _this.parents('.survey').removeClass('active'); _this.siblings('.survey-status').text('Stopped') }
+					{ _this.parents('.survey').removeClass('active'); _this.siblings('.survey-status').text('<%= t("surveys.index.stopped")%>') }
 			}
 		})
 		return false;

@@ -1,6 +1,6 @@
 <% header("Questions builder", subheader: 'All changes here are automatically saved.') %>
 
-<%= page_header "<b>#{@survey.name}</b> -- Builder", nomargin: true, default_survey_menu: true %>
+<%= page_header t('surveys.builder.title', name: @survey.name), nomargin: true, default_survey_menu: true %>
 
 	<div id="build_list"  class="list">
 		<div id="zero-item" class="survey_item">
@@ -71,16 +71,16 @@
 	<div id="sticky-anchor"></div>
 	<div id="stickyBar">
 		<button class="btn btn-primary" id="cancel-btn">
-	    	<i class="icon-cancel"></i> Cancel
+	    	<i class="icon-cancel"></i> <%= t 'surveys.builder.cancel' %>
 	    </button>
 	    <button  id="new-item-btn" class="btn btn-primary">
-	    	<i class="icon-list-add"></i> New Item <br>
+	    	<i class="icon-list-add"></i> <%= t 'surveys.builder.new_item' %> <br>
 	    </button>
 	    <button id="trashbox-btn" data-url="<%= trashbox_survey_path(@survey) %>" class="btn" data-target="#trashedItemsContainer" data-toggle="modal" role="button">
-	    	<i class="icon-trash"></i> Trash box <span class="trash-cnt">(<%= @survey.items.trashed.count %>)</span>
+	    	<i class="icon-trash"></i> <%= t 'surveys.builder.trashbox' %> <span class="trash-cnt">(<%= @survey.items.trashed.count %>)</span>
 	    </button>
 	    <!-- <button class="btn btn-warning"><i class="icon-wrench"></i> Survey settings</button> -->
-	    <button class="btn btn-warning" id="preview-btn"><i class="icon-eye"></i> Preview </button>
+	    <button class="btn btn-warning" id="preview-btn"><i class="icon-eye"></i> <%= t 'surveys.builder.preview' %> </button>
 	</div>
 </div>
 
@@ -101,7 +101,8 @@
 				survey_update_url: "<%= survey_path(@survey, format: :js) %>",
 				total_items: <%= @survey.items.active.count %>,
 				itemFormsHtmlArray: itemsHtmlArray,
-				trashed_items: <%= @survey.items.trashed.count %>
+				trashed_items: <%= @survey.items.trashed.count %>,
+				translates: <%= raw translates_for_builder() %>
 			});
 
 			$(document).on('click', '#preview-btn', function(){

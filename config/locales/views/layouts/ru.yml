@@ -1,0 +1,7 @@
+ru:
+  layout:
+    account_link: "Аккаунт"
+    profile_link: "Профиль"
+    log_out_link: "Выйти"
+    dashboard_link: "Dashboard"
+    add_survey_link: "Новый опрос"

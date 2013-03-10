@@ -48,3 +48,16 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 1024px) {
+	*{ 
+		text-shadow: none !important;
+ 		box-shadow: none !important;
+		-webkit-box-shadow: none !important;
+		-webkit-linear-gradient: none !important;
+		linear-gradient: none !important;
+	}
+	
+}

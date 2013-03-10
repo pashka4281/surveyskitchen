@@ -42,8 +42,9 @@ Surveyskitchen::Application.routes.draw do
   get   'register', to: 'users#new'
   post  'register', to: 'users#create'
 
-  get 'profile', to: 'users#profile'
-  put 'profile_update', to: 'users#profile_update'
+  resource :profile
+  # get 'profile', to: 'users#profile'
+  # put 'profile_update', to: 'users#profile_update'
 
   match '/auth/:provider/callback', to: 'external_sessions#callback', provider: /twitter|facebook/
 

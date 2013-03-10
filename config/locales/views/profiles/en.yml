@@ -1,0 +1,24 @@
+en:
+  profiles:
+    show:
+      title: "Profile"
+      account_name: "Account name:"
+      first_name: "First name:"
+      last_name: "Last name:"
+      email: "Email:"
+      password: "Pasword:"
+      change_fields: "Change fields..."
+      authentications: "Authentications:"
+      connect_with: "Conntect with %{name}"
+    edit:
+      title: "Edit Profile" 
+      account_name: "Account name:"
+      first_name: "First name:"
+      last_name: "Last name:"
+      email: "Email:"
+      current_password: "Current password:"
+      update_btn: "Update"
+      language: "Language:"
+    update:
+      success: "Settings saved"
+      error: "Error occurred while saving settings"

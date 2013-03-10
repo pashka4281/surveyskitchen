@@ -7,7 +7,7 @@
           <%= link_to raw('<i class="icon-home"></i> Dashboard'), :dashboard %>
         <%-end-%>
         <%=content_tag :li, class: (request.path =~ /\A\/(surveys\/new)(\/)?\z/ ? 'active' : '')  do -%>
-          <%= link_to raw('<i class="icon-plus-circle"></i> Add Survey'), :new_survey %>
+          <%= link_to raw('<i class="icon-plus-circle"></i> ' + t("layout.add_survey_link")), :new_survey %>
         <%-end-%>
         <%= content_tag(:li){ link_to(raw('<i class="icon-wrench"></i> Admin'), :rails_admin) } if current_user.admin? %>
       </ul>
@@ -19,11 +19,11 @@
 
 
     <ul class="simple-nav right">
-      <li><%= link_to "Account", :account_info %></li>
+      <li><%= link_to t("layout.account_link"), :account_info %></li>
       <li class="divider"></li>
-      <li><%= link_to "Profile", :profile %></li>
+      <li><%= link_to t("layout.profile_link"), :profile %></li>
       <li class="divider"></li>
-      <li><a href="/logout">Log out</a></li>
+      <li><a href="/logout"><%= t("layout.log_out_link") %></a></li>
     </ul>
   </div>
 </div>

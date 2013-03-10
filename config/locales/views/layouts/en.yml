@@ -1,0 +1,7 @@
+en:
+  layout:
+    account_link: "Account"
+    profile_link: "Profile"
+    log_out_link: "Log out"
+    dashboard_link: "Dashboard"
+    add_survey_link: "Add survey"

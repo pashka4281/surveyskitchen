@@ -1,0 +1,45 @@
+en:
+  surveys:
+    new:
+      title: "New Survey"
+    index:
+      title: "Surveys"
+      no_items: "There are not items to display currently"
+      create_link: "Create your first survey"
+
+      edit_link: "Edit"
+      share_lin: "Share"
+      responses_link: "Responses"
+      report_link: "Report"
+      delete_link: "Delete this survey"
+      delete_confirm: "Are you sure? You can't restore it later"
+      active: "Active"
+      stopped: "Stopped"
+
+    form:
+      name: "Survey name:"
+      name_placeholder: "Enter name here"
+      category: "Choose category:"
+      description: "Survey description:"
+      descr_placeholder: "Enter a brief description here"
+    
+    common:
+      edit: 'Edit'
+      builder: 'Builder'
+      responses: 'Responses'
+      report: 'Report'
+      share: 'Share'
+
+    builder:
+      title: '<b>%{name}</b> -- Builder'
+      copy: "Copy"
+      move: "Move"
+      edit: "Edit"
+      remove: "Remove"
+      preview: "Preview"
+      trashbox: "Trash box"
+      new_item: "New item"
+      cancel: "Cancel"
+      js_insert_btn: "Insert here"
+      js_copy_btn: "Copy here"
+      js_move_btn: "Move here"

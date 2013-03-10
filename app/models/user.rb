@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-    :first_name, :last_name, :account_name, :invited, :full_name
+    :first_name, :last_name, :account_name, :invited, :full_name, :language
 
 #associations:
   has_many :surveys

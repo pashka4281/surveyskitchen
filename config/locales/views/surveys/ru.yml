@@ -1,0 +1,45 @@
+ru:
+  surveys:
+    new:
+      title: "New Survey"
+    index:
+      title: "Опросы"
+      no_items: "There are not items to display currently"
+      create_link: "Create your first survey"
+
+      edit_link: "Редакт."
+      share_link: "Share"
+      responses_link: "Ответы"
+      report_link: "Отчет"
+      delete_link: "Удалить этот опрос"
+      delete_confirm: "Are you sure? You can't restore it later"
+      active: "Активен"
+      stopped: "Остановлен"
+
+    form:
+      name: "Название:"
+      name_placeholder: "Enter name here"
+      category: "Выберите категорию:"
+      description: "Описание:"
+      descr_placeholder: "Небольшое описание, о чем ваш опрос"
+    
+    common:
+      edit: 'Изменить'
+      builder: 'Конструктор'
+      responses: 'Ответы'
+      report: 'Отчет'
+      share: 'Отправить'
+
+    builder:
+      title: '<b>%{name}</b> -- Конструктор'
+      copy: "Копировать"
+      move: "Переместить"
+      edit: "Редакт."
+      remove: "Удалить"
+      preview: "Предосмотр"
+      trashbox: "Корзина"
+      new_item: "Новый вопрос"
+      cancel: "Отмена"
+      js_insert_btn: "Вставить сюда"
+      js_copy_btn: "Копировать сюда"
+      js_move_btn: "Переместить сюда"

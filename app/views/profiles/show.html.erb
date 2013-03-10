@@ -1,35 +1,34 @@
-<%= page_header "Profile" %>
+<%= page_header t("profiles.show.title") %>
 
-<%= form_for(@user, :url => :profile_update, html:{ class: 'form' }) do |f| %>
   <div class="fields">
-    <%= f.label :account_name do %> Account name:
+    <%= label_tag :account_name do %> <%= t("profiles.show.account_name") %>
       <div class="uneditable"><%= @user.account.name %></div>
     <% end %>
-    <%= f.label :first_name do %> First name:
+    <%= label_tag :first_name do %> <%= t("profiles.show.first_name") %>
       <div class="uneditable"><%= @user.first_name %></div>
     <% end %>
-    <%= f.label :last_name do %> Last name:
+    <%= label_tag :last_name do %> <%= t("profiles.show.last_name") %>
       <div class="uneditable"><%= @user.last_name %></div>
     <% end %>
-    <%= f.label :email do %> Email:
+    <%= label_tag :email do %> <%= t("profiles.show.email") %>
       <div class="uneditable"><%= @user.email %></div>
     <% end %>
-    <%= f.label :email do %> Password:
+    <%= label_tag :email do %> <%= t("profiles.show.password") %>
       <div class="uneditable">******</div>
     <% end %>
   </div>
   
-  <%= link_to "Change fields...", "", id: 'change-profile-details-lnk' %>
+  <%= link_to t("profiles.show.change_fields"), :edit_profile, id: 'change-profile-details-lnk' %>
   <%#= f.submit "Sign up now!", class: 'btn btn-primary' %>
 <div class="spacer"></div>
-  <h3>Authentications:</h3>
+  <h3><%= t("profiles.show.authentications") %></h3>
 
   <div class="authentication">
     <span>Facebook: </span>
     <% if fb_auth = @user.facebook_auth %>
       <%= fb_auth.linked_name %>
     <% else %>
-      <%= link_to "Connect with Facebook", "#", class: 'big_btn fb-auth-btn' %>
+      <%= link_to t("profiles.show.connect_with", name: "Facebook"), "#", class: 'big_btn fb-auth-btn' %>
     <% end %>
   </div>
 
@@ -38,7 +37,7 @@
     <% if tw_auth = @user.twitter_auth %>
       <%= tw_auth.linked_name %>
     <% else %>
-      <%= link_to "Connect with Twiiter", "#", class: 'big_btn tw-auth-btn' %>
+      <%= link_to t("profiles.show.connect_with", name: "Twitter"), "#", class: 'big_btn tw-auth-btn' %>
     <% end %>
   </div>
 
@@ -47,7 +46,6 @@
     <% if tw_auth = @user.google_auth %>
       <%= tw_auth.linked_name %>
     <% else %>
-      <%= link_to "Connect with Google", "#", class: 'big_btn go-auth-btn' %>
+      <%= link_to t("profiles.show.connect_with", name: "Google"), "#", class: 'big_btn go-auth-btn' %>
     <% end %>
   </div>
-<% end %>

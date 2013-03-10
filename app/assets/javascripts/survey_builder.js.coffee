@@ -2,6 +2,7 @@ class this.Survey
 	constructor: (params) ->
 		@survey_id = params['survey_id']
 		@base_path = "/surveys/#{@survey_id}" # e.g. "/survey/1"
+		@translates = params['translates']
 		@total_items = params['total_items']
 		@trashed_items = params['trashed_items']
 		$('#no-items-area').show() if @total_items is 0
@@ -127,7 +128,7 @@ class this.Survey
 	#change all insert buttons labels and sets data-action attribute for use in their click callback function
 	show_and_prepare_buttons_for: (action, current_action_item_id) ->
 		@current_action_item_id = current_action_item_id
-		label = {add_item: 'Insert here', copy_item: 'Copy here', move_item: 'Move here'}[action]
+		label = @translates[action]
 		if action is "move_item"
 			@showButtons()
 		else

@@ -28,18 +28,26 @@ module ApplicationHelper
 
   def insert_button
     raw '<div class="insert-button-wrapper"><button class="btn insert_buttons success">
-    <i class="icon-angle-double-left"></i> <span>Insert here</span> <i class="icon-angle-double-right"></i></button></div>'
+    <i class="icon-angle-double-left"></i> <span></span> <i class="icon-angle-double-right"></i></button></div>'
+  end
+
+  def translates_for_builder
+    {
+      add_item:  t('surveys.builder.js_insert_btn'),
+      copy_item: t('surveys.builder.js_copy_btn'),
+      move_item: t('surveys.builder.js_move_btn')
+      }.to_json
   end
 
   def page_header(text, opts = {nomargin: false, submenu: nil, default_survey_menu: nil})
     opt_classes = opts[:nomargin] ? 'nomargin' : ''
     submenu = opts[:submenu] && "<div class=\"subheader\">#{opts[:submenu]}</div>"
     submenu = opts[:default_survey_menu] && "<div class=\"subheader\">
-        #{link_to(raw('<i class="icon-pencil-2"></i>edit'), [:edit, @survey], class: 'light')} | 
-        #{link_to(raw('<i class="icon-tools"></i>builder'), [:builder, @survey], class: 'light')} | 
-        #{link_to(raw('<i class="icon-chat-1"></i>responses'), [@survey, :responses], class: 'light')} | 
-        #{link_to(raw('<i class="icon-doc-text"></i>report'), [:report, @survey], class: 'light')} |
-        <b>#{link_to(raw('<i class="icon-share"></i>share'), [:share, @survey], class: 'light')}</b></div>"
+        #{link_to(raw('<i class="icon-pencil-2"></i>' + t('surveys.common.edit')), [:edit, @survey], class: 'light')} | 
+        #{link_to(raw('<i class="icon-tools"></i>'+ t('surveys.common.builder')), [:builder, @survey], class: 'light')} | 
+        #{link_to(raw('<i class="icon-chat-1"></i>'+ t('surveys.common.responses')), [@survey, :responses], class: 'light')} | 
+        #{link_to(raw('<i class="icon-doc-text"></i>'+ t('surveys.common.report')), [:report, @survey], class: 'light')} |
+        <b>#{link_to(raw('<i class="icon-share"></i>'+ t('surveys.common.share')), [:share, @survey], class: 'light')}</b></div>"
     raw <<-EOS
       <div class="page-header #{opt_classes}"><h1>#{text}</h1>#{submenu}</div>
     EOS
