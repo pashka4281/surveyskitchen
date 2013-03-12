@@ -11,6 +11,7 @@ class ProfilesController < ApplicationController
 	end
 
 	def update
+		I18n.locale = params[:user][:language] if params[:user][:language]
 		if @user.update_attributes(params[:user])
 			flash[:success] = t("profiles.update.success")
 		else

@@ -3,6 +3,7 @@
 @import "pages/dashboard.scss";
 @import "pages/share.scss";
 @import "pages/survey.scss";
+@import "pages/clients.scss";
 
 @mixin borderRadius($size) {
   -moz-border-radius: $size;
@@ -360,21 +361,24 @@ form.painted{
 	margin-bottom: 15px;
 	border: 2px solid #ccc;
 }
+
 .fields{
+	input, textarea, select{
+		outline: none;
+		font-size: 16px;
+		border: 1px solid #cccccc;
+		padding: 3px;
+		&:focus{
+			border: 1px solid #888;
+		}
+	}
 	label{
 		width: 600px;
 		display: inline-block;
 		clear: right;
 		input, textarea, select{
-			outline: none;
 			float: right;
 			width: 400px;
-			font-size: 16px;
-			border: 1px solid #cccccc;
-			padding: 3px;
-			&:focus{
-				border: 1px solid #888;
-			}
 		}
 		input[type="password"]{
 			width: 200px;margin-right: 200px;

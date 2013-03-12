@@ -5,14 +5,16 @@
 		<div class="handle">
 			<label>
 				<input type="radio" name="import_type" checked></input>
-				Manual
+				<%= t('clients.new.manually') %>
 			</label>
 		</div>
-		<div class="content">
-			<%= form_tag :clients do %>
-				<%= text_area_tag :clients_list, '', placeholder: "client@mail.com, John, Smith" %>
-
-				<%= submit_tag "add" %>
+		<div class="tab-content">
+			<%= form_tag :clients, class: 'new_client_form' do %>
+				<div class="fields">
+					One client per line:
+					<%= text_area_tag :clients_list, @unprocessed_lines, placeholder: "client@mail.com, John, Smith", class: 'import_area' %>
+				</div>
+				<%= submit_tag t('clients.new.import_btn') %>
 			<% end %>
 		</div>
 	</div>
@@ -20,14 +22,14 @@
 		<div class="handle">
 			<label>
 				<input type="radio" name="import_type"></input>
-				Import from csv file
+				<%= t('clients.new.csv_file') %>
 			</label>
 		</div>
-		<div class="content">
+		<div class="tab-content">
 			<%= form_tag :clients do %>
-				<%= file_field :clients_list, '' %>
+				<%= file_field :clients_list_file, '' %>
 
-				<%= submit_tag "add" %>
+				<%= submit_tag t('clients.new.import_btn') %>
 			<% end %>
 		</div>
 	</div>
@@ -35,13 +37,13 @@
 		<div class="handle">
 			<label>
 				<input type="radio" name="import_type"></input>
-				Import from external service
+				<%= t('clients.new.external_service') %>
 			</label>
 		</div>
-		<div class="content">
+		<div class="tab-content">
 			<%= form_tag :clients do %>
 
-				<%= submit_tag "add" %>
+				<%= submit_tag t('clients.new.import_btn') %>
 			<% end %>
 		</div>
 	</div>
@@ -50,5 +52,6 @@
 <% content_for :js do %>
 <script>
 	$('.vertical_accordion').jAccordion();
+	$(".new_client_form .import_area").linedtextarea();
 </script>
 <% end %>

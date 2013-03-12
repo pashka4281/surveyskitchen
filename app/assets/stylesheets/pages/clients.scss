@@ -1,0 +1,91 @@
+.new_client_form{
+	textarea.import_area{
+		width: 500px;
+		height: 250px;
+		font-size: 12px;
+		resize: none;
+	}
+}
+
+.vertical_accordion{
+	.tab{
+		.handle{
+			label{
+				display: block;
+				padding: 7px;
+				cursor: pointer;
+			}
+			background-color: #ccc;
+			margin-bottom: 2px;
+		}
+		.tab-content{
+			display:none;
+			padding: 7px;
+			background-color: #FAFAFA;
+		}
+	}
+	.tab.active{
+		.handle{
+			background-color: rgb(223, 93, 52);
+			margin-bottom: 0px;
+			color: #fff;
+		}
+		.tab-content{ 
+			display: block; 
+			margin-bottom: 2px; 
+			border: 1px solid rgb(223, 93, 52);
+		}
+	}
+}
+
+
+
+.linedwrap {
+	padding: 3px;
+	.lines {
+		margin-top: 0px;
+		width: 35px;
+		float: left;
+		overflow: hidden;
+		text-align: right;
+	}
+}
+
+.linedtextarea {
+	padding: 0px;
+	margin: 0px;
+	textarea {
+		padding-right:0.3em;
+		padding-top:0.3em;
+		border: 0;
+		line-height: 13px;
+		margin: 0;
+	}
+}
+
+.linedtextarea textarea, .linedwrap .codelines .lineno {
+	line-height: 13px;
+	font-size: 12px;
+	font-family: monospace;
+	line-height: normal !important;
+}
+.linedwrap .codelines .lineno{
+	padding-right: 5px;
+	background-color: rgb(243, 243, 243);
+	color: rgb(77, 77, 77);
+	&:first-child{
+		padding-top: 4px;
+	}
+	&:nth-child(even){
+		background-color: #FAFAFA;
+	}
+}
+
+
+
+
+#clients_list{
+	.client{
+		> div{ display: inline-block; }
+	}
+}

@@ -1,7 +1,11 @@
 en:
   clients:
     new:
-      title: "New Survey"
+      title: "New client"
+      manually: "Enter manually"
+      csv_file: "Import from csv file"
+      external_service: "Import from external service"
+      import_btn: "Import"
     index:
       title: "Clients"
       no_items: "There are no clients at the moment."

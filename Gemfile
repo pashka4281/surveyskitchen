@@ -18,6 +18,7 @@ gem 'kaminari' #for pagination. Used also by rails_admin
 gem 'whenever'
 gem 'mysql2'
 gem 'inherited_resources'
+gem 'rcsv'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
