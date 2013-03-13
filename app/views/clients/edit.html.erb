@@ -1,0 +1,19 @@
+<%= page_header t("clients.edit.title", name: @client.full_name) %>
+
+<%= form_for(@client, html:{ class: 'form painted' }) do |f| %>
+  <div class="fields">
+    <%= f.label :first_name do %> <%= t("clients.edit.f_name") %>
+      <div class="uneditable"><%= f.text_field :first_name %></div>
+    <% end %>
+    <%= f.label :last_name do %> <%= t("clients.edit.l_name") %>
+      <div class="uneditable"><%= f.text_field :last_name %></div>
+    <% end %>
+    <%= f.label :email do %> <%= t("clients.edit.email") %>
+      <div class="uneditable"><%= f.email_field :email %></div>
+    <% end %>
+    <%= f.label :note do %> <%= t("clients.edit.note") %>
+      <div class="uneditable"><%= f.text_area :note %></div>
+    <% end %>
+  </div>
+  <%= f.submit t("clients.edit.save_btn") %>
+<% end %>

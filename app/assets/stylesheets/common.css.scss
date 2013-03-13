@@ -152,6 +152,7 @@ h5{ font-size: 0.9em;}
 	padding: 5px;
 }
 a:visited:not(.btn){ color: rgb(45, 137, 150); }
+a:not(.btn){ color: rgb(45, 137, 150); }
 .content{
 	max-width: 1200px;
 	min-width: 800px;
@@ -363,6 +364,7 @@ form.painted{
 }
 
 .fields{
+	textarea{ height: 150px; }
 	input, textarea, select{
 		outline: none;
 		font-size: 16px;
@@ -390,6 +392,8 @@ form.painted{
 		font-size: 16px;
 		line-height: 27px;
 		color: rgb(150, 150, 150);
+		font-style: italic;
+		&.small{ font-style: normal; font-size: 12px; }
 	}
 	h3{
 		border-bottom: 1px solid #ccc;
@@ -416,7 +420,7 @@ form.painted{
 	&:active:not(:disabled){ 
 			@include vertical_gradient(#c5c5c5, #f2f2f2);
 	}
-	&.small{ padding: 3px; }
+	&.small{ padding: 3px; font-size: 11px; }
 	&.success{ 
 		background-color: #51a351;
 		color: #fff;

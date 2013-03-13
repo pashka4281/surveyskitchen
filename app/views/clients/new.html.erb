@@ -11,10 +11,10 @@
 		<div class="tab-content">
 			<%= form_tag :clients, class: 'new_client_form' do %>
 				<div class="fields">
-					One client per line:
+					<%= t('clients.new.one_per_line') %>
 					<%= text_area_tag :clients_list, @unprocessed_lines, placeholder: "client@mail.com, John, Smith", class: 'import_area' %>
 				</div>
-				<%= submit_tag t('clients.new.import_btn') %>
+				<%= submit_tag t('clients.new.save_btn') %>
 			<% end %>
 		</div>
 	</div>

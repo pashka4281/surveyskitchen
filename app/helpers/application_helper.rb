@@ -42,12 +42,8 @@ module ApplicationHelper
   def page_header(text, opts = {nomargin: false, submenu: nil, default_survey_menu: nil})
     opt_classes = opts[:nomargin] ? 'nomargin' : ''
     submenu = opts[:submenu] && "<div class=\"subheader\">#{opts[:submenu]}</div>"
-    submenu = opts[:default_survey_menu] && "<div class=\"subheader\">
-        #{link_to(raw('<i class="icon-pencil-2"></i>' + t('surveys.common.edit')), [:edit, @survey], class: 'light')} | 
-        #{link_to(raw('<i class="icon-tools"></i>'+ t('surveys.common.builder')), [:builder, @survey], class: 'light')} | 
-        #{link_to(raw('<i class="icon-chat-1"></i>'+ t('surveys.common.responses')), [@survey, :responses], class: 'light')} | 
-        #{link_to(raw('<i class="icon-doc-text"></i>'+ t('surveys.common.report')), [:report, @survey], class: 'light')} |
-        <b>#{link_to(raw('<i class="icon-share"></i>'+ t('surveys.common.share')), [:share, @survey], class: 'light')}</b></div>"
+    submenu = opts[:default_survey_menu] && survey_subtitle
+    submenu = opts[:default_client_menu] && client_subtitle
     raw <<-EOS
       <div class="page-header #{opt_classes}"><h1>#{text}</h1>#{submenu}</div>
     EOS
@@ -64,6 +60,24 @@ module ApplicationHelper
       </div>
       EOS
     end.join(''))
+  end
+
+  private
+
+  def survey_subtitle
+    "<div class=\"subheader\">
+        #{link_to(raw('<i class="icon-pencil-2"></i>' + t('surveys.common.edit')), [:edit, @survey], class: 'light')} | 
+        #{link_to(raw('<i class="icon-tools"></i>'+ t('surveys.common.builder')), [:builder, @survey], class: 'light')} | 
+        #{link_to(raw('<i class="icon-chat-1"></i>'+ t('surveys.common.responses')), [@survey, :responses], class: 'light')} | 
+        #{link_to(raw('<i class="icon-doc-text"></i>'+ t('surveys.common.report')), [:report, @survey], class: 'light')} |
+        <b>#{link_to(raw('<i class="icon-share"></i>'+ t('surveys.common.share')), [:share, @survey], class: 'light')}</b></div>"
+  end
+
+  def client_subtitle
+    "<div class=\"subheader\">
+        #{link_to(raw('<i class="icon-users-1"></i>' + t('clients.common.clients')), [:clients], class: 'light')} | 
+        #{link_to(raw('<i class="icon-pencil-2"></i>'+ t('clients.common.edit')), [:edit, @client], class: 'light')}
+    </div>"
   end
 
 end

@@ -91,6 +91,9 @@
 		td{ 
 			border-bottom: 1px solid #ccc;
 			padding: 3px;
+			&.actions{
+				text-align: right;
+			}
 		}
 	}
 }

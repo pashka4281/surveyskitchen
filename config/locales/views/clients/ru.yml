@@ -2,7 +2,26 @@ ru:
   clients:
     new:
       title: "Добавить клиентов"
+      manually: "Ввести вручную"
+      csv_file: "Импортировать из csv файла"
+      external_service: "Импортировать из внешнего сервиса"
+      save_btn: "Сохранить"
+      import_btn: "Импортировать"
+      one_per_line: "Один клиент на строке:"
     index:
       title: "Все Клиенты"
       no_items: "На данный момент нет ни одного клиента."
       add_link: "Добавить Клиентов"
+      thead_name: "Имя"
+      thead_email: "Email"
+      thead_note: "Заметка"
+      edit_btn: "Редакт."
+      delete_btn: "Удалить"
+    edit:
+      title: "<b>%{name}</b> -- Редактировать"
+      f_name: "Имя:"
+      l_name: "Фамилия:"
+      email: "Email:"
+      save_btn: "Сохранить"
+    show:
+      title: "<b>%{name}</b>"

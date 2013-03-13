@@ -10,11 +10,11 @@ class Client < ActiveRecord::Base
   validates :email, format: {:with => /\A[\w\.%\+\-]+@(?:[A-Z0-9&\-_]+\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|ua|ru|biz|info|mobi|name|aero|jobs|museum|coop|asia|cat|int|pro|tel|travel)\z/i}
 
   def first_name=(val)
-  	write_attribute(:first_name, val.to_s.match(/\w{1,}/).to_s)
+  	write_attribute(:first_name, val.to_s.match(/\S{1,}/).to_s)
   end
 
   def last_name=(val)
-  	write_attribute(:last_name, val.to_s.match(/\w{1,}/).to_s)
+  	write_attribute(:last_name, val.to_s.match(/\S{1,}/).to_s)
   end
 
   def self.create_from_csv_string(current_account, csv_text)
