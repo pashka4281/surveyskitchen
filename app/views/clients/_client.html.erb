@@ -1,6 +1,13 @@
-<%= div_for client do %>
-	<div class="email"><%= client.email %></div>
-	<div class="f_name"><%= client.first_name %></div>
-	<div class="l_name"><%= client.last_name %></div>
-	<div class="actions"></div>
+<%= content_tag_for :tr, client do %>
+	<td class="name">
+		<a href="#"><%= client.full_name %></a>
+	</td>
+	<td class="email">
+		<a href="#"><%= client.email %></a>
+	</td>
+	<td class="note"><%= client.note %></td>
+	<td class="actions">
+		<button class='btn small'>Edit</button>
+		<button class='btn small'>Delete</button>
+	</td>
 <% end %>

@@ -7,7 +7,7 @@ class Client < ActiveRecord::Base
   belongs_to :account
 
   validates :email, :first_name, :last_name, presence: true
-  validates :email, format: {:with => /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i}
+  validates :email, format: {:with => /\A[\w\.%\+\-]+@(?:[A-Z0-9&\-_]+\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|ua|ru|biz|info|mobi|name|aero|jobs|museum|coop|asia|cat|int|pro|tel|travel)\z/i}
 
   def first_name=(val)
   	write_attribute(:first_name, val.to_s.match(/\w{1,}/).to_s)
@@ -37,7 +37,7 @@ class Client < ActiveRecord::Base
 		end
 		unprocessed << row.join(',')
 	end
-	{unprocessed_lines: unprocessed.join("\r\n"), saved: csv.count - unprocessed.count, total: csv.count}
+	{unprocessed_lines: unprocessed.join("\r\n"), saved: csv.count - unprocessed.count, unsaved: unprocessed.count}
   end
 
   before_save do

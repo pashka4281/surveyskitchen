@@ -1,7 +1,7 @@
 .new_client_form{
 	textarea.import_area{
 		width: 500px;
-		height: 250px;
+		height: 243px;
 		font-size: 12px;
 		resize: none;
 	}
@@ -85,7 +85,12 @@
 
 
 #clients_list{
+	width: 100%;
+	thead td{ padding: 7px; font-size: 12px; font-style: italic;}
 	.client{
-		> div{ display: inline-block; }
+		td{ 
+			border-bottom: 1px solid #ccc;
+			padding: 3px;
+		}
 	}
 }
