@@ -152,7 +152,7 @@ h5{ font-size: 0.9em;}
 	padding: 5px;
 }
 a:visited:not(.btn){ color: rgb(45, 137, 150); }
-a:not(.btn){ color: rgb(45, 137, 150); }
+a:not(.btn):not(.signup-btn){ color: rgb(45, 137, 150); }
 .content{
 	max-width: 1200px;
 	min-width: 800px;
@@ -378,6 +378,7 @@ form.painted{
 		width: 600px;
 		display: inline-block;
 		clear: right;
+		min-height: 31px;
 		input, textarea, select{
 			float: right;
 			width: 400px;
