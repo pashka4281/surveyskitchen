@@ -24,7 +24,8 @@ set :user, 'ubuntu'
 set :use_sudo, false
 set :stack, :passenger
 
-server "166.78.137.216", :web, :app, :db, :primary => true
+# server "166.78.137.216", :web, :app, :db, :primary => true
+server "surveyskitchen.com", :web, :app, :db, :primary => true
 set :keep_releases, 3
 set :deploy_to, '/www/surveyskitchen/'
 set :bundle_without, [:test, :development]
