@@ -42,8 +42,8 @@ module ApplicationHelper
   def page_header(text, opts = {nomargin: false, submenu: nil, default_survey_menu: nil})
     opt_classes = opts[:nomargin] ? 'nomargin' : ''
     submenu = opts[:submenu] && "<div class=\"subheader\">#{opts[:submenu]}</div>"
-    submenu = opts[:default_survey_menu] && survey_subtitle
-    submenu = opts[:default_client_menu] && client_subtitle
+    submenu ||= opts[:default_survey_menu] && survey_subtitle
+    submenu ||= opts[:default_client_menu] && client_subtitle
     raw <<-EOS
       <div class="page-header #{opt_classes}"><h1>#{text}</h1>#{submenu}</div>
     EOS
