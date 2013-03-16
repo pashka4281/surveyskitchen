@@ -1,7 +1,6 @@
-<style type="text/css"><%= raw @survey.theme.to_css %></style>
+<style type="text/css"><%= raw @theme.to_css %></style>
 
-<div class="<%= "survey_theme_#{@survey.theme.id}" %>">
-
+<div class="<%= "survey_theme_#{@theme.id}" %>">
 	<h2 id="title"><%= @survey.name %></h2>
 
 	<div class="padded-content">
@@ -21,5 +20,7 @@
 			</div>
 		<% end %>
 	</div>
+
+	<button class="btn">Done</button>
 
 </div>

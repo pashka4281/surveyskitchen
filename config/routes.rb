@@ -9,6 +9,9 @@ Surveyskitchen::Application.routes.draw do
   get :plans, to: 'home#plans'
   get :features, to: 'home#features'
 
+
+  get :theme_preview, to: 'themes#theme_preview'
+
   resources :surveys do
     get :builder,   on: :member
     get :share,     on: :member
@@ -21,6 +24,7 @@ Surveyskitchen::Application.routes.draw do
       post :copy, as: :member
     end
     resources :responses, only: [:show, :destroy, :index]
+    resources :themes
   end
 
   namespace :s do

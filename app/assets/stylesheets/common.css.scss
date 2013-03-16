@@ -4,6 +4,7 @@
 @import "pages/share.scss";
 @import "pages/survey.scss";
 @import "pages/clients.scss";
+@import "pages/themes.scss";
 
 @mixin borderRadius($size) {
   -moz-border-radius: $size;
@@ -289,7 +290,6 @@ a:not(.btn):not(.signup-btn){ color: rgb(45, 137, 150); }
 			position:relative;
 			z-index: 2;
 			#content-pretty{
-				box-shadow: 0 0 10px rgb(150, 150, 150);
 				-moz-border-radius: 15px;
 				-webkit-border-radius: 15px;
 				-khtml-border-radius: 15px;

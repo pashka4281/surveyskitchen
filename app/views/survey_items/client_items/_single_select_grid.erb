@@ -1,25 +1,24 @@
 <%= div_for item, class: "survey_item" do -%>
-  <div class="well well-small">
-    <strong><%= "#{counter}. #{item.title}" %></strong>
-      
-    <table class="grid-table" cellspacing="0">
-      <tr>
-        <td>&nbsp;</td>
-        <% item.columns_array.each do |v| %>
-          <td><%= v %></td>
-        <% end %>
-      </tr>
-      <% item.rows_array.each_with_index do |row_title, i| %>
+    <strong class="item-title"><%= "#{counter}. #{item.title}" %></strong>
+    <div class="item-content">
+      <table class="grid-table" cellspacing="0">
         <tr>
-          <td class="grid-row-title"><%= row_title %></td>
+          <td>&nbsp;</td>
           <% item.columns_array.each do |v| %>
-            <td><input type="radio" name="response[item-<%= item.id %>][<%= i %>]"></input></td>
+            <td class="<%= cycle("highlighted", "", :name => "cycle1_#{item.id}") -%>"><%= v %></td>
           <% end %>
         </tr>
-      <% end %>
-    </table>
-
-
-  </div>
+        <% item.rows_array.each_with_index do |row_title, i| %>
+          <tr>
+            <td class="grid-row-title"><%= row_title %></td>
+            <% item.columns_array.each do |v| %>
+              <td class="<%= cycle("highlighted", "", :name => "cycle2_#{i}_#{item.id}") -%>">
+                <input type="radio" name="response[item-<%= item.id %>][<%= i %>]"></input>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </div>
 
 <% end %>

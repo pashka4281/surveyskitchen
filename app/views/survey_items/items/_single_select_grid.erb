@@ -1,22 +1,24 @@
 <%= div_for item, class: "countable survey_item question-item", item_id: item.id do -%>
   <%= render 'survey_items/items/_tools_box', item: item %>
   <div class="item-inner">
+    <strong class="item-title"><%= item.title %></strong>
     <div class="item-content">
-      <strong><%= item.title %></strong>
       <div class="clear"></div>
 
       <table class="grid-table" cellspacing="0">
         <tr>
           <td>&nbsp;</td>
           <% item.columns_array.each do |v| %>
-            <td><%= v %></td>
+            <td class="<%= cycle("highlighted", "", :name => "cycle1_#{item.id}") -%>"><%= v %></td>
           <% end %>
         </tr>
         <% item.rows_array.each_with_index do |row_title, i| %>
           <tr>
             <td class="grid-row-title"><%= row_title %></td>
             <% item.columns_array.each do |v| %>
-              <td><input type="radio" name="response[item-<%= item.id %>][<%= i %>]"></input></td>
+              <td class="<%= cycle("highlighted", "", :name => "cycle2_#{i}_#{item.id}") -%>">
+                <input type="radio" name="response[item-<%= item.id %>][<%= i %>]"></input>
+              </td>
             <% end %>
           </tr>
         <% end %>

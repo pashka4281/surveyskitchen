@@ -1,34 +1,39 @@
 ru:
   surveys:
     new:
-      title: "New Survey"
+      title: "Новый опрос"
     index:
       title: "Опросы"
-      no_items: "There are not items to display currently"
-      create_link: "Create your first survey"
+      no_items: "на данный момент у вас нет ни одного опроса."
+      create_link: "Создать опрос"
 
       edit_link: "Редакт."
       share_link: "Share"
       responses_link: "Ответы"
       report_link: "Отчет"
       delete_link: "Удалить этот опрос"
-      delete_confirm: "Are you sure? You can't restore it later"
+      delete_confirm: "Вы уверены? Вы можете потерять все ответы этого опроса."
       active: "Активен"
       stopped: "Остановлен"
 
+    themes:
+      title: "<b>%{name}</b> -- Темы"
+      back_to_builder: "Вернуться к конструктору"
+
     form:
       name: "Название:"
-      name_placeholder: "Enter name here"
+      name_placeholder: "Введите название опроса здесь"
       category: "Выберите категорию:"
       description: "Описание:"
       descr_placeholder: "Небольшое описание, о чем ваш опрос"
-    
+      
     common:
       edit: 'Изменить'
       builder: 'Конструктор'
       responses: 'Ответы'
       report: 'Отчет'
       share: 'Отправить'
+      on_created_event: "Создан новый опрос: \"%{survey_name}\""
 
     builder:
       title: '<b>%{name}</b> -- Конструктор'
@@ -43,3 +48,4 @@ ru:
       js_insert_btn: "Вставить сюда"
       js_copy_btn: "Копировать сюда"
       js_move_btn: "Переместить сюда"
+      look_and_feel: "Внешний вид"

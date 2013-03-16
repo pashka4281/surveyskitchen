@@ -1,13 +1,11 @@
 en:
   activerecord:
     attributes:
-  models:
-    survey:
-      on_created_event: "Survey \"%{survey_name}\" was created"
+    models:
+      survey: 'Survey'
 
 ru:
   activerecord:
     attributes:
-  models:
-    survey:
-      on_created_event: "Создан новый опрос: \"%{survey_name}\""
+    models:
+      survey: 'Опрос'

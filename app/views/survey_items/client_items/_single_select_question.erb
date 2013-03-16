@@ -1,7 +1,8 @@
 <%= div_for item, class: "survey_item" do -%>
-  	<div class="well well-small">
-  		<strong><%= "#{counter}. #{item.title}" %></strong>
-    	<ul class="unstyled">
+
+	<strong class="item-title"><%= "#{counter}. #{item.title}" %></strong>
+	<div class="item-content">
+		<ul class="unstyled">
 	    	<% item.variants_array.each_with_index do |var, i| %>
 		    	<li>
 			      	<label class="radio">
@@ -13,6 +14,5 @@
 		<%- if item.include_txt_field -%>
 	      <input type="text" />
 	    <%- end -%>
-  	</div>
-
+	</div>
 <% end %>

@@ -5,7 +5,6 @@ body {
 	line-height: 20px;
 	color: #333;
 	margin: 0 0 0 0;
-	background: url(/images/bg-image.png);
 }
 h1, h2, h3, h4, h5, h6 {
 	margin: 10px 0;
@@ -18,7 +17,6 @@ h1, h2, h3, h4, h5, h6 {
 h2{ 
 	font-size: 30px; line-height: 40px;
 	padding: 10px;
-	background-color: #68A6D6;
 	margin: 0;
 	color: white;
 }
@@ -119,7 +117,7 @@ label {
 
 .radio, .checkbox {
 	min-height: 18px;
-	padding-left: 18px;
+	padding: 3px 3px 3px 25px;
 }
 
 .radio input[type="radio"], .checkbox input[type="checkbox"] {
@@ -318,8 +316,7 @@ ul.unstyled, ol.unstyled {
 
 
 div.padded-content {
-	padding: 10px;
-	background-color: white;
+	padding: 15px;
 }
 
 .a-page{
@@ -337,11 +334,9 @@ footer{ margin-top: 15px; text-align: center; }
 		margin: 10px auto;
 		tr{ line-height: 20px; }
 		td{ 
-			border-bottom: 1px dotted #ccc;
 			text-align: center;
 			&:not([class="grid-row-title"]){ 
 				width: 15%;
-				&:nth-child(even){ background-color: #ECECEC }
 			}
 		}
 		.grid-row-title{  text-align: left; }

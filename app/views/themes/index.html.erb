@@ -1,0 +1,25 @@
+<%= 
+	page_header t("surveys.themes.title", name: @survey.name), 
+	submenu: link_to(t('surveys.themes.back_to_builder'), builder_survey_path(@survey))
+%>
+
+<div id="theme-editor">
+	<%= form_for @survey do |f| %>
+		<%=f.select :theme_id, @themes.map {|x| [x.name, x.id] },{}, id: 'theme-select' %>
+		<%= f.submit %>
+	<% end %>
+</div>
+
+<div id="theme-preview">
+	<iframe></iframe>
+</div>
+
+
+<%= content_for :js do %>
+	<script>
+		// document ready 
+		$(function(){
+			themes_builder = new ThemesBuilder({});
+		});
+	</script>
+<% end %>

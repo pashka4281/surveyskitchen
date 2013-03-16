@@ -2,7 +2,16 @@
 
 <%= page_header t('surveys.builder.title', name: @survey.name), nomargin: true, default_survey_menu: true %>
 
-	<div id="build_list"  class="list">
+<style type="text/css"><%= raw @survey.theme.to_css %></style>
+
+	<div id="build_list"  class="list <%= "survey_theme_#{@survey.theme.id}" %>">
+		<div id="survey_theme_select">
+			<span>Theme select: </span>
+			<%= select_tag :theme_id, options_for_select(@themes.map {|x| [x.name, x.id]}, @survey.theme_id), id: 'theme-select' %>
+		</div>
+
+
+		<h2 id="title"><%= @survey.name %></h2>
 		<div id="zero-item" class="survey_item">
             <%= insert_button %>
     	</div>
@@ -76,8 +85,12 @@
 	    <button  id="new-item-btn" class="btn btn-primary">
 	    	<i class="icon-list-add"></i> <%= t 'surveys.builder.new_item' %> <br>
 	    </button>
+
 	    <button id="trashbox-btn" data-url="<%= trashbox_survey_path(@survey) %>" class="btn" data-target="#trashedItemsContainer" data-toggle="modal" role="button">
 	    	<i class="icon-trash"></i> <%= t 'surveys.builder.trashbox' %> <span class="trash-cnt">(<%= @survey.items.trashed.count %>)</span>
+	    </button>
+	    <button  id="new-item-btn" class="btn btn-primary">
+	    	<i class="icon-list-add"></i> <%= t 'surveys.builder.look_and_feel' %> <br>
 	    </button>
 	    <!-- <button class="btn btn-warning"><i class="icon-wrench"></i> Survey settings</button> -->
 	    <button class="btn btn-warning" id="preview-btn"><i class="icon-eye"></i> <%= t 'surveys.builder.preview' %> </button>
@@ -107,6 +120,20 @@
 
 			$(document).on('click', '#preview-btn', function(){
 				window.open("<%= preview_survey_path(@survey) %>",'_blank');
+			})
+
+			$(document).on('change', '#theme-select', function(){
+				_el = $(this)
+				$.ajax({
+					url: "<%= survey_path(@survey) %>",
+					method: "PUT",
+					data: {
+						survey: { theme_id: _el.val() }
+					},
+					success: function(){
+						location.reload();
+					}
+				})
 			})
 		});
 	</script>

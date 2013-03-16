@@ -37,10 +37,19 @@
 #new_survey_item textarea{ resize: vertical; }
 .btn:focus{ outline: none; }
 #build_list{
-	padding: 7px;
+	padding: 25px 7px 7px 7px;
 	margin-bottom: 30px;
 	background-color: #fff;
 	counter-reset:section;
+	#survey_theme_select{
+		margin-bottom: 10px;
+	}
+	h2#title{
+		font-size: 30px;
+		line-height: 40px;
+		padding: 10px;
+		margin-bottom: 8px;
+	}
 	#no-items-area{
         display: none;
         img{
@@ -87,9 +96,7 @@
 			border: 1px solid rgb(190, 190, 190);
 			padding: 50px 10px 10px 10px;
 			margin-bottom: 10px;
-			box-shadow: 0 0 6px rgb(175, 175, 175);
 			border-radius: 4px;
-			background-color: rgb(247, 247, 247);
 
 			.item-content{ margin-right: 100px; }
 			input[type="text"], select, textarea{
@@ -110,11 +117,9 @@
 				margin: 10px auto;
 				tr{ line-height: 20px; }
 				td{ 
-					border-bottom: 1px dotted #ccc;
 					text-align: center;
 					&:not([class="grid-row-title"]){ 
 						width: 15%;
-						&:nth-child(even){ background-color: #ECECEC }
 					}
 				}
 				.grid-row-title{  text-align: left; }

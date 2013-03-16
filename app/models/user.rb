@@ -12,8 +12,8 @@ class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
 
 #validations:
-  # validates :account_name, presence: true, length: {minimum: 6}, on: :create
-  # validate :unique_account
+  validates :account_name, presence: true, length: {minimum: 6}, on: :create
+  validate :unique_account, on: :create
   validates_presence_of :password, on: :create
   validates_presence_of :first_name, :last_name, :if => lambda{|x| x.full_name.blank? }
 

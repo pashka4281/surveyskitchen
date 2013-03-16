@@ -3,6 +3,7 @@ class SurveysController < ApplicationController
   before_filter :get_survey, only: [:update, :destroy, :edit, :share, :trashbox, :report, :switch, :preview]
 
   def builder
+    @themes = current_account.survey_themes
     @survey = current_account.surveys.find(params[:id], :include => :items)
   end
   
@@ -26,6 +27,7 @@ class SurveysController < ApplicationController
         render nothing: true, status: 200
       else
         flash[:notice] = "Changes saved"
+        redirect_to survey_themes_path(@survey) and return if params[:survey][:theme_id]
         redirect_to [:edit, @survey]
       end
     else

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130310214339) do
+ActiveRecord::Schema.define(:version => 20130316124348) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -94,19 +94,50 @@ ActiveRecord::Schema.define(:version => 20130310214339) do
     t.boolean  "required_field", :default => false
   end
 
+  create_table "survey_themes", :force => true do |t|
+    t.integer  "account_id"
+    t.string   "name",                    :limit => 50
+    t.string   "survey_bg_color",         :limit => 6
+    t.boolean  "survey_title_font_b"
+    t.boolean  "survey_title_font_i"
+    t.boolean  "survey_title_font_u"
+    t.string   "survey_title_txt_color",  :limit => 6
+    t.string   "survey_title_bg_color",   :limit => 6
+    t.boolean  "item_title_font_b"
+    t.boolean  "item_title_font_i"
+    t.boolean  "item_title_font_u"
+    t.string   "item_title_txt_color",    :limit => 6
+    t.string   "item_bg_color",           :limit => 6
+    t.boolean  "item_inner_font_b"
+    t.boolean  "item_inner_font_i"
+    t.boolean  "item_inner_font_u"
+    t.string   "item_inner_txt_color",    :limit => 6
+    t.datetime "created_at"
+    t.string   "highlighted_area_color",  :limit => 6
+    t.string   "survey_title_font_name",  :limit => 20
+    t.string   "item_title_font_name",    :limit => 20
+    t.string   "item_inner_font_name",    :limit => 20
+    t.integer  "survey_title_size",       :limit => 1
+    t.integer  "item_title_size",         :limit => 1
+    t.integer  "item_inner_size",         :limit => 1
+    t.string   "inner_grid_border_color", :limit => 6
+  end
+
   create_table "surveys", :force => true do |t|
     t.integer  "account_id"
     t.integer  "user_id"
     t.string   "name"
     t.text     "description"
-    t.string   "items_positions", :default => "'"
+    t.string   "items_positions",              :default => "'"
     t.datetime "updated_at"
-    t.boolean  "setup_finished",  :default => false
+    t.boolean  "setup_finished",               :default => false
     t.integer  "category_id"
     t.string   "token"
     t.datetime "created_at"
-    t.boolean  "seed_item",       :default => false
-    t.boolean  "active",          :default => true
+    t.boolean  "seed_item",                    :default => false
+    t.boolean  "active",                       :default => true
+    t.string   "preview_flag",    :limit => 3
+    t.integer  "theme_id"
   end
 
   create_table "users", :force => true do |t|

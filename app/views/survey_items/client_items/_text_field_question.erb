@@ -1,11 +1,12 @@
 <%= div_for item, class: "survey_item" do -%>
-  <div class="well well-small">
-    <strong><%= "#{counter}. #{item.title}" %></strong>
-    <div class="clear"></div>
-    <% if item.appearance == 'txt_field' %>
-      <input type="text" name="response[item-<%= item.id %>]" class="span9" />
-    <% else %>
-      <textarea name="response[item-<%= item.id %>]" class="span9"></textarea>
-    <% end %>
-  </div>
+
+    <strong class="item-title"><%= "#{counter}. #{item.title}" %></strong>
+    <div class="item-content">
+	    <% if item.appearance == 'txt_field' %>
+	      <input type="text" name="response[item-<%= item.id %>]" class="span9" />
+	    <% else %>
+	      <textarea name="response[item-<%= item.id %>]" class="span9"></textarea>
+	    <% end %>
+	</div>
+    
 <%- end -%>

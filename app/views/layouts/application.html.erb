@@ -7,8 +7,8 @@
     <title><%= content_for?(:title) ? yield(:title) : "Surveyskitchen" %></title>
     <%= csrf_meta_tags %>
 
-<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
-<script src="http://vjs.zencdn.net/c/video.js"></script>
+<!-- <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet"> -->
+<!-- <script src="http://vjs.zencdn.net/c/video.js"></script> -->
 
     <meta name="Description" content="SurveysKitchen - the most convenient and fastest tool for creating online surveys and polls">
     <meta name="keywords" content="SurveysKitchen,surveys,online-surveys,polls,web-polls,web-surveys,opinnion research, marketing research, analysis,voting,statistics">
@@ -17,6 +17,10 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
+
+    <%= stylesheet_link_tag 'formtastic' %>
+    <!--[if IE 6]><%= stylesheet_link_tag 'formtastic_ie6' %><![endif]-->
+    <!--[if IE 7]><%= stylesheet_link_tag 'formtastic_ie7' %><![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
 

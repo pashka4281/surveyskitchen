@@ -19,6 +19,7 @@ en:
       current_password: "Current password:"
       update_btn: "Update"
       language: "Language:"
+      wrong_current_password: "Wrong current password"
     update:
       success: "Settings saved"
       error: "Error occurred while saving settings"

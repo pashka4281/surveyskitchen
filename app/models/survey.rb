@@ -1,5 +1,5 @@
 class Survey < ActiveRecord::Base
-  attr_accessible :account_id, :description, :category, :category_id, 
+  attr_accessible :account_id, :description, :category, :category_id, :theme_id,
     :name, :user_id, :user, :account, :items_positions, :prefill_items, :active
 
     default_scope order('created_at DESC')
@@ -7,6 +7,7 @@ class Survey < ActiveRecord::Base
   belongs_to :account
   belongs_to :user
   belongs_to :category
+  belongs_to :theme, class_name: 'SurveyTheme'
   has_many   :items, dependent: :destroy, class_name: 'SurveyItem'
   has_many   :responses, dependent: :destroy
   has_many   :events, as: :eventable, dependent: :destroy
@@ -17,6 +18,10 @@ class Survey < ActiveRecord::Base
   
   validates :name, presence: true
   validates :category_id, presence: true, :unless => :seed_item?
+
+  def self.preview_survey(lang)
+    where(['account_id IS NULL AND preview_flag=?', lang]).first
+  end
   
   def items_positions=(items)
     write_attribute(:items_positions, items.collect(&:to_i))

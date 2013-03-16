@@ -15,6 +15,10 @@ en:
       delete_confirm: "Are you sure? You can't restore it later"
       active: "Active"
       stopped: "Stopped"
+    
+    themes:
+      title: "<b>%{name}</b> -- Themes"
+      back_to_builder: "Back to builder"
 
     form:
       name: "Survey name:"
@@ -29,6 +33,7 @@ en:
       responses: 'Responses'
       report: 'Report'
       share: 'Share'
+      on_created_event: "Survey \"%{survey_name}\" was created"
 
     builder:
       title: '<b>%{name}</b> -- Builder'
@@ -43,3 +48,4 @@ en:
       js_insert_btn: "Insert here"
       js_copy_btn: "Copy here"
       js_move_btn: "Move here"
+      look_and_feel: "Look and Feel"
