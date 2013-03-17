@@ -48,6 +48,7 @@ ru:
       js_insert_btn: "Вставить сюда"
       js_copy_btn: "Копировать сюда"
       js_move_btn: "Переместить сюда"
-      look_and_feel: "Внешний вид"
+      look_and_feel: "Расширенные настройки внешнего вида"
       themes_global: "Темы"
       themes_current: "Мои темы"
+      themes_select: "Выбрать цветовую тему:"

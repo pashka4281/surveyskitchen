@@ -48,6 +48,7 @@ en:
       js_insert_btn: "Insert here"
       js_copy_btn: "Copy here"
       js_move_btn: "Move here"
-      look_and_feel: "Look and Feel"
+      look_and_feel: "Look and feel settings"
       themes_global: "Global themes"
       themes_current: "Your custom themes"
+      themes_select: "Select color theme:"

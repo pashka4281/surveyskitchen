@@ -4,24 +4,25 @@
 
 <style type="text/css"><%= raw @survey.theme.to_css %></style>
 
+	<div id="survey_theme_select">
+		<span><%= t('surveys.builder.themes_select') %></span>
+		<select id="theme-select">
+			<optgroup label="<%= t('surveys.builder.themes_global') %>">
+				<% for th in @themes_global %>
+					<option value="<%= th.id %>" <%= 'selected="selected"' if @survey.theme_id == th.id%>><%= th.name %></option>
+				<% end %>
+			</optgroup>
+			<optgroup label="<%= t('surveys.builder.themes_current') %>">
+				<% for th in @themes_current %>
+					<option value="<%= th.id %>" <%= 'selected="selected"' if @survey.theme_id == th.id%>><%= th.name %></option>
+				<% end %>
+			</optgroup>
+		</select>
+	    <a href="#" class="btn small"><%= t 'surveys.builder.look_and_feel' %> </a>
+	</div>
+
 	<div id="build_list"  class="list <%= "survey_theme_#{@survey.theme.id}" %>">
-		<div id="survey_theme_select">
-			<span>Theme select: </span>
-			<select id="theme-select">
-				<optgroup label="<%= t('surveys.builder.themes_global') %>">
-					<% for th in @themes_global %>
-						<option value="<%= th.id %>" <%= 'selected="selected"' if @survey.theme_id == th.id%>><%= th.name %></option>
-					<% end %>
-				</optgroup>
-				<optgroup label="<%= t('surveys.builder.themes_current') %>">
-					<% for th in @themes_current %>
-						<option value="<%= th.id %>" <%= 'selected="selected"' if @survey.theme_id == th.id%>><%= th.name %></option>
-					<% end %>
-				</optgroup>
-			</select>
-		</div>
-
-
+		
 		<h2 id="title"><%= @survey.name %></h2>
 		<div id="zero-item" class="survey_item">
             <%= insert_button %>
@@ -99,9 +100,6 @@
 
 	    <button id="trashbox-btn" data-url="<%= trashbox_survey_path(@survey) %>" class="btn" data-target="#trashedItemsContainer" data-toggle="modal" role="button">
 	    	<i class="icon-trash"></i> <%= t 'surveys.builder.trashbox' %> <span class="trash-cnt">(<%= @survey.items.trashed.count %>)</span>
-	    </button>
-	    <button  id="new-item-btn" class="btn btn-primary">
-	    	<i class="icon-list-add"></i> <%= t 'surveys.builder.look_and_feel' %> <br>
 	    </button>
 	    <!-- <button class="btn btn-warning"><i class="icon-wrench"></i> Survey settings</button> -->
 	    <button class="btn btn-warning" id="preview-btn"><i class="icon-eye"></i> <%= t 'surveys.builder.preview' %> </button>

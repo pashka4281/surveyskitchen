@@ -1,0 +1,6 @@
+<%= 
+	page_header t("themes.new.title", name: @survey.name), 
+	submenu: link_to(t('surveys.themes.back_to_builder'), builder_survey_path(@survey))
+%>
+
+<%= render 'form' %>

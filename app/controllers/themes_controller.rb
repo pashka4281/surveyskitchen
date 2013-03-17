@@ -13,4 +13,10 @@ class ThemesController < ApplicationController
 		@paged_items = @survey.paged_items
 		render layout: 'theme_preview'
 	end
+
+	def new
+		@theme  = SurveyTheme.new
+		@survey = current_account.surveys.find(params[:survey_id])
+		@preview_survey = Survey.preview_survey(current_user.language)
+	end
 end
