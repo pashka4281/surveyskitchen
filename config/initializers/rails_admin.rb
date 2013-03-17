@@ -1,5 +1,7 @@
 # RailsAdmin config file. Generated on November 17, 2012 17:26
 # See github.com/sferik/rails_admin for more informations
+require 'i18n'
+I18n.default_locale = :en
 
 RailsAdmin.config do |config|
 

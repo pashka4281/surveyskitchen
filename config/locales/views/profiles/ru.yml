@@ -19,6 +19,7 @@ ru:
       current_password: "Текущий пароль:"
       update_btn: "Сохранить"
       language: "Язык"
+      wrong_current_password: "Неверный пароль"
     update:
       success: "Настройки сохранены"
       error: "Возникла ошибка при сохранении настроек"

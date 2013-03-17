@@ -66,7 +66,7 @@ class Survey < ActiveRecord::Base
   end
   
   after_create :example_items, :event_on_created
-  before_create :set_items_positions, :generate_token
+  before_create :set_items_positions, :generate_token, :assign_theme
 
   private
   
@@ -86,6 +86,10 @@ class Survey < ActiveRecord::Base
   #create an event that there is a new survey
   def event_on_created
     self.events << Events::SurveyCreatedEvent.create(account_id: account_id)
+  end
+
+  def assign_theme
+    self.theme = SurveyTheme.global.first
   end
 end
 

@@ -13,9 +13,11 @@ class ProfilesController < ApplicationController
 	def update
 		I18n.locale = params[:user][:language] if params[:user][:language]
 		
-		unless (params[:user].keys & ['email', 'first_name', 'last_name']).any? && @user.authenticate(params[:user].delete(:current_password))
-			flash[:error] = t('profiles.edit.wrong_current_password')
-			redirect_to action: 'edit' and return
+		if (params[:user].keys & ['email', 'first_name', 'last_name']).any?
+			unless @user.authenticate(params[:user].delete(:current_password))
+				flash[:error] = t('profiles.edit.wrong_current_password')
+				redirect_to action: 'edit' and return			
+			end
 		end
 
 		if @user.update_attributes(params[:user])

@@ -3,8 +3,9 @@ class SurveysController < ApplicationController
   before_filter :get_survey, only: [:update, :destroy, :edit, :share, :trashbox, :report, :switch, :preview]
 
   def builder
-    @themes = current_account.survey_themes
-    @survey = current_account.surveys.find(params[:id], :include => :items)
+    @themes_current = current_account.survey_themes
+    @themes_global  = SurveyTheme.global
+    @survey         = current_account.surveys.find(params[:id], :include => :items)
   end
   
   def index

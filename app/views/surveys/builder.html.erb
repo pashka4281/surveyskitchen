@@ -7,7 +7,18 @@
 	<div id="build_list"  class="list <%= "survey_theme_#{@survey.theme.id}" %>">
 		<div id="survey_theme_select">
 			<span>Theme select: </span>
-			<%= select_tag :theme_id, options_for_select(@themes.map {|x| [x.name, x.id]}, @survey.theme_id), id: 'theme-select' %>
+			<select id="theme-select">
+				<optgroup label="<%= t('surveys.builder.themes_global') %>">
+					<% for th in @themes_global %>
+						<option value="<%= th.id %>" <%= 'selected="selected"' if @survey.theme_id == th.id%>><%= th.name %></option>
+					<% end %>
+				</optgroup>
+				<optgroup label="<%= t('surveys.builder.themes_current') %>">
+					<% for th in @themes_current %>
+						<option value="<%= th.id %>" <%= 'selected="selected"' if @survey.theme_id == th.id%>><%= th.name %></option>
+					<% end %>
+				</optgroup>
+			</select>
 		</div>
 
 

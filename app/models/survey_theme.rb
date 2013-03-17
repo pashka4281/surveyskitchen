@@ -10,6 +10,8 @@ class SurveyTheme < ActiveRecord::Base
 		where(['(account_id IS NULL AND id=?) OR (account_id=? AND id=?)', theme_id, current_account_id, theme_id]).first
 	end
 
+	scope :global, where(account_id: nil)
+
 	def to_css
 		<<-EOSTR
 			.survey_theme_#{self.id} { background-color: ##{self.survey_bg_color} }

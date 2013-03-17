@@ -49,3 +49,5 @@ en:
       js_copy_btn: "Copy here"
       js_move_btn: "Move here"
       look_and_feel: "Look and Feel"
+      themes_global: "Global themes"
+      themes_current: "Your custom themes"

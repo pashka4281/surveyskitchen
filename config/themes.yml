@@ -1,0 +1,51 @@
+survey_theme1:
+  name: White Frost
+  survey_bg_color: 
+  survey_title_font_b: true
+  survey_title_font_i: 
+  survey_title_font_u: 
+  survey_title_txt_color: F3F3F3
+  survey_title_bg_color: bbbbbb
+  item_title_font_b: 
+  item_title_font_i: 
+  item_title_font_u: 
+  item_title_txt_color: EE3232
+  item_bg_color: 
+  item_inner_font_b: 
+  item_inner_font_i: 
+  item_inner_font_u: 
+  item_inner_txt_color: 4B8041
+  highlighted_area_color: FFFFBE
+  survey_title_font_name: 
+  item_title_font_name: 
+  item_inner_font_name: 
+  survey_title_size: 
+  item_title_size: 
+  item_inner_size: 
+  inner_grid_border_color: cccccc
+
+survey_theme2:
+  name: Aqua
+  survey_bg_color: D8E0FF
+  survey_title_font_b: true
+  survey_title_font_i: false
+  survey_title_font_u: false
+  survey_title_txt_color: ffffff
+  survey_title_bg_color: 68A6D6
+  item_title_font_b: 
+  item_title_font_i: 
+  item_title_font_u: 
+  item_title_txt_color: EE3232
+  item_bg_color: 
+  item_inner_font_b: 
+  item_inner_font_i: 
+  item_inner_font_u: 
+  item_inner_txt_color: 
+  highlighted_area_color: 98BBE9
+  survey_title_font_name: 
+  item_title_font_name: 
+  item_inner_font_name: 
+  survey_title_size: 
+  item_title_size: 
+  item_inner_size: 
+  inner_grid_border_color: 5C4C4C
