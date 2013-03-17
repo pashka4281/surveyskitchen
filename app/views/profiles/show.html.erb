@@ -28,7 +28,7 @@
     <% if fb_auth = @user.facebook_auth %>
       <%= fb_auth.linked_name %>
     <% else %>
-      <%= link_to t("profiles.show.connect_with", name: "Facebook"), "#", class: 'big_btn fb-auth-btn' %>
+      <%= link_to t("profiles.show.connect_with", name: "Facebook"), "/auth/facebook", class: 'big_btn fb-auth-btn' %>
     <% end %>
   </div>
 
@@ -37,7 +37,7 @@
     <% if tw_auth = @user.twitter_auth %>
       <%= tw_auth.linked_name %>
     <% else %>
-      <%= link_to t("profiles.show.connect_with", name: "Twitter"), "#", class: 'big_btn tw-auth-btn' %>
+      <%= link_to t("profiles.show.connect_with", name: "Twitter"), "/auth/twitter", class: 'big_btn tw-auth-btn' %>
     <% end %>
   </div>
 

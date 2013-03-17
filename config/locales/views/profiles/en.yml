@@ -9,7 +9,7 @@ en:
       password: "Pasword:"
       change_fields: "Change fields..."
       authentications: "Authentications:"
-      connect_with: "Conntect with %{name}"
+      connect_with: "Connect with %{name}"
     edit:
       title: "Edit Profile" 
       account_name: "Account name:"

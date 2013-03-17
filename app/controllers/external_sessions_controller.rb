@@ -27,7 +27,7 @@ class ExternalSessionsController < ApplicationController
     redirect_to :root, alert: @error and return if @error
     if(@user.persisted?)
       if current_user
-        redirect_to :edit_profile, notice: "Successfully connected to #{provider.to_s.titleize}"
+        redirect_to :profile, notice: "Successfully connected to #{provider.to_s.titleize}"
       else
         flash[:notice] = "Successfully authenticated with #{provider.to_s.titleize}."
         if :twitter == provider && @user.new_record?
