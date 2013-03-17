@@ -112,7 +112,6 @@ ul{
 
 label {
 	display: block;
-	margin-bottom: 5px;
 }
 
 .radio, .checkbox {
@@ -197,11 +196,7 @@ ul.unstyled, ol.unstyled {
 	list-style: none;
 	padding: 0;
 	margin: 0 0 10px 5px;
-	li label:hover {
-		background-color: #DDD;
-	}
 }
-
 
 div.padded-content {
 	padding: 15px;

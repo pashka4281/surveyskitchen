@@ -32,6 +32,9 @@ class SurveyTheme < ActiveRecord::Base
 			.survey_theme_#{self.id} .survey_item .grid-table td{ 
 				border-bottom: 1px dotted ##{self.inner_grid_border_color};
 			}
+			.survey_theme_#{self.id} .survey_item label:hover{ 
+				background-color: ##{self.highlighted_area_color};
+			}
 		EOSTR
 	end
 end

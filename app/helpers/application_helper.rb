@@ -3,7 +3,13 @@ module ApplicationHelper
 
   def header(content, params={})
     content_for :header do
-    	raw "<h1>#{content}</h1> <h4 class=\"subheader\">#{params[:subheader]}</h4>"
+      raw "<h1>#{content}</h1> <h4 class=\"subheader\">#{params[:subheader]}</h4>"
+    end
+  end
+
+  def title(str)
+    content_for :title do
+    	raw "SurveysKitchen - #{str}"
     end
   end
 

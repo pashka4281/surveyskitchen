@@ -104,8 +104,13 @@
 			padding: 50px 10px 10px 10px;
 			margin-bottom: 10px;
 			border-radius: 4px;
-
+			ul li{	line-height: 22px;	}
 			.item-content{ margin-right: 100px; }
+			.radio, .checkbox {
+				min-height: 18px;
+				padding: 3px 3px 3px 25px;
+			}
+			label{	display: block;	}
 			input[type="text"], select, textarea{
 				outline: none;
 				border: 1px solid #ccc;
@@ -116,7 +121,7 @@
 					border: 1px solid #888;
 				}
 			}
-			ul, textare, input, p, select{ color: rgb(70, 70, 70); }
+			textarea, input, p, select{ color: rgb(70, 70, 70); }
 			ul.unstyled, select, input[type="text"], textarea{ margin-top: 10px; }
 			.grid-table{ //table
 				font-size: 13px;
