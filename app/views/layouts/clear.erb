@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -7,8 +7,8 @@
     <title><%= content_for?(:title) ? yield(:title) : "Surveyskitchen" %></title>
     <%= csrf_meta_tags %>
 
-    <meta name="Description" content="SurveysKitchen - the most convenient and fastest tool for creating online surveys and polls">
-    <meta name="keywords" content="SurveysKitchen,surveys,online-surveys,polls,web-polls,web-surveys,opinnion research, marketing research, analysis,voting,statistics">
+    <meta name="Description" itemprop="description" content="SurveysKitchen - the most convenient and fastest tool for creating online surveys, quizes and polls">
+    <meta name="keywords" content="SurveysKitchen, online surveys,polls, quizes, web-polls, web surveys, opinnion research, marketing research, analysis, Paul Ser, Filipp Didenkov, Vlad Piontovsyy">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -33,8 +33,8 @@
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
-    <%= yield :js if content_for? :js %>
+    <%#= javascript_include_tag "application" %>
+    <%#= yield :js if content_for? :js %>
 
   </body>
   <%= render('shared/ga_code') if 'production' == Rails.env %>
