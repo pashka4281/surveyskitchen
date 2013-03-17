@@ -57,6 +57,7 @@
 	}
 	#no-items-area{
         display: none;
+        margin: 10px;
         img{
         	position: absolute;
 			bottom: 10px;
@@ -85,6 +86,7 @@
 	}
 	.survey_item{
 		position: relative;
+		margin: 0 10px;
 		.item_tools{
 			position: absolute;
 			top: 0;
