@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :account_id, :account_id, :eventable
+  attr_accessible :account_id, :account_id, :eventable, :eventable_name
 
   belongs_to :eventable, polymorphic: true
   belongs_to :account
@@ -16,7 +16,6 @@ class Event < ActiveRecord::Base
   private
 
   def remove_old_events
-  	p self.account.events.first
-  	#self.account.events.first.delete if self.account.events.count > 20
+  	self.account.events.first.delete if self.account.events.count > 20
   end
 end

@@ -16,8 +16,8 @@ ru:
       active: "Активен"
       stopped: "Остановлен"
 
-    themes:
-      title: "<b>%{name}</b> -- Темы"
+    look:
+      title: "<b>%{name}</b> -- Настройки внешнего вида"
       back_to_builder: "Вернуться к конструктору"
 
     form:
@@ -34,6 +34,7 @@ ru:
       report: 'Отчет'
       share: 'Отправить'
       on_created_event: "Создан новый опрос: \"%{survey_name}\""
+      on_destroyed_event: "Опрос \"%{survey_name}\" Удален"
 
     builder:
       title: '<b>%{name}</b> -- Конструктор'

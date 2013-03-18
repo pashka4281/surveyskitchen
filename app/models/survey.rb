@@ -10,7 +10,7 @@ class Survey < ActiveRecord::Base
   belongs_to :theme, class_name: 'SurveyTheme'
   has_many   :items, dependent: :destroy, class_name: 'SurveyItem'
   has_many   :responses, dependent: :destroy
-  has_many   :events, as: :eventable, dependent: :destroy
+  has_many   :events, as: :eventable
   serialize  :items_positions
   attr_accessor :prefill_items
   
@@ -66,6 +66,7 @@ class Survey < ActiveRecord::Base
   end
   
   after_create :example_items, :event_on_created
+  after_destroy :event_on_destroyed
   before_create :set_items_positions, :generate_token, :assign_theme
 
   private
@@ -85,8 +86,14 @@ class Survey < ActiveRecord::Base
 
   #create an event that there is a new survey
   def event_on_created
-    self.events << Events::SurveyCreatedEvent.create(account_id: account_id)
+    self.events << Events::SurveyCreatedEvent.create(account_id: account_id, eventable_name: self.name)
+  end  
+
+  #create an event that a survey is destroyed
+  def event_on_destroyed
+    self.events << Events::SurveyDestroyedEvent.create(account_id: account_id, eventable_name: self.name)
   end
+
 
   def assign_theme
     self.theme = SurveyTheme.global.first

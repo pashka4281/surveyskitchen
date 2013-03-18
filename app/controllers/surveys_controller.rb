@@ -1,6 +1,6 @@
 class SurveysController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :get_survey, only: [:update, :destroy, :edit, :share, :trashbox, :report, :switch, :preview]
+  before_filter :get_survey, except: [:create, :index, :new]
 
   def builder
     @themes_current = current_account.survey_themes
@@ -34,6 +34,10 @@ class SurveysController < ApplicationController
     else
       render nothing: true, status: 400
     end
+  end
+
+  def look
+    
   end
 
   def destroy

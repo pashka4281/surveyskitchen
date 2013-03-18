@@ -19,6 +19,7 @@ Surveyskitchen::Application.routes.draw do
     get :report,    on: :member
     put :switch,    on: :member
     get :preview,   on: :member
+    get :look,      on: :member
     resources :survey_items, as: 'items', path: 'items' do
       delete :delete, as: :member
       post :copy, as: :member

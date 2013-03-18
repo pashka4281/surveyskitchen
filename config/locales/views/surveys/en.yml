@@ -16,8 +16,8 @@ en:
       active: "Active"
       stopped: "Stopped"
     
-    themes:
-      title: "<b>%{name}</b> -- Themes"
+    look:
+      title: "<b>%{name}</b> -- Look and feel"
       back_to_builder: "Back to builder"
 
     form:
@@ -34,6 +34,7 @@ en:
       report: 'Report'
       share: 'Share'
       on_created_event: "Survey \"%{survey_name}\" was created"
+      on_destroyed_event: "Survey \"%{survey_name}\" was deleted"
 
     builder:
       title: '<b>%{name}</b> -- Builder'

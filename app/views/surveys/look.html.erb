@@ -1,0 +1,47 @@
+<%= 
+	page_header t("surveys.look.title", name: @survey.name), 
+	submenu: link_to(t('surveys.look.back_to_builder'), builder_survey_path(@survey))
+%>
+
+<div class="section-container tabs">
+	<div class="sections">
+		<div class="section">
+			<p class="title"><a href="#cont1">Logo</a></p>
+		</div>
+		<div class="section">
+			<p class="title"><a href="#cont2">Custom themes</a></p>
+		</div>
+	</div>
+
+
+	<div class="content">
+		<div id="cont1">
+			Hello
+		</div>
+		<div id="cont2">
+			Good bye
+		</div>
+	</div>
+</div>
+
+
+<%= content_for :js do %>
+	<script>
+		$(function(){
+
+			_tabs = $('.tabs');
+
+			_tabs.find('.sections a').click(function(){
+				_this = $(this);
+				_tabs.find('.sections .section').removeClass('active');
+				_this.parents('.section').addClass('active')
+				_tabs.find('.content > div').removeClass('active');
+				_tabs.find('.content > div' + _this.attr('href')).addClass('active');
+				return false;
+			})
+
+			_tabs.find('.sections .section:first-child a').click()
+
+		});
+	</script>
+<% end %>

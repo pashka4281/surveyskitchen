@@ -18,7 +18,7 @@
 				<% end %>
 			</optgroup>
 		</select>
-	    <a href="#" class="btn small"><%= t 'surveys.builder.look_and_feel' %> </a>
+		<%= link_to t('surveys.builder.look_and_feel'), look_survey_path(@survey), class: 'btn small' %>
 	</div>
 
 	<div id="build_list"  class="list <%= "survey_theme_#{@survey.theme.id}" %>">
