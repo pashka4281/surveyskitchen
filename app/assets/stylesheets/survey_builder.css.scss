@@ -111,6 +111,7 @@
 				padding: 3px 3px 3px 25px;
 			}
 			label{	display: block;	}
+			label.inline{ display: inline-block; padding: 3px 12px;}
 			input[type="text"], select, textarea{
 				outline: none;
 				border: 1px solid #ccc;

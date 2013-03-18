@@ -1,6 +1,8 @@
 .tabs{
 	.sections{
 		height: 35px;
+		position: relative;
+		z-index: 5;
 		.section{
 			display: inline-block;
 			float: left;
@@ -20,23 +22,19 @@
 				&:hover{ background-color: #e2e2e2;}
 			}
 			&.active .title{
-				background-color: #E0E0E0;
+				background-color: #fff;
 				border-bottom: 0;
+				height: 36px;
+				&:hover{ background-color: #e2e2e2;}
 			}
 			&:last-child .title{
 				border-right: 1px solid #cccccc;
 			}
 		}
 	}
-	.content{
-		> div{
-			display: none;
-			border: 1px solid #cccccc;
-			padding: 7px;
-			&.active{
-				display: block;
-			}
-		}
+	.sections_content{
+		border: 1px solid #cccccc;
+		padding: 7px;
 	}
 	
 }

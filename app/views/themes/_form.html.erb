@@ -1,5 +1,11 @@
 <%= semantic_form_for @theme do |f| %>
-	<%= f.inputs %>
+	<div id="theme-editor">
+		<%= f.inputs %>
 
-	<%= f.submit %>
+		<%= f.submit %>
+	</div>
+
+	<div id="theme-preview">
+		<iframe></iframe>
+	</div>
 <% end %>

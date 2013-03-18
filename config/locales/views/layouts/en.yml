@@ -3,6 +3,7 @@ en:
     account_link: "Account"
     profile_link: "Profile"
     log_out_link: "Log out"
+    log_in_link: "Log in"
     dashboard_link: "Dashboard"
     add_survey_link: "Add survey"
     

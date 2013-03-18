@@ -1,0 +1,21 @@
+en:
+  themes:
+    form:
+      common: "Общие параметры"
+      survey_name: ""
+
+      survey_common: "Опрос"
+      survey_bg_color: "Цвет фона опроса"
+      inner_grid_color: "Цвет разделительной линии матричного вопроса"
+
+      survey_header: "Главный заголовок"
+      survey_title_txt_color: ""
+      survey_title_bg_color: ""
+      survey_title_font_name: ""
+      survey_title_size: ""
+      survey_title_font_b: ""
+      survey_title_font_i: ""
+      survey_title_font_u: ""
+
+      item_header: "Заголовок вопроса"
+      item_inner: "Текст вопроса"

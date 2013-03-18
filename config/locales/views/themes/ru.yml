@@ -1,0 +1,36 @@
+ru:
+  themes:
+    form:
+      common: "Общие параметры"
+      theme_name: "Название Темы"
+
+      survey_common: "Опрос"
+      survey_bg_color: "Цвет фона опроса"
+      inner_grid_color: "Цвет разделительной линии матричного вопроса"
+      highlighted_area_color: "Цвет выделения"
+
+      survey_header: "Главный заголовок"
+      survey_title_txt_color: "Цвет текста"
+      survey_title_bg_color: "Фоновый цвет"
+      survey_title_font_name: "Шрифт текста"
+      survey_title_size: "Развмер текста"
+      survey_title_font_b: "Жирный"
+      survey_title_font_i: "Курсив"
+      survey_title_font_u: "Подчеркнутый"
+
+      item_header: "Заголовок вопроса"
+      item_title_txt_color: "Цвет текста"
+      item_title_bg_color: "Фоновый цвет"
+      item_title_font_name: "Шрифт текста"
+      item_title_size: "Развмер текста"
+      item_title_font_b: "Жирный"
+      item_title_font_i: "Курсив"
+      item_title_font_u: "Подчеркнутый"
+
+      item_inner: "Текст вопроса"
+      item_inner_txt_color: "Цвет текста"
+      item_inner_font_name: "Шрифт текста"
+      item_inner_size: "Развмер текста"
+      item_inner_font_b: "Жирный"
+      item_inner_font_i: "Курсив"
+      item_inner_font_u: "Подчеркнутый"

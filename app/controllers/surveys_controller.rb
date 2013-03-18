@@ -37,7 +37,7 @@ class SurveysController < ApplicationController
   end
 
   def look
-    
+    @theme = current_account.survey_themes.new
   end
 
   def destroy

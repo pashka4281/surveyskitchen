@@ -1,0 +1,104 @@
+<%= semantic_form_for @theme, url: '' do |f| %>
+	<div id="theme-editor">
+		<div class="vertical_accordion">
+			<div class="tab active">
+				<div class="handle">
+					<label>
+						<input type="radio" name="import_type" checked></input>
+						<%= t('themes.form.common') %>
+					</label>
+				</div>
+				<div class="tab-content">
+					<%= f.inputs :common, id: 'common' do %>
+						<%= f.input :name, label: t('themes.form.theme_name') %>
+					<% end %>
+				</div>
+			</div>
+			<div class="tab">
+				<div class="handle">
+					<label>
+						<input type="radio" name="import_type"></input>
+						<%= t('themes.form.survey_common') %>
+					</label>
+				</div>
+				<div class="tab-content">
+					<%= f.inputs :bg, id: 'survey_common' do %>
+						<%= f.input :survey_bg_color, label: t('themes.form.survey_bg_color') %>
+						<%= f.input :inner_grid_border_color, label: t('themes.form.inner_grid_color') %>
+						<%= f.input :highlighted_area_color, label: t('themes.form.highlighted_area_color') %>
+					<% end %>
+				</div>
+			</div>
+			<div class="tab">
+				<div class="handle">
+					<label>
+						<input type="radio" name="import_type"></input>
+						<%= t('themes.form.survey_header') %>
+					</label>
+				</div>
+				<div class="tab-content">
+					<%= f.inputs :survey_header, id: 'survey_header' do %>
+						<%= f.input :survey_title_txt_color, label: t('themes.form.survey_title_txt_color') %>
+						<%= f.input :survey_title_bg_color, label: t('themes.form.survey_title_bg_color') %>
+						<%= f.input :survey_title_font_name, label: t('themes.form.survey_title_font_name') %>
+						<%= f.input :survey_title_size, label: t('themes.form.survey_title_size') %>
+						<%= f.input :survey_title_font_b, label: t('themes.form.survey_title_font_b') %>
+						<%= f.input :survey_title_font_i, label: t('themes.form.survey_title_font_i') %>
+						<%= f.input :survey_title_font_u, label: t('themes.form.survey_title_font_u') %>
+					<% end %>
+				</div>
+			</div>
+			<div class="tab">
+				<div class="handle">
+					<label>
+						<input type="radio" name="import_type"></input>
+						<%= t('themes.form.item_header') %>
+					</label>
+				</div>
+				<div class="tab-content">
+					<%= f.inputs :item_header, id: 'item_header' do %>
+						<%= f.input :item_title_txt_color, label: t('themes.form.item_title_txt_color') %>
+						<%= f.input :item_title_font_name, label: t('themes.form.item_title_font_name') %>
+						<%= f.input :item_title_size, label: t('themes.form.item_title_size') %>
+						<%= f.input :item_title_font_b, label: t('themes.form.item_title_font_b') %>
+						<%= f.input :item_title_font_i, label: t('themes.form.item_title_font_i') %>
+						<%= f.input :item_title_font_u, label: t('themes.form.item_title_font_u') %>
+					<% end %>
+				</div>
+			</div>
+				<div class="tab">
+				<div class="handle">
+					<label>
+						<input type="radio" name="import_type"></input>
+						<%= t('themes.form.item_inner') %>
+					</label>
+				</div>
+				<div class="tab-content">
+					<%= f.inputs :item_inner, id: 'item_inner' do %>
+						<%= f.input :item_inner_txt_color, label: t('themes.form.item_inner_txt_color') %>
+						<%= f.input :item_inner_font_name, label: t('themes.form.item_inner_font_name') %>
+						<%= f.input :item_inner_size, label: t('themes.form.item_inner_size') %>
+						<%= f.input :item_inner_font_b, label: t('themes.form.item_inner_font_b') %>
+						<%= f.input :item_inner_font_i, label: t('themes.form.item_inner_font_i') %>
+						<%= f.input :item_inner_font_u, label: t('themes.form.item_inner_font_u') %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+
+
+
+		<%= f.submit %>
+	</div>
+
+	<div id="theme-preview">
+		<iframe></iframe>
+	</div>
+<% end %>
+
+<% content_for :js do %>
+<script>
+	$('.vertical_accordion').jAccordion();
+	$(".new_client_form .import_area").linedtextarea();
+</script>
+<% end %>
