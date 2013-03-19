@@ -98,11 +98,12 @@
 		<div class="social-links">
 			<div class="fb-like" data-send="true" data-layout="button_count" data-width="200" data-show-faces="false" data-font="tahoma"></div>
 			<div><a href="https://twitter.com/share" class="twitter-share-button" data-text="SurveysKitchen: free online surveying & customer opinion research software">Tweet</a></div>
-			<div>
+			<div class="vk">
 				<script type="text/javascript">
 					document.write(VK.Share.button(false,{type: "round", text: "Save to Vkontakte"}));
 				</script>
 			</div>
+			<div><div class="g-plusone" data-size="medium" data-annotation="none" data-href="http://www.surveyskitchen.com"></div></div>
 		</div>
 		
 		
@@ -131,3 +132,28 @@
 	</div>
 
 </div>
+
+
+<%= content_for :js do %>
+<div id="fb-root"></div>
+  <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=471767956202786";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <script type="text/javascript">
+    document.getElementById('vk_share_button').innerHTML = VK.Share.button('http://mysite.com', {type: 'link'});
+  </script>
+
+  <script type="text/javascript">
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+  </script>
+<% end %>
