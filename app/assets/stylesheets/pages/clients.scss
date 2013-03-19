@@ -17,11 +17,12 @@
 			}
 			background-color: #ccc;
 			margin-bottom: 2px;
+			&:hover{ background-color: #999; }
 		}
 		.tab-content{
 			display:none;
 			padding: 7px;
-			background-color: #FAFAFA;
+			background-color: #F3F3F3;
 		}
 	}
 	.tab.active{

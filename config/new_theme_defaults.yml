@@ -1,0 +1,24 @@
+attributes:
+  survey_bg_color: "#ffffff"
+  survey_title_font_b: true
+  survey_title_font_i: false
+  survey_title_font_u: false
+  survey_title_txt_color: "#ffffff"
+  survey_title_bg_color: "#bbbbbb"
+  item_title_font_b: false
+  item_title_font_i: false
+  item_title_font_u: false
+  item_title_txt_color: "#272727"
+  item_bg_color: "#ffffff"
+  item_inner_font_b: false
+  item_inner_font_i: false
+  item_inner_font_u: false
+  item_inner_txt_color: "#114E05"
+  inner_grid_border_color: "#cccccc"
+  highlighted_area_color: "#FFFFBE"
+  survey_title_font_name: ""
+  item_title_font_name: ""
+  item_inner_font_name: ""
+  survey_title_size: 4
+  item_title_size: 2
+  item_inner_size: 1

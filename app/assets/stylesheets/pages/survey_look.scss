@@ -43,6 +43,21 @@
 
 #theme-editor{
 	min-height: 100px;
+	.fields {
+		font-size: 13px;
+		input,select{ font-size: 13px; }
+		label{
+			width: 210px;
+			min-height: 19px;
+			b{ font-weight: bold; }
+			i{ font-style: italic; }
+		}
+	}
+	#survey_theme_name_input{
+		margin-bottom: 5px;
+		label{ width: 140px; }
+		input{ width: 300px;}
+	}
 }
 
 #theme-preview{

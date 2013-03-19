@@ -5,6 +5,7 @@
 @import "pages/survey.scss";
 @import "pages/clients.scss";
 @import "pages/survey_look.scss";
+@import "pages/jquery.minicolors.scss";
 
 @mixin borderRadius($size) {
   -moz-border-radius: $size;
@@ -366,7 +367,7 @@ form.painted{
 
 .fields{
 	textarea{ height: 150px; }
-	input, textarea, select{
+	input[type="password"], input[type="text"],input[type="email"],input[type="number"], textarea, select{
 		outline: none;
 		font-size: 16px;
 		border: 1px solid #cccccc;
@@ -380,7 +381,7 @@ form.painted{
 		display: inline-block;
 		clear: right;
 		min-height: 31px;
-		input, textarea, select{
+		input[type="password"], input[type="text"],input[type="email"],input[type="number"], textarea, select{
 			float: right;
 			width: 400px;
 		}
@@ -494,7 +495,7 @@ form.painted{
 		&.active .switch-btn { 
 			color: #05BB05; 
 			box-shadow: 0 0 22px #05BB05; 
-			border: 1px solid #CBFFD1; 
+			border: 1px solid rgb(88, 190, 100);
 			&:hover{ box-shadow: 0 0 25px #81FF6F; }
 		}
 		.survey-status{

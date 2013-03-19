@@ -15,7 +15,7 @@ $.fn.extend
 
 		$.each this, (i,el) =>
 			_el = $(el)
-			_el.find('.handle input').click (e)=>
+			_el.find('.handle label').click (e)=>
 				_el.find('.tab').removeClass('active')
 				$(e.currentTarget).parents('.tab').addClass('active')
 			# _el.find('.active content').addClass('visible')

@@ -1,5 +1,5 @@
 class SurveyTheme < ActiveRecord::Base
-  attr_accessible 	:bg_color, :account_id,	:name, :survey_bg_color, :survey_title_font_b, :survey_title_font_i,
+  attr_accessible 	:account_id, :name, :survey_bg_color, :survey_title_font_b, :survey_title_font_i,
 					:survey_title_font_u, :survey_title_txt_color, :survey_title_bg_color, :item_title_font_b,
 					:item_title_font_i, :item_title_font_u, :item_title_txt_color, :item_bg_color, :item_inner_font_b,
 					:item_inner_font_i, :item_inner_font_u, :item_inner_txt_color, :inner_grid_border_color,
@@ -11,6 +11,13 @@ class SurveyTheme < ActiveRecord::Base
 	end
 
 	scope :global, where(account_id: nil)
+
+	#seed attributes with default values
+	after_initialize do
+		return true unless self.new_record?
+		self.name = I18n.t "themes.form.default_survey_name"
+		self.attributes = YAML.load_file(Rails.root.join('config', 'new_theme_defaults.yml'))['attributes']
+	end
 
 	def to_css
 		<<-EOSTR
