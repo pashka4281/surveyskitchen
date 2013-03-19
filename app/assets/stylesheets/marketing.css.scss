@@ -217,5 +217,11 @@
 
 .social-links{
 	height: 25px;
+	*{
+		moz-box-sizing: initial;
+		-webkit-box-sizing: initial;
+		box-sizing: initial;
+	}
+	.fb-like{ margin-right: 30px; }
 	> div{float: left; margin-right: 10px;}
 }
