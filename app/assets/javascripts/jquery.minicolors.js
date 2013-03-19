@@ -613,7 +613,7 @@ if(jQuery) (function($) {
 			
 			// Remember last-changed value
 			input.data('minicolors-lastChange', hex + opacity);
-			
+			input.change();
 			// Fire change event
 			if( settings.change ) {
 				if( settings.changeDelay ) {

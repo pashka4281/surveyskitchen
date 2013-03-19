@@ -38,6 +38,8 @@ class SurveysController < ApplicationController
 
   def look
     @theme = current_account.survey_themes.new
+    @example_survey = Survey.preview_survey(current_user.language)
+    @paged_items = @example_survey.paged_items
   end
 
   def destroy

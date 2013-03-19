@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'client' %>
+
 <%= semantic_form_for @theme, url: '' do |f| %>
 
 	<div id="theme-editor">
@@ -74,12 +76,31 @@
 		</div>
 
 
-
 		<%= f.submit %>
 	</div>
 
-	<div id="theme-preview">
-		<iframe></iframe>
+	<div id="theme-preview" class="sk-survey">
+		<h2 id="title"><%= @example_survey.name %></h2>
+
+		<div class="padded-content">
+			<% counter = 0 %>
+			<div class="a-page">
+				<%- @paged_items.shift.each do |i| -%>
+					<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
+					<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
+				<%- end -%>
+			</div>
+			<%- @paged_items.each do |page_elements| -%>
+				<div class="a-page">
+					<%- page_elements.each do |i| -%>
+						<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
+						<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+
+		<button class="btn">Done</button>
 	</div>
 <% end %>
 
@@ -93,25 +114,50 @@
 
 <% content_for :js do %>
 <script>
-	$('.vertical_accordion').jAccordion();
-	$(".new_client_form .import_area").linedtextarea();
-	$('#theme-editor .color_input').minicolors({
-	    animationSpeed: 100,
-	    animationEasing: 'swing',
-	    change: null,
-	    changeDelay: 50,
-	    control: 'hue',
-	    hide: null,
-	    hideSpeed: 100,
-	    inline: false,
-	    letterCase: 'lowercase',
-	    opacity: false,
-	    position: 'default',
-	    show: null,
-	    showSpeed: 100,
-	    swatchPosition: 'left',
-	    textfield: true,
-	    theme: 'default'
-	});
+	$(document).ready(function(){
+		$('.vertical_accordion').jAccordion();
+		$(".new_client_form .import_area").linedtextarea();
+		$('#theme-editor .color_input').minicolors({
+		    animationSpeed: 100,
+		    animationEasing: 'swing',
+		    change: null,
+		    changeDelay: 50,
+		    control: 'hue',
+		    hide: null,
+		    hideSpeed: 100,
+		    inline: false,
+		    letterCase: 'lowercase',
+		    opacity: false,
+		    position: 'default',
+		    show: null,
+		    showSpeed: 100,
+		    swatchPosition: 'left',
+		    textfield: true,
+		    theme: 'default'
+		});
+		//theme editor callbacks
+		_survey = $('.sk-survey');
+
+		$(document).on('change', '#survey_theme_survey_bg_color', function(){
+			_survey.css('background-color', $(this).val())
+		})
+		$(document).on('change', '#survey_theme_inner_grid_border_color', function(){
+			_survey.find('.grid-table td').css('border-bottom', "1px dotted " + $(this).val())
+		})
+		$(document).on('change', '#survey_theme_highlighted_area_color', function(){
+			_survey.find('.highlighted').css('background-color', $(this).val())
+		})
+		$(document).on('change', '#survey_theme_survey_title_bg_color', function(){
+			_survey.find('h2#title').css('background-color', $(this).val())
+		})
+		$(document).on('change', '#survey_theme_survey_title_txt_color', function(){
+			_survey.find('h2#title').css('color', $(this).val())
+		})
+
+
+		$('#theme-editor input').change()
+	})
+	
+
 </script>
 <% end %>
