@@ -1,0 +1,14 @@
+en:
+  survey_items:
+    new:
+      title: "Новый вопрос"
+      text_field: "Текстовое поле"
+      text_field: "Text field"
+	  multiple_select: "Multiple select"
+	  single_select: "Single select"
+	  drop_down: "Drop down"
+	  scale_question: "Scale question"
+	  rich_text: "Rich text box"
+	  page_separator: "Page separator"
+	  video_item: "Video item"
+	  single_select_grid: "Single select grid"

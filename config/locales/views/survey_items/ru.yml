@@ -1,0 +1,16 @@
+ru:
+  survey_items:
+    new:
+      title: "Новый вопрос"
+
+      done_btn: "Готово"
+      cancel_btn: "Отмена"
+      text_field: "Текстовое поле"
+      multiple_select: "Множественный выбор"
+      single_select: "Единственный выбор"
+      drop_down: "Выпадающий список"
+      scale_question: "Шкала оценок"
+      rich_text: "Описательный текст"
+      page_separator: "Разделитель страницы"
+      video_item: "Видео вопрос"
+      single_select_grid: "Матричный вопрос с единственным выбором"

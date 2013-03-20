@@ -53,3 +53,10 @@ ru:
       themes_global: "Темы"
       themes_current: "Мои темы"
       themes_select: "Выбрать цветовую тему:"
+    share:
+      link: "Ссылка"
+      link_content: "Most common way to share survey. Send this link to people you want to answer your questions."
+      javascript: "Разместить опрос на моем сайте или блоге"
+      javascript_content: > 
+        Вы можете встроить опрос в страницу вашего сайта или блога.
+        Для этого скопируйте приведенный ниже код и разместите его перед закрывающим тегом </body> на вашей странице.

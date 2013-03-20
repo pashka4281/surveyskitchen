@@ -53,3 +53,8 @@ en:
       themes_global: "Global themes"
       themes_current: "Your custom themes"
       themes_select: "Select color theme:"
+    share:
+      link: "Share link"
+      link_content: "Most common way to share survey. Send this link to people you want to answer your questions."
+      javascript: "Javascript embed code"
+      javascript_content: "With javascript code you can embed survey on the page of your site. Copy this script and place it before </body> tag on the page."
