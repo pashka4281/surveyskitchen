@@ -39,15 +39,11 @@
 
 .marketing-section{
 	line-height: 20px;
-	border: 1px solid #8c909b;
 	padding: 15px;
 	background-color: #FFFFFF;
 	font-size: 14px;
 	font-family: "Sanchez", serif;
 	color: #303030;
-	-webkit-box-shadow: 0 0px 8px #868686;
-	-moz-box-shadow: 0 0px 8px #868686;
-	box-shadow: 0 0px 8px #868686;
 	margin-bottom: 10px;
 	p{ padding: 5px; }
 	img.left{
@@ -87,13 +83,16 @@
 
 .signup-btn{
 	font-size: 18px;
-	padding: 20px;
+	padding: 10px 20px;
 	display: inline-block;
 	color: white;
 	text-decoration: none;
-	background-color: rgb(214, 38, 38);
+	background-color: #d62626;
 	border-radius: 7px;
-	border: 1px solid rgb(255, 68, 68);
+	border: 1px solid #ff4444;
+	font-family: "Open Sans", sans-serif;
+	text-transform: uppercase;
+	font-weight: bold;
 	sup{font-size: 11px;}
 	&:hover{ background-color: rgb(255, 0, 0) }
 	&:visited{ color: white !important; }
