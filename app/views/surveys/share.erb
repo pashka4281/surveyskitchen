@@ -1,17 +1,91 @@
-<%= page_header "<b>#{@survey.name}</b> -- Share", default_survey_menu: true %>
+<%= page_header t('surveys.share.title', name: @survey.name), default_survey_menu: true %>
 
 <div id="share-link-block" class="share-block">
   <h3>1. <%= t('surveys.share.link')%></h3>
-  <div class="share-description"><%= t('surveys.share.link_content')%></div>
-  <div class="survey-share-block">
-    <%= APP_HOST + s_show_survey_path(token: @survey.token) %>
+   <div class="left-padder">
+    <div class="status active"></div>
+    <div class="row">
+      <div class="column half-width share-description">
+        <%= t('surveys.share.link_content')%> <br>
+        <!-- <button class="btn small"><%= t('surveys.share.activate_link')%></button> -->
+        <button class="btn small"><%= t('surveys.share.settings_link')%></button>
+      </div>
+      <div class="column half-width">
+        <div class=" survey-share-block">
+          <%= APP_HOST + s_show_survey_path(token: @survey.token) %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <div id="share-js-block" class="share-block">
-  <h3>2. <%= t('surveys.share.javascript')%></h3>
-  <div class="share-description"><%= t('surveys.share.javascript_content')%></div>
-  <div class="survey-share-block" class="share-block">
-    <%= escape_javascript("<script src=\"#{APP_HOST}/#{@survey.token}.js\"></script>").gsub("\\", '') %>
+  <h3>2. <%= t('surveys.share.embed')%></h3>
+   <div class="left-padder">
+    <div class="status"></div>
+    <div class="row">
+      <div class="column half-width share-description">
+        <%= t('surveys.share.embed_content')%><br>
+        <button class="btn small"><%= t('surveys.share.activate_embed')%></button>
+        <button class="btn small"><%= t('surveys.share.settings_embed')%></button>
+      </div>
+      <div class="column half-width" class="share-block">
+        <div class="survey-share-block" class="share-block">
+          <%= "<iframe id=\"sk_survey_#{@survey.token}_embed\" style=\"height: 500px; width: 460px; border: 1px solid rgb(204, 204, 204);\" 
+      frameborder=\"0\" src=\"#{APP_HOST}/s/#{@survey.token}\"></iframe>" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<div id="invite-block" class="share-block">
+  <h3>3. <%= t('surveys.share.invite')%></h3>
+   <div class="left-padder">
+    <div class="status"></div>
+    <div class="row">
+      <div class="column half-width share-description">
+        <%= t('surveys.share.invite_content')%><br>
+        <button class="btn small"><%= t('surveys.share.activate_invite')%></button>
+        <button class="btn small"><%= t('surveys.share.settings_invite')%></button>
+      </div>
+      <div class="column half-width" class="share-block">
+        <div class="survey-share-block" class="share-block">
+          <%= "<script src=\"#{APP_HOST}/invite_button/#{@survey.token}\".js></script>" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="email-block" class="share-block">
+  <h3>4. <%= t('surveys.share.email')%></h3>
+  <div class="left-padder">
+    <div class="status"></div>
+    <div class="row">
+      <div class="column half-width share-description">
+        <%= t('surveys.share.email_content')%><br>
+        <button class="btn small"><%= t('surveys.share.activate_email')%></button>
+        <button class="btn small"><%= t('surveys.share.settings_email')%></button>
+        <button class="btn small"><%= t('surveys.share.email_create')%></button>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<div id="social-block" class="share-block">
+  <h3>4. <%= t('surveys.share.social')%></h3>
+   <div class="left-padder">
+    <div class="status"></div>
+    <div class="row">
+      <div class="column half-width share-description">
+        <%= t('surveys.share.social_content')%><br>
+        <button class="btn small"><%= t('surveys.share.activate_social')%></button>
+        <button class="btn small"><%= t('surveys.share.settings_social')%></button>
+      </div>
+    </div>
   </div>
 </div>

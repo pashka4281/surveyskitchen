@@ -61,3 +61,101 @@ and (max-device-width : 1024px) {
 	}
 	
 }
+
+body{ 
+	//background: url(/images/bg-image.png);
+	background-color: rgb(235, 235, 235);
+	padding: 0;
+	margin: 0;
+	//height: 100%;
+	font-family: proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	//width: 100%;
+	font-size: 14px;
+	position: relative;
+	min-width: 840px;
+	&::after{
+		content: ".";
+		display: block;
+		height: 0;
+		visibility: hidden;
+		clear: both;
+	}
+}
+
+#home-link{
+	display: inline-block;
+	width: 172px;
+	margin: 0 auto;
+	position: absolute;
+	left: 50%;
+	top: 7px;
+	margin-left: -86px;
+	height: 45px;
+	background: url(/images/logo-sk.png) no-repeat 0 center;
+	text-indent: -9999px;
+}
+
+.left{ float: left; }
+.left-text{ text-align: left !important; }
+.right{ float: right; }
+.center-content{ text-align: center; }
+.spacer{ margin-bottom: 15px; }
+
+//SIMPLE COLUMN SYSTEM
+.row:before, .row:after {
+	content: " ";
+	display: table;
+}
+.row{ display: inline-block;width: 100%; }
+.column{ float: left; }
+.column.one-third{ width: 33.333333%; }
+.column.half-width{
+	display: inline-block;
+	width: 50%;
+	position: relative;
+	float: left;
+	padding: 5px;
+}
+
+@mixin vertical_gradient($from, $to){
+	background: -moz-linear-gradient(top, $to, $from);
+	background: linear-gradient($from, $to);
+	background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background: gradient(linear, left top, left bottom, from($from), to($to));
+}
+
+.btn{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #0f0f0f;
+	padding: 6px;
+	text-decoration: none;
+	background-color: #f2f2f2;
+
+	@include vertical_gradient(#f2f2f2, #c5c5c5 );
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid #A5A5A5;
+	display: inline-block;
+	&:hover:not(:disabled){ border: 1px solid #4B4B4B; }
+	&:active:not(:disabled){ 
+			@include vertical_gradient(#c5c5c5, #f2f2f2);
+	}
+	&.small{ padding: 3px; font-size: 11px; }
+	&.success{ 
+		background-color: #51a351;
+		color: #fff;
+		@include vertical_gradient(#62c462, #51a351);
+		&:active:not(:disabled){
+			@include vertical_gradient(#51a351, #62c462);
+		}
+	}
+	&:disabled{
+		opacity: 0.5;
+  		filter: alpha(opacity = 50);
+	}
+}
+
+a:visited:not(.btn){ color: rgb(45, 137, 150); }
+a:not(.btn):not(.signup-btn){ color: rgb(45, 137, 150); }

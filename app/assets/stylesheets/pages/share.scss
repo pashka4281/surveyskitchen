@@ -1,5 +1,5 @@
 .survey-share-block{
-	font-size: 19px;
+	font-size: 14px;
 	padding: 5px;
 	background-color: #EEE7FF;
 	border: 4px solid #ccc;
@@ -12,5 +12,20 @@
 }
 .share-block{
 	margin-bottom: 10px;
-	h3{ margin-bottom: 10px; }
+	h3{ margin-bottom: 0; }
+	.left-padder{
+		position: relative;
+		padding-left: 50px;
+		.status{
+			position: absolute;
+			left: 15px;
+			top: 15px;
+			width: 15px;
+			height: 15px;
+			background-color: #D60000;
+			&.active{
+				background-color: #00D600;
+			}
+		}
+	}
 }

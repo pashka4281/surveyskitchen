@@ -20,6 +20,9 @@ en:
       title: "<b>%{name}</b> -- Look and feel"
       back_to_builder: "Back to builder"
 
+    report:
+      title: "<b>%{name}</b> -- Report"
+
     form:
       name: "Survey name:"
       name_placeholder: "Enter name here"

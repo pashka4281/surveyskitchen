@@ -6,6 +6,7 @@
 @import "pages/clients.scss";
 @import "pages/survey_look.scss";
 @import "pages/jquery.minicolors.scss";
+@import "navbar.css.scss";
 
 @mixin borderRadius($size) {
   -moz-border-radius: $size;
@@ -25,28 +26,9 @@ $default_shadow: 0px 0px 18px #555;
 
 .full-width{ width: 100%; }
 .width-90{ width: 90%; }
-.center-content{ text-align: center; }
+
 html{ 
 	//height: 100%; 
-}
-body{ 
-	//background: url(/images/bg-image.png);
-	background-color: rgb(235, 235, 235);
-	padding: 0;
-	margin: 0;
-	//height: 100%;
-	font-family: proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
-	//width: 100%;
-	font-size: 14px;
-	position: relative;
-	min-width: 840px;
-	&::after{
-		content: ".";
-		display: block;
-		height: 0;
-		visibility: hidden;
-		clear: both;
-	}
 }
 
 .clear{clear: both; height: 1px;}
@@ -133,146 +115,16 @@ h2{ font-size: 1.9em;}
 h3{ font-size: 1.5em; margin-bottom: 15px;}
 h4{ font-size: 1.15em;}
 h5{ font-size: 0.9em;}
-.left{ float: left; }
-.left-text{ text-align: left !important; }
-.right{ float: right; }
 
-.spacer{ margin-bottom: 15px; }
 
-//SIMPLE COLUMN SYSTEM
-.row:before, .row:after {
-	content: " ";
-	display: table;
-}
-.row{ display: inline-block;width: 100%; }
-.column{ float: left; }
-.column.one-third{ width: 33.333333%; }
-.column.half-width{
-	display: inline-block;
-	width: 50%;
-	position: relative;
-	float: left;
-	padding: 5px;
-}
-a:visited:not(.btn){ color: rgb(45, 137, 150); }
-a:not(.btn):not(.signup-btn){ color: rgb(45, 137, 150); }
+
+
 .content{
 	max-width: 1200px;
 	min-width: 800px;
 	margin: 0 auto;
 	position: relative;
 }
-
-//MAIN NAVIGATION MENU:
-#navbar{
-	-webkit-box-shadow: 0 2px 10px #242424;
-	-moz-box-shadow: 0 2px 10px #242424;
-	box-shadow: 0 2px 10px #242424;
-
-	height: 60px;
-	min-width: 840px;
-	margin-bottom: 15px;
-	background: #5c6063;
-	padding-right: 20px;
-	padding-left: 20px;
-	background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.3)));
-	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-	background-image: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-	background-image: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-	background-image: linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#4d000000',GradientType=0 );
-
-	.nav-wrapper{
-		display: inline-block;
-		padding: 5px;
-		background: rgba(0,0,0,0.1);
-		position: relative;
-		margin-top: 10px;
-		-webkit-box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.4), 0px 1px 1px 0px rgba(255,255,255,.1);
-		-moz-box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.4), 0px 1px 1px 0px rgba(255,255,255,.1);
-		box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.4), 0px 1px 1px 0px rgba(255,255,255,.1);
-		-webkit-transition: all .2s ease;
-		-moz-transition: all .2s ease;
-		-ms-transition: all .2s ease;
-		-o-transition: all .2s ease;
-		transition: all .2s ease;
-		-webkit-border-radius: 100px;
-		-moz-border-radius: 100px;
-		border-radius: 100px;
-		.nav{
-			padding: 0;
-			height: 30px;
-			margin: 0;
-			list-style: none;
-			overflow: hidden;
-			-webkit-box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.2), 0px 1px 2px 0px rgba(0,0,0,0.5);
-			-moz-box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.2), 0px 1px 2px 0px rgba(0,0,0,0.5);
-			box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.2), 0px 1px 2px 0px rgba(0,0,0,0.5);
-			background: #5c6063;
-			background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
-			background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.3)));
-			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-			background-image: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-			background-image: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-			background-image: linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#4d000000',GradientType=0 );
-			-webkit-border-radius: 100px;
-			-moz-border-radius: 100px;
-			border-radius: 100px;
-			li{ 
-				background: rgba(255,255,255,0.0);
-				float: left;
-				text-align: center;
-				border-right: 1px solid #666;
-				border-left: 1px solid #444;
-				-webkit-box-sizing: border-box;
-				-moz-box-sizing: border-box;
-				box-sizing: border-box;
-				-webkit-transition: all .2s ease;
-				-moz-transition: all .2s ease;
-				-ms-transition: all .2s ease;
-				-o-transition: all .2s ease;
-				transition: all .2s ease;
-				&:hover{ background: rgba(255,255,255,0.08); }
-				&.active{ background: rgba(255, 255, 255, 0.2); }
-				a{ 
-					text-decoration: none;
-					font: 11px/30px Arial, sans-serif;
-					color: #ddd;
-					text-transform: uppercase;
-					text-shadow: 0px 1px rgba(0,0,0,0.5);
-					padding: 5px;
-				}
-			}
-		}
-	}
-	.simple-nav{
-		height: 50px;
-		li{ 
-			line-height: 50px;
-			display: inline-block;
-			&.divider{
-				width: 1px;
-				height: 13px;
-				border-right: 1px solid #666666;
-				border-left: 1px solid #444444;
-				vertical-align: middle;
-			}
-			a{
-				text-decoration: none;
-				font: 11px/41px Arial, sans-serif;
-				color: #ddd;
-				text-transform: uppercase;
-				text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
-				&:hover{ text-decoration: underline; }
-			}
-		}
-	}
-}
-
-
-
 
 #sides-padding{
 	padding-left: 20px;
@@ -405,38 +257,7 @@ form.painted{
 	}
 }
 
-.btn{
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	color: #0f0f0f;
-	padding: 6px;
-	text-decoration: none;
-	background-color: #f2f2f2;
 
-	@include vertical_gradient(#f2f2f2, #c5c5c5 );
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	border: 1px solid #A5A5A5;
-	display: inline-block;
-	&:hover:not(:disabled){ border: 1px solid #4B4B4B; }
-	&:active:not(:disabled){ 
-			@include vertical_gradient(#c5c5c5, #f2f2f2);
-	}
-	&.small{ padding: 3px; font-size: 11px; }
-	&.success{ 
-		background-color: #51a351;
-		color: #fff;
-		@include vertical_gradient(#62c462, #51a351);
-		&:active:not(:disabled){
-			@include vertical_gradient(#51a351, #62c462);
-		}
-	}
-	&:disabled{
-		opacity: 0.5;
-  		filter: alpha(opacity = 50);
-	}
-}
 
 
 //PROFILE PAGE
