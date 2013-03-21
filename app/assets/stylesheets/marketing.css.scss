@@ -39,17 +39,17 @@
 
 .marketing-section{
 	line-height: 20px;
-	border: 1px solid rgb(140, 144, 155);
-	border-radius: 10px;
+	border: 1px solid #8c909b;
 	padding: 15px;
 	background-color: #FFFFFF;
-	margin: 12px;
 	font-size: 14px;
 	font-family: "Sanchez", serif;
-	color: rgb(48, 48, 48);
-	-webkit-box-shadow: 0 0px 8px rgb(134, 134, 134);;
-	-moz-box-shadow: 0 0px 8px rgb(134, 134, 134);;
-	box-shadow: 0 0px 8px rgb(134, 134, 134);;
+	color: #303030;
+	-webkit-box-shadow: 0 0px 8px #868686;
+	-moz-box-shadow: 0 0px 8px #868686;
+	box-shadow: 0 0px 8px #868686;
+	margin-bottom: 10px;
+	p{ padding: 5px; }
 	img.left{
 		border-radius: 10px;
 		margin: 5px;
@@ -57,7 +57,7 @@
 		float: left;
 	}
 	h3{ margin-bottom: 15px; margin-top: 15px; font-weight: 700 }
-	h2{ margin-bottom: 15px; font-size: 32px; color: rgb(170, 114, 100); text-align: center; }
+	h2{ margin-bottom: 15px; font-size: 28px; color: rgb(170, 114, 100); text-align: center; }
 	.info-block{
 		h4{ font-weight: bold; color: rgb(47, 58, 116);margin-top: 7px; }
 	}
@@ -205,4 +205,13 @@
 	.fb-like{ margin-right: 30px; }
 	.vk{ margin-right: 30px; }
 	> div{float: left; margin-right: 10px;}
+}
+
+#survey-steps{
+	li{
+		//font-family: 'Comfortaa', cursive;
+		//font-family: 'Istok Web', sans-serif;
+		font-family: 'Open Sans', sans-serif;
+		padding: 3px;
+	}
 }
