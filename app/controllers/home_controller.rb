@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   layout 'clear'
+  skip_before_filter :set_locale
+  before_filter :set_locale_marketing
 
   def index
   	redirect_to :dashboard and return if current_user
@@ -18,9 +20,7 @@ class HomeController < ApplicationController
   def features
   end
 
-  def switch_locale
-    lang_from_param  = (["en", "ru"] & [params[:lang]]).first
-    cookies.permanent[:remember_locale] = { :value => lang_from_param, :domain => :all }
-    redirect_back_or_default_url
+  def locale_redirect
+    redirect_to "/#{(I18n.locale || I18.n.default_locale)}"
   end
 end

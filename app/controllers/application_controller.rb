@@ -23,7 +23,13 @@ class ApplicationController < ActionController::Base
 
 	#getting current locale from user profile or from headers
 	def set_locale
-		I18n.locale = get_locale_from_session || get_locale_from_user || extract_locale_from_accept_language_header
+		I18n.locale = get_locale_from_user || extract_locale_from_accept_language_header
+	end
+
+	def set_locale_marketing
+		lang_from_param  = (["en", "ru"] & [params[:locale]]).first
+		I18n.locale = lang_from_param || get_locale_from_session || extract_locale_from_accept_language_header
+		cookies.permanent[:remember_locale] = { :value => lang_from_param, :domain => :all }
 	end
 
 	def redirect_back_or_default_url

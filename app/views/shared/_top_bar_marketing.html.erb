@@ -21,8 +21,8 @@
     <ul class="simple-nav right">
       <li>
         <ul id="language_select">
-          <li <%= raw('class="active"') if I18n.locale == :ru %>> <%= link_to "ru", switch_locale_path(lang: 'ru') %> </li>
-          <li <%= raw('class="active"') if I18n.locale == :en %>> <%= link_to "en", switch_locale_path(lang: 'en') %> </li>
+          <li <%= raw('class="active"') if I18n.locale == :ru %>> <%= link_to "ru", locale_root_path(:ru) %> </li>
+          <li <%= raw('class="active"') if I18n.locale == :en %>> <%= link_to "en", locale_root_path(:en) %> </li>
         </ul>
       </li>
       <li><%= link_to t("layout.log_in_link"), :login %></li>

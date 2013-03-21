@@ -17,7 +17,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    current_user_locale = current_user.language
   	session[:user_id] = nil
-    redirect_to root_url, :notice => "Logged out!"
+    redirect_to locale_root_path(current_user_locale), :notice => "Logged out!"
   end
 end
