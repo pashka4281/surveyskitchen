@@ -6,7 +6,6 @@ class HomeController < ApplicationController
   	render layout: 'clear'
   end
 
-
   def about
   end
 
@@ -17,5 +16,11 @@ class HomeController < ApplicationController
   end
 
   def features
+  end
+
+  def switch_locale
+    lang_from_param  = (["en", "ru"] & [params[:lang]]).first
+    cookies.permanent[:remember_locale] = { :value => lang_from_param, :domain => :all }
+    redirect_back_or_default_url
   end
 end

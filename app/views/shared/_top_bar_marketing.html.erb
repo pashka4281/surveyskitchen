@@ -5,13 +5,13 @@
     <div class="nav-wrapper">
       <ul class="nav left">
         <%=content_tag :li, class: (request.path =~ /\A\/(features)(\/)?\z/ ? 'active' : '')  do -%>
-          <%= link_to 'Features', :features %>
+          <%= link_to t("layout.features"), :features %>
         <%-end-%>
         <%=content_tag :li, class: (request.path =~ /\A\/(about)(\/)?\z/ ? 'active' : '')  do -%>
-          <%= link_to 'About', :about %>
+          <%= link_to t("layout.about"), :about %>
         <%-end-%>
         <%=content_tag :li, class: (request.path =~ /\A\/(plans)(\/)?\z/ ? 'active' : '')  do -%>
-          <%= link_to 'Plans & Pricing', :plans %>
+          <%= link_to t("layout.plans_pricing"), :plans %>
         <%-end-%>
       </ul>
     </div>
@@ -19,6 +19,12 @@
     <%= link_to  "SurveysKitchen - главная", "/", id: 'home-link'%>
 
     <ul class="simple-nav right">
+      <li>
+        <ul id="language_select">
+          <li <%= raw('class="active"') if I18n.locale == :ru %>> <%= link_to "ru", switch_locale_path(lang: 'ru') %> </li>
+          <li <%= raw('class="active"') if I18n.locale == :en %>> <%= link_to "en", switch_locale_path(lang: 'en') %> </li>
+        </ul>
+      </li>
       <li><%= link_to t("layout.log_in_link"), :login %></li>
     </ul>
   </div>

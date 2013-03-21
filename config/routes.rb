@@ -9,6 +9,8 @@ Surveyskitchen::Application.routes.draw do
   get :plans, to: 'home#plans'
   get :features, to: 'home#features'
 
+  get :switch_locale, to: 'home#switch_locale'
+
 
   get :theme_preview, to: 'themes#theme_preview'
 
