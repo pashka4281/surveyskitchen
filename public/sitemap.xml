@@ -6,27 +6,61 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
-    <loc>http://www.surveyskitchen.com/</loc>
+    <loc>http://www.surveyskitchen.com/ru</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://www.surveyskitchen.com/en"/>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://www.surveyskitchen.com/features</loc>
+    <loc>http://www.surveyskitchen.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="http://www.surveyskitchen.com/ru"/>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>http://www.surveyskitchen.com/ru/features</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://www.surveyskitchen.com/en/features"/>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://www.surveyskitchen.com/about</loc>
+    <loc>http://www.surveyskitchen.com/en/features</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="http://www.surveyskitchen.com/ru/features"/>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://www.surveyskitchen.com/ru/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://www.surveyskitchen.com/en/about"/>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.surveyskitchen.com/plans</loc>
+    <loc>http://www.surveyskitchen.com/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="http://www.surveyskitchen.com/ru/about"/>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://www.surveyskitchen.com/ru/plans</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://www.surveyskitchen.com/en/plans"/>
     <changefreq>daily</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>http://www.surveyskitchen.com/login</loc>
+    <loc>http://www.surveyskitchen.com/en/plans</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="http://www.surveyskitchen.com/ru/plans"/>
+    <changefreq>daily</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>http://www.surveyskitchen.com/ru/login</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="http://www.surveyskitchen.com/en/login"/>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>http://www.surveyskitchen.com/en/login</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="http://www.surveyskitchen.com/ru/login"/>
     <changefreq>daily</changefreq>
   </url>
 </urlset>
