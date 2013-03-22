@@ -1,0 +1,8 @@
+ru:
+  sessions:
+    new:
+      title: ""
+      sign_in_credentials: "Войти при помощи Email и пароля"
+      email: "Введите Email:"
+      password: "Введите пароль:"
+      sign_in_providers: "или воспользуйтесь учетными записями социальных сетей"

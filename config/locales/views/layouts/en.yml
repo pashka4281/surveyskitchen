@@ -9,3 +9,9 @@ en:
     
     surveys: "Surveys"
     clients: "Clients"
+    about: "About"
+    plans_pricing: "Plans & prices"
+    features: "Features"
+
+    user_created_message: "Congratulations! Your account successfully created."
+    user_signed_in_message: "Logged in as %{name}."

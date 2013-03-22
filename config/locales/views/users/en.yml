@@ -1,0 +1,13 @@
+en:
+  users:
+    new:
+      title: "Register"
+      email: "Email:"
+      email_placeholder: "Enter your Email"
+      full_name: "Name:"
+      full_name_placeholder: "Enter your full name"
+      password: "Password:"
+      password_placeholder: "Enter password"
+      password_confirmation: "Password confirmation:"
+      password_confirmation_placeholder: "Confirm password"
+      submit: "Sign up now!"

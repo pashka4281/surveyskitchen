@@ -1,0 +1,13 @@
+ru:
+  users:
+    new:
+      title: "Регистрация новой учетной записи"
+      email: "Email:"
+      email_placeholder: "Введите ваш адрес Email"
+      full_name: "Имя:"
+      full_name_placeholder: "Введите ваше полное имя"
+      password: "Пароль:"
+      password_placeholder: "Введите пароль:"
+      password_confirmation: "Подтверждение пароля:"
+      password_confirmation_placeholder: "Повторите пароль"
+      submit: "Готово"

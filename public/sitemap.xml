@@ -6,27 +6,27 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
-    <loc>http://surveyskitchen.com/</loc>
+    <loc>http://www.surveyskitchen.com/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://surveyskitchen.com/features</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.surveyskitchen.com/features</loc>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://surveyskitchen.com/about</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.surveyskitchen.com/about</loc>
+    <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://surveyskitchen.com/plans</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.surveyskitchen.com/plans</loc>
+    <changefreq>daily</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>http://surveyskitchen.com/login</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.surveyskitchen.com/login</loc>
+    <changefreq>daily</changefreq>
   </url>
 </urlset>

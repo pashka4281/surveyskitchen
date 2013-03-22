@@ -2,16 +2,16 @@
 	<div class="login-box">
 		<div class="row">
 			<div class="column half-width">
-				<h3>Sign in with credentials</h3>
+				<h3><%= t('sessions.new.sign_in_credentials') %></h3>
 
 				<%= form_tag :login do %>
 					<%= label_tag :email do %>
-						<span>Enter your email here: </span> 
+						<span><%= t('sessions.new.email') %></span> 
 						<%= text_field_tag :email, '', placeholder: 'Email address', class: 'six' %>
 					<% end %>
 
 					<%= label_tag :password do %>
-						<span>Enter your password: </span> 
+						<span><%= t('sessions.new.password') %></span> 
 						<%= password_field_tag :password, nil, placeholder: 'Password', class: 'six' %>
 					<% end %>
 					<br />
@@ -21,7 +21,7 @@
 
 			</div>
 			<div class="column half-width providers">
-				<h3>Or choose from providers list below</h3>
+				<h3><%= t('sessions.new.sign_in_providers') %></h3>
 					<!--
 				-->
 					<%= link_to "/auth/facebook", class: 'btn' do %>

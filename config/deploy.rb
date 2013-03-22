@@ -1,6 +1,8 @@
 require "rvm/capistrano"
 require "bundler/capistrano"
 require "whenever/capistrano"
+require 'new_relic/recipes'
+
 load 'deploy/assets'
 
 default_run_options[:pty] = true
@@ -62,6 +64,7 @@ end
 after "deploy:update_code", "deploy:migrate"
 after "deploy:update", "deploy:cleanup"
 after "deploy:finalize_update", "deploy:symlink_shared_stuff"
+after "deploy:update", "newrelic:notice_deployment"
 
 # after "deploy:stop",    "delayed_job:stop"
 # after "deploy:start",   "delayed_job:start"
