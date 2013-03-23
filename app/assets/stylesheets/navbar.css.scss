@@ -100,7 +100,7 @@
 				color: #ddd;
 				text-transform: uppercase;
 				text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
-				&:hover{ text-decoration: underline; }
+				&:hover:not(.signup-btn){ text-decoration: underline; }
 			}
 		}
 	}

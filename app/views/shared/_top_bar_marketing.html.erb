@@ -20,6 +20,9 @@
 
     <ul class="simple-nav right">
       <li>
+        <%= link_to t("layout.create_survey_link"), :register, class: 'signup-btn' %>
+      </li>
+      <li>
         <ul id="language_select">
           <li <%= raw('class="active"') if I18n.locale == :ru %>> <%= link_to "ru", locale_root_path(:ru) %> </li>
           <li <%= raw('class="active"') if I18n.locale == :en %>> <%= link_to "en", locale_root_path(:en) %> </li>

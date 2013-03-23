@@ -83,18 +83,19 @@
 
 .signup-btn{
 	font-size: 18px;
-	padding: 10px 20px;
-	display: inline-block;
+	padding: 4px 7px;
 	color: white;
 	text-decoration: none;
-	background-color: #d62626;
 	border-radius: 7px;
-	border: 1px solid #ff4444;
+	background-color: #89c3e9;
+	border: 2px solid #6a9af0;
 	font-family: "Open Sans", sans-serif;
 	text-transform: uppercase;
 	font-weight: bold;
+	text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
+	margin-right: 15px;
 	sup{font-size: 11px;}
-	&:hover{ background-color: rgb(255, 0, 0) }
+	&:hover{ background-color: #7cb0d3; border: 2px solid #2f79ff; }
 	&:visited{ color: white !important; }
 }
 

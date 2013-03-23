@@ -15,3 +15,4 @@ en:
 
     user_created_message: "Congratulations! Your account successfully created."
     user_signed_in_message: "Logged in as %{name}."
+    create_survey_link: "Create survey"
