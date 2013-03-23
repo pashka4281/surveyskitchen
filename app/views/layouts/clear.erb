@@ -7,8 +7,8 @@
     <title><%= content_for?(:title) ? yield(:title) : "Surveyskitchen" %></title>
     <%= csrf_meta_tags %>
 
-    <meta name="Description" itemprop="description" content="SurveysKitchen - the most convenient and fastest tool for creating online surveys, quizes and polls. Start creating surveys in minutes for free.">
-    <meta name="keywords" content="SurveysKitchen, online surveys,polls, quizes, web-polls, web surveys, opinnion research, marketing research, analysis, Paul Serous, Filipp Didenkov, Vlad Piontovsyy">
+    <meta name="Description" content="<%= t('layout.meta_description') %>">
+    <meta name="keywords" content="<%= t('layout.meta_keywords').join(', ')%>">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>

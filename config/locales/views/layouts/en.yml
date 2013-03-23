@@ -1,5 +1,21 @@
 en:
   layout:
+    meta_keywords: 
+      - SurveysKitchen
+      - online surveys
+      - polls
+      - quizes
+      - web-polls
+      - web surveys
+      - opinnion research
+      - marketing research
+      - analysis
+      - Paul Serous
+      - Filipp Didenkov
+      - Vlad Piontkovskyy
+    meta_description: > 
+      SurveysKitchen - the most convenient and fastest tool for creating online surveys, quizes and polls. 
+      Start creating surveys in minutes for free.
     account_link: "Account"
     profile_link: "Profile"
     log_out_link: "Log out"
