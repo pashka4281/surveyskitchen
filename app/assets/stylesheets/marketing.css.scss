@@ -45,7 +45,7 @@
 	font-family: "Sanchez", serif;
 	color: #303030;
 	margin-bottom: 10px;
-	p{ padding: 5px; }
+	p{ padding: 5px 10px; }
 	img.left{
 		border-radius: 10px;
 		margin: 5px;
@@ -217,5 +217,6 @@
 
 #language_select{ 
 	margin-right: 20px; 
-	.active a{ color: #888 !important; }
+	a{ display: inline-block; }
+	.active a{ display: none; }
 }

@@ -2,7 +2,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=cyrillic' rel='stylesheet' type='text/css'>
 <% end %>
 
-<% title('online surveying software') %>
+<% title('онлайн сервис по созданию профессиональных опросов. Бесплатно.') %>
 
 	<h1 id="main-wording" class="center-content">
 		Опросы профессионального уровня теперь доступны каждому.
@@ -11,7 +11,7 @@
 
 	<div class="marketing-section">
 		<h2 class="left-text">SurveysKitchen поможет вам в этом</h2>
-		<img src="/images/marketing/img1.png" class="right">
+		<img src="/images/marketing/img1.png" alt="SurveysKitchen image" class="right padding-left">
 		<p>
 				&emsp;Опрос это один из самых распространённых методов получения информации относительно уровня
 			знаний, отношений к продукту, предпочтений и покупательского поведения респондентов.
@@ -26,10 +26,12 @@
 			получения мгновенных результатов а также их глубокого и качественного анализа. 
 		</p>
 		<p>
-			SurveysKitchen дает все необходимые инструменты для этого.
+				&emsp;SurveysKitchen дает все необходимые инструменты для этого.
 			Необходимо пройти всего три простых шага для того чтобы провести опрос:
-			<ol class="row" id="survey-steps">
+		</p>
+			<ol class="row margin-top" id="survey-steps">
 				<li class="column one-third">
+					<img src="/images/marketing/create-survey.png" alt="Создание опроса">
 					<h3>Создайте опрос</h3>
 					<p>
 						Мы создали простой, но в то же время удобный конструктор опросов.
@@ -40,6 +42,7 @@
 					<%= link_to "Узнать больше о конструкторе опросов", '#' %> 
 				</li>
 				<li class="column one-third">
+					<img src="/images/marketing/collect-responses.png" alt="Сбор результатов">
 					<h3>Соберите результаты</h3>
 					К вашим услугам предоставляются 5 способов распространиения опроса:
 					<ul>
@@ -71,6 +74,7 @@
 					<%= link_to "Узнать больше о способах сбора результатов", '#' %> 
 				</li>
 				<li class="column one-third">
+					<img src="/images/marketing/analyze-results.png" alt="Анализ результатов">
 					<h3>Анализируйте результаты</h3>
 					<p>
 						SurveysKitchen дает мощные интсрументы анализа ответов. Поддерживается сортировка по отдельным ответам,
@@ -81,7 +85,7 @@
 					<%= link_to "Узнать больше о возможностях отчетов", '#' %> 
 				</li>
 			</ol>
-		</p>
+
 		<div class="row">
 			<div class="img-block column half-width">
 				<img src="/images/marketing/surveys-list.png" alt="Surveys list image">
@@ -103,8 +107,7 @@
 
 
 		<%= link_to :register, class: 'signup-btn' do %>
-			Создать опрос бесплатно<br>
-			<sup>Тарифные планы</sup>
+			Создать опрос бесплатно
 		<% end %>
 	</div>
 
