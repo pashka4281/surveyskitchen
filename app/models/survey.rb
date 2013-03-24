@@ -17,7 +17,7 @@ class Survey < ActiveRecord::Base
   STEPS = %w(basic_info survey_type builder)
   
   validates :name, presence: true
-  validates :category_id, presence: true, :unless => :seed_item?
+  validates :category_id, presence: true
 
   def self.preview_survey(lang)
     where(['account_id IS NULL AND preview_flag=?', lang]).first

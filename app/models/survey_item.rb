@@ -1,5 +1,5 @@
 class SurveyItem < ActiveRecord::Base
-  attr_accessible :content, :survey_id, :type, :survey, :title, :position, :deleted_at, :required_field
+  attr_accessible :content, :survey_id, :type, :survey, :title, :subtitle, :position, :deleted_at, :required_field
   belongs_to :survey
 
   serialize :content, Hash
