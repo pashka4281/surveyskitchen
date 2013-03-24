@@ -52,7 +52,7 @@ module Surveyskitchen
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.assets.precompile += %w(client.css marketing.css)
+    config.assets.precompile += %w(client.css marketing.css item_modal_app.css item_modal_app.js)
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     # Version of your assets, change this if you want to expire all your assets

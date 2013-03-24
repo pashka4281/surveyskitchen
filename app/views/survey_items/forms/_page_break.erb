@@ -1,14 +1,23 @@
-<%= form_for @survey_item || SurveyItems::PageBreak.new, url: '#', id: 'page_break_form' do |f| %>
-    <label>Page header</label>
-    <input type="text" placeholder="Page heading text"/>
+<div class="modal-header">
+	<h3>
+		<i class="icon-doc-alt"></i>
+		<%= t('survey_items.page_break.title') %>
+	</h3>
+</div>
 
-    <label>Page description</label>
-    <textarea class="min80height vertical-resize" placeholder="Short page description text" ></textarea>
+<div class="form-wrapper">
+	<%= form_for @survey_item || SurveyItems::PageBreak.new, url: '#', id: 'page_break_form' do |f| %>
+	    <label>Page header</label>
+	    <input type="text" placeholder="Page heading text"/>
 
-  	<div class="panel">
-        <p><span class="secondary label">NOTE:</span> header and description will be applied to the page above this break.</p>
-	</div>
+	    <label>Page description</label>
+	    <textarea class="min80height vertical-resize" placeholder="Short page description text" ></textarea>
 
-	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
-	<input type="hidden" name="item_type" value="page_break">
-<% end %>
+	  	<div class="panel">
+	        <p><span class="secondary label">NOTE:</span> header and description will be applied to the page above this break.</p>
+		</div>
+
+		<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
+		<input type="hidden" name="item_type" value="page_break">
+	<% end %>
+</div>

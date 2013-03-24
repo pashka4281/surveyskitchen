@@ -11,3 +11,14 @@ en:
       page_separator: "Page separator"
       video_item: "Video item"
       single_select_grid: "Single select grid"
+
+    text_field:
+      title: "Text field"
+      item_title: "Question title:"
+      title_placeholder: "Place question description here"
+      appearance: "Appearance:"
+      appearance_field: "Text field"
+      appearance_area: "Text area"
+      make_required: "Make this item require user input"
+
+    #"Place question description here"

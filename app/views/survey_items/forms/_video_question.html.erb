@@ -1,22 +1,31 @@
-<%= form_for @survey_item || SurveyItems::VideoQuestion.new, url: '#', id: 'video_question_form' do |f| %>
-	<img src="/images/youtube-logo.jpg" alt="Youtube logo image" /> 
-	<img src="/images/vimeo-logo.jpg" alt="Youtube logo image" /> <br /><br />
+<div class="modal-header">
+	<h3>
+		<i class="icon-video"></i>
+		<%= t('survey_items.video_question.title') %>
+	</h3>
+</div>
 
-	<label>Url of video you want to embed:</label>
-	<%= f.text_field :embed_url, name: 'survey_item[embed_url]', class: 'width-90', placeholder: "Video embed url" %>
+<div class="form-wrapper">
+	<%= form_for @survey_item || SurveyItems::VideoQuestion.new, url: '#', id: 'video_question_form' do |f| %>
+		<img src="/images/youtube-logo.jpg" alt="Youtube logo image" /> 
+		<img src="/images/vimeo-logo.jpg" alt="Youtube logo image" /> <br /><br />
+
+		<label>Url of video you want to embed:</label>
+		<%= f.text_field :embed_url, name: 'survey_item[embed_url]', class: 'width-90', placeholder: "Video embed url" %>
 
 
-	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
-	<input type="hidden" name="item_type" value="video_question">
+		<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
+		<input type="hidden" name="item_type" value="video_question">
 
-	<span>Video frame size:</span>
-    <label class="radio inline">
-		<%= f.radio_button :frame_size, "400x243", name: 'survey_item[frame_size]' %> 400x243 (small)
-	</label>
-	<label class="radio inline">
-		<%= f.radio_button :frame_size, "640x390", name: 'survey_item[frame_size]' %> 640x390 (medium)
-	</label>
-	<label class="radio inline">
-		<%= f.radio_button :frame_size, "820x500", name: 'survey_item[frame_size]' %> 820x500 (big)
-	</label>
-<% end %>
+		<span>Video frame size:</span>
+	    <label class="radio inline">
+			<%= f.radio_button :frame_size, "400x243", name: 'survey_item[frame_size]' %> 400x243 (small)
+		</label>
+		<label class="radio inline">
+			<%= f.radio_button :frame_size, "640x390", name: 'survey_item[frame_size]' %> 640x390 (medium)
+		</label>
+		<label class="radio inline">
+			<%= f.radio_button :frame_size, "820x500", name: 'survey_item[frame_size]' %> 820x500 (big)
+		</label>
+	<% end %>
+</div>

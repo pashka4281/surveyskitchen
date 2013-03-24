@@ -2,11 +2,11 @@
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
- *= require reset
- *= require common
- *= require sprite-animation
- *= require modals
- *= require survey_builder
+ *= require scopes/reset
+ *= require scopes/common
+ *= require scopes/sprite-animation
+ *= require scopes/modals
+ *= require scopes/survey_builder
  *= require fontello/main
- *= require flags16
+ *= require scopes/flags16
 */

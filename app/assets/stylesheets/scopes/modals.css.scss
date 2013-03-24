@@ -13,8 +13,8 @@
 	top: 10%;
 	left: 50%;
 	z-index: 1050;
-	width: 636px;
-	margin-left: -280px;
+	width: 720px;
+	margin-left: -360px;
 	background-color: #ffffff;
 	border: 5px solid #999;
 	border: 5px solid rgba(0, 0, 0, 0.3);
@@ -32,21 +32,25 @@
 	&.hide{
 		display: none;
 	}
-	> div{ padding: 7px; }
+	> .close{
+		position: absolute;
+		left: -17px;
+		top: -17px;
+		background-image: url(/images/icons/close.png);
+		height: 30px;
+		width: 30px;
+	}
 	.modal-header{
-		padding-left: 15px;
+		padding: 7px 15px;
 		background-color: rgb(233, 233, 233);
 		border-bottom: 1px solid #999999;
-		.close{
-			position: absolute;
-			left: -17px;
-			top: -17px;
-			background-image: url(/images/icons/close.png);
-			height: 30px;
-			width: 30px;
+		h3{
+			font-size: 20px;
+			margin-bottom: 0;
 		}
 	}
 	.modal-body{
+		padding: 7px;
 		/*overflow-y: scroll;
 		position: absolute;
 		left: 0;
@@ -57,6 +61,7 @@
 	.modal-footer{
 		border-top: 1px solid #999;
 		background-color: #E0E0E0;
+		padding: 2px;
 		/*position: absolute;
 		left: 0;
 		right: 0;

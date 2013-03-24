@@ -8,7 +8,7 @@ class SurveyItemsController < ApplicationController
 		
 		@survey = current_account.surveys.find(params[:survey_id])
 		@survey_item = item_class.new
-		render layout: false
+		render layout: 'item_modal'
 	end
 
 	def edit

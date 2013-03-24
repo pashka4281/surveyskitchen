@@ -24,12 +24,13 @@ class this.Survey
 
 		$(document).on 'click', '#item_type_buttons button', (e) =>
 			val = $(e.target).data('item-type')
-			$('#item_type_buttons').hide()
+			$('#new_survey_item').hide()
 			$('#new_survey_item')
 				.data('selected-item', true) #boolean indicator that shows that we selected item type
 				.parents('.modal').find('.modal-header h3').text("New #{$(e.target).text()}")
-			$('#newItem').append($("<iframe src=\"#{@base_path}/items/new?item_class=#{val}\"></iframe>")).show()
+			$('#newItem').append($("<iframe id=\"new-item-frame\" src=\"#{@base_path}/items/new?item_class=#{val}\"></iframe>")).show()
 			#$('#newItem').html(itemsHtmlArray[val]).show()
+			$('#doneNewItemBtn').removeAttr('disabled')
 			init_ck_editor()
 
 		#insert buttons click handler:
@@ -78,11 +79,13 @@ class this.Survey
 				textarea.val(CKEDITOR.instances['rich-text-area'].getData());
 
 			if $('#new_survey_item').data('selected-item')
-				@show_and_prepare_buttons_for 'add_item', null
-				@new_item_form_data = $('#newItemContainer form').serialize()
-				@.showButtons()
-				@.toggle_cancel_btn()
-			@close_modals()
+				iframe_result = document.getElementById('new-item-frame').contentWindow.submitItemForm();
+				if iframe_result
+					@show_and_prepare_buttons_for 'add_item', null
+					@new_item_form_data = iframe_result
+					@.showButtons()
+					@.toggle_cancel_btn()
+					@close_modals()
 			false
 
 		$('#doneEditItemBtn').click =>
@@ -99,6 +102,7 @@ class this.Survey
 		$(@edit_links).click => false
 
 		$('#new-item-btn').click =>
+			$('#doneNewItemBtn').attr('disabled', true)
 			@new_item_modal()
 		
 
@@ -112,8 +116,8 @@ class this.Survey
 		modal = $('#newItemContainer').removeClass('hide')
 		switch item
 			when 'none'
-				modal.find('#item_type_buttons').show()
-				modal.find('#newItem').hide()
+				modal.find('#new_survey_item').show()
+				modal.find('#newItem').html('')#.hide()
 
 	#FUNCTIONS:
 	toggle_cancel_btn: ->

@@ -1,22 +1,34 @@
-<%= form_for @survey_item || SurveyItems::DropDownQuestion.new, url: '#', id: 'drop_down_question_form' do |f| %>
-	<label>Question title:</label>
-	<%= f.text_area :title, name: 'survey_item[title]', rows: 2,  
-		class: 'width-90', placeholder: "Place question description here" %>
+<div class="modal-header">
+	<h3>
+		<i class="icon-down-open"></i>
+		<%= t('survey_items.drop_down.title') %>
+	</h3>
+</div>
 
-    <label>Varaints goes here</label>
-    <%= f.text_area :variants, name: 'survey_item[variants]', rows: 3,  
-		class: 'tall', placeholder: "One variant per line" %>
+<div class="form-wrapper">
+	<%= form_for @survey_item || SurveyItems::DropDownQuestion.new, url: '#', id: 'drop_down_question_form' do |f| %>
+		<div class="field">
+			<label>Question title:</label>
+			<%= f.text_area :title, name: 'survey_item[title]', rows: 2,  
+				class: 'width-90', placeholder: "Place question description here" %>
+		</div>
 
-	<label class="checkbox">
-    	<%= f.check_box :include_txt_field, name: 'survey_item[include_txt_field]' %>
-    	Include empty variant ("Please select")
-	</label>
+		<div class="field">
+		    <label>Varaints goes here</label>
+		    <%= f.text_area :variants, name: 'survey_item[variants]', rows: 3,  
+				class: 'tall', placeholder: "One variant per line" %>
+		</div>
+		<label class="checkbox">
+	    	<%= f.check_box :include_txt_field, name: 'survey_item[include_txt_field]' %>
+	    	Include empty variant ("Please select")
+		</label>
 
-	<label class="checkbox">
-    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
-    	Make this item require user input
-    </label>
+		<label class="checkbox">
+	    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
+	    	Make this item require user input
+	    </label>
 
-	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
-	<input type="hidden" name="item_type" value="drop_down_question">
-<% end %>
+		<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
+		<input type="hidden" name="item_type" value="drop_down_question">
+	<% end %>
+</div>

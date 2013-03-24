@@ -1,17 +1,28 @@
-<%= form_for @survey_item || SurveyItems::MultipleSelectQuestion.new, url: '#', id: 'multiple_select_question_form' do |f| %>
-	<label>Question title:</label>
-	<%= f.text_area :title, name: 'survey_item[title]', rows: 2,  
-		class: 'width-90', placeholder: "Place question description here" %>
+<div class="modal-header">
+	<h3>
+		<i class="icon-check"></i>
+		<%= t('survey_items.multiple_select.title') %>
+	</h3>
+</div>
 
-    <label>Varaints goes here</label>
-    <%= f.text_area :variants, name: 'survey_item[variants]', rows: 6,  
-		class: 'width-90', placeholder: "One variant per line" %>
+<div class="form-wrapper">
+	<%= form_for @survey_item || SurveyItems::MultipleSelectQuestion.new, url: '#', id: 'multiple_select_question_form' do |f| %>
+		<div class="field">
+			<label><%= t('survey_items.multiple_select.item_title') %></label>
+			<%= f.text_area :title, name: 'survey_item[title]', rows: 2, 'data-errormessage' => t('survey_items.multiple_select.item_title_error_msg'),
+				class: 'width-90', placeholder: t('survey_items.multiple_select.title_placeholder') %>
+		</div>
 
-	<label class="checkbox">
-    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
-    	Make this item require user input
-    </label>
+	    <label><%= t('survey_items.multiple_select.variants') %></label>
+	    <%= f.text_area :variants, name: 'survey_item[variants]', rows: 6, 'data-errormessage' => t('survey_items.multiple_select.variants_error_msg'),
+			class: 'width-90', placeholder: t('survey_items.multiple_select.variants_placeholder') %>
 
-	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
-	<input type="hidden" name="item_type" value="multiple_select_question">
-<% end %>
+		<label class="checkbox">
+	    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
+	    	<%= t('survey_items.multiple_select.make_required') %>
+	    </label>
+
+		<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
+		<input type="hidden" name="item_type" value="multiple_select_question">
+	<% end %>
+</div>
