@@ -21,6 +21,7 @@ gem 'inherited_resources'
 gem 'rcsv'
 gem 'formtastic'
 gem 'newrelic_rpm'
+gem 'default_value_for'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

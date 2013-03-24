@@ -28,7 +28,8 @@ class this.Survey
 			$('#new_survey_item')
 				.data('selected-item', true) #boolean indicator that shows that we selected item type
 				.parents('.modal').find('.modal-header h3').text("New #{$(e.target).text()}")
-			$('#newItem').html(itemsHtmlArray[val]).show()
+			$('#newItem').append($("<iframe src=\"#{@base_path}/items/new?item_class=#{val}\"></iframe>")).show()
+			#$('#newItem').html(itemsHtmlArray[val]).show()
 			init_ck_editor()
 
 		#insert buttons click handler:
