@@ -1,6 +1,6 @@
 //@import url(http://fonts.googleapis.com/css?family=Galindo|Marcellus|Sanchez:400italic,400);
-@import "reset.css.scss";
-@import "navbar.css.scss";
+@import "scopes/reset.css.scss";
+@import "scopes/navbar.css.scss";
 @import url(http://fonts.googleapis.com/css?family=Forum&subset=latin,cyrillic);
 
 .marketing-body{
@@ -46,6 +46,7 @@
 	color: #303030;
 	margin-bottom: 10px;
 	p{ padding: 5px 10px; }
+	b{font-weight: bold;}
 	img.left{
 		border-radius: 10px;
 		margin: 5px;
@@ -87,15 +88,15 @@
 	color: white;
 	text-decoration: none;
 	border-radius: 7px;
-	background-color: #89c3e9;
-	border: 2px solid #6a9af0;
+	background-color: rgb(255, 61, 61);
+	border: 2px solid rgb(255, 176, 176);
 	font-family: "Open Sans", sans-serif;
 	text-transform: uppercase;
 	font-weight: bold;
 	text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
 	margin-right: 15px;
 	sup{font-size: 11px;}
-	&:hover{ background-color: #7cb0d3; border: 2px solid #2f79ff; }
+	&:hover{ background-color: rgb(172, 22, 22); border: 2px solid #F34848; }
 	&:visited{ color: white !important; }
 }
 
@@ -213,6 +214,10 @@
 		//font-family: 'Istok Web', sans-serif;
 		font-family: 'Open Sans', sans-serif;
 		padding: 3px;
+		ul{
+			padding-left: 22px;
+			list-style-type: disc;
+		}
 	}
 }
 
@@ -220,4 +225,7 @@
 	margin-right: 20px; 
 	a{ display: inline-block; }
 	.active a{ display: none; }
+}
+.highlight{
+	background-color: #E7E7E7;padding: 0 3px;
 }

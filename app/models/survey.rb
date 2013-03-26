@@ -11,7 +11,9 @@ class Survey < ActiveRecord::Base
   has_many   :items, dependent: :destroy, class_name: 'SurveyItem'
   has_many   :responses, dependent: :destroy
   has_many   :events, as: :eventable
-  serialize  :items_positions
+  serialize  :items_positions, Array
+  default_value_for  :items_positions, []
+
   attr_accessor :prefill_items
   
   STEPS = %w(basic_info survey_type builder)
@@ -67,13 +69,9 @@ class Survey < ActiveRecord::Base
   
   after_create :example_items, :event_on_created
   after_destroy :event_on_destroyed
-  before_create :set_items_positions, :generate_token, :assign_theme
+  before_create :generate_token, :assign_theme
 
   private
-  
-  def set_items_positions
-    self.items_positions = []
-  end
   
   def example_items
     return unless self.prefill_items

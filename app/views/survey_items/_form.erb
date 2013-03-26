@@ -1,3 +1,16 @@
-<%= form_for @survey_item do |form| -%>
-	<%= render "survey_items/forms/#{@survey_item.type.demodulize.underscore}", f: form %>
-<%- end -%>
+
+<%= render "survey_items/forms/#{@survey_item.type.demodulize.underscore}", f: form %>
+
+
+<script type="text/javascript">
+	//this should rerturn either serialized form or null (e.g. when some validation errors occurs)
+	function submitItemForm(){
+		_form = $('form');
+
+		if(_form.validationEngine('validate'))
+			return _form.serialize();
+		else
+			return null;
+
+	}
+</script>

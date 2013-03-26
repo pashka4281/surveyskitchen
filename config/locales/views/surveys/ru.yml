@@ -55,6 +55,11 @@ ru:
       themes_global: "Темы"
       themes_current: "Мои темы"
       themes_select: "Выбрать цветовую тему:"
+      new_item_modal_title: "Новый вопрос"
+      trashbox_modal_title: "Удаленные вопросы"
+      edit_item_modal_title: "Редактировать вопрос"
+
+
     share:
       title: '<b>%{name}</b> -- Сбор результатов'
       

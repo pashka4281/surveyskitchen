@@ -1,18 +1,23 @@
 class SurveyItem < ActiveRecord::Base
-  attr_accessible :content, :survey_id, :type, :survey, :title, :subtitle, :position, :deleted_at, :required_field
+
+  QUESTION_ITEMS = %w(SurveyItems::PageBreak SurveyItems::DescText SurveyItems::VideoQuestion)
+
+  attr_accessible :content, :survey_id, :type, :survey, 
+    :title, :subtitle, :position, :deleted_at, :required_field
   belongs_to :survey
 
   serialize :content, Hash
+  default_value_for :content, {}
 
   after_destroy :remove_position
   after_create  :add_position
   
   attr_writer :position
-  scope :trashed, where('deleted_at IS NOT NULL') #mysql compatible syntax
+  scope :trashed, where('deleted_at IS NOT NULL') #sqlite compatible syntax
   # scope :trashed, where('deleted_at <> NULL') #postgres compatible syntax
   scope :active, where(deleted_at: nil)
 
-  scope :question_items, where('type NOT IN(?)', %w(SurveyItems::PageBreak SurveyItems::DescText SurveyItems::VideoQuestion))
+  scope :question_items, where('type NOT IN(?)', QUESTION_ITEMS)
 
   #survey type specific report data
   def report_data
@@ -53,12 +58,7 @@ class SurveyItem < ActiveRecord::Base
   
   def remove_custom_field(name)
     self.content = self.content.try(:delete, name)
-  end
-  
-  before_create do
-    self.content ||= {}
-  end
-  
+  end  
   
   private
 

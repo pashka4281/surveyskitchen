@@ -28,8 +28,12 @@ class ApplicationController < ActionController::Base
 
 	def set_locale_marketing
 		lang_from_param  = (["en", "ru"] & [params[:locale]]).first
-		I18n.locale = lang_from_param || get_locale_from_session || extract_locale_from_accept_language_header
-		cookies.permanent[:remember_locale] = { :value => lang_from_param, :domain => :all }
+		puts "LANG_FROM_LOCALE #{lang_from_param}"
+		puts "LOCALE FROM SESION #{get_locale_from_session}"
+		puts "LOCALE FROM header #{extract_locale_from_accept_language_header}"
+		I18n.locale = lang_from_param || get_locale_from_session || extract_locale_from_accept_language_header || I18n.default_locale
+		puts "GGGGG: #{I18n.locale}"
+		cookies.permanent[:remember_locale] = { :value => lang_from_param, :domain => :all } if lang_from_param
 	end
 
 	def redirect_back_or_default_url
@@ -51,7 +55,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def extract_locale_from_accept_language_header
-		request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first rescue "en"
+		request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first rescue I18n.default_locale
 	end
 
 end

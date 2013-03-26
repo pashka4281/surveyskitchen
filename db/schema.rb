@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318125939) do
+ActiveRecord::Schema.define(:version => 20130324060831) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20130318125939) do
     t.string   "title"
     t.datetime "deleted_at"
     t.boolean  "required_field", :default => false
+    t.string   "subtitle"
   end
 
   create_table "survey_themes", :force => true do |t|
@@ -135,10 +136,10 @@ ActiveRecord::Schema.define(:version => 20130318125939) do
     t.integer  "category_id"
     t.string   "token"
     t.datetime "created_at"
-    t.boolean  "seed_item",                    :default => false
     t.boolean  "active",                       :default => true
     t.string   "preview_flag",    :limit => 3
     t.integer  "theme_id"
+    t.string   "type"
   end
 
   create_table "users", :force => true do |t|

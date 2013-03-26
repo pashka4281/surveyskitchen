@@ -101,6 +101,10 @@
 				text-transform: uppercase;
 				text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
 				&:hover:not(.signup-btn){ text-decoration: underline; }
+				&.signup-btn{
+					background-color: rgb(92, 92, 92); border-color: rgb(153, 153, 153);
+					&:hover{border-color: #ccc;}
+				}
 			}
 		}
 	}

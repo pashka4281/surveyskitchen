@@ -10,14 +10,13 @@ Surveyskitchen::Application.routes.draw do
     get :plans, to: 'home#plans'
     get :features, to: 'home#features'
 
-      get   'login',    to: 'sessions#new'
-  post  'login',    to: 'sessions#create'
-
-  get   'register', to: 'users#new'
-  post  'register', to: 'users#create'
+    get  'login',    to: 'sessions#new'
+    post 'login',    to: 'sessions#create'
+    get  'register', to: 'users#new'
+    post 'register', to: 'users#create'
   end
   
-  get   'logout',   to: 'sessions#destroy'
+  get 'logout',   to: 'sessions#destroy'
   get :switch_locale, to: 'home#switch_locale'
 
 
@@ -30,7 +29,7 @@ Surveyskitchen::Application.routes.draw do
     get :report,    on: :member
     put :switch,    on: :member
     get :preview,   on: :member
-    get :look,      on: :member
+    get :look, on: :member
     resources :survey_items, as: 'items', path: 'items' do
       delete :delete, as: :member
       post :copy, as: :member

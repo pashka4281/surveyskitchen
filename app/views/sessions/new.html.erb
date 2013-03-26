@@ -7,15 +7,15 @@
 				<%= form_tag :login do %>
 					<%= label_tag :email do %>
 						<span><%= t('sessions.new.email') %></span> 
-						<%= text_field_tag :email, '', placeholder: 'Email address', class: 'six' %>
+						<%= text_field_tag :email, '', placeholder: t('sessions.new.email_placeholder') %>
 					<% end %>
 
 					<%= label_tag :password do %>
 						<span><%= t('sessions.new.password') %></span> 
-						<%= password_field_tag :password, nil, placeholder: 'Password', class: 'six' %>
+						<%= password_field_tag :password, nil, placeholder: t('sessions.new.password_placeholder') %>
 					<% end %>
 					<br />
-					<%= submit_tag "Sign in", class: 'btn success' %>
+					<%= submit_tag t('sessions.new.submit'), class: 'btn success' %>
 				<% end %>
 
 
@@ -25,19 +25,22 @@
 					<!--
 				-->
 					<%= link_to "/auth/facebook", class: 'btn' do %>
-						<img src="/images/icons/facebook.png" style="vertical-align:middle">Sign in with Facebook
+						<img src="/images/icons/facebook.png" style="vertical-align:middle">
+						<%= t('sessions.new.sign_in_with', provider: "Facebook") %>
 					<% end %>
 					<%= link_to "#", class: 'btn' do %>
-						<img src="/images/icons/google.png" style="vertical-align:middle">Sign in with Google
+						<img src="/images/icons/google.png" style="vertical-align:middle">
+						<%= t('sessions.new.sign_in_with', provider: "Google") %>
 					<% end %>
 					<%= link_to "/auth/twitter", class: 'btn' do %>
-						<img src="/images/icons/twitter.png" style="vertical-align:middle">Sign in with Twitter
+						<img src="/images/icons/twitter.png" style="vertical-align:middle">
+						<%= t('sessions.new.sign_in_with', provider: "Twitter") %>
 					<% end %>
 			</div>
 		</div>
 
 		<div class="sign-in-description">
-			We don't share your data with any third party services, we dont' use your email to send spam or ads. 
+			We don't share your data with any third party services, we don't use your email to send spam or ads. 
 			Your credentials are protected by our <a href="/tos">Terms of use</a> and <a href="http://www.digicert.com/ssl.htm">ssl secured connection</a>.
 		</div>
 	</div>

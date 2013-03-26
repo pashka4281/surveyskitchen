@@ -1,27 +1,46 @@
-<%= form_for @survey_item || SurveyItems::SingleSelectQuestion.new, url: '#', id: 'single_select_question_form' do |f| %>
-	<label>Question title:</label>
-	<%= f.text_area :title, name: 'survey_item[title]', rows: 2,  
-		class: 'width-90', placeholder: "Place question description here" %>
-	
-	<label>Varaints goes here</label>
-	<%= f.text_area :variants, name: 'survey_item[variants]', rows: 6,  
-		class: 'width-90', placeholder: "Place question description here" %>
+<div class="modal-header">
+	<h3>
+		<i class="icon-list-bullet"></i>
+		<%= t('survey_items.single_select.title') %>
+	</h3>
+</div>
 
-	<label class="checkbox">
-      <%= f.check_box :include_txt_field, name: 'survey_item[include_txt_field]' %>
-      Include optional text field
-    </label>
+<div class="form-wrapper">
+	<%= form_for @survey_item || SurveyItems::SingleSelectQuestion.new, url: '#', id: 'single_select_question_form' do |f| %>
+		<div class="field">
+			<label><%= t('survey_items.common.item_title') %></label>
+			<%= f.text_area :title, name: 'survey_item[title]', rows: 2, 'data-errormessage' => t('survey_items.common.item_title_error_msg'),
+				class: 'validate[required]', placeholder: t('survey_items.common.title_placeholder') %>
+		</div>
+		
+		<label><%= t('survey_items.single_select.variants') %></label>
+		<%= f.text_area :variants, name: 'survey_item[variants]', rows: 6, 'data-errormessage' => t('survey_items.single_select.variants_error_msg'),
+			class: 'validate[required]', placeholder: t('survey_items.single_select.variants_placeholder') %>
 
-	<label class="checkbox">
-    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
-    	Make this item require user input
-    </label>
+		<label class="checkbox">
+	    	<%= f.check_box :include_txt_field, name: 'survey_item[include_txt_field]' %>
+	    	<%= t('survey_items.common.make_required') %>
+	    </label>
 
-    <label class="checkbox">
-    	<%= f.check_box :required_field, name: 'survey_item[shffle_options]' %>
-    	Shuffle options
-    </label>
-  
-	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
-	<input type="hidden" name="item_type" value="single_select_question">
+		<label class="checkbox">
+	    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
+	    	<%= t('survey_items.single_select.include_txt_field') %>
+	    </label>
+
+	    <label class="checkbox">
+	    	<%= f.check_box :required_field, name: 'survey_item[shffle_options]' %>
+	    	<%= t('survey_items.single_select.shuffle') %>
+	    </label>
+	  
+		<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
+		<input type="hidden" name="item_type" value="single_select_question">
+	<% end %>
+</div>
+
+<%= content_for :js do %>
+<script>
+	$(document).ready(function(){
+    	$("form").validationEngine('attach', {promptPosition : "inline", scroll: false});
+	});
+</script>
 <% end %>

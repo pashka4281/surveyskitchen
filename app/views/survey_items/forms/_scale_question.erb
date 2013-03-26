@@ -1,25 +1,47 @@
-<%= form_for @survey_item || SurveyItems::ScaleQuestion.new, url: '#', id: 'scale_question_form' do |f| %>
-	<label>Question title:</label>
-	<%= f.text_area :title, name: 'survey_item[title]', rows: 2,  
-		class: 'width-90', placeholder: "Place question description here" %>
+<div class="modal-header">
+	<h3>
+		<i class="icon-resize-full"></i>
+		<%= t('survey_items.scale_question.title') %>
+	</h3>
+</div>
 
-	<span>Scale size:</span>
-    <label class="radio inline">
-		<%= f.radio_button :scale_size, 3, name: 'survey_item[scale_size]' %> 3 options
-	</label>
-	<label class="radio inline">
-		<%= f.radio_button :scale_size, 5, name: 'survey_item[scale_size]' %> 5 options
-	</label>
-	<label class="radio inline">
-		<%= f.radio_button :scale_size, 10, name: 'survey_item[scale_size]' %> 10 options
-	</label>
+<div class="form-wrapper">
+	<%= form_for @survey_item || SurveyItems::ScaleQuestion.new, url: '#', id: 'scale_question_form' do |f| %>
+		<div class="field">
+			<label><%= t('survey_items.common.item_title') %></label>
+			<%= f.text_area :title, name: 'survey_item[title]', rows: 2,  'data-errormessage' => t('survey_items.common.item_title_error_msg'),
+				class: 'validate[required]', placeholder: t('survey_items.common.title_placeholder') %>
+		</div>
+		<div class="field">
+			<span><%= t('survey_items.scale_question.scale_size') %></span>
+		    <label class="radio inline">
+				<%= f.radio_button :scale_size, 3, name: 'survey_item[scale_size]' %>
+				<%= t('survey_items.scale_question.scale_3') %>
+			</label>
+			<label class="radio inline">
+				<%= f.radio_button :scale_size, 5, name: 'survey_item[scale_size]' %>
+				<%= t('survey_items.scale_question.scale_5') %>
+			</label>
+			<label class="radio inline">
+				<%= f.radio_button :scale_size, 10, name: 'survey_item[scale_size]' %>
+				<%= t('survey_items.scale_question.scale_10') %>
+			</label>
+		</div>
 
-	<br>
-	<label class="checkbox">
-    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
-    	Make this item require user input
-    </label>
+		<label class="checkbox">
+	    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
+	    	<%= t('survey_items.common.make_required') %>
+	    </label>
 
-	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
-	<input type="hidden" name="item_type" value="scale_question">
+		<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
+		<input type="hidden" name="item_type" value="scale_question">
+	<% end %>
+</div>
+
+<%= content_for :js do %>
+<script>
+	$(document).ready(function(){
+    	$("form").validationEngine('attach', {promptPosition : "inline", scroll: false});
+	});
+</script>
 <% end %>

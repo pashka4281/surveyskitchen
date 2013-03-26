@@ -16,7 +16,7 @@ class this.Survey
 
 		@cancel_btn 	= '#cancel-btn'
 		@delete_links 	= '.survey_item .deleteLnk'
-		@edit_links 	= '.survey_item .editSurveyItem'
+		@edit_links 	= '.survey_item .item-edit-link'
 		@updateSurveyUrl= params['survey_update_url']
 		@new_item_form_data = null
 		@current_action_item_id = null
@@ -24,12 +24,14 @@ class this.Survey
 
 		$(document).on 'click', '#item_type_buttons button', (e) =>
 			val = $(e.target).data('item-type')
-			$('#item_type_buttons').hide()
+			$('#new_survey_item').hide()
 			$('#new_survey_item')
 				.data('selected-item', true) #boolean indicator that shows that we selected item type
 				.parents('.modal').find('.modal-header h3').text("New #{$(e.target).text()}")
-			$('#newItem').html(itemsHtmlArray[val]).show()
-			init_ck_editor()
+			$('#newItem').append($("<iframe id=\"new-item-frame\" src=\"#{@base_path}/items/new?item_class=#{val}\"></iframe>")).show()
+			#$('#newItem').html(itemsHtmlArray[val]).show()
+			$('#doneNewItemBtn').removeAttr('disabled')
+			# init_ck_editor()
 
 		#insert buttons click handler:
 		$(document).on 'click', @insertButtons, (el) =>
@@ -43,6 +45,16 @@ class this.Survey
 			@renewItemsIndexes()
 			@hideButtons()
 			@toggle_cancel_btn()
+
+		#edit buttons click handler:
+		$(document).on 'click', @edit_links, (el) =>
+			_el = $(el.currentTarget)
+			$('<div id="modal-bg"></div>').appendTo('body')
+			modal = $('#editItemContainer')
+			modal.find('#editItem').html('').append($("<iframe id=\"edit-item-frame\" src=\"#{_el.attr('data-url')}\"></iframe>"))
+			$('#editItemContainer #edit-question-id').data('question_id', _el.parents('.survey_item').attr('item_id'))
+			modal.removeClass('hide')
+			false
 
 
 		#remove links click handler:
@@ -72,47 +84,45 @@ class this.Survey
 			false
 
 		$('#doneNewItemBtn').click =>
-			textarea = $('#rich-text-area')
-			if textarea.length > 0
-				textarea.val(CKEDITOR.instances['rich-text-area'].getData());
+			# textarea = $('#rich-text-area')
+			# if textarea.length > 0
+			# 	textarea.val(CKEDITOR.instances['rich-text-area'].getData());
 
 			if $('#new_survey_item').data('selected-item')
-				@show_and_prepare_buttons_for 'add_item', null
-				@new_item_form_data = $('#newItemContainer form').serialize()
-				@.showButtons()
-				@.toggle_cancel_btn()
-			@close_modals()
+				iframe_result = document.getElementById('new-item-frame').contentWindow.submitItemForm();
+				if iframe_result
+					@show_and_prepare_buttons_for 'add_item', null
+					@new_item_form_data = iframe_result
+					@.showButtons()
+					@.toggle_cancel_btn()
+					@close_modals()
 			false
 
 		$('#doneEditItemBtn').click =>
-			textarea = $('#rich-text-area')
-			if textarea.length > 0
-				textarea.val(CKEDITOR.instances['rich-text-area'].getData());
-			$.ajax
-				url: "/surveys/#{@survey_id}/items/" + $('#editItemContainer form input[name=item_id]').val()
-				type: 'PUT'
-				data: $('#editItemContainer form').serialize()
-			@close_modals()
+			iframe_result = document.getElementById('edit-item-frame').contentWindow.submitItemForm();
+			item_id = $('#editItemContainer #edit-question-id').data('question_id')
+			if iframe_result
+				$.ajax "/surveys/#{@survey_id}/items/#{item_id}",
+					type: 'PUT'
+					data: iframe_result
+				@close_modals()
 			false
 
-		$(@edit_links).click => false
-
 		$('#new-item-btn').click =>
+			$('#doneNewItemBtn').attr('disabled', true)
 			@new_item_modal()
 		
 
 	close_modals: ->
-		CKEDITOR.instances[name].destroy(true) for name of CKEDITOR.instances
+		# CKEDITOR.instances[name].destroy(true) for name of CKEDITOR.instances
 		$('#modal-bg').remove()
 		$('.modal').addClass('hide')
 
-	new_item_modal: (item = 'none') ->
+	new_item_modal: ->
 		$('<div id="modal-bg"></div>').appendTo('body')
 		modal = $('#newItemContainer').removeClass('hide')
-		switch item
-			when 'none'
-				modal.find('#item_type_buttons').show()
-				modal.find('#newItem').hide()
+		modal.find('#new_survey_item').show()
+		modal.find('#newItem').html('').hide()
 
 	#FUNCTIONS:
 	toggle_cancel_btn: ->

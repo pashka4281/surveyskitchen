@@ -3,6 +3,10 @@ ru:
     new:
       title: ""
       sign_in_credentials: "Войти при помощи Email и пароля"
-      email: "Введите Email:"
-      password: "Введите пароль:"
+      email: "Email:"
+      email_placeholder: "Введите Email"
+      password: "Пароль:"
+      password_placeholder: "Введите пароль"
       sign_in_providers: "или воспользуйтесь учетными записями социальных сетей"
+      submit: "Войти"
+      sign_in_with: "Войти с помощью %{provider}"

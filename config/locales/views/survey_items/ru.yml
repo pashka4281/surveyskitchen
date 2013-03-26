@@ -14,3 +14,77 @@ ru:
       page_separator: "Разделитель страницы"
       video_item: "Видео вопрос"
       single_select_grid: "Матричный вопрос с единственным выбором"
+
+    common:
+      item_title: "* Заголовок вопроса:"
+      item_title_error_msg: "Необходимо указать заголовок вопроса"
+      title_placeholder: "Введите описание вопроса"
+      make_required: "Требовать ответ на этот вопрос"
+
+    text_field:
+      title: "Текстовое поле"
+      appearance: "Внешний вид:"
+      appearance_field: "текстовое поле"
+      appearance_area: "текстовая область"
+      make_required: "Требовать ответ на этот вопрос"
+
+    drop_down:
+      title: "Выпадающий список"
+      include_txt_field: "Включить дополнительное текстовое поле"
+      variants: "* Варианты (один вариант на строку):"
+      variants_error_msg: "Необходимо указать варианы"
+      variants_placeholder: "Введите варианты"
+
+    multiple_select:
+      title: "Множественный выбор"
+      variants: "* Варианты (один вариант на строку):"
+      variants_error_msg: "Необходимо указать варианы"
+      variants_placeholder: "Введите варианты"
+      include_txt_field: "Включить дополнительное текстовое поле"
+      shuffle: "Перемешать варианты"
+
+    single_select:
+      title: "Единственный выбор"
+      variants: "* Варианты (один вариант на строку):"
+      variants_error_msg: "Необходимо указать варианы"
+      variants_placeholder: "Введите варианты"
+      include_txt_field: "Включить дополнительное текстовое поле"
+      shuffle: "Перемешать варианты"
+
+    scale_question:
+      title: "Шкала оценок"
+      scale_size: "Размер:"
+      scale_3: "3 варианта"
+      scale_5: "5 вариантов"
+      scale_10: "10 вариантов"
+
+    video_question:
+      title: "Видео вопрос"
+      url: "* Url адрес видеоклипа YouTube или Vimeo"
+      url_placeholder: "http://www.youtube.com/watch?v=xxxxxxxxxxx"
+      url_err_msg: "Необходимо указать Url адрес видеоклипа"
+      size: "Размер видео"
+      size_small: "400x243 (маленький)"
+      size_medium: "640x390 (средний)"
+      size_big: "820x500 (большой)"
+
+    single_select_grid:
+      title: "Матричный вопрос с единственным выбором"
+      row_names: "* Названия строк матрицы (одно на строке)"
+      row_names_placeholder: "Укажите названия столбцов"
+      row_names_error: "Введите названия строк"
+      col_names: "* Названия столбцов матрицы (одно на строке)"
+      col_names_placeholder: "Введите названия столбцов"
+      col_names_error: "Укажите названия столбцов"
+
+    desc_text:
+      title: "Описательный текст"
+
+    page_break:
+      title: "Разделитель страницы"
+      page_header: "* Заголовок страницы"
+      page_header_placeholder: "Введите заголовок страницы"
+      page_header_error: "Укажите заголовок"
+      page_descr: "Описание страницы"
+      page_descr_placeholder: "Введите описание"
+      note: "Заголовок и описание будут применены к странице после этого разделителя."

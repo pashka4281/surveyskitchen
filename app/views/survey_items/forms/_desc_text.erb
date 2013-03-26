@@ -1,8 +1,25 @@
-<%= form_for @survey_item || SurveyItems::DescText.new, url: '#', id: 'desc_text_item_form' do |f| %>
-    <label>Place here some text:</label>
-    <%= f.text_area :text_content, name: 'survey_item[text_content]', rows: 3,  
-    	class: 'tall', placeholder: "Description text", id: 'rich-text-area' %>
+<div class="modal-header">
+	<h3>
+		<i class="icon-font"></i>
+		<%= t('survey_items.desc_text.title') %>
+	</h3>
+</div>
 
-    <%= hidden_field_tag :item_id, @survey_item.try(:id) %>
-	<input type="hidden" name="item_type" value="desc_text">
-<% end%>
+<div class="form-wrapper">
+	<%= form_for @survey_item || SurveyItems::DescText.new, url: '#', id: 'desc_text_item_form' do |f| %>
+	    <div class="field">
+			<%= f.text_area :title, name: 'survey_item[title]', rows: 2, id: 'rich-text-area',
+				class: 'validate[required]', placeholder: t('survey_items.common.title_placeholder') %>
+		</div>
+
+	    <%= hidden_field_tag :item_id, @survey_item.try(:id) %>
+		<input type="hidden" name="item_type" value="desc_text">
+	<% end%>
+</div>
+
+<%= content_for :js do %>
+<script type="text/javascript" src="/javascripts/ckeditor/ckeditor.js"></script>
+<script>
+	init_ck_editor();
+</script>
+<% end %>

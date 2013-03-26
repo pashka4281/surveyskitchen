@@ -13,7 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require common
-//= require_tree .
+//= require jLinedTextarea
+//= require jquery.display_star_rating
+//= require jquery.minicolors
+//= require survey_builder
+//= require accordion
+   /////// require_tree .
 
 
 function sticky_relocate() {

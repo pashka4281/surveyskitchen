@@ -52,9 +52,12 @@ module Surveyskitchen
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.assets.precompile += %w(client.css marketing.css)
+    config.assets.precompile += %w(client.css marketing.css item_modal_app.css item_modal_app.js)
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    # set default locale to something other than :en
+    I18n.default_locale = :ru
+    config.i18n.default_locale = :ru
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end
