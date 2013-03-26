@@ -62,15 +62,13 @@
 
 <!-- edit survey item modal -->
 	<div class="modal hide item-form" id="editItemContainer">
-	  <div class="modal-header">
-	    <a href="#" class="close"></a>
-	    <h3><%= t('surveys.builder.edit_item_modal_title') %></h3>
-	  </div>
-	  <div class="modal-body"></div>
-	  <div class="modal-footer">
-	    <a href="#" class="btn close">Cancel</a>
-	    <a href="#" class="btn" id="doneEditItemBtn">Done</a>
-	  </div>
+		<a href="#" class="close"></a>
+		<div id="edit-question-id"></div>
+		<div id="editItem"></div>
+		<div class="modal-footer">
+			<button class="btn close"><%= t('survey_items.new.cancel_btn') %></button>
+			<button class="btn success" id="doneEditItemBtn"><%= t('survey_items.new.done_btn') %></button>
+		</div>
 	</div>
 
 <!-- trashed survey items modal -->

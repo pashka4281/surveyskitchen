@@ -43,6 +43,9 @@
 
 #theme-editor{
 	min-height: 100px;
+	padding: 5px;
+	border: 1px solid #585858;
+	background-color: whiteSmoke;
 	.fields {
 		font-size: 13px;
 		input,select{ font-size: 13px; }
@@ -62,7 +65,11 @@
 
 #theme-preview{
 	height: 290px;
-	margin-top: 15px;
+	border: 1px solid #000;
+	margin-top: 25px;
+	.submit-wrapper{
+		text-align: center;
+	}
 	iframe{
 		width: 100%;
 		height: 100%;
