@@ -4,6 +4,8 @@ class SurveyItemsController < ApplicationController
 
 	def new
 		item_class = get_item_constant(params[:item_class])
+		p params[:item_class]
+		p item_class
 		render nothing: true and return unless item_class
 		
 		@survey = current_account.surveys.find(params[:survey_id])

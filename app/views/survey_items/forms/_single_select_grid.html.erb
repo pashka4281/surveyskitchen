@@ -7,31 +7,41 @@
 
 <div class="form-wrapper">
 	<%= form_for @survey_item || SurveyItems::SingleSelectGrid.new, url: '#', id: 'single_select_grid_form' do |f| %>
-		<label>Title:</label>
-		<%= f.text_area :title, name: 'survey_item[title]', rows: 2,  
-			class: 'width-90', placeholder: "Place item title here" %>
+		<div class="field">
+			<label><%= t('survey_items.common.item_title') %></label>
+			<%= f.text_area :title, name: 'survey_item[title]', rows: 2, 'data-errormessage' => t('survey_items.common.item_title_error_msg'),
+				class: 'validate[required]', placeholder: t('survey_items.common.title_placeholder') %>
+		</div>
 		
 		<div class="row">
 			<div class="column half-width">
-				<label>Row names (one per line)</label>
-				<%= f.text_area :rows, name: 'survey_item[rows]', rows: 6,  
-					class: 'width-90', placeholder: "Place row titles here" %>
+				<label><%= t('survey_items.single_select_grid.row_names') %></label>
+				<%= f.text_area :rows, name: 'survey_item[rows]', rows: 6, 'data-errormessage' => t('survey_items.single_select_grid.row_names_error'),
+					class: 'validate[required]', placeholder: t('survey_items.single_select_grid.row_names_placeholder') %>
 			</div>
 
 			<div class="column half-width">
-				<label>Column names (one per line)</label>
-				<%= f.text_area :columns, name: 'survey_item[columns]', rows: 6,  
-					class: 'width-90', placeholder: "Place column titles here" %>
+				<label><%= t('survey_items.single_select_grid.col_names') %></label>
+				<%= f.text_area :columns, name: 'survey_item[columns]', rows: 6, 'data-errormessage' => t('survey_items.single_select_grid.col_names_error'),  
+					class: 'validate[required]', placeholder: t('survey_items.single_select_grid.col_names_placeholder') %>
 			</div>
 		</div>
 
 
 		<label class="checkbox">
-	      <%= f.check_box :required_field, name: 'survey_item[required_field]' %>
-	      Make this item require user input
+	    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
+	    	<%= t('survey_items.common.make_required') %>
 	    </label>
 	  
 		<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
 		<input type="hidden" name="item_type" value="single_select_grid">
 	<% end %>
 </div>
+
+<%= content_for :js do %>
+<script>
+	$(document).ready(function(){
+    	$("form").validationEngine('attach', {promptPosition : "inline", scroll: false});
+	});
+</script>
+<% end %>

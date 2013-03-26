@@ -50,4 +50,21 @@ en:
       url: "Url of video you want to embed:"
       size: "Video frame size:"
 
+    single_select_grid:
+      title: "Single select grid"
+      row_names: "Row names (one per line)"
+      row_names_placeholder: Place row titles here"
+      row_names_error: "You need to specify row titles"
+      col_names: "Column names (one per line)"
+      col_names_placeholder: "Place column titles here"
+      col_names_error: "You need to specify column titles"
+
+    page_break:
+      title: "Page break"
+      page_header: "Page header"
+      page_header_placeholder: "Page heading text"
+      page_header_error: "You need to specify page header"
+      page_descr: "Page description"
+      page_descr_placeholder: "Short page description text"
+      note: "NOTE: header and description will be applied to the page above this break."
     #"Place question description here"

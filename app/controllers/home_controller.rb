@@ -33,6 +33,6 @@ class HomeController < ApplicationController
 
   #root path
   def locale_redirect
-    redirect_to "/#{(I18n.locale || I18.n.default_locale)}"
+    redirect_to locale_root_path(locale: I18n.locale)
   end
 end

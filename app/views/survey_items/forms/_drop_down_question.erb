@@ -14,9 +14,9 @@
 		</div>
 
 		<div class="field">
-		    <label>Varaints goes here</label>
-		    <%= f.text_area :variants, name: 'survey_item[variants]', rows: 3,  
-				class: 'tall validate[required]', placeholder: "One variant per line" %>
+		    <label><%= t('survey_items.drop_down.variants') %></label>
+		    <%= f.text_area :variants, name: 'survey_item[variants]', rows: 3, 'data-errormessage' => t('survey_items.drop_down.variants_error_msg'),  
+				class: 'tall validate[required]', placeholder: t('survey_items.drop_down.variants_placeholder') %>
 		</div>
 		<label class="checkbox">
 	    	<%= f.check_box :include_txt_field, name: 'survey_item[include_txt_field]' %>
