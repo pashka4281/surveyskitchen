@@ -79,30 +79,32 @@
 		<%= f.submit %>
 	</div>
 
-	<div id="theme-preview" class="sk-survey">
-		<h2 id="title"><%= @example_survey.name %></h2>
+	
+<% end %>
 
-		<div class="padded-content">
-			<% counter = 0 %>
+<div id="theme-preview" class="sk-survey">
+	<h2 id="title"><%= @example_survey.name %></h2>
+
+	<div class="padded-content">
+		<% counter = 0 %>
+		<div class="a-page">
+			<%- @paged_items.shift.each do |i| -%>
+				<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
+				<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
+			<%- end -%>
+		</div>
+		<%- @paged_items.each do |page_elements| -%>
 			<div class="a-page">
-				<%- @paged_items.shift.each do |i| -%>
+				<%- page_elements.each do |i| -%>
 					<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
 					<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
-				<%- end -%>
+				<% end %>
 			</div>
-			<%- @paged_items.each do |page_elements| -%>
-				<div class="a-page">
-					<%- page_elements.each do |i| -%>
-						<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
-						<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
-					<% end %>
-				</div>
-			<% end %>
-		</div>
-
-		<button class="btn">Done</button>
+		<% end %>
 	</div>
-<% end %>
+
+	<button class="btn">Done</button>
+</div>
 
 <style type="text/css">
 	.vertical_accordion .tab-content{

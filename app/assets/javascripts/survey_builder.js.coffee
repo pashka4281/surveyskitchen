@@ -31,7 +31,7 @@ class this.Survey
 			$('#newItem').append($("<iframe id=\"new-item-frame\" src=\"#{@base_path}/items/new?item_class=#{val}\"></iframe>")).show()
 			#$('#newItem').html(itemsHtmlArray[val]).show()
 			$('#doneNewItemBtn').removeAttr('disabled')
-			init_ck_editor()
+			# init_ck_editor()
 
 		#insert buttons click handler:
 		$(document).on 'click', @insertButtons, (el) =>
@@ -74,9 +74,9 @@ class this.Survey
 			false
 
 		$('#doneNewItemBtn').click =>
-			textarea = $('#rich-text-area')
-			if textarea.length > 0
-				textarea.val(CKEDITOR.instances['rich-text-area'].getData());
+			# textarea = $('#rich-text-area')
+			# if textarea.length > 0
+			# 	textarea.val(CKEDITOR.instances['rich-text-area'].getData());
 
 			if $('#new_survey_item').data('selected-item')
 				iframe_result = document.getElementById('new-item-frame').contentWindow.submitItemForm();
@@ -107,7 +107,7 @@ class this.Survey
 		
 
 	close_modals: ->
-		CKEDITOR.instances[name].destroy(true) for name of CKEDITOR.instances
+		# CKEDITOR.instances[name].destroy(true) for name of CKEDITOR.instances
 		$('#modal-bg').remove()
 		$('.modal').addClass('hide')
 
@@ -117,7 +117,7 @@ class this.Survey
 		switch item
 			when 'none'
 				modal.find('#new_survey_item').show()
-				modal.find('#newItem').html('')#.hide()
+				modal.find('#newItem').html('').hide()
 
 	#FUNCTIONS:
 	toggle_cancel_btn: ->

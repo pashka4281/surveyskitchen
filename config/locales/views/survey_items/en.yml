@@ -15,10 +15,39 @@ en:
     text_field:
       title: "Text field"
       item_title: "Question title:"
+      item_title_error_msg: "Place question title here"
       title_placeholder: "Place question description here"
       appearance: "Appearance:"
       appearance_field: "Text field"
       appearance_area: "Text area"
       make_required: "Make this item require user input"
+
+    drop_down:
+      title: "Выпадающий список"
+
+    multiple_select:
+      title: "Множественный выбор"
+      item_title: "Заголовок вопроса:"
+      item_title_error_msg: "Необходимо указать заголовок вопроса"
+      title_placeholder: "Введите описание вопроса"
+      variants: "Варианты (один вариант на строку):"
+      variants_error_msg: "Необходимо указать варианы"
+      variants_placeholder: "Введите варианты"
+      make_required: "Требовать ответ на этот вопрос"
+
+    single_select:
+      title: "Единственный выбор"
+      item_title: "Заголовок вопроса:"
+      item_title_error_msg: "Необходимо указать заголовок вопроса"
+      title_placeholder: "Введите описание вопроса"
+      variants: "Варианты (один вариант на строку):"
+      variants_error_msg: "Необходимо указать варианы"
+      variants_placeholder: "Введите варианты"
+      make_required: "Требовать ответ на этот вопрос"
+      include_txt_field: "Дополнительное текстовое поле"
+
+    video_question:
+      url: "Url of video you want to embed:"
+      size: "Video frame size:"
 
     #"Place question description here"

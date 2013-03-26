@@ -14,14 +14,14 @@
 		$(@).remove()
 
 
-@clear_ck_editor_instances = ->
-	if (CKEDITOR.instances['rich-text-area'])
-		CKEDITOR.remove(CKEDITOR.instances['rich-text-area'])
+# @clear_ck_editor_instances = ->
+# 	if (CKEDITOR.instances['rich-text-area'])
+# 		CKEDITOR.remove(CKEDITOR.instances['rich-text-area'])
 
-@init_ck_editor = ->
-	return if (CKEDITOR.instances['rich-text-area'])
-	if($('#rich-text-area').length > 0)
-    	CKEDITOR.replace( "rich-text-area" )
+# @init_ck_editor = ->
+# 	return if (CKEDITOR.instances['rich-text-area'])
+# 	if($('#rich-text-area').length > 0)
+#     	CKEDITOR.replace( "rich-text-area" )
 
 
 
@@ -43,7 +43,7 @@ $(document).on 'click', '[data-toggle="modal"]', (el) =>
 
 
 $('.modal .close').on 'click', (el) =>
-	self.clear_ck_editor_instances()
+	# self.clear_ck_editor_instances()
 	$('#modal-bg').remove()
 	$(el.currentTarget).parents('.modal').addClass('hide')
 	$('.modal .modal-body #newItem').html('')

@@ -17,7 +17,7 @@
 //= require jquery.display_star_rating
 //= require jquery.minicolors
 //= require survey_builder
-//= require survey_builder
+//= require accordion
    /////// require_tree .
 
 

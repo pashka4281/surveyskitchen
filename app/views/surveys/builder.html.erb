@@ -18,7 +18,7 @@
 				<% end %>
 			</optgroup>
 		</select>
-		<%= link_to t('surveys.builder.look_and_feel'), look_survey_path(@survey), class: 'btn small' %>
+		<%= link_to t('surveys.builder.look_and_feel'), look_survey_path(@survey, page: 'logo'), class: 'btn small' %>
 	</div>
 
 	<div id="build_list"  class="list <%= "survey_theme_#{@survey.theme.id}" %>">
@@ -47,7 +47,7 @@
 		<a href="#" class="close"></a>
 		<div id="new_survey_item">
 			<div class="modal-header">
-				<h3>New Item</h3>
+				<h3><%= t('surveys.builder.new_item_modal_title') %></h3>
 			</div>
 			<div class="modal-body">
 				<%= render '/survey_items/new' %>
@@ -64,7 +64,7 @@
 	<div class="modal hide item-form" id="editItemContainer">
 	  <div class="modal-header">
 	    <a href="#" class="close"></a>
-	    <h3>Edit Item</h3>
+	    <h3><%= t('surveys.builder.edit_item_modal_title') %></h3>
 	  </div>
 	  <div class="modal-body"></div>
 	  <div class="modal-footer">
@@ -77,7 +77,7 @@
 	<div class="modal hide fade" id="trashedItemsContainer">
 	  <div class="modal-header">
 	    <a href="#" class="close"></a>
-	    <h3>Trash box</h3>
+	    <h3><%= t('surveys.builder.trashbox_modal_title') %></h3>
 	  </div>
 	  <div class="modal-body"></div>
 	  <div class="modal-footer">
@@ -109,10 +109,7 @@
 
 
 <%= content_for :js do %>
-	<script type="text/javascript" src="/javascripts/ckeditor/ckeditor.js"></script>
-
 	<script>
-
 		var itemsHtmlArray ={};// <%#= raw(survey_items_html_array()) %>;
 
 		// document ready 

@@ -15,11 +15,14 @@ ru:
       video_item: "Видео вопрос"
       single_select_grid: "Матричный вопрос с единственным выбором"
 
-    text_field:
+    common:
       title: "Текстовое поле"
       item_title: "Заголовок вопроса:"
       item_title_error_msg: "Необходимо указать заголовок вопроса"
       title_placeholder: "Введите описание вопроса"
+      make_required: "Требовать ответ на этот вопрос"
+
+    text_field:
       appearance: "Внешний вид:"
       appearance_field: "текстовое поле"
       appearance_area: "текстовая область"
@@ -27,33 +30,40 @@ ru:
 
     drop_down:
       title: "Выпадающий список"
+      include_txt_field: "Включить дополнительное текстовое поле"
 
     multiple_select:
       title: "Множественный выбор"
-      item_title: "Заголовок вопроса:"
-      item_title_error_msg: "Необходимо указать заголовок вопроса"
-      title_placeholder: "Введите описание вопроса"
       variants: "Варианты (один вариант на строку):"
       variants_error_msg: "Необходимо указать варианы"
       variants_placeholder: "Введите варианты"
-      make_required: "Требовать ответ на этот вопрос"
+      include_txt_field: "Включить дополнительное текстовое поле"
+      shuffle: "Перемешать варианты"
 
     single_select:
       title: "Единственный выбор"
-      item_title: "Заголовок вопроса:"
-      item_title_error_msg: "Необходимо указать заголовок вопроса"
-      title_placeholder: "Введите описание вопроса"
       variants: "Варианты (один вариант на строку):"
       variants_error_msg: "Необходимо указать варианы"
       variants_placeholder: "Введите варианты"
-      make_required: "Требовать ответ на этот вопрос"
-      include_txt_field: "Дополнительное текстовое поле"
+      include_txt_field: "Включить дополнительное текстовое поле"
+      shuffle: "Перемешать варианты"
 
     scale_question:
       title: "Шкала оценок"
+      scale_size: "Размер:"
+      scale_3: "3 варианта"
+      scale_5: "5 вариантов"
+      scale_10: "10 вариантов"
 
     video_question:
       title: "Видео вопрос"
+      url: "Url адрес видеоклипа YouTube или Vimeo"
+      url_placeholder: "http://www.youtube.com/watch?v=xxxxxxxxxxx"
+      url_err_msg: "Необходимо указать Url адрес видеоклипа"
+      size: "Размер видео"
+      size_small: "400x243 (маленький)"
+      size_medium: "640x390 (средний)"
+      size_big: "820x500 (большой)"
 
     single_select_grid:
       title: "Матричный вопрос с единственным выбором"

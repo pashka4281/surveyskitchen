@@ -24,6 +24,9 @@
     <%= javascript_include_tag "item_modal_app" %>
     <script src="/javascripts/jq_validation_engine/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascripts/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+      var CKEDITOR_BASEPATH = '/javascripts/ckeditor/';
+    </script>
     <%= yield :js if content_for? :js %>
 
   </body>

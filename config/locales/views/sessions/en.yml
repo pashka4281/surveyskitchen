@@ -3,6 +3,10 @@ en:
     new:
       title: ""
       sign_in_credentials: "Sign in with credentials"
-      email: "Enter your email here: "
-      password: "Enter your password: "
+      email: "Email"
+      email_placeholder: "Enter email"
+      password: "Password:"
+      password_placeholder: "Enter password"
       sign_in_providers: "Or choose from providers list below"
+      submit: "Sign in"
+      sign_in_with: "Sign in with %{provider}"
