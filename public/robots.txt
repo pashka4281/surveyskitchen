@@ -1,0 +1,6 @@
+Sitemap: http://www.surveyskitchen.com/sitemap.xml
+
+User-agent: *
+Disallow: /auth/google
+Disallow: /auth/facebook
+Disallow: /auth/twitter

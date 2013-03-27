@@ -10,3 +10,5 @@ ru:
       sign_in_providers: "или воспользуйтесь учетными записями социальных сетей"
       submit: "Войти"
       sign_in_with: "Войти с помощью %{provider}"
+      additional_links: >
+        <a href="/ru/register">Зарегистрировать</a> новую учетную запись.

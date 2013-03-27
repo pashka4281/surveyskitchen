@@ -388,17 +388,18 @@ $report-item-color: #CDDBFD;
 				display: inline-block;
 				height: 20px;
 				padding-top: 3px;
-				color: white;
+				color: black;
 				text-align: center;
 				font-size: 12px;
 				min-width: 35px;
-				background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+				/*background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
 				background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.3)));
 				background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
 				background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
 				background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
 				background-image: linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
 				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#4d000000',GradientType=0 );
+				*/
 				&.red{ background-color: rgb(255, 50, 50) }
 				&.yellow{ background-color: rgb(255, 189, 50) }
 				&.green{ background-color: rgb(74, 216, 74) }

@@ -14,6 +14,8 @@ Surveyskitchen::Application.routes.draw do
     post 'login',    to: 'sessions#create'
     get  'register', to: 'users#new'
     post 'register', to: 'users#create'
+
+    get 'know_more/:subject', to: 'home#know_more', as: :know_more
   end
   
   get 'logout',   to: 'sessions#destroy'

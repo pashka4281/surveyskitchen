@@ -11,3 +11,6 @@ en:
       password_confirmation: "Password confirmation:"
       password_confirmation_placeholder: "Confirm password"
       submit: "Sign up now!"
+      ensure: >
+        We don't share your data with any third party services, we don't use your email to send spam or ads. 
+        Your credentials are protected by our <a href="#">Terms of use</a> and <a href="http://www.digicert.com/ssl.htm">ssl secured connection</a>.

@@ -73,6 +73,7 @@ class SurveysController < ApplicationController
   end
 
   def report
+    @options_colors = SURVEY_REPORT_SETTINGS['colors']['report_options']
     @responses_content = @survey.responses.map(&:content)
   end
 

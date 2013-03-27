@@ -21,18 +21,15 @@ class HomeController < ApplicationController
   def features
   end
 
-  #"Know more" actions:
-  def know_more_builder
-  end
 
-  def know_more_collect
-  end
-
-  def know_more_analyze
+  def know_more
+    raise ActionController::RoutingError unless %w(collect analyze builder ssl).include?(params[:subject])
+    render "/home/know_more/#{params[:subject]}"
+    # render text: subject.inspect
   end
 
   #root path
   def locale_redirect
-    redirect_to locale_root_path(locale: I18n.locale)
+    redirect_to current_user ? dashboard_path : locale_root_path(locale: I18n.locale)
   end
 end

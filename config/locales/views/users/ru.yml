@@ -11,3 +11,6 @@ ru:
       password_confirmation: "Подтверждение пароля:"
       password_confirmation_placeholder: "Повторите пароль"
       submit: "Готово"
+      ensure: >
+        Мы не распространяем ваши данные третим лицам, мы не используем ваш Email для рассылки спама или рекламы. 
+        Ваши персональные данные защищены <a href="#">условиями пользования</a> а также <a href="http://www.digicert.com/ssl.htm">ssl шифрованием</a>.

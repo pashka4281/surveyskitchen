@@ -2,29 +2,35 @@
   <div class="login-box">
     
       <h1><%= t('users.new.title') %></h1>
-      <!-- <h3>There is only one step left to get your personal Surveys Kitchen. </h3> -->
-      <%= error_messages_for @user %>
+      <div class="row">
+        <div class="column half-width">
+          <%= error_messages_for @user %>
 
-      <%= form_for(@user, :url => :register, class: 'form') do |f| %>
-        <%= f.label :full_name do %>
-          <span><%= t('users.new.full_name') %></span> <%= f.text_field :full_name, placeholder: t('users.new.full_name_placeholder'), class: 'span6' %>
-        <% end %>
+          <%= form_for(@user, :url => :register, class: 'form') do |f| %>
+            <%= f.label :full_name do %>
+              <span><%= t('users.new.full_name') %></span> <%= f.text_field :full_name, placeholder: t('users.new.full_name_placeholder'), class: 'span6' %>
+            <% end %>
 
-        <%= f.label :email do %>
-          <span><%= t('users.new.email') %></span> <%= f.text_field :email, placeholder: t('users.new.email_placeholder'), class: 'span6' %>
-        <% end %>
+            <%= f.label :email do %>
+              <span><%= t('users.new.email') %></span> <%= f.text_field :email, placeholder: t('users.new.email_placeholder'), class: 'span6' %>
+            <% end %>
 
-        <%= f.label :password do %>
-          <span><%= t('users.new.password') %></span> <%= f.password_field :password, placeholder: t('users.new.password_placeholder'), class: 'span6' %>
-        <% end %>
+            <%= f.label :password do %>
+              <span><%= t('users.new.password') %></span> <%= f.password_field :password, placeholder: t('users.new.password_placeholder'), class: 'span6' %>
+            <% end %>
 
-        <%= f.label :password_confirmation do %>
-          <span><%= t('users.new.password_confirmation') %></span> <%= f.password_field :password_confirmation, placeholder: t('users.new.password_confirmation_placeholder'), class: 'span6' %>
-        <% end %>
-        <br />
-        <%= hidden_field_tag 'user[language]', I18n.locale %>
-        <%= f.submit t('users.new.submit'), class: 'btn btn-primary' %>
+            <%= f.label :password_confirmation do %>
+              <span><%= t('users.new.password_confirmation') %></span> <%= f.password_field :password_confirmation, placeholder: t('users.new.password_confirmation_placeholder'), class: 'span6' %>
+            <% end %>
+            <br />
+            <%= hidden_field_tag 'user[language]', I18n.locale %>
+            <%= f.submit t('users.new.submit'), class: 'btn success' %>
 
-      <% end %>
+          <% end %>
+        </div>
+        <div class="column half-width">
+          <div class="sign-in-description"><%= raw t('users.new.ensure') %></div>
+        </div>
+      </div>
   </div>
 </div>

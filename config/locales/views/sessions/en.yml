@@ -10,3 +10,5 @@ en:
       sign_in_providers: "Or choose from providers list below"
       submit: "Sign in"
       sign_in_with: "Sign in with %{provider}"
+      additional_links: >
+        <a href="/en/register">Register</a> new account.
