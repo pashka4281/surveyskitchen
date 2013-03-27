@@ -119,8 +119,11 @@
 				width: 85%;
 				font-size: 16px;
 				&:focus{
-					border: 1px solid #888;
+					border-color: #888;
 				}
+			}
+			input[type="text"], textarea{
+				border-top: 2px solid #999;
 			}
 			textarea, input, p, select{ color: rgb(70, 70, 70); }
 			ul.unstyled, select, input[type="text"], textarea{ margin-top: 10px; }

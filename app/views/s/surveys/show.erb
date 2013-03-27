@@ -28,15 +28,15 @@
 			Sorry, this survey is not active at the moment.
 		<% end %>
 	</div>
-</div>
 
-<footer>
-  <p>Powered by <a href="http://SurveysKitchen.com">SurveysKitchen</a> © <%= Time.now.year %></p>
-</footer>
+	<footer>
+	  <p>Powered by <a href="http://SurveysKitchen.com">SurveysKitchen</a> © <%= Time.now.year %></p>
+	</footer>
+
+</div>
 
 <%= content_for :js do %>
     <script type="text/javascript">
-    	// jQuery plugin to prevent double submission of forms
 		jQuery.fn.preventDoubleSubmission = function() {
 		  $(this).bind('submit',function(e){
 		    var _form = $(this);
@@ -46,11 +46,8 @@
 		      _form.data('submitted', true);
 		    }
 		  });
-
-		  // Keep chainability
 		  return this;
 		};
-
 
       $(document).ready(function(){
       	$('form').preventDoubleSubmission();

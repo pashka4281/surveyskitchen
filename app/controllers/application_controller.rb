@@ -28,11 +28,7 @@ class ApplicationController < ActionController::Base
 
 	def set_locale_marketing
 		lang_from_param  = (["en", "ru"] & [params[:locale]]).first
-		puts "LANG_FROM_LOCALE #{lang_from_param}"
-		puts "LOCALE FROM SESION #{get_locale_from_session}"
-		puts "LOCALE FROM header #{extract_locale_from_accept_language_header}"
 		I18n.locale = lang_from_param || get_locale_from_session || extract_locale_from_accept_language_header || I18n.default_locale
-		puts "GGGGG: #{I18n.locale}"
 		cookies.permanent[:remember_locale] = { :value => lang_from_param, :domain => :all } if lang_from_param
 	end
 

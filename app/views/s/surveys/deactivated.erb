@@ -1,0 +1,15 @@
+<style type="text/css"><%= raw @survey.theme.to_css %></style>
+
+<div class="sk-survey <%= "survey_theme_#{@survey.theme.id}" %>">
+
+	<h2 id="title"><%= @survey.name %></h2>
+
+	<div class="padded-content">
+		<h3>Sorry, this survey is not active at the moment.</h3>
+	</div>
+
+	<footer>
+	  <p>Powered by <a href="http://SurveysKitchen.com">SurveysKitchen</a> © <%= Time.now.year %></p>
+	</footer>
+
+</div>
