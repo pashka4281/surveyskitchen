@@ -37,7 +37,7 @@ class ExternalSessionsController < ApplicationController
 	    redirect_to :dashboard
       end
     else
-      session["devise.#{provider}_data"] = request.env["omniauth.auth"]
+      session["#{provider}_data"] = request.env["omniauth.auth"]
       redirect_to new_registration_path
     end    
   end

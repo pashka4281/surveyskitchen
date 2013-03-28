@@ -57,5 +57,4 @@ Surveyskitchen::Application.routes.draw do
   resource :profile
 
   match '/auth/:provider/callback', to: 'external_sessions#callback', provider: /twitter|facebook/
-
 end

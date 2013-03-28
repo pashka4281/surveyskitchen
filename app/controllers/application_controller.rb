@@ -3,6 +3,14 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery
 	before_filter :set_locale
 
+	unless Rails.env.development?
+		rescue_from Exception,                            :with => :render_500
+		rescue_from ActionController::RoutingError,       :with => :render_404
+		rescue_from ActionController::UnknownController,  :with => :render_404
+		rescue_from AbstractController::ActionNotFound,   :with => :render_404
+		rescue_from ActiveRecord::RecordNotFound,         :with => :render_404
+	end
+
 	def after_sign_in_path_for(resource)
 		:dashboard
 	end
@@ -52,6 +60,28 @@ class ApplicationController < ActionController::Base
 
 	def extract_locale_from_accept_language_header
 		request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first rescue I18n.default_locale
+	end
+
+
+	def render_404(exception)
+		return if image_suffix?
+		# render :text => exception.class and return
+		flash.now[:alert] = exception.message
+
+		respond_to do |type|
+			type.html { render('/error_pages/404', :status => 404, layout: current_user ? 'application' : 'clear') and return }
+		end
+	end
+
+	def render_500(exception)
+		return if image_suffix?
+		respond_to do |type|
+			type.html { render('/error_pages/500', :status => 500, layout: current_user ? 'application' : 'clear') and return }
+		end
+	end
+
+	def image_suffix?
+		request.url =~ /\.(png|gif|jpe?g|bmp|tiff?|svg|psd)$/i
 	end
 
 end
