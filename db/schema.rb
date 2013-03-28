@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130324060831) do
+ActiveRecord::Schema.define(:version => 20130328214958) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -31,6 +31,31 @@ ActiveRecord::Schema.define(:version => 20130324060831) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
+
+  create_table "blog_comments", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "email",      :null => false
+    t.string   "website"
+    t.text     "body",       :null => false
+    t.integer  "post_id",    :null => false
+    t.string   "state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "blog_comments", ["post_id"], :name => "index_blog_comments_on_post_id"
+
+  create_table "blog_posts", :force => true do |t|
+    t.string   "title",                         :null => false
+    t.text     "body",                          :null => false
+    t.integer  "blogger_id"
+    t.string   "blogger_type"
+    t.integer  "comments_count", :default => 0, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "blog_posts", ["blogger_type", "blogger_id"], :name => "index_blog_posts_on_blogger_type_and_blogger_id"
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -63,6 +88,12 @@ ActiveRecord::Schema.define(:version => 20130324060831) do
     t.string   "type"
     t.datetime "created_at"
     t.string   "eventable_name"
+  end
+
+  create_table "exception_storages", :force => true do |t|
+    t.string "message"
+    t.text   "trace"
+    t.string "e_class"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

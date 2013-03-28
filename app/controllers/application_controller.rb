@@ -67,7 +67,7 @@ class ApplicationController < ActionController::Base
 		return if image_suffix?
 		# render :text => exception.class and return
 		flash.now[:alert] = exception.message
-
+		ExceptionStorage.from_exception(exception)# unless exception.is_a?(ActiveRecord::RecordNotFound)
 		respond_to do |type|
 			type.html { render('/error_pages/404', :status => 404, layout: current_user ? 'application' : 'clear') and return }
 		end
@@ -75,6 +75,7 @@ class ApplicationController < ActionController::Base
 
 	def render_500(exception)
 		return if image_suffix?
+		ExceptionStorage.from_exception(exception)
 		respond_to do |type|
 			type.html { render('/error_pages/500', :status => 500, layout: current_user ? 'application' : 'clear') and return }
 		end
