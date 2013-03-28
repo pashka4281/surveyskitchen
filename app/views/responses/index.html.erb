@@ -1,12 +1,44 @@
 <div class="padded-content">
-  <%= page_header "<b>#{@survey.name}</b> -- Responses", default_survey_menu: true %>
+	<%= page_header t("responses.index.title", name: @survey.name), default_survey_menu: true %>
 
-  <% if @responses.any? %>
-    <ul id="responses-list">
-      <%= render @responses %>
-    </ul>
-    <%= paginate @responses %>
-  <% else %>  
-    <h5>There are not items to display currently</h5>
-  <% end %>
+	<div class="row">
+		<div class="column one-third padded">
+			<h3><%= t("responses.index.resp_list_title", resp_count: @responses_count) %></h3>
+			<% if @responses.any? %>
+				<ul id="responses-list">
+					<%= render @responses %>
+				</ul>
+				<%= paginate @responses %>
+			<% else %>  
+				<p><%== t("responses.index.no_items", link: share_survey_path(@survey)) %></p>
+			<% end %>
+		</div>
+		<div class="column two-third padded">
+			<h3><%= t("responses.index.map_title") %></h3>
+			<div id="map"></div>
+		</div>
+	</div>
+
 </div>
+
+<%= content_for :js do %>
+<script type="text/javascript">
+	var gdpData = <%== @geodata.to_json %>;
+
+	$('#map').vectorMap({map: 'world_mill_en',
+		language: '<%= I18n.locale %>',
+		series: {
+		    regions: [{
+		      values: gdpData,
+		      scale: ['#C8EEFF', '#0071A4'],
+		      normalizeFunction: 'polynomial'
+		    }]
+		},
+		onRegionLabelShow: function(e, el, code){
+			responses_count = gdpData[code] || 0;
+			el.html(el.html()+' (Ответов: '+responses_count+')');
+		}
+	});
+
+</script>
+<% end %>

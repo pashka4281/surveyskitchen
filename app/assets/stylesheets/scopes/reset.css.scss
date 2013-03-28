@@ -49,6 +49,13 @@ q:before, q:after {
 	content: none;
 }
 
+.content{
+	max-width: 1200px;
+	min-width: 800px;
+	margin: 0 auto;
+	position: relative;
+}
+
 @media only screen 
 and (min-device-width : 320px) 
 and (max-device-width : 1024px) {
@@ -87,9 +94,8 @@ body{
 	width: 172px;
 	margin: 0 auto;
 	position: absolute;
-	left: 50%;
+	left: 20px;
 	top: 7px;
-	margin-left: -86px;
 	height: 45px;
 	background: url(/images/logo-sk.png) no-repeat 0 center;
 	text-indent: -9999px;
@@ -106,9 +112,11 @@ body{
 	content: " ";
 	display: table;
 }
+.padded{padding: 5px;}
 .row{ display: inline-block;width: 100%; }
 .column{ float: left; }
 .column.one-third{ width: 33.333333%; }
+.column.two-third{ width: 66.666666%; }
 .column.half-width{
 	display: inline-block;
 	width: 50%;

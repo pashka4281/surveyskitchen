@@ -18,6 +18,8 @@
 //= require jquery.minicolors
 //= require survey_builder
 //= require accordion
+//= require jquery.jvectormap.min
+//= require jquery-jvectormap-world-mill-en
    /////// require_tree .
 
 

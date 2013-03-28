@@ -9,8 +9,6 @@
 		textarea = $('#rich-text-area');
 		if(textarea.length > 0){
 			textarea.val(CKEDITOR.instances['rich-text-area'].getData());
-			console.log(textarea.val())
-			console.log(_form.serialize())
 		}
 		if(_form.validationEngine('validate'))
 			return _form.serialize();

@@ -18,13 +18,13 @@
 			class: 'validate[required]', placeholder: t('survey_items.multiple_select.variants_placeholder') %>
 
 		<label class="checkbox">
-	    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
-	    	<%= t('survey_items.common.make_required') %>
+			<%= f.check_box :include_txt_field, name: 'survey_item[include_txt_field]' %>
+	    	<%= t('survey_items.multiple_select.include_txt_field') %>
 	    </label>
 
 	    <label class="checkbox">
 	    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
-	    	<%= t('survey_items.multiple_select.include_txt_field') %>
+	    	<%= t('survey_items.common.make_required') %>
 	    </label>
 
 		<%= hidden_field_tag :item_id, @survey_item.try(:id) %>

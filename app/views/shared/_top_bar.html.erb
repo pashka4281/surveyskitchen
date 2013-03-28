@@ -1,7 +1,17 @@
 <div id="navbar">
   <!-- <a class="brand" href="/dashboard">SurveysKitchen</a> -->
   <div class="content">
-    <div class="nav-wrapper">
+    <%= link_to  "SurveysKitchen dashboard", "/dashboard", id: 'home-link'%>
+
+    <ul class="simple-nav right">
+      <li><%= link_to t("layout.account_link"), :account_info %></li>
+      <li class="divider"></li>
+      <li><%= link_to t("layout.profile_link"), :profile %></li>
+      <li class="divider"></li>
+      <li><a href="/logout"><%= t("layout.log_out_link") %></a></li>
+    </ul>
+
+    <div class="nav-wrapper right">
       <ul class="nav left">
         <%=content_tag :li, class: (request.path =~ /\A\/(dashboard)(\/)?\z/ ? 'active' : '')  do -%>
           <%= link_to raw('<i class="icon-home"></i> ' + t("layout.dashboard_link")), :dashboard %>
@@ -13,14 +23,5 @@
       </ul>
     </div>
 
-    <%= link_to  "SurveysKitchen dashboard", "/dashboard", id: 'home-link'%>
-
-    <ul class="simple-nav right">
-      <li><%= link_to t("layout.account_link"), :account_info %></li>
-      <li class="divider"></li>
-      <li><%= link_to t("layout.profile_link"), :profile %></li>
-      <li class="divider"></li>
-      <li><a href="/logout"><%= t("layout.log_out_link") %></a></li>
-    </ul>
   </div>
 </div>

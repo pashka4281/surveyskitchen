@@ -19,16 +19,16 @@
 
 		<label class="checkbox">
 	    	<%= f.check_box :include_txt_field, name: 'survey_item[include_txt_field]' %>
-	    	<%= t('survey_items.common.make_required') %>
+	    	<%= t('survey_items.single_select.include_txt_field') %>
 	    </label>
 
 		<label class="checkbox">
 	    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
-	    	<%= t('survey_items.single_select.include_txt_field') %>
+	    	<%= t('survey_items.common.make_required') %>
 	    </label>
 
 	    <label class="checkbox">
-	    	<%= f.check_box :required_field, name: 'survey_item[shffle_options]' %>
+	    	<%= f.check_box :shuffle_options, name: 'survey_item[shuffle_options]' %>
 	    	<%= t('survey_items.single_select.shuffle') %>
 	    </label>
 	  

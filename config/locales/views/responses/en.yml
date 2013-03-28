@@ -1,0 +1,7 @@
+en:
+  responses:
+    index:
+      title: '<b>%{name}</b> -- Responses'
+      no_items: "There are not items to display currently."
+      resp_list_title: "Responses list (%{resp_count}):"
+      map_title: "Respondents geography"

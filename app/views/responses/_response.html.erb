@@ -1,13 +1,14 @@
-<%= content_tag :li, response, class: "response f16" do %>
+<%= content_tag :li, response, class: "response f16", 'data-url' => survey_response_path(@survey, response) do %>
 	<input type="checkbox"></input>
-	<%= link_to survey_response_path(@survey, response), class: 'btn' do %>
-		<i class="icon-eye"></i> Details
-	<% end %>
-	<span class="response-date"><%= response.created_at.to_s(:date_and_time)  %></span>
+	<span class="response-date"><%= response.created_at.to_s(:short_date_time)  %></span>
 
 	<% if response.agent.device.engine.browser %><span class="icon-browser <%= response.agent.device.engine.browser.type %>"></span><% else %><span class="icon-help"></span><% end %>
 
-	<% if response.geodata %><span class="flag <%= response.geodata[:country_code].downcase %>"></span><% else %><span class="icon-help"></span><% end %>
+	<% if response.geodata %>
+		<span class="flag <%= response.geodata[:country_code].downcase %>"></span>
+	<% else %>
+		<span class="icon-help"></span>
+	<% end %>
 
 	<%= link_to [@survey, response], method: :delete, class: 'delete-link', confirm: 'Are you sure? You can not restore it in the future.' do %>
 		<i class="icon-trash-1"></i>

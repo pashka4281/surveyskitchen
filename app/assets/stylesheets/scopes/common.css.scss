@@ -100,13 +100,6 @@ ul.pagination{
 	}
 }
 
-.content{
-	max-width: 1200px;
-	min-width: 800px;
-	margin: 0 auto;
-	position: relative;
-}
-
 #sides-padding{
 	padding-left: 20px;
 	padding-right: 20px;
@@ -291,7 +284,7 @@ form.painted{
 			box-shadow: 0 0 22px #F00;
 			border-radius: 100px;
 			padding: 5px 0;
-			border: 1px solid #FFCBCB;
+			border: 1px solid #FF5959;
 			&:hover{ box-shadow: 0 0 25px #FF8383; }
 		}
 		&.active .switch-btn { 
@@ -450,8 +443,8 @@ $report-item-color: #CDDBFD;
 .flash-message-outer{
 	position: absolute;
 	top: 5px;
-	left: 350px;
-	right: 250px;
+	left: 265px;
+	right: 230px;
 	background-color: #2ba6cb;
 	color: white;
 	text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
