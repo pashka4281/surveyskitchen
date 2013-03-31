@@ -27,12 +27,7 @@ class SurveyTheme < ActiveRecord::Base
 	    end
 	end
 
-	attr_accessible :account_id, :name, :survey_bg_color, :survey_title_font_b, :survey_title_font_i,
-					:survey_title_font_u, :survey_title_txt_color, :survey_title_bg_color, :item_title_font_b,
-					:item_title_font_i, :item_title_font_u, :item_title_txt_color, :item_bg_color, :item_inner_font_b,
-					:item_inner_font_i, :item_inner_font_u, :item_inner_txt_color, :inner_grid_border_color,
-					:highlighted_area_color, :survey_title_font_name, :item_title_font_name, :item_inner_font_name,
-					:survey_title_size, :item_title_size, :item_inner_size
+	attr_protected :account_id, :account
 
 	default_value_for :content, {}
 	serialize :content, Hash
