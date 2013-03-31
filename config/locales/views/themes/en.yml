@@ -36,3 +36,5 @@ en:
       item_inner_font_b: "<b>Bold</b>"
       item_inner_font_i: "<i>Italic</i>"
       item_inner_font_u: "<u>Underlined</u>"
+
+      submit: "Create theme"

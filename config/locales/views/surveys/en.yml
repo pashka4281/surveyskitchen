@@ -21,6 +21,9 @@ en:
       back_to_builder: "Back to builder"
       custom_theme: "Create custom theme"
       logo: "Logo settings"
+      themes: "My themes"
+      create_theme: "Create new theme"
+      applied_theme: "Changes saved"
 
     report:
       title: "<b>%{name}</b> -- Report"

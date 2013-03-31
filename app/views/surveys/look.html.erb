@@ -3,20 +3,27 @@
 	submenu: link_to(t('surveys.look.back_to_builder'), builder_survey_path(@survey))
 %>
 
+<% page = @page || params[:page]%>
+
 <div class="section-container tabs">
 	<div class="sections">
-		<div class="section <% if params[:page] == 'logo'%>active<% end %>">
+		<div class="section <% if page == 'logo'%>active<% end %>">
 			<p class="title"><a href="?page=logo"><%= t('surveys.look.logo') %></a></p>
 		</div>
-		<div class="section <% if params[:page] == 'themes'%>active<% end %>">
-			<p class="title"><a href="?page=themes"><%= t('surveys.look.custom_theme') %></a></p>
+		<div class="section <% if page == 'themes'%>active<% end %>">
+			<p class="title"><a href="?page=themes"><%= t('surveys.look.themes') %></a></p>
+		</div>
+		<div class="section <% if page == 'theme_builder'%>active<% end %>">
+			<p class="title"><a href="?page=theme_builder"><%= t('surveys.look.custom_theme') %></a></p>
 		</div>
 	</div>
 
 
 	<div class="sections_content">
-		<% if params[:page] == 'themes'%>
+		<% if page == 'themes'%>
 			<%= render 'look_themes' %>
+		<% elsif page == 'theme_builder' %>
+			<%= render 'look_new_theme' %>
 		<% else %>
 			<%= render 'look_logo' %>
 		<% end %>

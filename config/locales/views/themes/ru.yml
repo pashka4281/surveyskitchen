@@ -36,3 +36,8 @@ ru:
       item_inner_font_b: "<b>Жирный</b>"
       item_inner_font_i: "<i>Курсив</i>"
       item_inner_font_u: "<u>Подчеркнутый</u>"
+
+      submit_create: "Создать тему"
+      submit_save: "Сохранить изменения"
+      title_create: "Новая тема"
+      title_save: "Редактировать тему"
