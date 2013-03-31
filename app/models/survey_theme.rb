@@ -1,4 +1,8 @@
 class SurveyTheme < ActiveRecord::Base
+	ITEM_INNER_FONT_SIZES = %w(11px 13px 15px 17px 19px)
+	ITEM_TITLE_FONT_SIZES = %w(13px 15px 17px 19px 21px)
+	SURVEY_TITLE_FONT_SIZES = %w(19px 21px 24px 26px 28px)
+
 
 	class << self
 	    def custom_field_accessor(*args)
@@ -37,8 +41,9 @@ class SurveyTheme < ActiveRecord::Base
 					:survey_title_font_u, :survey_title_txt_color, :survey_title_bg_color, :item_title_font_b,
 					:item_title_font_i, :item_title_font_u, :item_title_txt_color, :item_bg_color, :item_inner_font_b,
 					:item_inner_font_i, :item_inner_font_u, :item_inner_txt_color, :inner_grid_border_color,
-					:highlighted_area_color, :survey_title_font_name, :item_title_font_name, :item_inner_font_name,
-					:survey_title_size, :item_title_size, :item_inner_size
+					:highlighted_area_color, :survey_title_font_name, :item_title_font_name, :item_inner_font_name
+	
+	custom_field_writer :item_inner_size, :item_title_size, :survey_title_size
 
 	def self.find_theme(current_account_id, theme_id)
 		where(['(account_id IS NULL AND id=?) OR (account_id=? AND id=?)', theme_id, current_account_id, theme_id]).first
@@ -54,19 +59,31 @@ class SurveyTheme < ActiveRecord::Base
 		self.attributes = YAML.load_file(Rails.root.join('config', 'new_theme_defaults.yml'))['attributes']
 	end
 
+	def item_inner_size
+		ITEM_INNER_FONT_SIZES[get_custom_field_value(:item_inner_size).to_i + 1]
+	end
+
+	def item_title_size
+		ITEM_TITLE_FONT_SIZES[get_custom_field_value(:item_title_size).to_i + 1]
+	end
+
+	def survey_title_size
+		SURVEY_TITLE_FONT_SIZES[get_custom_field_value(:survey_title_size).to_i + 1]
+	end
+
 	def to_css
 		<<-EOSTR
-			.survey_theme_#{self.id} { background-color: ##{self.survey_bg_color} }
+			.survey_theme_#{self.id} { background-color: #{self.survey_bg_color} }
 			.survey_theme_#{self.id} #title{ 
 				background-color: #{self.survey_title_bg_color};
 				color: #{self.survey_title_txt_color};
 			}
-			.survey_theme_#{self.id} .survey_item  strong.item-title{
+			.survey_theme_#{self.id} .survey_item  .item-title{
 				color: #{self.item_title_txt_color};
 			}
 			.survey_theme_#{self.id} .survey_item .item-content{ 
 				color: #{self.item_inner_txt_color};
-
+				font-size: #{self.item_inner_size}
 			}
 			.survey_theme_#{self.id} .survey_item .item-content .highlighted{ 
 				background-color: #{self.highlighted_area_color};
@@ -80,16 +97,12 @@ class SurveyTheme < ActiveRecord::Base
 		EOSTR
 	end
 
-
-
 	
 	def set_custom_field(field_name, value)
 		self.content = self.content.merge({field_name => value})
 	end
 
 	def get_custom_field_value(field_name)
-		p field_name
-		p self.content
 		self.content[field_name]
 	end
 end

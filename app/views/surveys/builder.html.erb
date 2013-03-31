@@ -21,8 +21,8 @@
 		<%= link_to t('surveys.builder.look_and_feel'), look_survey_path(@survey, page: 'logo'), class: 'btn small' %>
 	</div>
 
-	<div id="build_list"  class="list <%= "survey_theme_#{@survey.theme.id}" %>">
-		<div style="border: 1px solid #555">
+	<div id="build_list"  class="list">
+		<div style="border: 1px solid #555" class="<%= "survey_theme_#{@survey.theme.id}" %>">
 			<h2 id="title"><%= @survey.name %></h2>
 			<div id="zero-item" class="survey_item">
 	            <%= insert_button %>

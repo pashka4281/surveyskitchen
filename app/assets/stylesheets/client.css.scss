@@ -9,13 +9,11 @@ body {
 	h1, h2, h3, h4, h5, h6 {
 		margin: 10px 0;
 		font-family: inherit;
-		font-weight: bold;
 		line-height: 1;
 		color: inherit;
 		text-rendering: optimizelegibility;
 	}
-	h2{ 
-		font-size: 30px; 
+	h2{
 		line-height: 40px;
 		padding: 10px;
 		margin: 0;
@@ -160,7 +158,6 @@ body {
 			border-top: 2px solid #bbb;
 		}
 		.grid-table{
-			font-size: 13px;
 			width: 100%;
 			margin: 10px auto;
 			tr{ line-height: 20px; }

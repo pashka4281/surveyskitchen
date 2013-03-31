@@ -164,15 +164,51 @@
 		$(document).on('change', '#survey_theme_highlighted_area_color', function(){
 			_survey.find('.highlighted').css('background-color', $(this).val())
 		})
+		$(document).on('change', '#survey_theme_item_inner_txt_color', function(){
+			_survey.find('.survey_item .item-content').css('color', $(this).val())
+		})
+		$(document).on('change', '#survey_theme_item_title_txt_color', function(){
+			_survey.find('.survey_item .item-title').css('color', $(this).val())
+		})
+		$(document).on('change', '#survey_theme_item_inner_size', function(){
+			_survey.find('.survey_item .item-content').css('font-size', <%== SurveyTheme::ITEM_INNER_FONT_SIZES.to_json %>[$(this).val()-1])
+		})
+		$(document).on('change', '#survey_theme_item_title_size', function(){
+			_survey.find('.survey_item .item-title').css('font-size', <%== SurveyTheme::ITEM_TITLE_FONT_SIZES.to_json %>[$(this).val()-1])
+		})
+
+		//title:
+		$(document).on('change', '#survey_theme_survey_title_size', function(){
+			_survey.find('#title').css('font-size', <%== SurveyTheme::SURVEY_TITLE_FONT_SIZES.to_json %>[$(this).val()-1])
+		})
 		$(document).on('change', '#survey_theme_survey_title_bg_color', function(){
 			_survey.find('h2#title').css('background-color', $(this).val())
 		})
 		$(document).on('change', '#survey_theme_survey_title_txt_color', function(){
-			_survey.find('h2#title').css('color', $(this).val())
+			_survey.find('#title').css('color', $(this).val())
+		})
+		$(document).on('change', '#survey_theme_survey_title_font_b', function(){
+			if($(this).is(':checked'))
+				_survey.find('#title').css('font-weight', 'bold')
+			else
+				_survey.find('#title').css('font-weight', 'normal')
 		})
 
+		$(document).on('change', '#survey_theme_survey_title_font_i', function(){
+			if($(this).is(':checked'))
+				_survey.find('#title').css('font-style', 'italic')
+			else
+				_survey.find('#title').css('font-style', 'normal')
+		})
 
-		$('#theme-editor input').change()
+		$(document).on('change', '#survey_theme_survey_title_font_u', function(){
+			if($(this).is(':checked'))
+				_survey.find('#title').css('text-decoration', 'underline')
+			else
+				_survey.find('#title').css('text-decoration', 'none')
+		})
+
+		$('#theme-editor input, #theme-editor select').change()
 	})
 	
 
