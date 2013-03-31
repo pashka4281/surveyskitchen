@@ -38,6 +38,24 @@
 			responses_count = gdpData[code] || 0;
 			el.html(el.html()+' (Ответов: '+responses_count+')');
 		}
+		,regionStyle:{
+		  initial: {
+		    fill: 'white',
+		    "fill-opacity": 1,
+		    stroke: 'none',
+		    "stroke-width": 0,
+		    "stroke-opacity": 1
+		  },
+		  hover: {
+		    "fill-opacity": 0.8
+		  },
+		  selected: {
+		    fill: 'yellow'
+		  },
+		  selectedHover: {
+		  }
+		}
+		,backgroundColor: "#ffbd73"
 	});
 
 </script>

@@ -79,7 +79,9 @@ body{
 	font-size: 14px;
 	position: relative;
 	min-width: 920px;
-
+}
+*::selection{
+	background: #a8d1ff;
 }
 
 #home-link{
