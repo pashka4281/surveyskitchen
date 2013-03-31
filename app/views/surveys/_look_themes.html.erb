@@ -9,9 +9,7 @@
 		<div class="vertical_accordion">
 			<div class="tab active">
 				<div class="handle">
-					<label>
-						<%= t('themes.form.survey_common') %>
-					</label>
+					<label><%= t('themes.form.survey_common') %></label>
 				</div>
 				<div class="tab-content">
 					<%= f.inputs :bg, id: 'survey_common', class: 'fields' do %>
@@ -23,64 +21,74 @@
 			</div>
 			<div class="tab">
 				<div class="handle">
-					<label>
-						<%= t('themes.form.survey_header') %>
-					</label>
+					<label><%= t('themes.form.survey_header') %></label>
 				</div>
 				<div class="tab-content">
 					<%= f.inputs :survey_header, id: 'survey_header', class: 'fields' do %>
-						<%= f.input :survey_title_txt_color, input_html:{class: 'color_input'}, label: t('themes.form.survey_title_txt_color') %>
-						<%= f.input :survey_title_bg_color, input_html:{class: 'color_input'}, label: t('themes.form.survey_title_bg_color') %>
-						<%= f.input :survey_title_font_name, label: t('themes.form.survey_title_font_name') %>
-						<%= f.input :survey_title_size, label: t('themes.form.survey_title_size'), as: :select, collection: (1..5).to_a, include_blank: false %>
-						<%= f.input :survey_title_font_b, label: raw(t('themes.form.survey_title_font_b')) %>
-						<%= f.input :survey_title_font_i, label: raw(t('themes.form.survey_title_font_i')) %>
-						<%= f.input :survey_title_font_u, label: raw(t('themes.form.survey_title_font_u')) %>
+					<div class="row">
+						<div class="column half-width">
+							<%= f.input :survey_title_txt_color, input_html:{class: 'color_input'}, label: t('themes.form.survey_title_txt_color') %>
+							<%= f.input :survey_title_bg_color, input_html:{class: 'color_input'}, label: t('themes.form.survey_title_bg_color') %>
+							<%= f.input :survey_title_font_name, label: t('themes.form.survey_title_font_name') %>
+							<%= f.input :survey_title_size, label: t('themes.form.survey_title_size'), as: :select, collection: (1..5).to_a, include_blank: false %>
+						</div>
+						<div class="column half-width">
+							<%= f.input :survey_title_font_b, label: raw(t('themes.form.survey_title_font_b')) %>
+							<%= f.input :survey_title_font_i, label: raw(t('themes.form.survey_title_font_i')) %>
+							<%= f.input :survey_title_font_u, label: raw(t('themes.form.survey_title_font_u')) %>
+						</div>
+					</div>
 					<% end %>
 				</div>
 			</div>
 			<div class="tab">
 				<div class="handle">
-					<label>
-						<%= t('themes.form.item_header') %>
-					</label>
+					<label><%= t('themes.form.item_header') %></label>
 				</div>
 				<div class="tab-content">
 					<%= f.inputs :item_header, id: 'item_header', class: 'fields' do %>
+					<div class="row">
+						<div class="column half-width">
 						<%= f.input :item_title_txt_color, input_html:{class: 'color_input'}, label: t('themes.form.item_title_txt_color') %>
 						<%= f.input :item_title_font_name, label: t('themes.form.item_title_font_name') %>
 						<%= f.input :item_title_size, label: t('themes.form.item_title_size'), as: :select, collection: (1..5).to_a, include_blank: false  %>
+						</div>
+						<div class="column half-width">
 						<%= f.input :item_title_font_b, label: raw(t('themes.form.item_title_font_b')) %>
 						<%= f.input :item_title_font_i, label: raw(t('themes.form.item_title_font_i')) %>
 						<%= f.input :item_title_font_u, label: raw(t('themes.form.item_title_font_u')) %>
+					</div>
 					<% end %>
 				</div>
 			</div>
 				<div class="tab">
 				<div class="handle">
-					<label>
-						<%= t('themes.form.item_inner') %>
-					</label>
+					<label><%= t('themes.form.item_inner') %></label>
 				</div>
 				<div class="tab-content">
 					<%= f.inputs :item_inner, id: 'item_inner', class: 'fields' do %>
+					<div class="row">
+						<div class="column half-width">
 						<%= f.input :item_inner_txt_color, input_html:{class: 'color_input'}, label: t('themes.form.item_inner_txt_color') %>
 						<%= f.input :item_inner_font_name, label: t('themes.form.item_inner_font_name') %>
 						<%= f.input :item_inner_size, label: t('themes.form.item_inner_size'), as: :select, collection: (1..5).to_a, include_blank: false  %>
+						</div>
+						<div class="column half-width">
 						<%= f.input :item_inner_font_b, label: raw(t('themes.form.item_inner_font_b')) %>
 						<%= f.input :item_inner_font_i, label: raw(t('themes.form.item_inner_font_i')) %>
 						<%= f.input :item_inner_font_u, label: raw(t('themes.form.item_inner_font_u')) %>
+					</div>
 					<% end %>
 				</div>
 			</div>
 		</div>
 
-
-		<%= f.submit %>
+		<%= f.submit class: 'btn success' %>
 	</div>
 
-	
 <% end %>
+
+<h4 class="section_title"><%= t('themes.form.preview_title') %></h4>
 
 <div id="theme-preview" class="sk-survey">
 	<h2 id="title"><%= @example_survey.name %></h2>
@@ -108,9 +116,12 @@
 
 <style type="text/css">
 	.vertical_accordion .tab-content{
-		min-height: 175px;
+		min-height: 126px;
 		label b{ font-weight: bold; }
 		b{ font-weight: bold; }
+	}
+	form input[type="submit"]{
+		margin-top: 20px;
 	}
 </style>
 

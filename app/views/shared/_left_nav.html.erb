@@ -1,7 +1,7 @@
 <ul>
-	<%=content_tag :li, class: (request.path =~ /\A\/(surveys)(\/)?\z/ ? 'active' : '')  do -%>
-        <%= link_to raw("<i class=\"icon-edit-1\"></i> #{t('layout.surveys')} (#{current_account.surveys.count})"), :surveys %>
-    <%-end-%>
+	<%=content_tag :li, class: (request.path =~ /\A\/(dashboard)(\/)?\z/ ? 'active' : '')  do -%>
+		<%= link_to raw('<i class="icon-home"></i> ' + t("layout.dashboard_link")), :dashboard %>
+	<%-end-%>
     <%=content_tag :li, class: (request.path =~ /\A\/(clients)(\/)?\z/ ? 'active' : '')  do -%>
         <%= link_to raw("<i class=\"icon-users-1\"></i> #{t('layout.clients')} (#{current_account.clients.count})"), :clients %>
     <%-end-%>

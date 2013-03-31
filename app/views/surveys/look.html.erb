@@ -6,10 +6,10 @@
 <div class="section-container tabs">
 	<div class="sections">
 		<div class="section <% if params[:page] == 'logo'%>active<% end %>">
-			<p class="title"><a href="?page=logo">Logo</a></p>
+			<p class="title"><a href="?page=logo"><%= t('surveys.look.logo') %></a></p>
 		</div>
 		<div class="section <% if params[:page] == 'themes'%>active<% end %>">
-			<p class="title"><a href="?page=themes">Custom themes</a></p>
+			<p class="title"><a href="?page=themes"><%= t('surveys.look.custom_theme') %></a></p>
 		</div>
 	</div>
 

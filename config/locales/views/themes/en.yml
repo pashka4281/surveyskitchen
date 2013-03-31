@@ -1,6 +1,7 @@
 en:
   themes:
     form:
+      preview_title: "Preview:"
       default_survey_name: "New Theme"
       common: "Common settings"
       theme_name: "Theme Name:"

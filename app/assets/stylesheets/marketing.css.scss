@@ -1,10 +1,28 @@
-//@import url(http://fonts.googleapis.com/css?family=Galindo|Marcellus|Sanchez:400italic,400);
-@import "scopes/reset.css.scss";
-@import "scopes/navbar.css.scss";
+// marketing app stylesheet
+//=require scopes/reset
+//=require scopes/navbar
+//
+
 @import url(http://fonts.googleapis.com/css?family=Forum&subset=latin,cyrillic);
 
-.marketing-body{
-	background-image: url(/images/bg-image.png)
+@mixin vertical_gradient($from, $to){
+	background-image: -webkit-gradient(linear,center top,center bottom,color-stop(0%,$from),color-stop(100%,$to));
+	background-image: -webkit-linear-gradient($from 0,$to 100%);
+	background-image: -moz-linear-gradient($from 0,$to 100%);
+	background-image: -o-linear-gradient($from 0,$to 100%);
+	background-image: -ms-linear-gradient($from 0,$to 100%);
+	background-image: linear-gradient($from 0,$to 100%);
+	background-image: linear-gradient($from 0, $to 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr="$from",endColorstr="$to");
+	background: -ms-linear-gradient(top,$from,$to);
+}
+
+@mixin border_radius($radius){
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
 }
 
 .container-marketing{
@@ -17,7 +35,7 @@
 	margin: 25px auto;
 	width: 920px;
 	font-size: 34px;
-	color: rgb(87, 87, 87);
+	color: #ff2c00;
 	text-shadow: 1px 1px rgb(255, 255, 255);
 	font-family: 'Marcellus', serif;
 	border-top: 1px solid rgba(0,0,0,0.15);
@@ -27,13 +45,7 @@
 	box-shadow: 0px 1px 0px 0px white, inset 0px 1px 0px 0px white;
 	padding: 7px 0;
 
-	//font-family: 'Bad Script', cursive;
-	//font-family: 'Tenor Sans', sans-serif;
-	//font-family: 'Oranienbaum', serif;
-	//font-family: 'Open Sans Condensed', sans-serif;
 	font-family: 'Forum', cursive;
-	//font-family: 'Marmelad', sans-serif;
-
 	small{ display: inline-block; font-size: 20px }
 }
 
@@ -53,17 +65,13 @@
 		display: inline;
 		float: left;
 	}
-	h3{ margin-bottom: 15px; margin-top: 15px; font-weight: 700 }
-	h2{ margin-bottom: 15px; font-size: 28px; color: rgb(170, 114, 100); text-align: center; }
+	h3{ margin-bottom: 15px; margin-top: 15px; color: #ff8100; font-weight: 700 }
+	h2{ margin-bottom: 15px; font-size: 28px; color: #ff8100; text-align: center; }
 	.info-block{
 		h4{ font-weight: bold; color: rgb(47, 58, 116);margin-top: 7px; }
 	}
 	img.pretty{
-		-webkit-border-radius: 0.3em;
-		-moz-border-radius: 0.3em;
-		-ms-border-radius: 0.3em;
-		-o-border-radius: 0.3em;
-		border-radius: 0.3em;
+		@include border_radius(0.3em);
 		-webkit-box-shadow: rgba(0,0,0,0.65) 0 1px 4px;
 		-moz-box-shadow: rgba(0,0,0,0.65) 0 1px 4px;
 		box-shadow: rgba(0,0,0,0.65) 0 1px 4px;
@@ -83,20 +91,31 @@
 }
 
 .signup-btn{
-	font-size: 18px;
-	padding: 4px 7px;
-	color: white;
+	cursor: pointer;
+	font-family: "Helvetica",Arial,sans-serif;
+	font-weight: normal;
+	font-size: 16px;
+	padding: 12px;
+	color: #fff;
+
+	border: 1px solid #ff6700;
+	border-bottom-color: #623f23;
+	box-shadow: 0 2px 2px #cccaca,inset 0 1px 0 #e5e4e4;
+	text-shadow: 0 -1px 0 rgba(255,255,255,0.1);
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
 	text-decoration: none;
-	border-radius: 7px;
-	background-color: rgb(255, 61, 61);
-	border: 2px solid rgb(255, 176, 176);
-	font-family: "Open Sans", sans-serif;
-	text-transform: uppercase;
-	font-weight: bold;
-	text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
-	margin-right: 15px;
+
+	@include vertical_gradient(#ff8d40, #ff6700);
+	@include border_radius(5px);
 	sup{font-size: 11px;}
-	&:hover{ background-color: rgb(172, 22, 22); border: 2px solid #F34848; }
+	&:hover{ 
+		color: #fff;
+		@include vertical_gradient(#ff8d40, #a64300);
+		box-shadow: 0 2px 2px #cccaca,inset 0 1px 0 #e5e4e4;
+		text-shadow: 0 -1px 0 rgba(255,255,255,0.1);
+	}
 	&:visited{ color: white !important; }
 }
 
@@ -105,22 +124,36 @@
 	height: 430px;
 	display: block;
 	margin: 0 auto;
-	width: 800px;
+	width: 895px;
 	.plan-block{
 		text-align: center;
 		padding: 7px;
 		float: left;
-		width: 184px;
-		margin: 25px 5px 10px 5px;
+		width: 215px;
+		margin: 25px 3px 10px 3px;
 		border: 2px solid #ccc;
 		background-color: rgb(247, 247, 247);
 		height: 380px;
+		position: relative;
+		button{ 
+			font-family: "Open Sans", sans-serif;
+			&:disabled{ opacity: 0.5; }
+		}
 		&.popular{
 			height: 410px;
-			margin: 10px 10px 10px 10px;
+			margin: 10px 3px 10px 3px;
 			border: 2px solid rgb(122, 151, 126);
-			background-color: rgb(220, 255, 213);
+			background-color: #ffff93;
+			.start-btn{ bottom: 20px;}
 		}
+		h3{font-size: 19px;}
+		ul{
+			margin-top: 5px;
+			li{
+				border-bottom: 1px solid #ccc;
+			}
+		}
+		.price{ font-weight: bold; }
 		.start-btn{
 			text-decoration: none;
 			color: rgb(255, 255, 255);
@@ -130,7 +163,11 @@
 			display: inline-block;
 			font-weight: 700;
 			border: 2px solid rgb(106, 154, 240);
-			&:hover{
+			position: absolute;
+			bottom: 5px;
+			width: 150px;
+			margin-left: -75px;
+			&:hover:not(:disabled){
 				background-color: rgb(124, 176, 211);
 				border: 2px solid rgb(47, 121, 255);
 			}
@@ -148,19 +185,13 @@
 .login-box{
 	background-color: #fff;
 	padding: 20px 20px 16px 20px;
-	-webkit-border-radius: 6px;
-	-moz-boder-radius: 6px;
-	border-radius: 6px;
-	-webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.18);
-	-moz-box-shadow: 0 2px 6px rgba(0,0,0,.18);
-	box-shadow: 0 2px 6px rgba(0,0,0,0.18);
-	background: linear-gradient(top,#FFF,#F5F5F5);
-	background: -o-linear-gradient(top,#FFF,#F5F5F5);
-	background: -moz-linear-gradient(top,#FFF,#F5F5F5);
-	background: -webkit-linear-gradient(top,#FFF,#F5F5F5);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF',endColorstr='#F5F5F5',GradientType=0);
-	background: -ms-linear-gradient(top,#FFF,#F5F5F5);
-
+	@include border_radius(6px);
+	-webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.65);
+	-moz-box-shadow: 0 2px 6px rgba(0,0,0,.65);
+	box-shadow: 0 2px 6px rgba(0,0,0,0.65);
+	@include vertical_gradient(#FFF, #F5F5F5);
+	
+	margin-bottom: 100px;
 	form{
 		input[type="text"], select, textarea, input[type="password"]{
 			outline: none;
@@ -217,6 +248,18 @@
 			padding-left: 22px;
 			list-style-type: disc;
 		}
+	}
+}
+
+footer{
+	padding: 20px;
+	background-color: #a63e00;
+	color: #fff;
+	min-height: 150px;
+	margin-top: 20px;
+	h2{ margin-bottom: 10px; }
+	a{
+		color: #fff !important;
 	}
 }
 

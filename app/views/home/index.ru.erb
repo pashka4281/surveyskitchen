@@ -1,6 +1,3 @@
-<%= content_for :css do %>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=cyrillic' rel='stylesheet' type='text/css'>
-<% end %>
 
 <%= content_for :head do %>
 	<meta property="og:image" content="http://www.surveyskitchen.com/images/marketing/fb-share-img.png">
@@ -41,8 +38,8 @@
 				<p>
 					Мы создали простой, но в то же время удобный конструктор опросов.
 					Он рассчитан на одинаково удобную работу как с большими опросами, содержащими десятки вопросов,
-					так и с маленькими, в которых всего несколько вопросов. Конструктор опросов одинаково удобен 
-					для работы с вашего домашнего компьютера и с мобильного телефона или планшета.
+					так и с маленькими, в которых всего несколько вопросов. <!-- Конструктор опросов одинаково удобен 
+					для работы с вашего домашнего компьютера и с мобильного телефона или планшета. -->
 				</p>
 				<%= link_to "Узнать больше о конструкторе опросов", '#' %> 
 			</li>
@@ -113,48 +110,3 @@
 
 		<%= link_to "Создать опрос бесплатно", :register, class: 'signup-btn' %>
 	</div>
-
-
-	<div class="marketing-section">
-		<h2>Оставайтесь на связи</h2>
-		<div class="social-links">
-			<div class="fb-like" data-send="true" data-layout="button_count" data-width="200" data-show-faces="false" data-font="tahoma"></div>
-			<div><a href="https://twitter.com/share" class="twitter-share-button" data-text="SurveysKitchen: бесплатный онлайн сервис для создания профессиональных опросов, сбора и анализа результатов">Tweet</a></div>
-			<div class="vk">
-				<script type="text/javascript">
-					document.write(VK.Share.button(false,{type: "round", text: "Save to Vkontakte"}));
-				</script>
-			</div>
-			<div><div class="g-plusone" data-size="medium" data-annotation="buble" data-href="http://www.surveyskitchen.com/ru"></div></div>
-		</div>
-		
-		
-		<div>Следите за обновлениями на <%= link_to "официальной станице SurveysKitchen в Facebook", 'http://www.facebook.com/surveyskitchen' %></div>
-	</div>
-
-
-
-
-<%= content_for :js do %>
-<div id="fb-root"></div>
-  <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=471767956202786";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  <script type="text/javascript">
-    document.getElementById('vk_share_button').innerHTML = VK.Share.button('http://www.surveyskitchen.com', {type: 'link'});
-  </script>
-
-  <script type="text/javascript">
-    (function() {
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-  </script>
-<% end %>

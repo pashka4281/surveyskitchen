@@ -71,34 +71,28 @@ and (max-device-width : 1024px) {
 
 body{ 
 	//background: url(/images/bg-image.png);
-	background-color: rgb(235, 235, 235);
 	padding: 0;
 	margin: 0;
 	//height: 100%;
-	font-family: proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: sans-serif;//proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	//width: 100%;
 	font-size: 14px;
 	position: relative;
 	min-width: 920px;
-	&::after{
-		content: ".";
-		display: block;
-		height: 0;
-		visibility: hidden;
-		clear: both;
-	}
+
 }
 
 #home-link{
 	display: inline-block;
-	width: 172px;
+	//width: 172px;
 	margin: 0 auto;
 	position: absolute;
 	left: 20px;
-	top: 7px;
-	height: 45px;
-	background: url(/images/logo-sk.png) no-repeat 0 center;
-	text-indent: -9999px;
+	top: 30px;
+	font-family: 'Special Elite', cursive;
+	color: #FFE;
+	font-size: 30px;
+	text-decoration: none;
 }
 
 .left{ float: left; }
@@ -190,3 +184,4 @@ h2{ font-size: 1.9em;}
 h3{ font-size: 1.5em; margin-bottom: 15px;}
 h4{ font-size: 1.15em;}
 h5{ font-size: 0.9em;}
+

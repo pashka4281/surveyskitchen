@@ -1,5 +1,39 @@
 class SurveyTheme < ActiveRecord::Base
-  attr_accessible 	:account_id, :name, :survey_bg_color, :survey_title_font_b, :survey_title_font_i,
+
+	class << self
+	    def custom_field_accessor(*args)
+	      custom_field_reader(*args)
+	      custom_field_writer(*args)
+	    end
+	    
+	    def custom_field_reader(*args)
+	      args.each do |arg|
+	        define_method(arg) do
+	          get_custom_field_value(arg)
+	        end
+	      end
+	    end
+	    
+	    def custom_field_writer(*args)
+	      args.each do |arg|
+	        define_method(arg.to_s + '=') do |val|
+	          set_custom_field(arg, val)
+	        end
+	      end
+	    end
+	end
+
+	attr_accessible :account_id, :name, :survey_bg_color, :survey_title_font_b, :survey_title_font_i,
+					:survey_title_font_u, :survey_title_txt_color, :survey_title_bg_color, :item_title_font_b,
+					:item_title_font_i, :item_title_font_u, :item_title_txt_color, :item_bg_color, :item_inner_font_b,
+					:item_inner_font_i, :item_inner_font_u, :item_inner_txt_color, :inner_grid_border_color,
+					:highlighted_area_color, :survey_title_font_name, :item_title_font_name, :item_inner_font_name,
+					:survey_title_size, :item_title_size, :item_inner_size
+					
+	default_value_for :content, {}
+	serialize :content, Hash
+
+	custom_field_accessor :survey_bg_color, :survey_title_font_b, :survey_title_font_i,
 					:survey_title_font_u, :survey_title_txt_color, :survey_title_bg_color, :item_title_font_b,
 					:item_title_font_i, :item_title_font_u, :item_title_txt_color, :item_bg_color, :item_inner_font_b,
 					:item_inner_font_i, :item_inner_font_u, :item_inner_txt_color, :inner_grid_border_color,
@@ -43,5 +77,18 @@ class SurveyTheme < ActiveRecord::Base
 				background-color: ##{self.highlighted_area_color};
 			}
 		EOSTR
+	end
+
+
+
+	
+	def set_custom_field(field_name, value)
+		self.content = self.content.merge({field_name => value})
+	end
+
+	def get_custom_field_value(field_name)
+		p field_name
+		p self.content
+		self.content[field_name]
 	end
 end

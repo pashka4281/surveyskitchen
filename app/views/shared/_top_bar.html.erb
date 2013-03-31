@@ -1,7 +1,7 @@
 <div id="navbar">
   <!-- <a class="brand" href="/dashboard">SurveysKitchen</a> -->
   <div class="content">
-    <%= link_to  "SurveysKitchen dashboard", "/dashboard", id: 'home-link'%>
+    <%= link_to  "SurveysKitchen", "/dashboard", id: 'home-link'%>
 
     <ul class="simple-nav right">
       <li><%= link_to t("layout.account_link"), :account_info %></li>
@@ -11,17 +11,15 @@
       <li><a href="/logout"><%= t("layout.log_out_link") %></a></li>
     </ul>
 
-    <div class="nav-wrapper right">
-      <ul class="nav left">
-        <%=content_tag :li, class: (request.path =~ /\A\/(dashboard)(\/)?\z/ ? 'active' : '')  do -%>
-          <%= link_to raw('<i class="icon-home"></i> ' + t("layout.dashboard_link")), :dashboard %>
-        <%-end-%>
-        <%=content_tag :li, class: (request.path =~ /\A\/(surveys\/new)(\/)?\z/ ? 'active' : '')  do -%>
-          <%= link_to raw('<i class="icon-plus-circle"></i> ' + t("layout.add_survey_link")), :new_survey %>
-        <%-end-%>
-        <%= content_tag(:li){ link_to(raw('<i class="icon-wrench"></i> Admin'), :rails_admin) } if current_user.admin? %>
-      </ul>
-    </div>
+    <ul id="main-nav" class="right">
+      <%=content_tag :li, class: (request.path =~ /\A\/(surveys)(\/)?\z/ ? 'active' : '')  do -%>
+        <%= link_to raw("<i class=\"icon-edit-1\"></i> #{t('layout.surveys')} (#{current_account.surveys.count})"), :surveys %>
+      <%-end-%>
+      <%=content_tag :li, class: (request.path =~ /\A\/(surveys\/new)(\/)?\z/ ? 'active' : '')  do -%>
+        <%= link_to raw('<i class="icon-plus-circle"></i> ' + t("layout.add_survey_link")), :new_survey %>
+      <%-end-%>
+      <%= content_tag(:li){ link_to(raw('<i class="icon-wrench"></i> Admin'), :rails_admin) } if current_user.admin? %>
+    </ul>
 
   </div>
 </div>

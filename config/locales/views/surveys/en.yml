@@ -19,6 +19,8 @@ en:
     look:
       title: "<b>%{name}</b> -- Look and feel"
       back_to_builder: "Back to builder"
+      custom_theme: "Create custom theme"
+      logo: "Logo settings"
 
     report:
       title: "<b>%{name}</b> -- Report"

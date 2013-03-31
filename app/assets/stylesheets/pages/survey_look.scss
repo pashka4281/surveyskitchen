@@ -62,11 +62,13 @@
 		input{ width: 300px;}
 	}
 }
-
+h4.section_title{
+	margin-top: 25px;
+}
 #theme-preview{
 	height: 290px;
 	border: 1px solid #000;
-	margin-top: 25px;
+	margin-top: 5px;
 	.submit-wrapper{
 		text-align: center;
 	}

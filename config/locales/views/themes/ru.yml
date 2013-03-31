@@ -1,6 +1,7 @@
 ru:
   themes:
     form:
+      preview_title: "Предварительный просмотр:"
       default_survey_name: "Новая Тема"
       common: "Общие параметры"
       theme_name: "Название Темы:"

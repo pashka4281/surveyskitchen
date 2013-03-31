@@ -19,6 +19,8 @@ ru:
     look:
       title: "<b>%{name}</b> -- Настройки внешнего вида"
       back_to_builder: "Вернуться к конструктору"
+      custom_theme: "Создать тему"
+      logo: "Настройки логотипа"
     
     report:
       title: "<b>%{name}</b> -- Отчет"

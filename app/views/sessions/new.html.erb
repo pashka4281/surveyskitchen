@@ -17,13 +17,10 @@
 					<br />
 					<%= submit_tag t('sessions.new.submit'), class: 'btn success' %>
 				<% end %>
-
-
 			</div>
 			<div class="column half-width providers">
 				<h3><%= t('sessions.new.sign_in_providers') %></h3>
-					<!--
-				-->
+
 					<%= link_to "/auth/facebook", class: 'btn' do %>
 						<img src="/images/icons/facebook.png" style="vertical-align:middle">
 						<%= t('sessions.new.sign_in_with', provider: "Facebook") %>
@@ -41,6 +38,6 @@
 
 		<div class="sign-in-description"><%= raw t('sessions.new.additional_links') %></div>
 	</div>
-<div>
+</div>
 
 
