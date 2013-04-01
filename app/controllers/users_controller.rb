@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
 		if @user.save
+			UserMailer.welcome_email(@user).deliver
 			session[:user_id] = @user.id
 			redirect_to :dashboard, notice: I18n.t('layout.user_created_message')
 		else

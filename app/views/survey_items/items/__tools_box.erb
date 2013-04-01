@@ -1,14 +1,14 @@
 <div class="item_tools">
-    <button class="item-copy-link btn">
+    <button class="item-copy-link btn small">
     	<i class="icon-docs"></i> <%= t 'surveys.builder.copy' %>
     </button>
-    <button class="item-move-link btn">
+    <button class="item-move-link btn small">
     	<i class="icon-move"></i> <%= t 'surveys.builder.move' %>
     </button>
-    <button class="item-edit-link btn" data-url="<%= edit_survey_item_path(@survey, item) %>">
+    <button class="item-edit-link btn small" data-url="<%= edit_survey_item_path(@survey, item) %>">
     	<i class="icon-pencil"></i> <%= t 'surveys.builder.edit' %>
     </button>
-    <button class="deleteLnk btn-danger btn">
+    <button class="deleteLnk btn-danger btn small">
     	<i class="icon-trash"></i> <%= t 'surveys.builder.remove' %>
     </button>
 </div>

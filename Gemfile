@@ -22,6 +22,10 @@ gem 'rcsv'
 gem 'formtastic'
 gem 'newrelic_rpm'
 gem 'default_value_for'
+
+# gem 'resque', :require => 'resque/server'
+# gem 'resque_mailer'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
