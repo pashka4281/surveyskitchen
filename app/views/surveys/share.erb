@@ -3,17 +3,24 @@
 <div id="share-link-block" class="share-block">
   <h3>1. <%= t('surveys.share.link')%></h3>
    <div class="left-padder">
-    <div class="status active"></div>
+    <div class="status <%== 'active' if @survey.share_link %>"></div>
     <div class="row">
       <div class="column half-width share-description">
         <%= t('surveys.share.link_content')%> <br>
         <!-- <button class="btn small"><%= t('surveys.share.activate_link')%></button> -->
-        <button class="btn small"><%= t('surveys.share.settings_link')%></button>
+        <% if @survey.share_link %>
+          <button class="btn small"><%= t('surveys.share.settings_link')%></button>
+        <% end %>
       </div>
       <div class="column half-width">
-        <div class=" survey-share-block">
-          <%= APP_HOST + s_show_survey_path(token: @survey.token) %>
-        </div>
+        <% if @survey.share_link %>
+          <div class=" survey-share-block">
+            <%= APP_HOST + s_show_survey_path(token: @survey.share_link.url_suffix) %>
+          </div>
+        <% else %>
+          <%= t('surveys.share.link_inactive')%><br>
+          <%= link_to t('surveys.share.activate_link'), new_share_path(type: 'link', survey_id: @survey.id), :class => "btn small" %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -22,62 +29,83 @@
 <div id="share-js-block" class="share-block">
   <h3>2. <%= t('surveys.share.embed')%></h3>
    <div class="left-padder">
-    <div class="status"></div>
+    <div class="status <%== 'active' if @survey.share_embed %>"></div>
     <div class="row">
       <div class="column half-width share-description">
-        <%= t('surveys.share.embed_content')%><br>
-        <button class="btn small"><%= t('surveys.share.activate_embed')%></button>
-        <button class="btn small"><%= t('surveys.share.settings_embed')%></button>
+        <%= t('surveys.share.embed_content')%>
+        <% if @survey.share_embed %>
+          <br><button class="btn small"><%= t('surveys.share.settings_embed')%></button>
+        <% end %>
       </div>
       <div class="column half-width" class="share-block">
-        <div class="survey-share-block" class="share-block">
-          <%= "<iframe id=\"sk_survey_#{@survey.token}_embed\" style=\"height: 500px; width: 460px; border: 1px solid rgb(204, 204, 204);\" 
-      frameborder=\"0\" src=\"#{APP_HOST}/s/#{@survey.token}\"></iframe>" %>
-        </div>
+        <% if @survey.share_embed %>
+          <div class="survey-share-block" class="share-block">
+            <%= "<iframe id=\"sk_survey_#{@survey.share_embed.token}_embed\" style=\"height: 500px; width: 460px; border: 1px solid rgb(204, 204, 204);\" 
+        frameborder=\"0\" src=\"#{APP_HOST}/s/#{@survey.share_embed.token}\"></iframe>" %>
+          </div>
+        <% else %>
+          <%= t('surveys.share.embed_inactive')%><br>
+          <button class="btn small"><%= t('surveys.share.activate_embed')%></button>
+        <% end %>
       </div>
     </div>
   </div>
   
-</div>
-
-<div id="invite-block" class="share-block">
-  <h3>3. <%= t('surveys.share.invite')%></h3>
-   <div class="left-padder">
-    <div class="status"></div>
-    <div class="row">
-      <div class="column half-width share-description">
-        <%= t('surveys.share.invite_content')%><br>
-        <button class="btn small"><%= t('surveys.share.activate_invite')%></button>
-        <button class="btn small"><%= t('surveys.share.settings_invite')%></button>
-      </div>
-      <div class="column half-width" class="share-block">
-        <div class="survey-share-block" class="share-block">
-          <%= "<script src=\"#{APP_HOST}/invite_button/#{@survey.token}\".js></script>" %>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <div id="email-block" class="share-block">
-  <h3>4. <%= t('surveys.share.email')%></h3>
+  <h3>3. <%= t('surveys.share.email')%></h3>
   <div class="left-padder">
-    <div class="status"></div>
+    <div class="status <%== 'active' if @survey.share_email %>"></div>
     <div class="row">
       <div class="column half-width share-description">
-        <%= t('surveys.share.email_content')%><br>
-        <button class="btn small"><%= t('surveys.share.activate_email')%></button>
-        <button class="btn small"><%= t('surveys.share.settings_email')%></button>
-        <button class="btn small"><%= t('surveys.share.email_create')%></button>
+        <%= t('surveys.share.email_content')%>
+        <% if @survey.share_email %>
+          <br><button class="btn small"><%= t('surveys.share.settings_email')%></button>
+        <% end %>
+      </div>
+      <div class="column half-width">
+        <% if @survey.share_email %>
+          <button class="btn small"><%= t('surveys.share.deactivate_email')%></button>
+        <% else %>
+          <%= t('surveys.share.email_inactive')%><br>
+          <%= link_to t('surveys.share.email_create'), new_share_path(type: 'email', survey_id: @survey.id), :class => "btn small" %>
+          <!-- <button class="btn small"><%= t('surveys.share.activate_email')%></button> -->
+        <% end %>
       </div>
       
     </div>
-  </div>
-  
+  </div>  
 </div>
 
+<div id="invite-block" class="share-block">
+  <h3>4. <%= t('surveys.share.invite')%></h3>
+   <div class="left-padder">
+    <div class="status <%== 'active' if @survey.share_email %>"></div>
+    <div class="row">
+      <div class="column half-width share-description">
+        <%= t('surveys.share.invite_content')%><br>
+
+        <button class="btn small"><%= t('surveys.share.settings_invite')%></button>
+      </div>
+      <div class="column half-width" class="share-block">
+        <% if @survey.share_link %>
+          <div class="survey-share-block" class="share-block">
+            <%= "<script src=\"#{APP_HOST}/invite_button/#{@survey.share_link.token}\".js></script>" %>
+          </div>
+        <% else %>
+          <%= t('surveys.share.invite_inactive')%><br>
+          <button class="btn small"><%= t('surveys.share.activate_invite')%></button>
+        <% end %>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div id="social-block" class="share-block">
-  <h3>4. <%= t('surveys.share.social')%></h3>
+  <h3>5. <%= t('surveys.share.social')%></h3>
    <div class="left-padder">
     <div class="status"></div>
     <div class="row">

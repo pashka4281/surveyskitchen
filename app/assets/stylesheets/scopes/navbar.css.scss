@@ -29,18 +29,20 @@
 		margin-right: 30px;
 		li{
 			float: left;
+			border-top-right-radius: 10px;
+			border-top-left-radius: 10px;
+			padding: 17px 7px 0px 7px;
+			margin-left: 5px;
 			&.active{
 				background-color: #fff;
-				border-top-right-radius: 10px;
-				border-top-left-radius: 10px;
 				a{ color: #D65000; }
 			}
-			a{margin-top: 9px;
+			&:hover:not(.active){ background-color: #FF9F66; }
+			a{	
 				text-decoration: none;
 				color: #fff;
-				height: 50px;
+				height: 33px;
 				display: block;
-				padding: 8px;
 				font-weight: 700;
 			}
 		}

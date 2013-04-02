@@ -108,7 +108,7 @@ class this.Survey
 				@close_modals()
 			false
 
-		$('#new-item-btn').click =>
+		$('.new-item-btn').click =>
 			$('#doneNewItemBtn').attr('disabled', true)
 			@new_item_modal()
 		

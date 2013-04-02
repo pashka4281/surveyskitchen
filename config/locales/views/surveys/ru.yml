@@ -8,7 +8,7 @@ ru:
       create_link: "Создать опрос"
 
       edit_link: "Редакт."
-      share_link: "Share"
+      share_link: "Отправить"
       responses_link: "Ответы"
       report_link: "Отчет"
       delete_link: "Удалить этот опрос"
@@ -56,34 +56,39 @@ ru:
       js_insert_btn: "Вставить сюда"
       js_copy_btn: "Копировать сюда"
       js_move_btn: "Переместить сюда"
-      look_and_feel: "Расширенные настройки внешнего вида"
+      look_and_feel: "Настройки тем/логотипа"
       themes_global: "Темы"
       themes_current: "Мои темы"
       themes_select: "Выбрать цветовую тему:"
       new_item_modal_title: "Новый вопрос"
       trashbox_modal_title: "Удаленные вопросы"
       edit_item_modal_title: "Редактировать вопрос"
+      working_area_1: "Это ваша рабочая область"
+      working_area_2: "Начните создавать опрос с добавления первого вопроса"
 
 
     share:
       title: '<b>%{name}</b> -- Сбор результатов'
       
       link: "Прямая ссылка"
+      link_inactive: "Прямая ссылка не активирована"
       link_content: "Поделитесь ссылкой с вашими респондентами по почте, в чате или социальной сети."
       settings_link: "Настройки прямой ссылки"
-      activate_link: "Активировать прямую ссылку"
+      activate_link: "Активировать сейчас"
       
       embed: "Встроенный опрос"
       embed_content: > 
         Вы можете встроить опрос в страницу вашего сайта или блога.
         Для этого скопируйте приведенный ниже код и разместите его перед закрывающим тегом </body> на вашей странице.
       settings_embed: "Настройки встроенного опроса"
-      activate_embed: "Активировать встроенный опрос"
+      embed_inactive: "Встроенный опрос не активирован"
+      activate_embed: "Активировать сейчас"
 
       invite: "Интерактивное приглашение к опросу"
       invite_content: "Вставьте данный код в HTML разметку своей страницы."
       settings_invite: "Настройки приглашения к опросу"
-      activate_invite: "Активировать интерактивное приглашение"
+      invite_inactive: "Интерактивное приглашение не активировано"
+      activate_invite: "Активировать сейчас"
 
       email: "Email (электронная почта)"
       email_content: > 
@@ -91,7 +96,9 @@ ru:
         Возможны персонализированные письма для респондентов в адресной книге вашей учетной записи.
       settings_email: "Настройки рассылки Email"
       email_create: "Создать новую Email рассылку"
+      email_inactive: "Email рассылка не активирована"
       activate_email: "Активировать Email"
+      deactivate_email: "Деактивировать Email рассылку"
 
       social: "Социальные сети"
       social_content: "Поделитесь приглашением для прохождения опроса в Facebook, Twitter, Google+ и Вконтакте."

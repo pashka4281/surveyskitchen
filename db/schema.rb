@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130330214642) do
+ActiveRecord::Schema.define(:version => 20130402135046) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -115,6 +115,26 @@ ActiveRecord::Schema.define(:version => 20130330214642) do
     t.text     "content"
     t.string   "remote_ip"
     t.datetime "created_at"
+    t.integer  "shareable_id"
+    t.string   "shareable_type"
+    t.datetime "viewed_at"
+  end
+
+  create_table "share_emails", :force => true do |t|
+    t.integer "survey_id"
+    t.text    "text"
+    t.boolean "active"
+  end
+
+  create_table "share_embeds", :force => true do |t|
+    t.integer "survey_id"
+    t.boolean "active"
+  end
+
+  create_table "share_links", :force => true do |t|
+    t.integer "survey_id"
+    t.string  "custom_url"
+    t.boolean "active"
   end
 
   create_table "survey_items", :force => true do |t|
@@ -143,13 +163,15 @@ ActiveRecord::Schema.define(:version => 20130330214642) do
     t.datetime "updated_at"
     t.boolean  "setup_finished",               :default => false
     t.integer  "category_id"
-    t.string   "token"
     t.datetime "created_at"
     t.boolean  "active",                       :default => true
     t.string   "preview_flag",    :limit => 3
     t.integer  "theme_id"
     t.string   "type"
+    t.string   "token"
   end
+
+  add_index "surveys", ["token"], :name => "index_surveys_on_token", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",           :default => "", :null => false

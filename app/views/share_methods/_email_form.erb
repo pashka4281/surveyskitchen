@@ -1,0 +1,9 @@
+<%= 
+	page_header t("share_methods.form_email.title"), 
+	submenu: link_to(t('share_methods.form_common.back_to_share_methods'), share_survey_path(@survey))
+%>
+
+<%= semantic_form_for @share_method, :url => shares_path do |f| %>
+	<%= f.text_area :text %>
+	<%= hidden_field_tag 'survey_id', @survey.id %>
+<% end %>

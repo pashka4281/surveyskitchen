@@ -51,7 +51,7 @@ class SurveyTheme < ActiveRecord::Base
 	after_initialize do
 		return true unless self.new_record?
 		self.name = I18n.t "themes.form.default_survey_name"
-		self.attributes = YAML.load_file(Rails.root.join('config', 'new_theme_defaults.yml'))['attributes']
+		self.attributes = YAML.load_file(Rails.root.join('config', 'defaults', 'new_theme.yml'))['attributes']
 	end
 
 	def item_inner_size

@@ -1,0 +1,10 @@
+en:
+  share_methods:
+    form_link:
+      title: "<b>Активировать метод:</b> прямая ссылка"
+      token: "Automatically generated token in format: XXXXXX"
+      preview: "Пример URL адреса опроса:"
+      custom_url: "Custom url"
+
+    form_email:
+      title: ""

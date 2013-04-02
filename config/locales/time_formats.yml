@@ -1,0 +1,10 @@
+ru:
+  time:
+    formats:
+      short_date_time: '%d %b %k:%M, %Y'
+
+
+en:
+  time:
+    formats:
+      short_date_time: '%b %d, %Y, %k:%M'

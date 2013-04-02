@@ -1,6 +1,8 @@
 <%= content_tag :li, response, class: "response f16", 'data-url' => survey_response_path(@survey, response) do %>
-	<input type="checkbox"></input>
-	<span class="response-date"><%= response.created_at.to_s(:short_date_time)  %></span>
+	<!-- <input type="checkbox"></input> -->
+	<span class="response-date">
+		<%= link_to survey_response_path(@survey, response) do %><%= l response.created_at, :format => :short_date_time %><% end %></span>
+	<!-- <span class="response-date"><%= response.created_at.to_s(:short_date_time)  %></span> -->
 
 	<% if response.agent.device.engine.browser %><span class="icon-browser <%= response.agent.device.engine.browser.type %>"></span><% else %><span class="icon-help"></span><% end %>
 

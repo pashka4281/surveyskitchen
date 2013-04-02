@@ -14,6 +14,11 @@ class Survey < ActiveRecord::Base
   serialize  :items_positions, Array
   default_value_for  :items_positions, []
 
+  #share methods:
+  has_one :share_link
+  has_one :share_embed
+  has_one :share_email
+
   attr_accessor :prefill_items
   
   STEPS = %w(basic_info survey_type builder)
@@ -67,9 +72,9 @@ class Survey < ActiveRecord::Base
     update_attributes(active: !self.active)
   end
   
-  after_create :example_items, :event_on_created
+  after_create :example_items, :event_on_created, :setup_default_share_methods
   after_destroy :event_on_destroyed
-  before_create :generate_token, :assign_theme
+  before_create :assign_theme, :generate_token
 
   private
   
@@ -79,7 +84,16 @@ class Survey < ActiveRecord::Base
   end
 
   def generate_token
-    self.token = rand(20**7).to_s(16)
+    self.token = loop do
+      random_token = rand(20**7).to_s(16) #SecureRandom.urlsafe_base64
+      break random_token unless Survey.where(token: random_token).exists?
+    end
+  end
+
+  def setup_default_share_methods
+    ShareLink.create(survey_id: self.id, active: true)
+    ShareEmbed.create(survey_id: self.id, active: true)
+    # ShareEmail.create(survey_id: self.id)
   end
 
   #create an event that there is a new survey

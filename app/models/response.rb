@@ -2,6 +2,7 @@ class Response < ActiveRecord::Base
   attr_accessible :user_agent_string, :response_data, :remote_ip, :survey, :survey_id
 
   belongs_to :survey
+  belongs_to :shareable, polymorphic: true
   serialize :content
 
   def response_data=(data) #data - survey form data

@@ -30,8 +30,11 @@
 	    
 	        <div id="no-items-area">
 	        	<div id="work-area-texting" class="fifteen columns centered centr-text vspace-big">
-	        		<h3>This is your working area.</h3>
-	        		<h5>Start building survey by inserting items here.</h5>
+	        		<h3><%= t('surveys.builder.working_area_1') %></h3>
+	        		<h5><%= t('surveys.builder.working_area_2') %></h5>
+	        		<button  class="small btn new-item-btn success">
+				    	<i class="icon-list-add"></i> <%= t 'surveys.builder.new_item' %> <br>
+				    </button>
 	        	</div>
 	    	</div>
 	    
@@ -91,7 +94,7 @@
 		<button class="btn btn-primary" id="cancel-btn">
 	    	<i class="icon-cancel"></i> <%= t 'surveys.builder.cancel' %>
 	    </button>
-	    <button  id="new-item-btn" class="btn btn-primary">
+	    <button  id="new-item-btn" class="btn new-item-btn">
 	    	<i class="icon-list-add"></i> <%= t 'surveys.builder.new_item' %> <br>
 	    </button>
 

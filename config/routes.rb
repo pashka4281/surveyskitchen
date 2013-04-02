@@ -21,7 +21,6 @@ Surveyskitchen::Application.routes.draw do
   get 'logout',   to: 'sessions#destroy'
   get :switch_locale, to: 'home#switch_locale'
 
-
   get :theme_preview, to: 'themes#theme_preview'
 
   resources :surveys do
@@ -41,8 +40,8 @@ Surveyskitchen::Application.routes.draw do
   end
 
   namespace :s do
-    get   ':token', to: 'surveys#show', as: :show_survey
-    post  ':token', to: 'surveys#create_result', as: :create_result
+    get  ':token', to: 'surveys#show', as: :show_survey
+    post ':token', to: 'surveys#create_result', as: :create_result
   end
 
   namespace :account do
@@ -51,6 +50,7 @@ Surveyskitchen::Application.routes.draw do
   
   resources :clients
   resources :categories
+  resources :share_methods, :as => :shares, except: [:index]
 
   get 'dashboard' => 'users#dashboard', :as => :dashboard
 
