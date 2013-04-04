@@ -5,6 +5,6 @@ class UserMailer< ActionMailer::Base
 
   def welcome_email(user)
   	@user = user
-  	mail(:to => @user.email, :subject => "Добро пожаловать в SurveysKitchen")
+  	mail(:to => @user.email, :subject => t('mailers.user.welcome.subject'))
   end
 end

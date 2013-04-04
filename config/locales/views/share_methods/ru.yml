@@ -10,3 +10,11 @@ ru:
 
     form_email:
       title: "<b>Активировать метод:</b> Email рассылка"
+
+      message_settings: "Настройки почтового сообщения:"
+      from_address: "Отображаемый адрес отправителя:"
+      subject: "Тема:"
+      subject_prefill: "Приймите участие в опросе %{survey_name}"
+      content: "Содержание письма:"
+
+      recipients_settings: "Выберите получателей"

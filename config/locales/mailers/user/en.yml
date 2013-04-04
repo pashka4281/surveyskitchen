@@ -1,0 +1,5 @@
+ru:
+  mailers:
+    user:
+      welcome:
+        subject: "Welcome to SurveysKitchen!"

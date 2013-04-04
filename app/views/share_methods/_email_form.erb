@@ -4,6 +4,51 @@
 %>
 
 <%= semantic_form_for @share_method, :url => shares_path do |f| %>
-	<%= f.text_area :text %>
+	<fieldset class="opt row fields">
+		<legend><%= t("share_methods.form_email.recipients_settings") %></legend>
+		<div class="column half-width">
+   			
+    		<div class="field">
+				<h4><%= t("share_methods.form_email.from_address") %></h4>
+				<%=f.text_field :from_email, value: current_user.email %>
+			</div>
+			<div class="field">
+				<h4><%= t("share_methods.form_email.subject") %></h4>
+				<%=f.text_field :subject, value: t("share_methods.form_email.subject_prefill", survey_name: @survey.name) %>
+			</div>
+		</div>
+		<div class="column half-width">
+			<div class="field">
+				<h4><%= t("share_methods.form_email.content") %></h4>
+				<%= f.text_area :text %>
+			</div>
+		</div>
+		
+	</fieldset>
+
+	<fieldset class="opt row fields">
+		<legend><%= t("share_methods.form_email.message_settings") %></legend>
+		<div class="column half-width">
+   			
+    		<div class="field">
+				<h4><%= t("share_methods.form_email.from_address") %></h4>
+				<%=f.text_field :from_email, value: current_user.email %>
+			</div>
+			<div class="field">
+				<h4><%= t("share_methods.form_email.subject") %></h4>
+				<%=f.text_field :subject, value: t("share_methods.form_email.subject_prefill", survey_name: @survey.name) %>
+			</div>
+		</div>
+		<div class="column half-width">
+			<div class="field">
+				<h4><%= t("share_methods.form_email.content") %></h4>
+				<%= f.text_area :text %>
+			</div>
+		</div>
+		
+	</fieldset>
+	
 	<%= hidden_field_tag 'survey_id', @survey.id %>
+
+	<%= f.submit 'активировать', class: 'btn success' %>
 <% end %>

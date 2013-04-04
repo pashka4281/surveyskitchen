@@ -23,7 +23,7 @@
 
     <%= favicon_link_tag '/favicon.ico', :rel => 'shortcut icon' %>
   </head>
-  <body class="marketing-body">
+  <body class="marketing-body <%= yield :body_class if content_for?(:body_class) %>">
 
     <%= render 'shared/top_bar_marketing' %>
     <%= flash_messages %>

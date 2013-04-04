@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130402135046) do
+ActiveRecord::Schema.define(:version => 20130403105525) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -124,6 +124,8 @@ ActiveRecord::Schema.define(:version => 20130402135046) do
     t.integer "survey_id"
     t.text    "text"
     t.boolean "active"
+    t.string  "from_email"
+    t.string  "subject"
   end
 
   create_table "share_embeds", :force => true do |t|
