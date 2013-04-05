@@ -11,7 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-ui
+//= require jquery-ui-1.10.2.custom.min
 //= require jquery_ujs
 //= require common
 //= require jLinedTextarea

@@ -110,7 +110,7 @@ body{
 	display: table;
 }
 .padded{padding: 5px;}
-.row{ display: inline-block;width: 100%; }
+.row{ display: inline-block;width: 100%; position: relative; }
 .column{ float: left; }
 .column.one-third{ width: 33.333333%; }
 .column.two-third{ width: 66.666666%; }

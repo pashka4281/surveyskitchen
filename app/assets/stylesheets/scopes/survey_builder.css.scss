@@ -50,14 +50,17 @@
 }
 #toolbox-wrapper{
 	width: 330px;
-	height: auto;
-	min-height: 100px;
+	//height: auto;
+	//min-height: 100px;
+
+	border: 1px solid #E75604;
+	background-color: #FCEEDC;
+	position: absolute;
+	top: 0;
+	bottom: 0;
 	//min-height: 500px;
 	#toolbox{
-		height: 500px;
-		width: 330px;
-		border: 1px solid #E75604;
-		background-color: #FCEEDC;
+		width: 328px;
 		&.stick{ margin-left:0 }
 		#tabs{
 			margin-top: -7px;
@@ -100,8 +103,9 @@
 	//right: 0;
 	//padding: 25px 7px 7px 7px;
 	width: 670px;
-	margin-bottom: 30px;
+	//margin-bottom: 30px;
 	counter-reset:section;
+	margin-left: 330px;
 
 	h2#title{
 		line-height: 40px;
@@ -125,84 +129,90 @@
 			height: 130px;
         }
 	}
-	.drop-placeholder{
-		border: 1px dashed #555;
-		margin: 0 10px 8px 10px;;
-	}
-	.countable{
-		
-		&::before{
-			counter-increment:section; 
-			content:"# " counter(section) ". "; 
-			position: absolute; 
-			left: 5px;
-			top: 9px;
-			color: #777;
-			z-index: 5;
-		}
-	}
-	.survey_item{
+	ul#survey-items-list{
 		position: relative;
-		margin: 0 10px;
-		.item_tools{
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			background-color: #ebebeb;
-			padding: 1px 1px 1px 50px;
-			border: 1px solid #bebebe;
-			border-top-left-radius: 5px;
-			border-top-right-radius: 5px;
-			button.deleteLnk{ color: #ff0000; }
+		.drop-placeholder{
+			//border: 1px dashed #555 inset;
+			margin: 10px 10px;;
+			background: url('/images/hovered-item.png')
 		}
-		.item-inner{
-			border: 1px solid rgb(190, 190, 190);
-			padding: 50px 10px 10px 10px;
-			margin-bottom: 10px;
-			border-radius: 4px;
-			ul li{	line-height: 22px;	}
-			.item-content{ margin-right: 100px; }
-			.radio, .checkbox {
-				min-height: 18px;
-				padding: 1px 3px;
-			}
-			label{	display: block;	}
-			label.inline{ display: inline-block; padding: 3px 12px;}
-			input[type="text"], select, textarea{
-				outline: none;
-				border: 1px solid #ccc;
-				padding: 3px;
-				width: 85%;
-				font-size: 16px;
-				&:focus{
-					border-color: #888;
-				}
-			}
-			input[type="text"], textarea{
-				border-top: 2px solid #999;
-			}
-			textarea, input, p, select{ color: rgb(70, 70, 70); }
-			ul.unstyled, select, input[type="text"], textarea{ margin-top: 10px; }
-			.grid-table{ //table
-				font-size: 13px;
-				width: 100%;
-				margin: 10px auto;
-				tr{ line-height: 20px; }
-				td{ 
-					text-align: center;
-					&:not([class="grid-row-title"]){ 
-						width: 15%;
-					}
-				}
-				.grid-row-title{  text-align: left; }
-
+		.countable{
+			
+			&::before{
+				counter-increment:section; 
+				content:"# " counter(section) ". "; 
+				position: absolute; 
+				left: 5px;
+				top: 9px;
+				color: #777;
+				z-index: 5;
 			}
 		}
-	}
+	
 	.survey_items_desc_text{
 		@include rich_text_content;
 	}
+		li.survey_item{
+			position: relative;
+			margin: 10px 10px;
+			.item_tools{
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				background-color: #ebebeb;
+				padding: 1px 1px 1px 50px;
+				border: 1px solid #bebebe;
+				//border-top-left-radius: 5px;
+				//border-top-right-radius: 5px;
+				button.deleteLnk{ color: #ff0000; }
+			}
+			.item-inner{
+				border: 1px solid rgb(190, 190, 190);
+				padding: 50px 10px 10px 10px;
+				
+				//border-radius: 4px;
+				ul li{	line-height: 22px;	}
+				.item-content{ margin-right: 100px; }
+				.radio, .checkbox {
+					min-height: 18px;
+					padding: 1px 3px;
+				}
+				label{	display: block;	}
+				label.inline{ display: inline-block; padding: 3px 12px;}
+				input[type="text"], select, textarea{
+					outline: none;
+					border: 1px solid #ccc;
+					padding: 3px;
+					width: 85%;
+					font-size: 16px;
+					&:focus{
+						border-color: #888;
+					}
+				}
+				input[type="text"], textarea{
+					border-top: 2px solid #999;
+				}
+				textarea, input, p, select{ color: rgb(70, 70, 70); }
+				ul.unstyled, select, input[type="text"], textarea{ margin-top: 10px; }
+				.grid-table{ //table
+					font-size: 13px;
+					width: 100%;
+					margin: 10px auto;
+					tr{ line-height: 20px; }
+					td{ 
+						text-align: center;
+						&:not([class="grid-row-title"]){ 
+							width: 15%;
+						}
+					}
+					.grid-row-title{  text-align: left; }
+
+				}
+			}
+		}
+	}
+	
 	.insert-button-wrapper{
 		text-align: center;
 	}
@@ -250,13 +260,13 @@
 			padding: 0 5px;
 			&.ui-draggable-dragging{
 				z-index: 10;
-				border: 1px solid #ff0000;
+				//border: 1px solid #ff0000;
 				display: inline-block !important;
 				width: 165px !important;
 			}
 			button{ 
 				margin-top: 5px; 
-				width: 100%;
+				width: 155px;
 				
 			}
 		}

@@ -138,36 +138,53 @@
 		var $gallery = $( "#new-item-area" ),
 	      $build_list = $( "#build_list" );
 
-	    $( '#survey-items-list', $build_list ).sortable({
-	    	placeholder: "drop-placeholder",
-	    	axis:'y',
-	    	forcePlaceholderSize: true
-	    });
-
-	    $( '#survey-items-list', $build_list ).disableSelection();
 	 
 	    // let the gallery items be draggable
-		$( "ul li", $gallery ).draggable({
+		$dragg = $( "ul li", $gallery ).draggable({
 			cancel: "a.ui-icon", // clicking an icon won't initiate dragging
 			revert: "invalid", // when not dropped, the item will revert back to its initial position
 			containment: "document",
 			helper: "clone",
 			cursor: "move"
 			,connectToSortable: '#survey-items-list'
+			,refreshPositions: true
+			,scroll:false
 		});
 	 
+
+	 $( '#survey-items-list', $build_list ).sortable({
+	    	placeholder: "drop-placeholder",
+	    	axis:'y',
+	    	forcePlaceholderSize: true,
+	    	cursor: 'move',
+	    	opacity: 0.7,
+	    	revert: 200,
+	    	scrollSensitivity: 10,
+	    	scrollSpeed: 7,
+	    	tolerance: "intersect",
+	    	start: function(event, ui) {
+	    		//console.log(ui)
+	    		if (ui.item.hasClass("new-item")) {
+
+            	}
+	        },
+	        stop: function(event, ui) {
+	        	console.log(ui)
+	            if (ui.item.hasClass("new-item")) {
+	            	//ui.sender.draggable("cancel");
+	            	console.log('dropped')
+                	ui.item.replaceWith("<li class='survey_item'>Hello</li>");
+            	}
+	        },
+
+        	update: function(event, ui) {
+        		console.log('updated')
+        	}
+	    });
+
+	    $( '#survey-items-list', $build_list ).disableSelection();
 	    // let the trash be droppable, accepting the gallery items
-		$( '#survey-items-list', $build_list ).droppable({
-			accept: "#item_type_buttons > button",
-			activeClass: "ui-state-highlight",
-			drop: function( event, ui ) {
-				// return true;
-				console.log(ui.draggable)
-				$(ui.draggable).remove()
-				return false;
-				//deleteImage( ui.draggable );
-			}
-		});
+		
 
 
 
