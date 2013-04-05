@@ -1,4 +1,4 @@
-<%= content_tag_for :div, item, class: "countable survey_item question-item", item_id: item.id do -%>
+<%= content_tag_for :li, item, class: "countable survey_item question-item", item_id: item.id do -%>
 	<%= render 'survey_items/items/_tools_box', item: item %>
 	<div class="item-inner">
 		<strong class="item-title"><%= item.title %></strong>
@@ -18,6 +18,4 @@
 		    <%- end -%>
   		</div>
   	</div>
-	
-	<%= insert_button %>
 <% end %>

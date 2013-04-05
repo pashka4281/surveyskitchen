@@ -32,11 +32,11 @@
     <%= flash_messages %>
     
     <div id="sides-padding">
-      <div id="content-wrapper">
+      <div id="content-wrapper" <%== 'class="no_left_bar"' if @no_left_bar %>>
         <div id="main-content">
           <div id="content-pretty"><%= yield %></div>
         </div>
-        <div id="left-nav"><%= render 'shared/left_nav' %><%= yield :sidebar if content_for?(:sidebar) %></div>
+        <% unless @no_left_bar %><div id="left-nav"><%= render 'shared/left_nav' %><%= yield :sidebar if content_for?(:sidebar) %></div><% end %>
       </div>
     </div>
 

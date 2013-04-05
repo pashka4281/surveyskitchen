@@ -3,6 +3,7 @@ class SurveysController < ApplicationController
   before_filter :get_survey, except: [:create, :index, :new]
 
   def builder
+    @no_left_bar = true
     @themes_current = current_account.survey_themes
     @themes_global  = SurveyTheme.global
     @survey         = current_account.surveys.find(params[:id], :include => :items)

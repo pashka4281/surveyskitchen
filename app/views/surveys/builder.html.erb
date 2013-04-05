@@ -4,25 +4,42 @@
 
 <style type="text/css"><%= raw @survey.theme.to_css %></style>
 
-	<div id="survey_theme_select">
-		<span><%= t('surveys.builder.themes_select') %></span>
-		<select id="theme-select">
-			<optgroup label="<%= t('surveys.builder.themes_global') %>">
-				<% for th in @themes_global %>
-					<option value="<%= th.id %>" <%= 'selected="selected"' if @survey.theme_id == th.id%>><%= th.name %></option>
-				<% end %>
-			</optgroup>
-			<optgroup label="<%= t('surveys.builder.themes_current') %>">
-				<% for th in @themes_current %>
-					<option value="<%= th.id %>" <%= 'selected="selected"' if @survey.theme_id == th.id%>><%= th.name %></option>
-				<% end %>
-			</optgroup>
-		</select>
-		<%= link_to t('surveys.builder.look_and_feel'), look_survey_path(@survey, page: 'logo'), class: 'btn small' %>
-	</div>
+<div id="survey_theme_select" class="page-sub-header">
+	<span><%= t('surveys.builder.themes_select') %></span>
+	<select id="theme-select">
+		<optgroup label="<%= t('surveys.builder.themes_global') %>">
+			<% for th in @themes_global %>
+				<option value="<%= th.id %>" <%= 'selected="selected"' if @survey.theme_id == th.id%>><%= th.name %></option>
+			<% end %>
+		</optgroup>
+		<optgroup label="<%= t('surveys.builder.themes_current') %>">
+			<% for th in @themes_current %>
+				<option value="<%= th.id %>" <%= 'selected="selected"' if @survey.theme_id == th.id%>><%= th.name %></option>
+			<% end %>
+		</optgroup>
+	</select>
+	<%= link_to t('surveys.builder.look_and_feel'), look_survey_path(@survey, page: 'logo'), class: 'btn small' %>
+</div>
 
-	<div id="build_list"  class="list">
-		<div style="border: 1px solid #555" class="<%= "survey_theme_#{@survey.theme.id}" %>">
+<div id="builder">
+	<div class="row">
+		<div id="toolbox-wrapper" class="column">
+			<div class="sticky-anchor"></div>
+			<div id="toolbox" class="stickyBar">
+				<div id="tabs">
+					<ul>
+						<li><a href="#new-item-area">Добавить</a></li>
+						<li><a href="#edit-item-area">Редактировать</a></li>
+						<li><a href="#form-settings-area">Настройки опроса</a></li>
+					</ul>
+					<div id="new-item-area"><%= render '/survey_items/new' %></div>
+					<div id="edit-item-area"></div>
+					<div id="form-settings-area"></div>
+				</div>
+			
+			</div>
+		</div>
+		<div id="build_list"  class="list column <%= "survey_theme_#{@survey.theme.id}" %>">
 			<h2 id="title"><%= @survey.name %></h2>
 			<div id="zero-item" class="survey_item">
 	            <%= insert_button %>
@@ -37,12 +54,17 @@
 				    </button>
 	        	</div>
 	    	</div>
-	    
-	        <%- @survey.sorted_items.each do |i| -%>
-	        	<%= render_survey_item(i) %>
-	        <%- end -%>
+	    	
+	    	<ul id="survey-items-list">
+		        <%- @survey.sorted_items.each do |i| -%>
+		        	<%= render_survey_item(i) %>
+		        <%- end -%>
+	    	</ul>
 		</div>
 	</div>
+</div>
+
+
 
 <%= content_for :after_content do %>
 <!-- New survey item modal -->
@@ -111,6 +133,45 @@
 
 <%= content_for :js do %>
 	<script>
+		$('#tabs').tabs();
+
+		var $gallery = $( "#new-item-area" ),
+	      $build_list = $( "#build_list" );
+
+	    $( '#survey-items-list', $build_list ).sortable({
+	    	placeholder: "drop-placeholder",
+	    	axis:'y',
+	    	forcePlaceholderSize: true
+	    });
+
+	    $( '#survey-items-list', $build_list ).disableSelection();
+	 
+	    // let the gallery items be draggable
+		$( "ul li", $gallery ).draggable({
+			cancel: "a.ui-icon", // clicking an icon won't initiate dragging
+			revert: "invalid", // when not dropped, the item will revert back to its initial position
+			containment: "document",
+			helper: "clone",
+			cursor: "move"
+			,connectToSortable: '#survey-items-list'
+		});
+	 
+	    // let the trash be droppable, accepting the gallery items
+		$( '#survey-items-list', $build_list ).droppable({
+			accept: "#item_type_buttons > button",
+			activeClass: "ui-state-highlight",
+			drop: function( event, ui ) {
+				// return true;
+				console.log(ui.draggable)
+				$(ui.draggable).remove()
+				return false;
+				//deleteImage( ui.draggable );
+			}
+		});
+
+
+
+
 		var itemsHtmlArray ={};// <%#= raw(survey_items_html_array()) %>;
 
 		// document ready 

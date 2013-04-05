@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require common
 //= require jLinedTextarea
@@ -25,11 +26,11 @@
 
 function sticky_relocate() {
 	var window_top = $(window).scrollTop();
-	var div_top = $('#sticky-anchor').offset().top;
+	var div_top = $('.sticky-anchor').offset().top;
 	if (window_top > div_top)
-		$('#stickyBar').addClass('stick')
+		$('.stickyBar').addClass('stick')
 	else
-		$('#stickyBar').removeClass('stick')
+		$('.stickyBar').removeClass('stick')
 }
 
 $(function(){
@@ -43,7 +44,7 @@ $(function(){
 			$(this).remove();
 		})
 	})
-	if($('#stickyBar').length > 0){
+	if($('.stickyBar').length > 0){
 		$(window).scroll(sticky_relocate);
 		sticky_relocate();
 	}

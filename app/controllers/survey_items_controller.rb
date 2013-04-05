@@ -27,8 +27,7 @@ class SurveyItemsController < ApplicationController
 		@survey = current_account.surveys.find(params[:survey_id])
 		item_params = Rack::Utils.parse_nested_query(params[:item_params])
 		type = item_params.delete('item_type')
-		@item = get_item_constant(type).
-			new((item_params['survey_item'] || {}).merge(survey: @survey, position: params[:item_position]))
+		@item = get_item_constant(type).new(survey: @survey, position: params[:item_position])
 		if @item.save
 			render(partial: "survey_items/items/#{@item.type.demodulize.underscore}", locals:{item: @item})
 		else
