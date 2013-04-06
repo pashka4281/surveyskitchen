@@ -24,6 +24,7 @@
    /////// require_tree .
 
 
+
 function sticky_relocate() {
 	var window_top = $(window).scrollTop();
 	var div_top = $('.sticky-anchor').offset().top;

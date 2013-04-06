@@ -148,7 +148,16 @@
 			cursor: "move"
 			,connectToSortable: '#survey-items-list'
 			,refreshPositions: true
-			,scroll:false
+			,scroll:true,
+			start: function(event, ui)
+		    {
+		          $(this).data("startingScrollTop", $(this).offsetParent().scrollTop());
+		    },  
+		    drag: function(event, ui)
+		    {
+		        var st = parseInt($(this).data("startingScrollTop"));
+		        ui.position.top -= $(this).offsetParent().scrollTop() - st;
+		    }
 		});
 	 
 
@@ -169,11 +178,13 @@
             	}
 	        },
 	        stop: function(event, ui) {
+	        	var _item = ui.item,
+	        		item_type = $('button', _item).data('item-type');
 	        	console.log(ui)
 	            if (ui.item.hasClass("new-item")) {
 	            	//ui.sender.draggable("cancel");
 	            	console.log('dropped')
-                	ui.item.replaceWith("<li class='survey_item'>Hello</li>");
+                	_item.replaceWith("<li class='survey_item'>" + item_type + "</li>");
             	}
 	        },
 

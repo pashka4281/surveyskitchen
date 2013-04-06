@@ -38,6 +38,7 @@ class SurveysController < ApplicationController
   end
 
   def look
+    @no_left_bar = true
     @my_themes = current_account.survey_themes.reject(&:new_record?)
     @theme = params[:theme_id] ? current_account.survey_themes.find(params[:theme_id]) : current_account.survey_themes.new
     @example_survey = Survey.preview_survey(current_user.language)
