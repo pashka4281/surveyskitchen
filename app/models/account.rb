@@ -9,5 +9,7 @@ class Account < ActiveRecord::Base
 	has_many :client_lists
 	has_many :survey_themes
 
+	has_many :quizzes
+
 	belongs_to :owner, class_name: 'User', :foreign_key => :owner_id
 end

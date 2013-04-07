@@ -39,6 +39,10 @@ Surveyskitchen::Application.routes.draw do
     resources :themes
   end
 
+  resources :quizes do
+    get :builder,   on: :member
+  end
+
   namespace :s do
     get  ':token', to: 'surveys#show', as: :show_survey
     post ':token', to: 'surveys#create_result', as: :create_result

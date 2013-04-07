@@ -1,0 +1,119 @@
+<div id="quiz-builder">
+	<div id="preview">
+		<div id="build-canvas">
+			<div></div>
+		</div>
+	</div>
+	<div id="toolbox">
+		<div data-item-type="text">Text</div>
+	</div>
+</div>
+
+
+<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" /> -->
+
+
+<%= content_for :js do %>
+<script>
+$(function() {
+
+	$canvas = $("#build-canvas");
+	$gridSize = 4;
+
+	//getting new element position relatively to canvas
+	function getElementPos(canvas, ui_pos, elementSize, gridSize){
+		canvasPos = canvas.position();
+		canvasSize = {height: canvas.height(), width: canvas.width()};
+
+		var top_x = ui_pos.top - canvasPos.top;
+		var left_y = ui_pos.left - canvasPos.left;
+
+		if(top_x < 0)
+			top_x = 0;
+		if(top_x > canvasSize.height - elementSize.height)
+			top_x = canvasSize.height - elementSize.height;
+
+		if(left_y < 0)
+			left_y = 0;
+		if(left_y > canvasSize.width - elementSize.width)
+			left_y = canvasSize.width - elementSize.width;
+
+		top_x = top_x-(top_x % gridSize);
+		left_y = left_y-(left_y % gridSize);
+
+		return {top: top_x, left: left_y }
+	}
+
+	function make_draggable_and_resizable(){
+		$canvas.find( "> div" ).off('element_moved_or_resized').draggable({
+			containment: "#build-canvas",
+			snap: true,
+			cursor: "move",
+			snapTolerance: 4,
+			grid: [$gridSize,$gridSize],
+			start: function(event, ui){
+				console.log(ui);
+			},
+			stop: function(event, ui){
+				$(this).trigger('element_moved_or_resized');
+			}
+
+		}).resizable({
+			//ghost: true,
+			containment: "#build-canvas"
+			,handles: 'all'
+			,minWidth: 32
+			,minHeight: 32
+			,grid: [$gridSize,$gridSize]
+			,resize: function(event, ui){
+				endX = Math.round($(this).position().left/4);
+	            endY = Math.round($(this).position().top/4);
+	            $(this).attr('x', endX).attr('y', endY)
+			}
+			,stop: function(event, ui){ 
+				$(this).trigger('element_moved_or_resized');
+			}
+	    	//,helper: "ui-resizable-helper"
+	    })
+	    .bind('element_moved_or_resized', _elementMovedOrResized).trigger('element_moved_or_resized')
+
+	    $canvas.droppable({
+			activeClass: "highlighted"
+			,accept: "#toolbox > div"
+			,drop: function( event, ui ) {
+				
+				//console.log( $(ui.draggable).position()  );
+				var elemSize  = {height: 50, width: 50}
+				var pos = getElementPos($(this), $(ui)[0].position, elemSize, $gridSize)
+console.log($(ui.sender).data('item-type'))
+				$("<div>Some Text</div>")
+					.appendTo($canvas)
+					.css({top: pos.top, left: pos.left });
+				//deleteImage( ui.draggable );
+				make_draggable_and_resizable();
+			}
+
+	    })	
+	}
+
+make_draggable_and_resizable();
+
+    $('#toolbox > div').draggable({
+    	cancel: "a.ui-icon", // clicking an icon won't initiate dragging
+		revert: "invalid", // when not dropped, the item will revert back to its initial position
+
+		//helper: "clone",
+		helper: function(){
+			item_type = $(this).data('item-type')
+			return $('<div class="' + item_type + '"></div>').data('item-type', item_type);
+		},
+		cursor: "move"
+
+    })
+
+    function _elementMovedOrResized(){
+    	console.log($(this).position())
+    }
+});
+</script>
+<% end %>

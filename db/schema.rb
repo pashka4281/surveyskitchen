@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403105525) do
+ActiveRecord::Schema.define(:version => 20130406224844) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -94,6 +94,14 @@ ActiveRecord::Schema.define(:version => 20130403105525) do
     t.string "message"
     t.text   "trace"
     t.string "e_class"
+  end
+
+  create_table "quizzes", :force => true do |t|
+    t.string   "name"
+    t.integer  "account_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
