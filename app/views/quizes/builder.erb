@@ -1,11 +1,13 @@
 <div id="quiz-builder">
 	<div id="preview">
 		<div id="build-canvas">
-			<div></div>
+			<% for item in @quiz.items %>
+				<%= render "/quiz_items/items/#{item.simple_name}", item: item %>
+			<% end %>
 		</div>
 	</div>
 	<div id="toolbox">
-		<div data-item-type="text">Text</div>
+		<div data-item-type="desc_text">Text</div>
 	</div>
 </div>
 
@@ -17,8 +19,9 @@
 <script>
 $(function() {
 
+
 	$canvas = $("#build-canvas");
-	$gridSize = 4;
+	$gridSize = 1;
 
 	//getting new element position relatively to canvas
 	function getElementPos(canvas, ui_pos, elementSize, gridSize){
@@ -45,12 +48,14 @@ $(function() {
 	}
 
 	function make_draggable_and_resizable(){
-		$canvas.find( "> div" ).off('element_moved_or_resized').draggable({
+		$canvas.find( "> div" ).unbind('element_moved_or_resized')
+		$canvas.find( "> div" ).draggable({
 			containment: "#build-canvas",
 			snap: true,
 			cursor: "move",
 			snapTolerance: 4,
 			grid: [$gridSize,$gridSize],
+			stack: "div",
 			start: function(event, ui){
 				console.log(ui);
 			},
@@ -62,8 +67,8 @@ $(function() {
 			//ghost: true,
 			containment: "#build-canvas"
 			,handles: 'all'
-			,minWidth: 32
-			,minHeight: 32
+			,minWidth: 14
+			,minHeight: 14
 			,grid: [$gridSize,$gridSize]
 			,resize: function(event, ui){
 				endX = Math.round($(this).position().left/4);
@@ -75,22 +80,40 @@ $(function() {
 			}
 	    	//,helper: "ui-resizable-helper"
 	    })
-	    .bind('element_moved_or_resized', _elementMovedOrResized).trigger('element_moved_or_resized')
+	    .bind('element_moved_or_resized', _elementMovedOrResized);//.trigger('element_moved_or_resized')
 
 	    $canvas.droppable({
 			activeClass: "highlighted"
 			,accept: "#toolbox > div"
 			,drop: function( event, ui ) {
-				
-				//console.log( $(ui.draggable).position()  );
-				var elemSize  = {height: 50, width: 50}
-				var pos = getElementPos($(this), $(ui)[0].position, elemSize, $gridSize)
-console.log($(ui.sender).data('item-type'))
-				$("<div>Some Text</div>")
-					.appendTo($canvas)
-					.css({top: pos.top, left: pos.left });
-				//deleteImage( ui.draggable );
-				make_draggable_and_resizable();
+				var i_type = $(ui.helper).data('item-type'),
+					_this = this,
+					_ui_pos = $(ui)[0].position;
+
+				$.ajax({
+					url: '<%= quize_items_path(@quiz) %>',
+					type: 'POST',
+					dataType: 'json',
+					data: {
+						item_type: i_type
+						,position_top: _ui_pos.top
+						,position_left: _ui_pos.left
+					},
+					success: function(resp){
+						console.log(resp)
+
+						//return;
+						var elemSize  = {height: resp.size[1], width: resp.size[0]}
+						var pos = getElementPos($(_this), _ui_pos, elemSize, $gridSize)
+						console.log(elemSize)
+						
+						$(resp.html)
+							.appendTo($canvas)
+							.css($.extend({}, {top: pos.top, left: pos.left }, resp.css));
+						make_draggable_and_resizable();						
+					}
+				})
+
 			}
 
 	    })	
@@ -111,8 +134,25 @@ make_draggable_and_resizable();
 
     })
 
+
+
     function _elementMovedOrResized(){
-    	console.log($(this).position())
+    	var _this = $(this);//position())
+    	$.ajax({
+			url: '<%= quize_items_path(@quiz) %>/' + _this.attr('item_id'),
+			type: 'PUT',
+			dataType: 'json',
+			data: {
+				item:{
+					size: [_this.width(),  _this.height()],
+					position: [_this.position().top, _this.position().left]
+				}
+			},
+			success: function(resp){
+				console.log(resp)
+				_this.attr('style', resp.css)				
+			}
+		})
     }
 });
 </script>

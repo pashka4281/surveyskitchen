@@ -41,6 +41,7 @@ Surveyskitchen::Application.routes.draw do
 
   resources :quizes do
     get :builder,   on: :member
+    resources :quiz_items, as: 'items', path: 'items'
   end
 
   namespace :s do

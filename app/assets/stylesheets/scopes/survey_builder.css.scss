@@ -54,21 +54,23 @@
 	//min-height: 100px;
 
 	border: 1px solid #E75604;
-	background-color: #FCEEDC;
+	background-color: #FFD873;
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	//min-height: 500px;
 	#toolbox{
 		width: 328px;
-		&.stick{ margin-left:0 }
+		&.stickyBar{ margin-left:0 }
 		#tabs{
-			margin-top: -7px;
+			padding-top: 8px;
 			margin-left: -7px;
 			margin-right: -7px;
+			margin-top: -7px;
+			background-color: #ff8100;
 			ul.ui-tabs-nav{
 				height: 29px;
-				background-color: #ccc;
+				//background-color: #ccc;
 				li{
 					list-style: none;
 					float: left;
@@ -81,7 +83,10 @@
 					padding: 0px;
 					outline: none;
 					&.ui-state-active{
-						background-color: #FDC652;
+						background-color: #FFD873;
+						border-top-left-radius: 4px;
+						border-top-right-radius: 4px;
+						a{ color: #804700;}
 					}
 					a{
 						padding: 3px;
@@ -89,6 +94,7 @@
 						font-size: 12px;
 						outline: none;
 						text-decoration: none;
+						color: #fff;
 					}
 				}
 			}

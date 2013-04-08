@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def authenticate_user!
-		!current_user && redirect_to(login_path(I18n.default_locale), alert: 'You have to login first') and return
+		!current_user && redirect_to(login_path(I18n.default_locale)) and return
 	end
 
 	#getting current locale from user profile or from headers

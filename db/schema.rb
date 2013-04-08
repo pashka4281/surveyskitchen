@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406224844) do
+ActiveRecord::Schema.define(:version => 20130407184915) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -94,6 +94,15 @@ ActiveRecord::Schema.define(:version => 20130406224844) do
     t.string "message"
     t.text   "trace"
     t.string "e_class"
+  end
+
+  create_table "quiz_items", :force => true do |t|
+    t.integer "quiz_id"
+    t.string  "type"
+    t.text    "css_options"
+    t.string  "size"
+    t.string  "position"
+    t.text    "content"
   end
 
   create_table "quizzes", :force => true do |t|

@@ -1,0 +1,7 @@
+<%==
+	{ 
+		html: render("/quiz_items/items/#{@item_type}", item: @item),
+		size: @item.size,
+		css: @item.css_options
+	}.to_json
+%>

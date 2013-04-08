@@ -1,0 +1,6 @@
+ru:
+  desc_text:
+    text_content: "Описательный текст"
+    size: [160, 20]
+    css_options:
+      'padding': '5px'

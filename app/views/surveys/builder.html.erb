@@ -135,6 +135,12 @@
 	<script>
 		$('#tabs').tabs();
 
+		$('.stickyBar').containedStickyScroll({
+        duration: 200,
+        unstick: true,
+        closeChar: 'x' 
+    });
+
 		var $gallery = $( "#new-item-area" ),
 	      $build_list = $( "#build_list" );
 
@@ -147,16 +153,22 @@
 			helper: "clone",
 			cursor: "move"
 			,connectToSortable: '#survey-items-list'
-			,refreshPositions: true
+			//,refreshPositions: true
 			,scroll:true,
-			start: function(event, ui)
-		    {
-		          $(this).data("startingScrollTop", $(this).offsetParent().scrollTop());
+			start: function(event, ui){
+				console.log( $(this).offsetParent() )
+				console.log( $(this).scrollTop() )
+				//ui.helper.appendTo($('body')).css({'position': 'fixed', 'z-index': 9999});
+				var st = $('body').scrollTop() == 0 ? $('html').scrollTop() : $('body').scrollTop();
+		        $(this).data("startingScrollTop", st);
 		    },  
 		    drag: function(event, ui)
 		    {
-		        var st = parseInt($(this).data("startingScrollTop"));
-		        ui.position.top -= $(this).offsetParent().scrollTop() - st;
+		        var st_old = parseInt($(this).data("startingScrollTop")),
+		        	st = $('body').scrollTop() == 0 ? $('html').scrollTop() : $('body').scrollTop(),
+		        	df = st_old -  st;
+		        //ui.position.top -= $(this).offsetParent().scrollTop() - st;
+		        //ui.position.top += df;
 		    }
 		});
 	 

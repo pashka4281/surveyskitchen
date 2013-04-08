@@ -29,8 +29,8 @@
 	position: relative;
 	&.highlighted{ background: url('/images/hovered-item.png')}
 	& > div{
-		min-height: 32px;
-		min-width:32px;
+		min-height: 14px;
+		min-width: 14px;
 		//padding: 1px;
 		background-color: #f0f0f0;
 		position: absolute;

@@ -1,3 +1,6 @@
+
+
+
 #remove loader function
 @addLoaderHover = -> 
 	$('<div id="hover">

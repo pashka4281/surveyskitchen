@@ -21,18 +21,19 @@
 //= require accordion
 //= require jquery.jvectormap.min
 //= require jquery-jvectormap-world-mill-en
+//= require plugins/scroll-sticky
    /////// require_tree .
 
 
 
-function sticky_relocate() {
-	var window_top = $(window).scrollTop();
-	var div_top = $('.sticky-anchor').offset().top;
-	if (window_top > div_top)
-		$('.stickyBar').addClass('stick')
-	else
-		$('.stickyBar').removeClass('stick')
-}
+// function sticky_relocate() {
+// 	var window_top = $(window).scrollTop();
+// 	var div_top = $('.sticky-anchor').offset().top;
+// 	if (window_top > div_top)
+// 		$('.stickyBar').addClass('stick')
+// 	else
+// 		$('.stickyBar').removeClass('stick')
+// }
 
 $(function(){
 	$('body').on('hidden', '.modal', function(){
@@ -45,8 +46,8 @@ $(function(){
 			$(this).remove();
 		})
 	})
-	if($('.stickyBar').length > 0){
-		$(window).scroll(sticky_relocate);
-		sticky_relocate();
-	}
+	// if($('.stickyBar').length > 0){
+	// 	$(window).scroll(sticky_relocate);
+	// 	sticky_relocate();
+	// }
 });
