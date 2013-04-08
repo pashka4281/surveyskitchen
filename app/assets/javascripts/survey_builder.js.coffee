@@ -22,80 +22,11 @@ class this.Survey
 		@current_action_item_id = null
 		@renewItemsIndexes()
 
-		$(document).on 'click', '#item_type_buttons button', (e) =>
-			val = $(e.target).data('item-type')
-			$('#new_survey_item').hide()
-			$('#new_survey_item')
-				.data('selected-item', true) #boolean indicator that shows that we selected item type
-				.parents('.modal').find('.modal-header h3').text("New #{$(e.target).text()}")
-			$('#newItem').append($("<iframe id=\"new-item-frame\" src=\"#{@base_path}/items/new?item_class=#{val}\"></iframe>")).show()
-			#$('#newItem').html(itemsHtmlArray[val]).show()
-			$('#doneNewItemBtn').removeAttr('disabled')
-			# init_ck_editor()
-
-		#insert buttons click handler:
-		$(document).on 'click', @insertButtons, (el) =>
-			_el = $(el.currentTarget)
-			switch _el.data('action')
-				when 'add_item'
-					@addItem(_el.attr('itemindex'), @new_item_form_data)
-				when 'copy_item'
-					@copyItem(@current_action_item_id, _el.attr('itemindex'))
-			
-			@renewItemsIndexes()
-			@hideButtons()
-			@toggle_cancel_btn()
-
-		#edit buttons click handler:
-		$(document).on 'click', @edit_links, (el) =>
-			_el = $(el.currentTarget)
-			$('<div id="modal-bg"></div>').appendTo('body')
-			modal = $('#editItemContainer')
-			modal.find('#editItem').html('').append($("<iframe id=\"edit-item-frame\" src=\"#{_el.attr('data-url')}\"></iframe>"))
-			$('#editItemContainer #edit-question-id').data('question_id', _el.parents('.survey_item').attr('item_id'))
-			modal.removeClass('hide')
-			false
 
 
 		#remove links click handler:
 		$(document).on 'click', @delete_links, (el) =>
 			@deleteItem($(el.currentTarget).parents('.survey_item').attr('item_id'))
-			false
-
-		$('.sortable_item .moveGrabber').click => false
-
-		$(@cancel_btn).hide().click =>
-			@new_item_form_data = null
-			@.hideButtons()
-			@.toggle_cancel_btn()
-
-		#copy link click handler
-		$(document).on 'click', '.item-copy-link', (el) =>
-			current_item_id = $(el.currentTarget).parents('.survey_item').attr('item_id')
-			@toggle_cancel_btn()
-			@show_and_prepare_buttons_for('copy_item', current_item_id)
-			false
-
-		#move link click handler
-		$(document).on 'click', '.item-move-link', (el) =>
-			current_item_id = $(el.currentTarget).parents('.survey_item').attr('item_id')
-			@toggle_cancel_btn()
-			@show_and_prepare_buttons_for('move_item', current_item_id)
-			false
-
-		$('#doneNewItemBtn').click =>
-			# textarea = $('#rich-text-area')
-			# if textarea.length > 0
-			# 	textarea.val(CKEDITOR.instances['rich-text-area'].getData());
-
-			if $('#new_survey_item').data('selected-item')
-				iframe_result = document.getElementById('new-item-frame').contentWindow.submitItemForm();
-				if iframe_result
-					@show_and_prepare_buttons_for 'add_item', null
-					@new_item_form_data = iframe_result
-					@.showButtons()
-					@.toggle_cancel_btn()
-					@close_modals()
 			false
 
 		$('#doneEditItemBtn').click =>
@@ -108,49 +39,8 @@ class this.Survey
 				@close_modals()
 			false
 
-		$('.new-item-btn').click =>
-			$('#doneNewItemBtn').attr('disabled', true)
-			@new_item_modal()
-		
-
-	close_modals: ->
-		# CKEDITOR.instances[name].destroy(true) for name of CKEDITOR.instances
-		$('#modal-bg').remove()
-		$('.modal').addClass('hide')
-
-	new_item_modal: ->
-		$('<div id="modal-bg"></div>').appendTo('body')
-		modal = $('#newItemContainer').removeClass('hide')
-		modal.find('#new_survey_item').show()
-		modal.find('#newItem').html('').hide()
-
-	#FUNCTIONS:
-	toggle_cancel_btn: ->
-		if $(@cancel_btn).is(':hidden')
-			$("#stickyBar .btn:not(#{@cancel_btn}), .item_tools button").attr('disabled', 'disabled')
-		else
-			$("#stickyBar .btn, .item_tools button").removeAttr 'disabled'
-		$("#{@cancel_btn}, #new-item-btn").toggle()
-
-	_currentButtons: ->
-		$(@buildList).find(".survey_item #{@insertButtons}")
-
-	#change all insert buttons labels and sets data-action attribute for use in their click callback function
-	show_and_prepare_buttons_for: (action, current_action_item_id) ->
-		@current_action_item_id = current_action_item_id
-		label = @translates[action]
-		if action is "move_item"
-			@showButtons()
-		else
-			@showButtons()
-		@_currentButtons().data('action', action).find('span').html(label)
-
-	showButtons: -> @_currentButtons().css({visibility: 'inherit'})
-	hideButtons: -> @_currentButtons().css({visibility: 'hidden'})
-
 	renewItemsIndexes: ->
-		$(@insertButtons).removeAttr('itemindex') #cleaning itemindexes
-		@._currentButtons().each (i, el) =>
+		$(@survey_items).removeAttr('itemindex').each (i, el) =>
 			$(el).attr('itemindex', i)
 	
 	#functions

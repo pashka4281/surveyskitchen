@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require plugins/jquery.animate-enhanced
 //= require jquery-ui-1.10.2.custom.min
 //= require jquery_ujs
 //= require common
@@ -22,6 +23,7 @@
 //= require jquery.jvectormap.min
 //= require jquery-jvectormap-world-mill-en
 //= require plugins/scroll-sticky
+
    /////// require_tree .
 
 

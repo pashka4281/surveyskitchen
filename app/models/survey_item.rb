@@ -19,6 +19,19 @@ class SurveyItem < ActiveRecord::Base
 
   scope :question_items, where('type NOT IN(?)', QUESTION_ITEMS)
 
+  #seed attributes with default values
+  after_initialize do
+    return true unless self.new_record?
+    YAML.load_file(Rails.root.join('config', 'defaults', 'survey_items.yml'))[I18n.locale.to_s][self.simple_name].each do |key, val|
+      self.send(key).blank? ? send("#{key}=", val) : true
+    end
+    true
+  end
+
+  def simple_name
+    self.class.name.demodulize.underscore
+  end
+
   #survey type specific report data
   def report_data
     raise NotImplementedError.new("You must override this method in descendant class.")

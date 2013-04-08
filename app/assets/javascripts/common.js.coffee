@@ -41,7 +41,7 @@ $(document).on 'click', '[data-toggle="modal"]', (el) =>
 		dataType: 'html'
 		success: (resp) ->
 			_modal.find('.modal-body').html(resp)
-			self.init_ck_editor()
+			#self.init_ck_editor()
 	false
 
 

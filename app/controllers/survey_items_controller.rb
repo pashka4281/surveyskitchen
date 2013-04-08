@@ -1,55 +1,55 @@
 class SurveyItemsController < ApplicationController
 	before_filter :authenticate_user!
 	helper :all
+	before_filter :get_survey
 
 	def new
 		item_class = get_item_constant(params[:item_class])
 		render nothing: true and return unless item_class
 		
-		@survey = current_account.surveys.find(params[:survey_id])
 		@survey_item = item_class.new
 		render layout: 'item_modal'
 	end
 
 	def edit
-		@survey = current_account.surveys.find(params[:survey_id])
 		@survey_item = @survey.items.find(params[:id])
 		render layout: 'item_modal'
 	end
 
 	def update
-		@survey = current_account.surveys.find(params[:survey_id])
 		@survey_item = @survey.items.find(params[:id])
 		@survey_item.update_attributes(params[:survey_item])
 	end
 	
 	def	create
-		@survey = current_account.surveys.find(params[:survey_id])
-		item_params = Rack::Utils.parse_nested_query(params[:item_params])
-		type = item_params.delete('item_type')
-		@item = get_item_constant(type).new(survey: @survey, position: params[:item_position])
-		if @item.save
-			render(partial: "survey_items/items/#{@item.type.demodulize.underscore}", locals:{item: @item})
-		else
-			render js: "alert('error')", status: :unprocessible_entry
+		# item_params = Rack::Utils.parse_nested_query(params[:item_params])
+		# type = item_params.delete('item_type')
+		# @item = get_item_constant(type).new(survey: @survey, position: params[:item_position])
+		# if @item.save
+		# 	render(partial: "survey_items/items/#{@item.type.demodulize.underscore}", locals:{item: @item})
+		# else
+		# 	render js: "alert('error')", status: :unprocessible_entry
+		# end
+
+		@item_type = params[:item_type]
+		@item = get_item_constant(@item_type).new(survey_id: @survey.id, position: params[:position])
+		unless @item.save
+			render json: {errors: @item.errors.full_messages.to_sentence}.to_json, status: :unprocessible_entry
 		end
 	end
 	
 	def destroy
-		@survey = current_account.surveys.find(params[:survey_id])
   		@item = @survey.items.find(params[:id])
   		@item.destroy
   	end
   
   	def delete
-    	@survey = current_account.surveys.find(params[:survey_id])
   		@item = @survey.items.find(params[:item_id])
 	  	@item.update_attributes(:deleted_at => Time.now)
 	  	render nothing: true, status: 200
   	end  	
 
   	def copy
-    	@survey = current_account.surveys.find(params[:survey_id])
   		@item = @survey.items.find(params[:item_id])
 	  	@new_item = SurveyItem.new(@item.attributes.merge(position: params[:item_position]))
 
@@ -73,6 +73,10 @@ class SurveyItemsController < ApplicationController
 			'video_question' => 'SurveyItems::VideoQuestion',
 			'single_select_grid' => 'SurveyItems::SingleSelectGrid',
 			'page_break' => 'SurveyItems::PageBreak'}[name].constantize rescue nil
+	end
+
+	def get_survey
+		@survey = current_account.surveys.find(params[:survey_id])
 	end
 	
 end
