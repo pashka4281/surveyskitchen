@@ -23,6 +23,7 @@ class SurveyItem < ActiveRecord::Base
   after_initialize do
     return true unless self.new_record?
     YAML.load_file(Rails.root.join('config', 'defaults', 'survey_items.yml'))[I18n.locale.to_s][self.simple_name].each do |key, val|
+      p self.send(key)
       self.send(key).blank? ? send("#{key}=", val) : true
     end
     true

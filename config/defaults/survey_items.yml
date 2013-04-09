@@ -1,3 +1,31 @@
 ru:
   desc_text:
     text_content: "<p>Описательный текст</p>"
+
+  text_field_question:
+    title: "Текстовое поле"
+
+  scale_question:
+    title: "Шкала оценок"
+    scale_size: 5
+
+  single_select_question:
+    title: "Одиночный выбор"
+    variants: "Вариант #1\nВариант #2\nВариант #3\n"
+  
+  multiple_select_question:
+    title: "Множественный выбор"
+    variants: "Вариант #1\nВариант #2\nВариант #3\n"
+
+  drop_down_question:
+    title: "Выпадающий список"
+    variants: "Вариант #1\nВариант #2\nВариант #3\n"
+
+  video_question:
+    frame_size: "640x390"
+    embed_url: "http://www.youtube.com/watch?v=WOC5kHtn_x4"
+
+  single_select_grid:
+    title: "Как вы относитесь к следующим продуктам/услугам:"
+    rows: "Вариант #1\nВариант #2\nВариант #3\n"
+    columns: "Плохо\nНормально\nХорошо\nВеликолепно"

@@ -1,26 +1,27 @@
 
-	<%= form_for @survey_item || SurveyItems::DropDownQuestion.new, url: '#', id: 'drop_down_question_form' do |f| %>
-		<div class="field">
-			<label><%= t('survey_items.common.item_title') %></label>
-			<%= f.text_area :title, name: 'survey_item[title]', rows: 2, 'data-errormessage' => t('survey_items.common.item_title_error_msg'),
-				class: 'validate[required]', placeholder: t('survey_items.common.title_placeholder') %>
-		</div>
+<%= form_for @survey_item || SurveyItems::DropDownQuestion.new, url: '#', id: 'drop_down_question_form' do |f| %>
+	<div class="field">
+		<label><%= t('survey_items.common.item_title') %></label>
+		<%= f.text_area :title, name: 'survey_item[title]', rows: 2, 'data-errormessage' => t('survey_items.common.item_title_error_msg'),
+			class: 'validate[required]', placeholder: t('survey_items.common.title_placeholder') %>
+	</div>
 
-		<div class="field">
-		    <label><%= t('survey_items.drop_down.variants') %></label>
-		    <%= f.text_area :variants, name: 'survey_item[variants]', rows: 3, 'data-errormessage' => t('survey_items.drop_down.variants_error_msg'),  
-				class: 'tall validate[required]', placeholder: t('survey_items.drop_down.variants_placeholder') %>
-		</div>
-		<label class="checkbox">
-	    	<%= f.check_box :include_txt_field, name: 'survey_item[include_txt_field]' %>
-	    	<%= t('survey_items.drop_down.include_txt_field') %>
-		</label>
+	<div class="field">
+	    <label><%= t('survey_items.drop_down.variants') %></label>
+	    <%= f.text_area :variants, name: 'survey_item[variants]', rows: 3, 'data-errormessage' => t('survey_items.drop_down.variants_error_msg'),  
+			class: 'tall validate[required]', placeholder: t('survey_items.drop_down.variants_placeholder') %>
+	</div>
+	<label class="checkbox">
+    	<%= f.check_box :include_txt_field, name: 'survey_item[include_txt_field]' %>
+    	<%= t('survey_items.drop_down.include_txt_field') %>
+	</label>
 
-		<label class="checkbox">
-	    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
-	    	<%= t('survey_items.common.make_required') %>
-	    </label>
+	<label class="checkbox">
+    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
+    	<%= t('survey_items.common.make_required') %>
+    </label>
 
-		<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
-		<input type="hidden" name="item_type" value="drop_down_question">
-	<% end %>
+	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
+	<input type="hidden" name="item_type" value="drop_down_question">
+	<%= f.submit class: 'btn small simple success' %>
+<% end %>

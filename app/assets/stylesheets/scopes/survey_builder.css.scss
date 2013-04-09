@@ -153,17 +153,16 @@
 	//left: 300px;
 	//right: 0;
 	//padding: 25px 7px 7px 7px;
-	width: 640px;
+	width: 630px;
 	//margin-bottom: 30px;
 	counter-reset:section;
-	margin-left: 370px;
+	margin-left: 380px;
 	min-height: 500px;
+	border: 1px solid #ccc;
 	h2#title{
 		line-height: 40px;
 		padding: 10px;
 		margin-bottom: 8px;
-		margin-left: 10px;
-		margin-right: 10px;
 	}
 	#no-items-area{
         display: none;
@@ -187,12 +186,12 @@
 		position: relative;
 		.drop-placeholder{
 			//border: 1px dashed #555 inset;
-			margin: 10px 10px;
+			margin: 10px 0px;
 			background: url('/images/hovered-item.png')
 		}
 		.item-loading-placeholder{
 			height: 25px;
-			margin: 10px 10px;
+			margin: 10px 0px;
 		}
 		.countable{
 			/*
@@ -213,7 +212,7 @@
 		}
 		li.survey_item{
 			position: relative;
-			margin: 10px 10px;
+			margin: 10px 0px;
 			cursor: pointer;
 			-webkit-transition: background-color 350ms ease-out;
 			-moz-transition: background-color 350ms ease-out;
@@ -238,7 +237,7 @@
 				display: none;
 			}
 			.item-inner{
-				border: 1px solid rgb(190, 190, 190);
+				border-top: 1px solid rgb(190, 190, 190);
 				padding: 10px;// 50px 10px 10px 10px;
 				
 				//border-radius: 4px;
@@ -277,7 +276,6 @@
 						}
 					}
 					.grid-row-title{  text-align: left; }
-
 				}
 			}
 		}
@@ -337,7 +335,7 @@
 			}
 			button{ 
 				margin-top: 5px; 
-				width: 155px;
+				width: 170px;
 				
 			}
 		}

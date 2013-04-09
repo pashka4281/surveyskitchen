@@ -12,11 +12,9 @@ class this.Survey
 		@survey_items 	= '.survey_item'
 		@insertButtons 	= '.insert_buttons'
 		@noItemsArea 	= '#no-items-area'
-		@zero_item 		= '#zero-item'
+		@edit_item_area = '#edit-item-area'
 
-		@cancel_btn 	= '#cancel-btn'
 		@delete_links 	= '.survey_item .deleteLnk'
-		@edit_links 	= '.survey_item .item-edit-link'
 		@updateSurveyUrl= params['survey_update_url']
 		@new_item_form_data = null
 		@current_action_item_id = null
@@ -90,14 +88,14 @@ class this.Survey
 			@deleteItem($(el.currentTarget).parents('.survey_item').attr('item_id'))
 			false
 
-		$('#doneEditItemBtn').click =>
-			iframe_result = document.getElementById('edit-item-frame').contentWindow.submitItemForm();
-			item_id = $('#editItemContainer #edit-question-id').data('question_id')
-			if iframe_result
-				$.ajax "/surveys/#{@survey_id}/items/#{item_id}",
+		$(document).on 'submit', "#{@edit_item_area} form", (el) =>
+			# iframe_result = document.getElementById('edit-item-frame').contentWindow.submitItemForm();
+			_form = $(el.currentTarget)
+			_item_id = _form.find('input[name="item_id"]').val()
+			if(_form.validationEngine('validate'))
+				$.ajax "/surveys/#{@survey_id}/items/#{_item_id}",
 					type: 'PUT'
-					data: iframe_result
-				@close_modals()
+					data: _form.serialize()			
 			false
 
 	renewItemsIndexes: ->
@@ -106,19 +104,24 @@ class this.Survey
 
 	# load item properties and show up edit tab
 	editItem: (item_id)=>
-		item = $("#{@survey_items}[item_id=#{item_id}]")
+		return if $(@edit_item_area).data('editing_item') is item_id
+		$(@edit_item_area).data('editing_item', item_id)
 		$(@survey_items).removeClass('selected_item')
-		item.addClass('selected_item')
-		index = $("#tabs a[href=\"#edit-item-area\"]").click()
-		edit_area = @tabs.find('#edit-item-area .edit-form-wrapper')
-		info_block = @tabs.find('#edit-item-area .info-block')
-		edit_area.html('<div>Loading...</div>')
+		item = $("#{@survey_items}[item_id=#{item_id}]").addClass('selected_item')
+		
+		$("#tabs a[href=\"#{@edit_item_area}\"]").click()
+		edit_form_wrapper = @tabs.find("#{@edit_item_area} .edit-form-wrapper")
+		info_block = @tabs.find("#{@edit_item_area} .info-block")
+		edit_form_wrapper.html('<div><label>Loading...</label></div>')
 		$.ajax "#{@base_path}/items/#{item_id}/edit",
 			type: 'GET'
 			success: (resp) -> #resp contains edit form
-				edit_area.html(resp)
+				edit_form_wrapper.html(resp).hide().fadeIn(100)
 				info_block.hide()
-				$("form", edit_area).validationEngine('attach', {promptPosition : "inline", scroll: false})
+				$("form", edit_form_wrapper).validationEngine('detach').validationEngine 'attach',
+					promptPosition : "inline"
+					scroll: false
+					focusFirstField: true
 	
 	#functions
 	copyItem: (id, pos) =>
@@ -128,8 +131,6 @@ class this.Survey
 			data:
 				item_position: pos
 			success: (resp) -> #resp contains new item markup
-				btn = $(self.insertButtons + "[itemindex=#{pos}]")
-				$(resp).insertAfter(btn.parents('.survey_item')).hide().slideDown()
 				self.renewItemsIndexes()
 				self.total_items += 1
 
@@ -142,8 +143,6 @@ class this.Survey
 				item_params: params
 				item_position: pos
 			success: (resp) -> #resp contains new item markup
-				btn = $(self.insertButtons + "[itemindex=#{pos}]")
-				$(resp).insertAfter(btn.parents('.survey_item')).hide().slideDown()
 				if self.total_items is 0
 					$(self.noItemsArea).hide()
 				self.renewItemsIndexes()
@@ -162,3 +161,6 @@ class this.Survey
 					$(@).remove()
 					$(self.noItemsArea).show() if self.total_items is 0
 					self.renewItemsIndexes()
+
+	restoreItem: (id) =>
+		self = this

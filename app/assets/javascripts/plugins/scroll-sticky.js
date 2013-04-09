@@ -13,8 +13,8 @@
   	//this.css('position','relative');
 	
   	$(window).scroll(function() {
-  		clearTimeout($.data(this, 'scrollTimer'));
-	    $.data(this, 'scrollTimer', setTimeout(function() {
+  		// clearTimeout($.data(this, 'scrollTimer'));
+	   //  $.data(this, 'scrollTimer', setTimeout(function() {
 		    getObject = options.oSelector;
 	        if($(window).scrollTop() > ($(getObject).parent().offset().top) &&
 	           ($(getObject).parent().height() + $(getObject).parent().position().top - 30) > ($(window).scrollTop() + $(getObject).height())){
@@ -25,7 +25,7 @@
 	        	$(getObject).animate({ 'margin-top': "0px" },
 	            { queue: options.queue, easing: options.easing, duration: options.duration });
 	        }
-	    }, 250));
+	    // }, 250));
   		
 	}).scroll();
 

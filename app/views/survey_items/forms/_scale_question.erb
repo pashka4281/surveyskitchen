@@ -1,4 +1,4 @@
-<%= form_for @survey_item || SurveyItems::ScaleQuestion.new, url: '#', id: 'scale_question_form' do |f| %>
+<%= form_for @survey_item, url: '#', id: 'scale_question_form' do |f| %>
 	<div class="field">
 		<label><%= t('survey_items.common.item_title') %></label>
 		<%= f.text_area :title, name: 'survey_item[title]', rows: 2,  'data-errormessage' => t('survey_items.common.item_title_error_msg'),
@@ -27,4 +27,5 @@
 
 	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
 	<input type="hidden" name="item_type" value="scale_question">
+	<%= f.submit class: 'btn small simple success' %>
 <% end %>
