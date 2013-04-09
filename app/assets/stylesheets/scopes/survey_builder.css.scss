@@ -49,7 +49,7 @@
 	width: 1000px;
 }
 #toolbox-wrapper{
-	width: 330px;
+	width: 370px;
 	//height: auto;
 	//min-height: 100px;
 
@@ -61,7 +61,7 @@
 	//min-height: 500px;
 	.divider_line{
 		float: left;
-		width: 317px;
+		width: 357px;
 		height: 1px;
 		border-top: 1px solid #F04300;
 		margin-top: 5px;
@@ -70,7 +70,7 @@
 		border-bottom: 1px solid #FFA17C;
 	}
 	#toolbox{
-		width: 328px;
+		width: 368px;
 		&.stickyBar{ margin-left:0 }
 
 		#tabs{
@@ -84,13 +84,13 @@
 				margin: 5px;
 				font-size: 13px;
 				border-radius: 100px;
-				padding: 4px;
+				padding: 4px 12px;
 				background-color: #BF6530;
 				color: #FFD242;
 			}
 			#action-buttons{ 
 				padding: 5px; 
-				button{ width: 151px; }
+				button{ width: 170px; }
 				#trashbox-btn{ margin-right: 5px; }
 			}
 			ul.tabs-nav{
@@ -125,8 +125,26 @@
 					}
 				}
 			}
+			//edit item form styles
+			#edit-item-area{
+				form{
+					padding: 4px 3px 0px 3px;
+					.field{ 
+						margin-bottom: 7px;
+						span{ font-size: 12px; }
+					}
+					label{font-size: 13px;display: block;line-height: 15px;}
+					input[type="text"],input[type="email"] select, textarea{
+						outline: none;
+						border: 1px solid #CCC;
+						padding: 3px;
+						width: 100%;
+						font-size: 12px;
+						margin-top: 5px;
+					}
+				}
+			}
 		}
-
 	}
 	
 }
@@ -135,11 +153,11 @@
 	//left: 300px;
 	//right: 0;
 	//padding: 25px 7px 7px 7px;
-	width: 670px;
+	width: 640px;
 	//margin-bottom: 30px;
 	counter-reset:section;
-	margin-left: 330px;
-min-height: 500px;
+	margin-left: 370px;
+	min-height: 500px;
 	h2#title{
 		line-height: 40px;
 		padding: 10px;
@@ -190,19 +208,29 @@ min-height: 500px;
 			*/
 		}
 	
-	.survey_items_desc_text{
-		@include rich_text_content;
-	}
+		.survey_items_desc_text{
+			@include rich_text_content;
+		}
 		li.survey_item{
 			position: relative;
 			margin: 10px 10px;
+			cursor: pointer;
+			-webkit-transition: background-color 350ms ease-out;
+			-moz-transition: background-color 350ms ease-out;
+			-o-transition: background-color 350ms ease-out;
+			transition: background-color 350ms ease-out;
+			&.selected_item{
+				background-color: #FFF85A;
+				.item_tools{
+					display: block;
+				}
+			}
 			.item_tools{
 				position: absolute;
 				top: 0;
-				left: 0;
 				right: 0;
 				background-color: #ebebeb;
-				padding: 1px 1px 1px 50px;
+				padding: 1px;
 				border: 1px solid #bebebe;
 				//border-top-left-radius: 5px;
 				//border-top-right-radius: 5px;

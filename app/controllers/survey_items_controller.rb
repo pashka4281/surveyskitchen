@@ -13,7 +13,7 @@ class SurveyItemsController < ApplicationController
 
 	def edit
 		@survey_item = @survey.items.find(params[:id])
-		render layout: 'item_modal'
+		render layout: false
 	end
 
 	def update

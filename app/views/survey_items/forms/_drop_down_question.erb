@@ -1,11 +1,4 @@
-<div class="modal-header">
-	<h3>
-		<i class="icon-down-open"></i>
-		<%= t('survey_items.drop_down.title') %>
-	</h3>
-</div>
 
-<div class="form-wrapper">
 	<%= form_for @survey_item || SurveyItems::DropDownQuestion.new, url: '#', id: 'drop_down_question_form' do |f| %>
 		<div class="field">
 			<label><%= t('survey_items.common.item_title') %></label>
@@ -31,12 +24,3 @@
 		<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
 		<input type="hidden" name="item_type" value="drop_down_question">
 	<% end %>
-</div>
-
-<%= content_for :js do %>
-<script>
-	$(document).ready(function(){
-    	$("form").validationEngine('attach', {promptPosition : "inline", scroll: false});
-	});
-</script>
-<% end %>
