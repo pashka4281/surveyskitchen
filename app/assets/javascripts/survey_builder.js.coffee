@@ -18,12 +18,16 @@ class this.Survey
 		@updateSurveyUrl= params['survey_update_url']
 		@new_item_form_data = null
 		@current_action_item_id = null
+		@stickyBar = $('.stickyBar')
 		@renewItemsIndexes()
 
+		# tabs functionality (jquery ui tabs) for toolbox
 		@tabs = $('#tabs').tabs()
 
 		@new_item_area = $( "#new-item-area" )
 		@build_list    = $( "#build_list" )
+
+		@makeToolboxScrollable()
 
 		# let the new_item_area items be draggable
 		$( "ul li", @new_item_area ).draggable
@@ -83,6 +87,9 @@ class this.Survey
 		$(document).on 'click', @survey_items, (el) =>
 			@editItem($(el.currentTarget).attr('item_id'))
 
+		$(document).on 'click', '#add-item-tab', (el) =>
+			@clearEditingTab()
+
 		#remove links click handler:
 		$(document).on 'click', @delete_links, (el) =>
 			@deleteItem($(el.currentTarget).parents('.survey_item').attr('item_id'))
@@ -102,9 +109,18 @@ class this.Survey
 		$(@survey_items).removeAttr('itemindex').each (i, el) =>
 			$(el).attr('itemindex', i)
 
+	clearEditingTab: =>
+		# item_id = $(@edit_item_area).data('editing_item')
+		$(@edit_item_area).removeData('editing_item')
+		$(@survey_items).removeClass('selected_item')
+		@tabs.find("#{@edit_item_area} .info-block").show()
+		@tabs.find("#{@edit_item_area} .edit-form-wrapper").html('')
+		@makeToolboxScrollable()
+
 	# load item properties and show up edit tab
 	editItem: (item_id)=>
 		return if $(@edit_item_area).data('editing_item') is item_id
+		self = this;
 		$(@edit_item_area).data('editing_item', item_id)
 		$(@survey_items).removeClass('selected_item')
 		item = $("#{@survey_items}[item_id=#{item_id}]").addClass('selected_item')
@@ -118,12 +134,19 @@ class this.Survey
 			success: (resp) -> #resp contains edit form
 				edit_form_wrapper.html(resp).hide().fadeIn(100)
 				info_block.hide()
+				self.stickyBar.containedStickyScroll('fixToOffset', {offset: item.offset().top})
 				$("form", edit_form_wrapper).validationEngine('detach').validationEngine 'attach',
 					promptPosition : "inline"
 					scroll: false
-					focusFirstField: true
 	
 	#functions
+
+	# sticky toolbox
+	makeToolboxScrollable: =>
+		@stickyBar.containedStickyScroll 'attachScroll',
+			duration: 200
+			closeChar: 'x'
+
 	copyItem: (id, pos) =>
 		self = this
 		$.ajax "#{@base_path}/items/#{id}/copy",

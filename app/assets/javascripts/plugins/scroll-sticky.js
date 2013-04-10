@@ -1,33 +1,52 @@
 (function( $ ){
 
-  $.fn.containedStickyScroll = function( options ) {
-  
+  $.fn.containedStickyScroll = function(action_name, options ) {
 	var defaults = {  
 		oSelector : this.selector,
 		easing: 'swing',
-		duration: 500,
-		queue: true
-	}  
-                  
+		duration: 200,
+		queue: false
+	}
+
 	var options =  $.extend(defaults, options);
-  	//this.css('position','relative');
-	
-  	$(window).scroll(function() {
-  		// clearTimeout($.data(this, 'scrollTimer'));
-	   //  $.data(this, 'scrollTimer', setTimeout(function() {
-		    getObject = options.oSelector;
-	        if($(window).scrollTop() > ($(getObject).parent().offset().top) &&
-	           ($(getObject).parent().height() + $(getObject).parent().position().top - 30) > ($(window).scrollTop() + $(getObject).height())){
-	        	$(getObject).animate({ 'margin-top': ($(window).scrollTop() - $(getObject).parent().offset().top) + "px" }, 
-	            { queue: options.queue, easing: options.easing, duration: options.duration });
-	        }
-	        else if($(window).scrollTop() < ($(getObject).parent().offset().top)){
-	        	$(getObject).animate({ 'margin-top': "0px" },
-	            { queue: options.queue, easing: options.easing, duration: options.duration });
-	        }
-	    // }, 250));
-  		
-	}).scroll();
+	self = $(options.oSelector);
+
+	if(action_name == 'fixToOffset'){
+		detachScroll();
+		var item_offset = options.offset,
+			total_offset = item_offset - self.data('init-offset');
+		// console.log(offset)
+		self.animate({ 'margin-top': total_offset + "px" },
+		    { queue: options.queue, easing: options.easing, duration: options.duration });
+  	}else if(action_name == 'attachScroll'){
+  		if(self.data('init-offset') == undefined)
+  			self.data('init-offset',self.offset().top );
+  		attachScroll();
+  	}
+
+
+	function attachScroll(){
+		console.log('attachScroll')
+		$(window).scroll(function() {
+	  		// clearTimeout($.data(this, 'scrollTimer'));
+		   //  $.data(this, 'scrollTimer', setTimeout(function() {
+			    getObject = options.oSelector;
+		        if($(window).scrollTop() > (self.parent().offset().top)){
+		        	self.animate({ 'margin-top': ($(window).scrollTop() - self.parent().offset().top) + "px" }, 
+		            { queue: options.queue, easing: options.easing, duration: options.duration });
+		        }
+		        else if($(window).scrollTop() < (self.parent().offset().top)){
+		        	self.animate({ 'margin-top': "0px" },
+		            { queue: options.queue, easing: options.easing, duration: options.duration });
+		        }
+		    // }, 250));
+	  		
+		}).scroll();
+	}
+
+	function detachScroll(){
+		$(window).unbind();
+	}
 
   };
 })( jQuery );

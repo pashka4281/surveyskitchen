@@ -2,7 +2,8 @@
 
 <%= page_header t('surveys.builder.title', name: @survey.name), nomargin: true, default_survey_menu: true %>
 
-<style type="text/css"><%= raw @survey.theme.to_css %></style>
+<!---->
+	<style type="text/css"><%= raw @survey.theme.to_css %></style>
 
 <div id="survey_theme_select" class="page-sub-header">
 	<span><%= t('surveys.builder.themes_select') %></span>
@@ -22,7 +23,7 @@
 </div>
 
 <div id="builder">
-	<div class="row">
+	<div class="row2 build-columns">
 		<div id="toolbox-wrapper" class="column">
 			<div id="toolbox" class="stickyBar">
 				<div id="tabs">
@@ -105,13 +106,6 @@
 
 <%= content_for :js do %>
 	<script>
-		
-		$('.stickyBar').containedStickyScroll({
-	        duration: 200,
-	        unstick: true,
-	        closeChar: 'x' 
-	    });
-
 		// document ready 
 		$(function(){
 			var survey = new Survey({

@@ -64,7 +64,7 @@ class SurveyItemsController < ApplicationController
 	private
 	
 	def	get_item_constant(name)
-		{ 'text_field_question' => 'SurveyItems::TextFieldQuestion',
+		{   'text_field_question' => 'SurveyItems::TextFieldQuestion',
 			'multiple_select_question' => 'SurveyItems::MultipleSelectQuestion',
 			'single_select_question' => 'SurveyItems::SingleSelectQuestion',
 			'scale_question' => 'SurveyItems::ScaleQuestion',
