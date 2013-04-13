@@ -17,16 +17,28 @@
 		$(@).remove()
 
 
-# @clear_ck_editor_instances = ->
-# 	if (CKEDITOR.instances['rich-text-area'])
-# 		CKEDITOR.remove(CKEDITOR.instances['rich-text-area'])
+@clear_ck_editor_instances = ->
+	if (CKEDITOR.instances['rich-text-area'])
+		CKEDITOR.remove(CKEDITOR.instances['rich-text-area'])
 
-# @init_ck_editor = ->
-# 	return if (CKEDITOR.instances['rich-text-area'])
-# 	if($('#rich-text-area').length > 0)
-#     	CKEDITOR.replace( "rich-text-area" )
-
-
+@init_ck_editor = (lang)->
+	return if (CKEDITOR.instances['rich-text-area'])
+	if($('#rich-text-area').length > 0)
+		CKEDITOR.replace "rich-text-area", 
+			language: lang
+			toolbar: [
+				{ name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] }
+				{ name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'SpecialChar' ] }
+				{ name: 'styles', items: [ 'Styles', 'Format' ] }
+				{ name: 'others', items: [ '-' ] }
+				{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Strike' ] }
+				{ name: 'tools', items: [ 'Maximize' ] }
+				{ name: 'links', items: [ 'Link', 'Unlink'] }
+				
+				{ name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source' ] }				
+				{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] }
+				
+			]
 
 #init modal buttons/links click event handler
 $(document).on 'click', '[data-toggle="modal"]', (el) =>

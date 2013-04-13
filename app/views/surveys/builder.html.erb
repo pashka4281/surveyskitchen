@@ -106,34 +106,36 @@
 
 
 <%= content_for :js do %>
-	<script>
-		// document ready 
-		$(function(){
-			var survey = new Survey({
-				survey_id: <%= @survey.id %>,
-				survey_update_url: "<%= survey_path(@survey, format: :js) %>",
-				total_items: <%= @survey.items.active.count %>,
-				trashed_items: <%= @survey.items.trashed.count %>,
-				translates: <%== translates_for_builder() %>
-			});
-
-			$(document).on('click', '#preview-btn', function(){
-				window.open("<%= preview_survey_path(@survey) %>",'_blank');
-			})
-
-			$(document).on('change', '#theme-select', function(){
-				_el = $(this)
-				$.ajax({
-					url: "<%= survey_path(@survey) %>",
-					method: "PUT",
-					data: {
-						survey: { theme_id: _el.val() }
-					},
-					success: function(){
-						location.reload();
-					}
-				})
-			})
+<script type="text/javascript" src="/javascripts/ckeditor/ckeditor.js"></script>
+<script>
+	// document ready 
+	$(function(){
+		var survey = new Survey({
+			survey_id: <%= @survey.id %>,
+			survey_update_url: "<%= survey_path(@survey, format: :js) %>",
+			total_items: <%= @survey.items.active.count %>,
+			trashed_items: <%= @survey.items.trashed.count %>,
+			translates: <%== translates_for_builder() %>,
+			locale: "<%= I18n.locale.to_s %>"
 		});
-	</script>
+
+		$(document).on('click', '#preview-btn', function(){
+			window.open("<%= preview_survey_path(@survey) %>",'_blank');
+		})
+
+		$(document).on('change', '#theme-select', function(){
+			_el = $(this)
+			$.ajax({
+				url: "<%= survey_path(@survey) %>",
+				method: "PUT",
+				data: {
+					survey: { theme_id: _el.val() }
+				},
+				success: function(){
+					location.reload();
+				}
+			})
+		})
+	});
+</script>
 <% end %>

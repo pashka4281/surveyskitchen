@@ -170,7 +170,7 @@ body{
 }
 
 a:visited:not(.btn){ color: rgb(45, 137, 150); }
-a:not(.btn):not(.signup-btn){ color: rgb(45, 137, 150); }
+a{ color: rgb(45, 137, 150); }
 
 form .field_with_errors{
 	display: inline;

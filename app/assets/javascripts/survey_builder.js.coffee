@@ -1,10 +1,11 @@
 class this.Survey
 	constructor: (params) ->
-		@survey_id = params['survey_id']
-		@base_path = "/surveys/#{@survey_id}" # e.g. "/survey/1"
-		@translates = params['translates']
-		@total_items = params['total_items']
+		@survey_id     = params['survey_id']
+		@base_path     = "/surveys/#{@survey_id}" # e.g. "/survey/1"
+		@translates    = params['translates']
+		@total_items   = params['total_items']
 		@trashed_items = params['trashed_items']
+		@locale        = params['locale']
 		$('#no-items-area').show() if @total_items is 0
 		@self = this
 
@@ -135,6 +136,7 @@ class this.Survey
 
 	clearEditingTab: =>
 		# item_id = $(@edit_item_area).data('editing_item')
+		clear_ck_editor_instances()
 		$(@edit_item_area).removeData('editing_item')
 		$(@survey_items).removeClass('selected_item')
 		@tabs.find("#{@edit_item_area} .info-block").show()
@@ -163,6 +165,7 @@ class this.Survey
 				$("form", edit_form_wrapper).validationEngine('detach').validationEngine 'attach',
 					promptPosition : "inline"
 					scroll: false
+				init_ck_editor(self.locale)
 	
 	#functions
 
