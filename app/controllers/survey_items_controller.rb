@@ -32,7 +32,7 @@ class SurveyItemsController < ApplicationController
 		# end
 
 		@item_type = params[:item_type]
-		@item = get_item_constant(@item_type).new(survey_id: @survey.id, position: params[:position])
+		@item = get_item_constant(@item_type).new(survey_id: @survey.id, previous_item_id: params[:previous_item_id])
 		unless @item.save
 			render json: {errors: @item.errors.full_messages.to_sentence}.to_json, status: :unprocessible_entry
 		end
@@ -51,7 +51,7 @@ class SurveyItemsController < ApplicationController
 
   	def copy
   		@item = @survey.items.find(params[:item_id])
-	  	@new_item = SurveyItem.new(@item.attributes.merge(position: params[:item_position]))
+	  	@new_item = SurveyItem.new(@item.attributes.merge(previous_item_id: params[:previous_item_id]))
 
 	  	if @new_item.save
 	  		@new_item = SurveyItem.find(@new_item.id)

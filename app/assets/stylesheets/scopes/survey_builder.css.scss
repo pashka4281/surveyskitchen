@@ -66,14 +66,11 @@
 		border-bottom: 1px solid #FFA17C;
 	}
 	#toolbox{
-		width: 368px;
+		width: 370px;
 		&.stickyBar{ margin-left:0 }
 
 		#tabs{
 			//padding-top: 8px;
-			margin-left: -7px;
-			margin-right: -7px;
-			margin-top: -7px;
 			background-color: #ff8100;
 			.info-block{
 				border: 1px solid #FFAE79;
@@ -87,7 +84,7 @@
 			}
 			#action-buttons{ 
 				padding: 5px;
-				button{ width: 176px; }
+				button{ width: 171px; }
 				#trashbox-btn{ margin-right: 5px; }
 			}
 			ul.tabs-nav{
@@ -173,13 +170,11 @@
 	margin-left: 10px;
 	min-height: 500px;
 	border: 1px solid #ccc;
-	padding: 0 10px;
+	//padding: 0 10px;
 	h2.page_title{
 		line-height: 35px;
 		padding: 10px;
 		margin-bottom: 8px;
-		margin-left: -10px;
-		margin-right: -10px;
 	}
 	#no-items-area{
         display: none;
@@ -204,7 +199,8 @@
 		position: relative;
 		.drop-placeholder{
 			//border: 1px dashed #555 inset;
-			margin: 10px 0px;
+			margin-top: 10px;
+			margin-bottom: 11px;
 			background: url('/images/hovered-item.png')
 		}
 		.item-loading-placeholder{
@@ -231,6 +227,7 @@
 		}
 		li.survey_item{
 			position: relative;
+			padding: 0 5px 1px 5px;
 			margin: 10px 0px;
 			cursor: pointer;
 			-webkit-transition: background-color 350ms ease-out;
@@ -238,24 +235,42 @@
 			-o-transition: background-color 350ms ease-out;
 			transition: background-color 350ms ease-out;
 			&.selected_item{
-				background-color: #FFF85A;
+				&.survey_items_page_break{ 
+					background-color: #FFF85A; 
+					.page_break_texting{ 
+						color: #555; 
+						background-color: #FFF85A;
+						-webkit-transition: background-color 350ms ease-out;
+						-moz-transition: background-color 350ms ease-out;
+						-o-transition: background-color 350ms ease-out;
+						transition: background-color 350ms ease-out;
+					}
+				}
+				.item-inner{ background-color: #FFF85A; }
 				color: #555;
 				.item-title{ color: #555; }
 				.item-content{ color: #555; }
-				.item_tools{
-					display: block;
-				}
+				.item_tools, .arrow{ display: block;}
 			}
 			.item_tools{
 				position: absolute;
 				top: 0;
-				right: 0;
+				right: 5px;
 				background-color: #ebebeb;
 				padding: 1px;
 				border: 1px solid #bebebe;
 				//border-top-left-radius: 5px;
 				//border-top-right-radius: 5px;
 				button.deleteLnk{ color: #ff0000; }
+				display: none;
+			}
+			.arrow{
+				background: url(/images/arrow.png);
+				width: 15px;
+				height: 30px;
+				position: absolute;
+				left: -11px;
+				top: 40px;
 				display: none;
 			}
 			.item-inner{

@@ -3,7 +3,7 @@ class SurveyItem < ActiveRecord::Base
   QUESTION_ITEMS = %w(SurveyItems::PageBreak SurveyItems::DescText SurveyItems::VideoQuestion)
 
   attr_accessible :content, :survey_id, :type, :survey, 
-    :title, :subtitle, :position, :deleted_at, :required_field
+    :title, :subtitle, :previous_item_id, :position, :deleted_at, :required_field
   belongs_to :survey
 
   serialize :content, Hash
@@ -12,7 +12,7 @@ class SurveyItem < ActiveRecord::Base
   after_destroy :remove_position
   after_create  :add_position
   
-  attr_writer :position
+  attr_writer :previous_item_id, :position #position - for inserting, predvious_item_id - for copy
   scope :trashed, where('deleted_at IS NOT NULL') #sqlite compatible syntax
   # scope :trashed, where('deleted_at <> NULL') #postgres compatible syntax
   scope :active, where(deleted_at: nil)
@@ -21,7 +21,7 @@ class SurveyItem < ActiveRecord::Base
 
   #seed attributes with default values
   after_initialize do
-    return true unless self.new_record?
+    return true if !self.new_record? || self.class == SurveyItem
     YAML.load_file(Rails.root.join('config', 'defaults', 'survey_items.yml'))[I18n.locale.to_s][self.simple_name].each do |key, val|
       self.send(key).blank? ? send("#{key}=", val) : true
     end
@@ -77,7 +77,7 @@ class SurveyItem < ActiveRecord::Base
 
   #pushes newly created survey item to the survey's items_positions arrays
   def add_position
-  	@position.blank? ? survey.items_positions << id : survey.insert_item(@position, id)
+  	survey.insert_item(@previous_item_id, id)
     survey.save
   end
 

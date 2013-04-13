@@ -64,8 +64,15 @@ class Survey < ActiveRecord::Base
   
   #position - item num in the list
   #item_id - SurveyItem id
-  def	insert_item(position, item_id)
-  	self.items_positions.insert(position.to_i, item_id)
+  def	insert_item(previous_item_id, item_id)
+    p previous_item_id
+
+    if previous_item_id
+      index = self.items_positions.index(previous_item_id.to_i)
+  	  self.items_positions.insert(index + 1, item_id)
+    else
+      self.items_positions.unshift(item_id)
+    end
   end
 
   def switch!

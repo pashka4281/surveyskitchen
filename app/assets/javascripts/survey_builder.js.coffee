@@ -60,7 +60,7 @@ class this.Survey
 				i_type = $('button', _item).data('item-type')
 
 				if (_item.hasClass("new-item"))
-					pos = _item.prev().attr('itemindex')
+					prev_id = _item.prev().attr('item_id')
 					loading_placeholder = $("<li class='item-loading-placeholder'>" + 'Loading...' + "</li>")
 					_item.replaceWith(loading_placeholder)
 
@@ -70,7 +70,7 @@ class this.Survey
 						dataType: 'json'
 						data:
 							item_type: i_type
-							position: pos
+							previous_item_id: prev_id
 						success: (resp) =>
 							reponse_item = $(resp.html)
 							loading_placeholder.replaceWith(reponse_item)
@@ -104,14 +104,14 @@ class this.Survey
 
 		#copy link click handler
 		$(document).on 'click', '.item-copy-link', (el) =>
+			self = this
 			item = $(el.currentTarget).parents('.survey_item')
 			$.ajax "#{@base_path}/items/#{item.attr('item_id')}/copy",
                 type: 'POST'
                 data:
-                    item_position: item.attr('itemindex')
+                    previous_item_id: item.attr('item_id')
                 success: (resp) -> #resp contains new item markup
-                    btn = $(self.insertButtons + "[itemindex=#{pos}]")
-                    $(resp).insertAfter(btn.parents('.survey_item')).hide().slideDown()
+                    $(resp).insertAfter(item).hide().slideDown()
                     self.renewItemsIndexes()
                     self.total_items += 1
 			false
