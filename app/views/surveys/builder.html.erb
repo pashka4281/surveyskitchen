@@ -31,7 +31,6 @@
 					<ul class="tabs-nav">
 						<li><a href="#new-item-area" id="add-item-tab">Добавить</a></li>
 						<li><a href="#edit-item-area" id="edit-item-tab">Редактировать</a></li>
-						<li><a href="#form-settings-area" id="survey-settings-tab">Настройки опроса</a></li>
 					</ul>
 					<div id="new-item-area"><%= render '/survey_items/new' %></div>
 					<div id="edit-item-area">
@@ -39,38 +38,40 @@
 						<div class="edit-form-wrapper"></div>
 						<div class="divider_line"></div>
 					</div>
-					<div id="form-settings-area"></div>
+					
 					<!-- buttons -->
 					<div id="action-buttons">
 						<button id="trashbox-btn" data-url="<%= trashbox_survey_path(@survey) %>" class="btn" data-target="#trashedItemsContainer" data-toggle="modal" role="button">
-					    	<i class="icon-trash"></i> <%= t 'surveys.builder.trashbox' %> <span class="trash-cnt">(<%= @survey.items.trashed.count %>)</span>
-					    </button>
-					    <button class="btn btn-warning" id="preview-btn">
-					    	<i class="icon-eye"></i> <%= t 'surveys.builder.preview' %>
-					    </button>
+							<i class="icon-trash"></i> <%= t 'surveys.builder.trashbox' %> <span class="trash-cnt">(<%= @survey.items.trashed.count %>)</span>
+						</button>
+						<button class="btn btn-warning" id="preview-btn">
+							<i class="icon-eye"></i> <%= t 'surveys.builder.preview' %>
+						</button>
 					</div>
 
 				</div>
 			</div>
 		</div>
 		<div id="build_list"  class="list column <%= "survey_theme_#{@survey.theme.id}" %>">
-			<h2 id="title"><%= @survey.name %></h2>
-	    
-	        <div id="no-items-area">
-	        	<div id="work-area-texting" class="fifteen columns centered centr-text vspace-big">
-	        		<h3><%= t('surveys.builder.working_area_1') %></h3>
-	        		<h5><%= t('surveys.builder.working_area_2') %></h5>
-	        		<button  class="small btn new-item-btn success">
-				    	<i class="icon-list-add"></i> <%= t 'surveys.builder.new_item' %> <br>
-				    </button>
-	        	</div>
-	    	</div>
-	    	
-	    	<ul id="survey-items-list">
-		        <%- @survey.sorted_items.each do |i| -%>
-		        	<%= render_survey_item(i) %>
-		        <%- end -%>
-	    	</ul>
+			<h2 class="page_title" id="title"><%= @survey.name %></h2>
+
+			<div id="no-items-area">
+				<div id="work-area-texting" class="fifteen columns centered centr-text vspace-big">
+					<h3><%= t('surveys.builder.working_area_1') %></h3>
+					<h5><%= t('surveys.builder.working_area_2') %></h5>
+					<button  class="small btn new-item-btn success">
+						<i class="icon-list-add"></i> <%= t 'surveys.builder.new_item' %> <br>
+					</button>
+				</div>
+			</div>
+
+			<ul id="survey-items-list">
+				<li class="survey_item zero-item"></li>
+				<%- @survey.sorted_items.each do |i| -%>
+					<%= render_survey_item(i) %>
+				<%- end -%>
+			</ul>
+
 		</div>
 	</div>
 </div>

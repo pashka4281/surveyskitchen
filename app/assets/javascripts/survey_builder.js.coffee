@@ -13,17 +13,19 @@ class this.Survey
 		@insertButtons 	= '.insert_buttons'
 		@noItemsArea 	= '#no-items-area'
 		@edit_item_area = '#edit-item-area'
+		@add_item_tab   = '#add-item-tab'
 
 		@delete_links 	= '.survey_item .deleteLnk'
 		@updateSurveyUrl= params['survey_update_url']
 		@new_item_form_data = null
 		@current_action_item_id = null
-		@stickyBar = $('.stickyBar')
+		
 		@renewItemsIndexes()
 
 		# tabs functionality (jquery ui tabs) for toolbox
 		@tabs = $('#tabs').tabs()
 
+		@stickyBar = $('.stickyBar')
 		@new_item_area = $( "#new-item-area" )
 		@build_list    = $( "#build_list" )
 
@@ -40,42 +42,42 @@ class this.Survey
 	
 
 		$( '#survey-items-list', @build_list ).sortable
-			placeholder: "drop-placeholder",
-			axis:'y',
-			forcePlaceholderSize: true,
-			cursor: 'move',
-			opacity: 0.7,
-			revert: 200,
-			scrollSensitivity: 10,
-			scrollSpeed: 7,
-			tolerance: "intersect",
+			placeholder: "drop-placeholder"
+			axis: 'y'
+			calcel: '.zero-item'
+			forcePlaceholderSize: true
+			cursor: 'move'
+			opacity: 0.7
+			revert: 200
+			scrollSensitivity: 10
+			scrollSpeed: 7
+			tolerance: "intersect"
 			start: (event, ui) =>
 				#console.log(ui)
 				# if (ui.item.hasClass("new-item")) 
 			stop: (event, ui) =>
-				_item = ui.item
+				_item  = ui.item
 				i_type = $('button', _item).data('item-type')
-					
-				console.log(ui)
-				if (_item.hasClass("new-item")) 
-					# //ui.sender.draggable("cancel");
-					pos = _item.prev().attr('itemindex')
-					console.log('dropped')
 
+				if (_item.hasClass("new-item"))
+					pos = _item.prev().attr('itemindex')
 					loading_placeholder = $("<li class='item-loading-placeholder'>" + 'Loading...' + "</li>")
 					_item.replaceWith(loading_placeholder)
 
 					$.ajax
 						url: "#{@base_path}/items"
-						type: 'POST',
-						dataType: 'json',
+						type: 'POST'
+						dataType: 'json'
 						data:
-							item_type: i_type,
+							item_type: i_type
 							position: pos
 						success: (resp) =>
 							reponse_item = $(resp.html)
 							loading_placeholder.replaceWith(reponse_item)
 							reponse_item.hide().slideDown(500)
+							if @total_items is 0
+								$(@noItemsArea).hide()
+							@total_items += 1
 							@renewItemsIndexes()
 
 			update: (event, ui) =>
@@ -87,12 +89,31 @@ class this.Survey
 		$(document).on 'click', @survey_items, (el) =>
 			@editItem($(el.currentTarget).attr('item_id'))
 
-		$(document).on 'click', '#add-item-tab', (el) =>
+		$(document).on 'click', @add_item_tab, (el) =>
 			@clearEditingTab()
+
+		#button on the empty survey welcome block
+		$(document).on 'click', '#work-area-texting button', (el) =>
+			$(@add_item_tab).click()
+			$('#tabs').effect('highlight')
 
 		#remove links click handler:
 		$(document).on 'click', @delete_links, (el) =>
 			@deleteItem($(el.currentTarget).parents('.survey_item').attr('item_id'))
+			false
+
+		#copy link click handler
+		$(document).on 'click', '.item-copy-link', (el) =>
+			item = $(el.currentTarget).parents('.survey_item')
+			$.ajax "#{@base_path}/items/#{item.attr('item_id')}/copy",
+                type: 'POST'
+                data:
+                    item_position: item.attr('itemindex')
+                success: (resp) -> #resp contains new item markup
+                    btn = $(self.insertButtons + "[itemindex=#{pos}]")
+                    $(resp).insertAfter(btn.parents('.survey_item')).hide().slideDown()
+                    self.renewItemsIndexes()
+                    self.total_items += 1
 			false
 
 		$(document).on 'submit', "#{@edit_item_area} form", (el) =>
@@ -102,7 +123,7 @@ class this.Survey
 			if(_form.validationEngine('validate'))
 				$.ajax "/surveys/#{@survey_id}/items/#{_item_id}",
 					type: 'PUT'
-					data: _form.serialize()			
+					data: _form.serialize()		
 			false
 
 	renewItemsIndexes: ->
@@ -114,6 +135,7 @@ class this.Survey
 		$(@edit_item_area).removeData('editing_item')
 		$(@survey_items).removeClass('selected_item')
 		@tabs.find("#{@edit_item_area} .info-block").show()
+		@tabs.find("#{@edit_item_area} form").validationEngine('detach')
 		@tabs.find("#{@edit_item_area} .edit-form-wrapper").html('')
 		@makeToolboxScrollable()
 
@@ -171,7 +193,7 @@ class this.Survey
 				self.renewItemsIndexes()
 				self.total_items += 1
 
-
+	#removing item from to the trashbox
 	deleteItem: (id) =>
 		self = this
 		$.ajax "#{@base_path}/items/#{id}/delete", 
@@ -180,10 +202,12 @@ class this.Survey
 				self.total_items -= 1
 				self.trashed_items += 1
 				$('#trashbox-btn span.trash-cnt').html("(#{self.trashed_items})")
+				$(self.add_item_tab).click()
 				$(self.survey_items + "[item_id=#{id}]").slideUp 300, ->
 					$(@).remove()
 					$(self.noItemsArea).show() if self.total_items is 0
 					self.renewItemsIndexes()
+
 
 	restoreItem: (id) =>
 		self = this

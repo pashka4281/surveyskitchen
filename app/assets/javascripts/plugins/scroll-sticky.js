@@ -26,7 +26,7 @@
 
 
 	function attachScroll(){
-		console.log('attachScroll')
+		// console.log('attachScroll')
 		$(window).scroll(function() {
 	  		// clearTimeout($.data(this, 'scrollTimer'));
 		   //  $.data(this, 'scrollTimer', setTimeout(function() {

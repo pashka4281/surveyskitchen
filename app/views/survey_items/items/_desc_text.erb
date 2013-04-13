@@ -1,6 +1,6 @@
 <%= content_tag_for :li, item, class: "survey_item", item_id: item.id do -%>
 	<%= render 'survey_items/items/_tools_box', item: item %>
 	<div class="item-inner">
-		<div class="item-content"><%=raw item.text_content %></div>
+		<div class="item-content"><%== item.text_content %></div>
 	</div>
 <%- end -%>

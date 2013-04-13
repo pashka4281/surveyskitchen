@@ -70,8 +70,14 @@ class SurveyTheme < ActiveRecord::Base
 
 	def to_css
 		<<-EOSTR
-			.survey_theme_#{self.id}, .survey_theme_#{self.id} .survey_item { background-color: #{self.survey_bg_color} }
-			.survey_theme_#{self.id} #title{ 
+			.survey_theme_#{self.id}, .survey_theme_#{self.id} .survey_item{ 
+				background-color: #{self.survey_bg_color} 
+			}
+			.survey_theme_#{self.id} .page_break_texting{
+				background-color: #{self.survey_bg_color};
+				color: #{self.item_title_txt_color};
+			}
+			.survey_theme_#{self.id} h2.page_title{ 
 				background-color: #{self.survey_title_bg_color};
 				color: #{self.survey_title_txt_color};
 				font-size: #{survey_title_size};

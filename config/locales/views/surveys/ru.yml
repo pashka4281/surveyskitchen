@@ -46,8 +46,7 @@ ru:
     builder:
       title: '<b>%{name}</b> -- Конструктор'
       copy: "Копировать"
-      move: "Переместить"
-      edit: "Редакт."
+      edit: "Редактировать"
       remove: "Удалить"
       preview: "Предосмотр"
       trashbox: "Корзина"

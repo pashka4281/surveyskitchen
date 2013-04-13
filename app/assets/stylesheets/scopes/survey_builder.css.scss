@@ -83,16 +83,17 @@
 				padding: 4px 12px;
 				background-color: #BF6530;
 				color: #FFD242;
+				line-height: 15px;
 			}
 			#action-buttons{ 
-				padding: 5px; 
-				button{ width: 170px; }
+				padding: 5px;
+				button{ width: 176px; }
 				#trashbox-btn{ margin-right: 5px; }
 			}
 			ul.tabs-nav{
 				height: 36px;
 				background-color: #FFE6A5;
-				padding-top: 7px;
+				padding-top: 12px;
 				//background-color: #ccc;
 				li{
 					list-style: none;
@@ -105,6 +106,8 @@
 					white-space: nowrap;
 					padding: 0px;
 					outline: none;
+					height: 100%;
+					padding-top: 4px;
 					&.ui-state-active{
 						background-color: #ff8100;
 						border-top-left-radius: 10px;
@@ -171,7 +174,7 @@
 	min-height: 500px;
 	border: 1px solid #ccc;
 	padding: 0 10px;
-	h2#title{
+	h2.page_title{
 		line-height: 35px;
 		padding: 10px;
 		margin-bottom: 8px;
@@ -193,6 +196,7 @@
             padding: 25px;
             position: relative;
 			height: 130px;
+			button{ margin-top: 12px; }
         }
 	}
 	ul#survey-items-list{
@@ -207,6 +211,7 @@
 			height: 25px;
 			margin: 10px 0px;
 		}
+		.zero-item{ display: none; }
 		.countable{
 			/*
 			&::before{
@@ -279,7 +284,7 @@
 				input[type="text"], textarea{
 					border-top: 2px solid #999;
 				}
-				textarea, input, p, select{ color: rgb(70, 70, 70); }
+				textarea, input, select{ color: rgb(70, 70, 70); }
 				ul.unstyled, select, input[type="text"], textarea{ margin-top: 10px; }
 				.grid-table{ //table
 					font-size: 13px;
@@ -353,7 +358,7 @@
 			button{ 
 				margin-top: 5px; 
 				width: 170px;
-				
+				text-align: left;
 			}
 		}
 	}
