@@ -250,8 +250,9 @@
 				color: #555;
 				.item-title{ color: #555; }
 				.item-content{ color: #555; }
-				.item_tools, .arrow{ display: block;}
+				.item_tools{ display: block;}
 			}
+			&:not(.ui-sortable-helper).selected_item .arrow{ display: block;}
 			.item_tools{
 				position: absolute;
 				top: 0;

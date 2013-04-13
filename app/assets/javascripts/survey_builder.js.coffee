@@ -79,6 +79,9 @@ class this.Survey
 								$(@noItemsArea).hide()
 							@total_items += 1
 							@renewItemsIndexes()
+				else
+					if _item.hasClass('selected_item')
+						@stickyBar.containedStickyScroll('fixToOffset', {offset: _item.offset().top})
 
 			update: (event, ui) =>
 				console.log('updated')
