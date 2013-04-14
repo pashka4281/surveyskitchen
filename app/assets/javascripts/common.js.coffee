@@ -18,7 +18,7 @@
 
 
 @clear_ck_editor_instances = ->
-	if (CKEDITOR.instances['rich-text-area'])
+	if (CKEDITOR.instances['rich-text-area'] != undefined)
 		CKEDITOR.remove(CKEDITOR.instances['rich-text-area'])
 
 @init_ck_editor = (lang)->

@@ -182,6 +182,7 @@ class this.Survey
 	# load item properties and show up edit tab
 	editItem: (item_id)=>
 		return if $(@edit_item_area).data('editing_item') is item_id
+		clear_ck_editor_instances()
 		self = this;
 		$(@edit_item_area).data('editing_item', item_id)
 		$(@survey_items).removeClass('selected_item')
