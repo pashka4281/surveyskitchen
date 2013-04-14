@@ -46,8 +46,7 @@ ru:
     builder:
       title: '<b>%{name}</b> -- Конструктор'
       copy: "Копировать"
-      move: "Переместить"
-      edit: "Редакт."
+      edit: "Редактировать"
       remove: "Удалить"
       preview: "Предосмотр"
       trashbox: "Корзина"
@@ -65,6 +64,7 @@ ru:
       edit_item_modal_title: "Редактировать вопрос"
       working_area_1: "Это ваша рабочая область"
       working_area_2: "Начните создавать опрос с добавления первого вопроса"
+      loading_item: "Загрузка..."
 
 
     share:

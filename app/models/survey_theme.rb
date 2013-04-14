@@ -50,8 +50,10 @@ class SurveyTheme < ActiveRecord::Base
 	#seed attributes with default values
 	after_initialize do
 		return true unless self.new_record?
-		self.name = I18n.t "themes.form.default_survey_name"
-		self.attributes = YAML.load_file(Rails.root.join('config', 'defaults', 'new_theme.yml'))['attributes']
+		{name: I18n.t("themes.form.default_survey_name")}.merge(
+		self.attributes = YAML.load_file(Rails.root.join('config', 'defaults', 'new_theme.yml'))['attributes']).each do |key, val|
+	      self.send(key).blank? ? send("#{key}=", val) : true
+	    end
 	end
 
 	def item_inner_size
@@ -68,13 +70,21 @@ class SurveyTheme < ActiveRecord::Base
 
 	def to_css
 		<<-EOSTR
-			.survey_theme_#{self.id} { background-color: #{self.survey_bg_color} }
-			.survey_theme_#{self.id} #title{ 
+			.survey_theme_#{self.id}, .survey_theme_#{self.id} .survey_item{ 
+				background-color: #{self.survey_bg_color} 
+			}
+			.survey_theme_#{self.id} .page_break_texting{
+				background-color: #{self.survey_bg_color};
+				color: #{self.item_title_txt_color};
+			}
+			.survey_theme_#{self.id} h2.page_title{ 
 				background-color: #{self.survey_title_bg_color};
 				color: #{self.survey_title_txt_color};
+				font-size: #{survey_title_size};
 			}
 			.survey_theme_#{self.id} .survey_item  .item-title{
 				color: #{self.item_title_txt_color};
+				font-size: #{item_title_size};
 			}
 			.survey_theme_#{self.id} .survey_item .item-content{ 
 				color: #{self.item_inner_txt_color};

@@ -39,10 +39,8 @@ module ApplicationHelper
 
   def translates_for_builder
     {
-      add_item:  t('surveys.builder.js_insert_btn'),
-      copy_item: t('surveys.builder.js_copy_btn'),
-      move_item: t('surveys.builder.js_move_btn')
-      }.to_json
+      loading_item:  t('surveys.builder.loading_item')
+    }.to_json
   end
 
   def page_header(text, opts = {nomargin: false, submenu: nil, default_survey_menu: nil})

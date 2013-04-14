@@ -1,41 +1,26 @@
-<div class="modal-header">
-	<h3>
-		<i class="icon-check"></i>
-		<%= t('survey_items.multiple_select.title') %>
-	</h3>
-</div>
 
-<div class="form-wrapper">
-	<%= form_for @survey_item || SurveyItems::MultipleSelectQuestion.new, url: '#', id: 'multiple_select_question_form' do |f| %>
-		<div class="field">
-			<label><%= t('survey_items.common.item_title') %></label>
-			<%= f.text_area :title, name: 'survey_item[title]', rows: 2, 'data-errormessage' => t('survey_items.common.item_title_error_msg'),
-				class: 'validate[required]', placeholder: t('survey_items.common.title_placeholder') %>
-		</div>
+<%= form_for @survey_item, url: '#', id: 'multiple_select_question_form' do |f| %>
+	<div class="field">
+		<label><%= t('survey_items.common.item_title') %></label>
+		<%= f.text_area :title, name: 'survey_item[title]', rows: 2, 'data-errormessage' => t('survey_items.common.item_title_error_msg'),
+			class: 'validate[required]', placeholder: t('survey_items.common.title_placeholder') %>
+	</div>
 
-	    <label><%= t('survey_items.multiple_select.variants') %></label>
-	    <%= f.text_area :variants, name: 'survey_item[variants]', rows: 6, 'data-errormessage' => t('survey_items.multiple_select.variants_error_msg'),
-			class: 'validate[required]', placeholder: t('survey_items.multiple_select.variants_placeholder') %>
+    <label><%= t('survey_items.multiple_select.variants') %></label>
+    <%= f.text_area :variants, name: 'survey_item[variants]', rows: 6, 'data-errormessage' => t('survey_items.multiple_select.variants_error_msg'),
+		class: 'validate[required]', placeholder: t('survey_items.multiple_select.variants_placeholder') %>
 
-		<label class="checkbox">
-			<%= f.check_box :include_txt_field, name: 'survey_item[include_txt_field]' %>
-	    	<%= t('survey_items.multiple_select.include_txt_field') %>
-	    </label>
+	<label class="checkbox">
+		<%= f.check_box :include_txt_field, name: 'survey_item[include_txt_field]' %>
+    	<%= t('survey_items.multiple_select.include_txt_field') %>
+    </label>
 
-	    <label class="checkbox">
-	    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
-	    	<%= t('survey_items.common.make_required') %>
-	    </label>
+    <label class="checkbox">
+    	<%= f.check_box :required_field, name: 'survey_item[required_field]' %>
+    	<%= t('survey_items.common.make_required') %>
+    </label>
 
-		<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
-		<input type="hidden" name="item_type" value="multiple_select_question">
-	<% end %>
-</div>
-
-<%= content_for :js do %>
-<script>
-	$(document).ready(function(){
-    	$("form").validationEngine('attach', {promptPosition : "inline", scroll: false});
-	});
-</script>
+	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
+	<input type="hidden" name="item_type" value="multiple_select_question">
+	<%= f.submit t('survey_items.common.save'), class: 'btn small simple success' %>
 <% end %>

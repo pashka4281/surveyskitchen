@@ -14,12 +14,14 @@ ru:
       page_separator: "Разделитель страницы"
       video_item: "Видео вопрос"
       single_select_grid: "Матричный вопрос с единственным выбором"
+      info: "Нажмите"
 
     common:
       item_title: "* Заголовок вопроса:"
       item_title_error_msg: "Необходимо указать заголовок вопроса"
       title_placeholder: "Введите описание вопроса"
       make_required: "Требовать ответ на этот вопрос"
+      save: "Сохранить изменения"
 
     text_field:
       title: "Текстовое поле"
@@ -81,7 +83,7 @@ ru:
       title: "Описательный текст"
 
     page_break:
-      title: "Разделитель страницы"
+      title: "Разделитель страниц"
       page_header: "* Заголовок страницы"
       page_header_placeholder: "Введите заголовок страницы"
       page_header_error: "Укажите заголовок"

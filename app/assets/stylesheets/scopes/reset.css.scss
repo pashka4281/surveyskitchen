@@ -110,7 +110,7 @@ body{
 	display: table;
 }
 .padded{padding: 5px;}
-.row{ display: inline-block;width: 100%; }
+.row{ display: inline-block;width: 100%; position: relative; }
 .column{ float: left; }
 .column.one-third{ width: 33.333333%; }
 .column.two-third{ width: 66.666666%; }
@@ -140,16 +140,19 @@ body{
 	text-decoration: none;
 	background-color: #f2f2f2;
 
-	@include vertical_gradient(#f2f2f2, #c5c5c5 );
+	&:not(.simple){ 
+		@include vertical_gradient(#f2f2f2, #c5c5c5 ); 
+		&:active:not(:disabled){ 
+			@include vertical_gradient(#c5c5c5, #f2f2f2);
+		}
+	}
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
 	border: 1px solid #A5A5A5;
 	display: inline-block;
 	&:hover:not(:disabled){ border: 1px solid #4B4B4B; }
-	&:active:not(:disabled){ 
-		@include vertical_gradient(#c5c5c5, #f2f2f2);
-	}
+	
 	&.small{ padding: 3px; font-size: 11px; }
 	&.success{ 
 		background-color: #51a351;
@@ -167,7 +170,7 @@ body{
 }
 
 a:visited:not(.btn){ color: rgb(45, 137, 150); }
-a:not(.btn):not(.signup-btn){ color: rgb(45, 137, 150); }
+a{ color: rgb(45, 137, 150); }
 
 form .field_with_errors{
 	display: inline;

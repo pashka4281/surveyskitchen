@@ -1,17 +1,10 @@
-<%= div_for item, class: "insertable survey_item", item_id: item.id do -%>
+<%= content_tag_for :li, item, class: "insertable survey_item", item_id: item.id do -%>
   <%= render 'survey_items/items/_tools_box', item: item %>
-  <div class="pageEnd"></div>
-    <div class="row">
-      <div class="span4 page_border"></div>
-      <div class="span2 page_break_texting">
-        <h5>Page break</h5>
-      </div>
-      <div class="span4 page_border"></div>
-  	</div>
-  <div class="pageStart">
-    <%= insert_button %>
-  </div>
-
+  <div class="">
+    <div class="page_border"></div>
+    <div class="page_break_texting"><%= t('survey_items.page_break.title') %></div>
+	</div>
+  <h2 class="page_title"><%= item.page_header %></h2>
   
 <%- end -%>
 

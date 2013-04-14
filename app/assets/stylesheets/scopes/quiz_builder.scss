@@ -1,0 +1,76 @@
+#quiz-builder{
+
+.ui-resizable-helper { border: 2px dotted #00F; }
+.ui-resizable-ghost { border: 1px dotted gray; }
+.ui-resizable-helper { border: 1px dotted gray; position: relative; }
+.ui-icon {
+	width: 16px;
+	height: 16px;
+}
+
+#preview{
+	padding: 30px;
+	border: 1px solid;
+	background-color: #CCC;
+	display: inline-block;
+	
+}
+#preview *{
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+#build-canvas{
+	background-color: #fff;
+	width: 780px;
+	//height: 920px;
+	height: 200px;
+	box-shadow: 0px 0px 15px #000;
+	position: relative;
+	&.highlighted{ background: url('/images/hovered-item.png')}
+	& > div{
+		min-height: 14px;
+		min-width: 14px;
+		//padding: 1px;
+		background-color: #f0f0f0;
+		position: absolute;
+		//&:hover{border: 1px dashed #000; padding: 0 !important;}
+	}
+}
+
+.ui-resizable-handle {
+	position: absolute;
+	font-size: 0.1px;
+	display: block;
+	&:hover{
+		background-color: #ccc;
+		border: 1px solid #bbb;
+	}
+}
+
+.ui-resizable-se, .ui-resizable-sw, .ui-resizable-nw, .ui-resizable-ne{ width: 12px; height: 12px; }
+.ui-resizable-se{ cursor: se-resize; right: 1px; bottom: 1px; }
+.ui-resizable-sw{ cursor: sw-resize; left: 1px; bottom: 1px; }
+.ui-resizable-nw{ cursor: nw-resize; left: 1px; top: 1px; }
+.ui-resizable-ne{ cursor: ne-resize; right: 1px; top: 1px; }
+
+.ui-resizable-s, .ui-resizable-n{ height: 7px; left: 0px; right: 0px; }
+.ui-resizable-s { cursor: s-resize; bottom: 0px;}
+.ui-resizable-n { cursor: n-resize; top: 0px; }
+//ddd
+.ui-resizable-e, .ui-resizable-w{width: 7px; bottom: 0; top: 0; }
+.ui-resizable-e { cursor: e-resize;	right: 0px;}
+.ui-resizable-w { cursor: w-resize; left: 0px; }
+
+#toolbox{
+	width: 300px;
+	display: inline-block;
+	vertical-align: top;
+	> div{
+		height: 20px;
+		width: 50px;
+		border: 1px solid;
+	}
+}
+
+}

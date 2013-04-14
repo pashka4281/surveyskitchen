@@ -1,37 +1,21 @@
-<div class="modal-header">
-	<h3>
-		<i class="icon-doc-alt"></i>
-		<%= t('survey_items.page_break.title') %>
-	</h3>
-</div>
+<%= form_for @survey_item, url: '#', id: 'page_break_form' do |f| %>
+	<div class="field">
+		<label><%= t('survey_items.page_break.page_header') %></label>
+		<%= f.text_area :page_header, name: 'survey_item[page_header]', rows: 2, 'data-errormessage' => t('survey_items.page_break.page_header_error'),
+			class: 'validate[required]', placeholder: t('survey_items.page_break.page_header_placeholder') %>
+	</div>
 
-<div class="form-wrapper">
-	<%= form_for @survey_item || SurveyItems::PageBreak.new, url: '#', id: 'page_break_form' do |f| %>
-		<div class="field">
-			<label><%= t('survey_items.page_break.page_header') %></label>
-			<%= f.text_area :page_header, name: 'survey_item[page_header]', rows: 2, 'data-errormessage' => t('survey_items.page_break.page_header_error'),
-				class: 'validate[required]', placeholder: t('survey_items.page_break.page_header_placeholder') %>
-		</div>
+	<div class="field">
+	    <label><%= t('survey_items.page_break.page_descr') %></label>
+	    <%= f.text_area :page_description, name: 'survey_item[page_description]', rows: 3,  
+			class: 'tall', placeholder: t('survey_items.page_break.page_descr_placeholder') %>
+	</div>
 
-		<div class="field">
-		    <label><%= t('survey_items.page_break.page_descr') %></label>
-		    <%= f.text_area :page_description, name: 'survey_item[page_description]', rows: 3,  
-				class: 'tall', placeholder: t('survey_items.page_break.page_descr_placeholder') %>
-		</div>
+  	<div class="panel">
+        <p><%= t('survey_items.page_break.note') %></p>
+	</div>
 
-	  	<div class="panel">
-	        <p><%= t('survey_items.page_break.note') %></p>
-		</div>
-
-		<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
-		<input type="hidden" name="item_type" value="page_break">
-	<% end %>
-</div>
-
-<%= content_for :js do %>
-<script>
-	$(document).ready(function(){
-    	$("form").validationEngine('attach', {promptPosition : "inline", scroll: false});
-	});
-</script>
+	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
+	<input type="hidden" name="item_type" value="page_break">
+	<%= f.submit t('survey_items.common.save'), class: 'btn small simple success' %>
 <% end %>

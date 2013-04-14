@@ -1,10 +1,11 @@
 class this.Survey
 	constructor: (params) ->
-		@survey_id = params['survey_id']
-		@base_path = "/surveys/#{@survey_id}" # e.g. "/survey/1"
-		@translates = params['translates']
-		@total_items = params['total_items']
+		@survey_id     = params['survey_id']
+		@base_path     = "/surveys/#{@survey_id}" # e.g. "/survey/1"
+		@translates    = params['translates']
+		@total_items   = params['total_items']
 		@trashed_items = params['trashed_items']
+		@locale        = params['locale']
 		$('#no-items-area').show() if @total_items is 0
 		@self = this
 
@@ -12,148 +13,203 @@ class this.Survey
 		@survey_items 	= '.survey_item'
 		@insertButtons 	= '.insert_buttons'
 		@noItemsArea 	= '#no-items-area'
-		@zero_item 		= '#zero-item'
+		@new_item_area  = '#new-item-area'
+		@edit_item_area = '#edit-item-area'
+		@add_item_tab   = '#add-item-tab'
 
-		@cancel_btn 	= '#cancel-btn'
 		@delete_links 	= '.survey_item .deleteLnk'
-		@edit_links 	= '.survey_item .item-edit-link'
 		@updateSurveyUrl= params['survey_update_url']
 		@new_item_form_data = null
 		@current_action_item_id = null
-		@renewItemsIndexes()
+		
+		# @renewItemsIndexes()
 
-		$(document).on 'click', '#item_type_buttons button', (e) =>
-			val = $(e.target).data('item-type')
-			$('#new_survey_item').hide()
-			$('#new_survey_item')
-				.data('selected-item', true) #boolean indicator that shows that we selected item type
-				.parents('.modal').find('.modal-header h3').text("New #{$(e.target).text()}")
-			$('#newItem').append($("<iframe id=\"new-item-frame\" src=\"#{@base_path}/items/new?item_class=#{val}\"></iframe>")).show()
-			#$('#newItem').html(itemsHtmlArray[val]).show()
-			$('#doneNewItemBtn').removeAttr('disabled')
-			# init_ck_editor()
+		# tabs functionality (jquery ui tabs) for toolbox
+		@tabs = $('#tabs').tabs()
 
-		#insert buttons click handler:
-		$(document).on 'click', @insertButtons, (el) =>
-			_el = $(el.currentTarget)
-			switch _el.data('action')
-				when 'add_item'
-					@addItem(_el.attr('itemindex'), @new_item_form_data)
-				when 'copy_item'
-					@copyItem(@current_action_item_id, _el.attr('itemindex'))
-			
-			@renewItemsIndexes()
-			@hideButtons()
-			@toggle_cancel_btn()
+		@stickyBar = $('.stickyBar')
+		@new_item_area = $( "#new-item-area" )
+		@build_list    = $( "#build_list" )
 
-		#edit buttons click handler:
-		$(document).on 'click', @edit_links, (el) =>
-			_el = $(el.currentTarget)
-			$('<div id="modal-bg"></div>').appendTo('body')
-			modal = $('#editItemContainer')
-			modal.find('#editItem').html('').append($("<iframe id=\"edit-item-frame\" src=\"#{_el.attr('data-url')}\"></iframe>"))
-			$('#editItemContainer #edit-question-id').data('question_id', _el.parents('.survey_item').attr('item_id'))
-			modal.removeClass('hide')
-			false
+		@makeToolboxScrollable()
 
+		# let the new_item_area items be draggable
+		$( "ul li", @new_item_area ).draggable
+			cancel: "a.ui-icon" # clicking an icon won't initiate dragging
+			revert: "invalid" # when not dropped, the item will revert back to its initial position
+			containment: "document"
+			helper: "clone"
+			connectToSortable: '#survey-items-list'
+			scroll: true
+	
+
+		$( '#survey-items-list', @build_list ).sortable
+			placeholder: "drop-placeholder"
+			axis: 'y'
+			calcel: '.zero-item'
+			forcePlaceholderSize: true
+			cursor: 'move'
+			opacity: 0.7
+			revert: 200
+			scrollSensitivity: 10
+			scrollSpeed: 7
+			tolerance: "intersect"
+			start: (event, ui) =>
+				_item  = ui.item
+				prev_id = _item.prev().attr('item_id')
+				_item.data('start_prev_id', prev_id)
+			stop: (event, ui) =>
+				_item  = ui.item
+				i_type = $('button', _item).data('item-type')
+
+				if (_item.hasClass("new-item"))
+					prev_id = _item.prev().attr('item_id')
+					loading_placeholder = $("<li class='item-loading-placeholder'>#{@translates.loading_item}</li>")
+					_item.replaceWith(loading_placeholder)
+
+					$.ajax
+						url: "#{@base_path}/items"
+						type: 'POST'
+						dataType: 'json'
+						data:
+							item_type: i_type
+							previous_item_id: prev_id
+						success: (resp) =>
+							reponse_item = $(resp.html)
+							loading_placeholder.replaceWith(reponse_item)
+							reponse_item.hide().slideDown(500)
+							if @total_items is 0
+								$(@noItemsArea).hide()
+							@total_items += 1
+							@renewItemsIndexes()
+				else
+					if _item.hasClass('selected_item')
+						@stickyBar.containedStickyScroll('fixToOffset', {offset: _item.offset().top})
+
+					return true if _item.data('start_prev_id') is _item.prev().attr('item_id')
+
+					$.ajax "#{@base_path}/items/#{_item.attr('item_id')}/move",
+						type: 'PUT'
+						data:
+							previous_item_id: _item.prev().attr('item_id')
+						success: (resp) -> #resp contains new item markup
+							# $(resp).insertAfter(item).hide().slideDown()
+							# @renewItemsIndexes()
+							# @total_items += 1
+
+
+			update: (event, ui) =>
+				console.log('updated')
+
+		$( '#survey-items-list', @build_list ).disableSelection();
+		# // let the trash be droppable, accepting the new_item_area items
+		
+		$(document).on 'click', @survey_items, (el) =>
+			@editItem($(el.currentTarget).attr('item_id'))
+
+		$(document).on 'click', @add_item_tab, (el) =>
+			@clearEditingTab()
+
+		#new item button clicked
+		$(document).on 'click', "#new-item-area button", (el) =>
+			i_type = $(el.currentTarget).data('item-type')
+			prev_id = $('#survey-items-list .survey_item:last-child').attr('item_id')
+			loading_placeholder = $("<li class='item-loading-placeholder'>#{@translates.loading_item}</li>").appendTo('#survey-items-list')
+			$.ajax
+				url: "#{@base_path}/items"
+				type: 'POST'
+				dataType: 'json'
+				data:
+					item_type: i_type
+					previous_item_id: prev_id
+				success: (resp) =>
+					reponse_item = $(resp.html)
+					loading_placeholder.replaceWith(reponse_item)
+					reponse_item.hide().slideDown(500)
+					if @total_items is 0
+						$(@noItemsArea).hide()
+					@total_items += 1
+
+		#button on the empty survey welcome block
+		$(document).on 'click', '#work-area-texting button', (el) =>
+			$(@add_item_tab).click()
+			$('#tabs').effect('highlight')
 
 		#remove links click handler:
 		$(document).on 'click', @delete_links, (el) =>
 			@deleteItem($(el.currentTarget).parents('.survey_item').attr('item_id'))
 			false
 
-		$('.sortable_item .moveGrabber').click => false
-
-		$(@cancel_btn).hide().click =>
-			@new_item_form_data = null
-			@.hideButtons()
-			@.toggle_cancel_btn()
-
 		#copy link click handler
 		$(document).on 'click', '.item-copy-link', (el) =>
-			current_item_id = $(el.currentTarget).parents('.survey_item').attr('item_id')
-			@toggle_cancel_btn()
-			@show_and_prepare_buttons_for('copy_item', current_item_id)
+			self = this
+			item = $(el.currentTarget).parents('.survey_item')
+			$.ajax "#{@base_path}/items/#{item.attr('item_id')}/copy",
+                type: 'POST'
+                data:
+                    previous_item_id: item.attr('item_id')
+                success: (resp) -> #resp contains new item markup
+                    $(resp).insertAfter(item).hide().slideDown()
+                    self.renewItemsIndexes()
+                    self.total_items += 1
 			false
 
-		#move link click handler
-		$(document).on 'click', '.item-move-link', (el) =>
-			current_item_id = $(el.currentTarget).parents('.survey_item').attr('item_id')
-			@toggle_cancel_btn()
-			@show_and_prepare_buttons_for('move_item', current_item_id)
-			false
-
-		$('#doneNewItemBtn').click =>
-			# textarea = $('#rich-text-area')
-			# if textarea.length > 0
-			# 	textarea.val(CKEDITOR.instances['rich-text-area'].getData());
-
-			if $('#new_survey_item').data('selected-item')
-				iframe_result = document.getElementById('new-item-frame').contentWindow.submitItemForm();
-				if iframe_result
-					@show_and_prepare_buttons_for 'add_item', null
-					@new_item_form_data = iframe_result
-					@.showButtons()
-					@.toggle_cancel_btn()
-					@close_modals()
-			false
-
-		$('#doneEditItemBtn').click =>
-			iframe_result = document.getElementById('edit-item-frame').contentWindow.submitItemForm();
-			item_id = $('#editItemContainer #edit-question-id').data('question_id')
-			if iframe_result
-				$.ajax "/surveys/#{@survey_id}/items/#{item_id}",
+		$(document).on 'submit', "#{@edit_item_area} form", (el) =>
+			# iframe_result = document.getElementById('edit-item-frame').contentWindow.submitItemForm();
+			_form = $(el.currentTarget)
+			_item_id = _form.find('input[name="item_id"]').val()
+			if(_form.validationEngine('validate'))
+				$.ajax "/surveys/#{@survey_id}/items/#{_item_id}",
 					type: 'PUT'
-					data: iframe_result
-				@close_modals()
+					data: _form.serialize()		
 			false
 
-		$('.new-item-btn').click =>
-			$('#doneNewItemBtn').attr('disabled', true)
-			@new_item_modal()
-		
-
-	close_modals: ->
-		# CKEDITOR.instances[name].destroy(true) for name of CKEDITOR.instances
-		$('#modal-bg').remove()
-		$('.modal').addClass('hide')
-
-	new_item_modal: ->
-		$('<div id="modal-bg"></div>').appendTo('body')
-		modal = $('#newItemContainer').removeClass('hide')
-		modal.find('#new_survey_item').show()
-		modal.find('#newItem').html('').hide()
-
-	#FUNCTIONS:
-	toggle_cancel_btn: ->
-		if $(@cancel_btn).is(':hidden')
-			$("#stickyBar .btn:not(#{@cancel_btn}), .item_tools button").attr('disabled', 'disabled')
-		else
-			$("#stickyBar .btn, .item_tools button").removeAttr 'disabled'
-		$("#{@cancel_btn}, #new-item-btn").toggle()
-
-	_currentButtons: ->
-		$(@buildList).find(".survey_item #{@insertButtons}")
-
-	#change all insert buttons labels and sets data-action attribute for use in their click callback function
-	show_and_prepare_buttons_for: (action, current_action_item_id) ->
-		@current_action_item_id = current_action_item_id
-		label = @translates[action]
-		if action is "move_item"
-			@showButtons()
-		else
-			@showButtons()
-		@_currentButtons().data('action', action).find('span').html(label)
-
-	showButtons: -> @_currentButtons().css({visibility: 'inherit'})
-	hideButtons: -> @_currentButtons().css({visibility: 'hidden'})
-
+	#DEPRECATED
 	renewItemsIndexes: ->
-		$(@insertButtons).removeAttr('itemindex') #cleaning itemindexes
-		@._currentButtons().each (i, el) =>
+		$(@survey_items).removeAttr('itemindex').each (i, el) =>
 			$(el).attr('itemindex', i)
+
+	clearEditingTab: =>
+		# item_id = $(@edit_item_area).data('editing_item')
+		clear_ck_editor_instances()
+		$(@edit_item_area).removeData('editing_item')
+		$(@survey_items).removeClass('selected_item')
+		@tabs.find("#{@edit_item_area} .info-block").show()
+		@tabs.find("#{@edit_item_area} form").validationEngine('detach')
+		@tabs.find("#{@edit_item_area} .edit-form-wrapper").html('')
+		@makeToolboxScrollable()
+
+	# load item properties and show up edit tab
+	editItem: (item_id)=>
+		return if $(@edit_item_area).data('editing_item') is item_id
+		self = this;
+		$(@edit_item_area).data('editing_item', item_id)
+		$(@survey_items).removeClass('selected_item')
+		item = $("#{@survey_items}[item_id=#{item_id}]").addClass('selected_item')
+		
+		$("#tabs a[href=\"#{@edit_item_area}\"]").click()
+		edit_form_wrapper = @tabs.find("#{@edit_item_area} .edit-form-wrapper")
+		info_block = @tabs.find("#{@edit_item_area} .info-block")
+		edit_form_wrapper.html("<div>#{@translates.loading_item}</div>")
+		$.ajax "#{@base_path}/items/#{item_id}/edit",
+			type: 'GET'
+			success: (resp) -> #resp contains edit form
+				edit_form_wrapper.html(resp).hide().fadeIn(100)
+				info_block.hide()
+				self.stickyBar.containedStickyScroll('fixToOffset', {offset: item.offset().top})
+				$("form", edit_form_wrapper).validationEngine('detach').validationEngine 'attach',
+					promptPosition : "inline"
+					scroll: false
+				init_ck_editor(self.locale)
 	
 	#functions
+
+	# sticky toolbox
+	makeToolboxScrollable: =>
+		@stickyBar.containedStickyScroll 'attachScroll',
+			duration: 200
+			closeChar: 'x'
+
 	copyItem: (id, pos) =>
 		self = this
 		$.ajax "#{@base_path}/items/#{id}/copy",
@@ -161,9 +217,7 @@ class this.Survey
 			data:
 				item_position: pos
 			success: (resp) -> #resp contains new item markup
-				btn = $(self.insertButtons + "[itemindex=#{pos}]")
-				$(resp).insertAfter(btn.parents('.survey_item')).hide().slideDown()
-				self.renewItemsIndexes()
+				# self.renewItemsIndexes()
 				self.total_items += 1
 
 
@@ -175,14 +229,12 @@ class this.Survey
 				item_params: params
 				item_position: pos
 			success: (resp) -> #resp contains new item markup
-				btn = $(self.insertButtons + "[itemindex=#{pos}]")
-				$(resp).insertAfter(btn.parents('.survey_item')).hide().slideDown()
 				if self.total_items is 0
 					$(self.noItemsArea).hide()
-				self.renewItemsIndexes()
+				# self.renewItemsIndexes()
 				self.total_items += 1
 
-
+	#removing item from to the trashbox
 	deleteItem: (id) =>
 		self = this
 		$.ajax "#{@base_path}/items/#{id}/delete", 
@@ -191,7 +243,12 @@ class this.Survey
 				self.total_items -= 1
 				self.trashed_items += 1
 				$('#trashbox-btn span.trash-cnt').html("(#{self.trashed_items})")
+				$(self.add_item_tab).click()
 				$(self.survey_items + "[item_id=#{id}]").slideUp 300, ->
 					$(@).remove()
 					$(self.noItemsArea).show() if self.total_items is 0
-					self.renewItemsIndexes()
+					# self.renewItemsIndexes()
+
+
+	restoreItem: (id) =>
+		self = this
