@@ -37,6 +37,13 @@ class SurveyItemsController < ApplicationController
 			render json: {errors: @item.errors.full_messages.to_sentence}.to_json, status: :unprocessible_entry
 		end
 	end
+
+	def move
+		@item = @survey.items.find(params[:item_id])
+		@item.previous_item_id = params[:previous_item_id]
+		@item.move_to_position()
+		render nothing: true, status: 200
+	end
 	
 	def destroy
   		@item = @survey.items.find(params[:id])

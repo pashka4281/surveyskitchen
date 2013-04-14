@@ -13,6 +13,7 @@ class this.Survey
 		@survey_items 	= '.survey_item'
 		@insertButtons 	= '.insert_buttons'
 		@noItemsArea 	= '#no-items-area'
+		@new_item_area  = '#new-item-area'
 		@edit_item_area = '#edit-item-area'
 		@add_item_tab   = '#add-item-tab'
 
@@ -21,7 +22,7 @@ class this.Survey
 		@new_item_form_data = null
 		@current_action_item_id = null
 		
-		@renewItemsIndexes()
+		# @renewItemsIndexes()
 
 		# tabs functionality (jquery ui tabs) for toolbox
 		@tabs = $('#tabs').tabs()
@@ -54,15 +55,16 @@ class this.Survey
 			scrollSpeed: 7
 			tolerance: "intersect"
 			start: (event, ui) =>
-				#console.log(ui)
-				# if (ui.item.hasClass("new-item")) 
+				_item  = ui.item
+				prev_id = _item.prev().attr('item_id')
+				_item.data('start_prev_id', prev_id)
 			stop: (event, ui) =>
 				_item  = ui.item
 				i_type = $('button', _item).data('item-type')
 
 				if (_item.hasClass("new-item"))
 					prev_id = _item.prev().attr('item_id')
-					loading_placeholder = $("<li class='item-loading-placeholder'>" + 'Loading...' + "</li>")
+					loading_placeholder = $("<li class='item-loading-placeholder'>#{@translates.loading_item}</li>")
 					_item.replaceWith(loading_placeholder)
 
 					$.ajax
@@ -84,6 +86,18 @@ class this.Survey
 					if _item.hasClass('selected_item')
 						@stickyBar.containedStickyScroll('fixToOffset', {offset: _item.offset().top})
 
+					return true if _item.data('start_prev_id') is _item.prev().attr('item_id')
+
+					$.ajax "#{@base_path}/items/#{_item.attr('item_id')}/move",
+						type: 'PUT'
+						data:
+							previous_item_id: _item.prev().attr('item_id')
+						success: (resp) -> #resp contains new item markup
+							# $(resp).insertAfter(item).hide().slideDown()
+							# @renewItemsIndexes()
+							# @total_items += 1
+
+
 			update: (event, ui) =>
 				console.log('updated')
 
@@ -95,6 +109,26 @@ class this.Survey
 
 		$(document).on 'click', @add_item_tab, (el) =>
 			@clearEditingTab()
+
+		#new item button clicked
+		$(document).on 'click', "#new-item-area button", (el) =>
+			i_type = $(el.currentTarget).data('item-type')
+			prev_id = $('#survey-items-list .survey_item:last-child').attr('item_id')
+			loading_placeholder = $("<li class='item-loading-placeholder'>#{@translates.loading_item}</li>").appendTo('#survey-items-list')
+			$.ajax
+				url: "#{@base_path}/items"
+				type: 'POST'
+				dataType: 'json'
+				data:
+					item_type: i_type
+					previous_item_id: prev_id
+				success: (resp) =>
+					reponse_item = $(resp.html)
+					loading_placeholder.replaceWith(reponse_item)
+					reponse_item.hide().slideDown(500)
+					if @total_items is 0
+						$(@noItemsArea).hide()
+					@total_items += 1
 
 		#button on the empty survey welcome block
 		$(document).on 'click', '#work-area-texting button', (el) =>
@@ -130,6 +164,7 @@ class this.Survey
 					data: _form.serialize()		
 			false
 
+	#DEPRECATED
 	renewItemsIndexes: ->
 		$(@survey_items).removeAttr('itemindex').each (i, el) =>
 			$(el).attr('itemindex', i)
@@ -155,7 +190,7 @@ class this.Survey
 		$("#tabs a[href=\"#{@edit_item_area}\"]").click()
 		edit_form_wrapper = @tabs.find("#{@edit_item_area} .edit-form-wrapper")
 		info_block = @tabs.find("#{@edit_item_area} .info-block")
-		edit_form_wrapper.html('<div><label>Loading...</label></div>')
+		edit_form_wrapper.html("<div>#{@translates.loading_item}</div>")
 		$.ajax "#{@base_path}/items/#{item_id}/edit",
 			type: 'GET'
 			success: (resp) -> #resp contains edit form
@@ -182,7 +217,7 @@ class this.Survey
 			data:
 				item_position: pos
 			success: (resp) -> #resp contains new item markup
-				self.renewItemsIndexes()
+				# self.renewItemsIndexes()
 				self.total_items += 1
 
 
@@ -196,7 +231,7 @@ class this.Survey
 			success: (resp) -> #resp contains new item markup
 				if self.total_items is 0
 					$(self.noItemsArea).hide()
-				self.renewItemsIndexes()
+				# self.renewItemsIndexes()
 				self.total_items += 1
 
 	#removing item from to the trashbox
@@ -212,7 +247,7 @@ class this.Survey
 				$(self.survey_items + "[item_id=#{id}]").slideUp 300, ->
 					$(@).remove()
 					$(self.noItemsArea).show() if self.total_items is 0
-					self.renewItemsIndexes()
+					# self.renewItemsIndexes()
 
 
 	restoreItem: (id) =>

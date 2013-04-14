@@ -81,6 +81,7 @@
 				background-color: #BF6530;
 				color: #FFD242;
 				line-height: 15px;
+				max-height: 40px;
 			}
 			#action-buttons{ 
 				padding: 5px;
@@ -276,7 +277,7 @@
 			}
 			.item-inner{
 				border: 1px solid rgb(190, 190, 190);
-				padding: 10px;// 50px 10px 10px 10px;
+				padding: 10px 65px 10px 10px;
 				
 				//border-radius: 4px;
 				ul li{	line-height: 22px;	}

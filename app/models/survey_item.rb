@@ -37,6 +37,10 @@ class SurveyItem < ActiveRecord::Base
     raise NotImplementedError.new("You must override this method in descendant class.")
   end
 
+  def move_to_position
+    survey.move_item!(@previous_item_id, id)
+  end
+
   class << self
     def custom_field_accessor(*args)
       custom_field_reader(*args)
@@ -71,14 +75,13 @@ class SurveyItem < ActiveRecord::Base
   
   def remove_custom_field(name)
     self.content = self.content.try(:delete, name)
-  end  
+  end
   
   private
 
   #pushes newly created survey item to the survey's items_positions arrays
   def add_position
-  	survey.insert_item(@previous_item_id, id)
-    survey.save
+  	survey.insert_item!(@previous_item_id, id)
   end
 
   #removes syrvey item from the survey's items_positions array

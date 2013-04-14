@@ -34,10 +34,8 @@
 				{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Strike' ] }
 				{ name: 'tools', items: [ 'Maximize' ] }
 				{ name: 'links', items: [ 'Link', 'Unlink'] }
-				
 				{ name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source' ] }				
 				{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] }
-				
 			]
 
 #init modal buttons/links click event handler

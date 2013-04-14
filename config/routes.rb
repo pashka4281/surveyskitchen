@@ -34,6 +34,7 @@ Surveyskitchen::Application.routes.draw do
     resources :survey_items, as: 'items', path: 'items' do
       delete :delete, as: :member
       post :copy, as: :member
+      put :move, as: :member
     end
     resources :responses, only: [:show, :destroy, :index]
     resources :themes
