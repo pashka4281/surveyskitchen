@@ -57,6 +57,10 @@ Surveyskitchen::Application.routes.draw do
   resources :clients
   resources :categories
   resources :share_methods, :as => :shares, except: [:index]
+  
+  namespace :blog do
+    resources :posts, as: 'posts', path: '/'
+  end
 
   get 'dashboard' => 'users#dashboard', :as => :dashboard
 

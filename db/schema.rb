@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407184915) do
+ActiveRecord::Schema.define(:version => 20130415232403) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -46,16 +46,16 @@ ActiveRecord::Schema.define(:version => 20130407184915) do
   add_index "blog_comments", ["post_id"], :name => "index_blog_comments_on_post_id"
 
   create_table "blog_posts", :force => true do |t|
-    t.string   "title",                         :null => false
-    t.text     "body",                          :null => false
-    t.integer  "blogger_id"
-    t.string   "blogger_type"
-    t.integer  "comments_count", :default => 0, :null => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.string   "title"
+    t.text     "content"
+    t.integer  "author_id"
+    t.text     "meta_keywords",    :limit => 500
+    t.text     "meta_description", :limit => 800
+    t.datetime "created_at"
+    t.string   "slug"
   end
 
-  add_index "blog_posts", ["blogger_type", "blogger_id"], :name => "index_blog_posts_on_blogger_type_and_blogger_id"
+  add_index "blog_posts", ["slug"], :name => "index_blog_posts_on_slug", :unique => true
 
   create_table "categories", :force => true do |t|
     t.string   "name"

@@ -1,0 +1,28 @@
+form.blog_post_form{
+	ol{
+		li.input{
+			label{
+				display: block;
+			}
+			textarea.meta-field{
+				height: 40px;
+				width: 100%;
+			}
+			.title_input{ width: 100%; }
+		}
+	}
+}
+
+.a-post{
+	width: 70%;
+	//margin-left: 5%;
+	.divider{
+		clear: both;
+		height: 1px;
+		margin: 10px 0;
+	}
+	.post-date{
+		font-size: 12px;
+		margin-bottom: 15px;
+	}
+}

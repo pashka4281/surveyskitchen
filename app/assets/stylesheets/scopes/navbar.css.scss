@@ -8,7 +8,8 @@
 	min-width: 920px;
 	margin-bottom: 15px;
 	//background: #5c6063;
-	background: #D65000;
+	//background: #D65000;
+	background: #447983;
 	padding-right: 20px;
 	padding-left: 20px;
 	/*background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
@@ -35,9 +36,9 @@
 			margin-left: 5px;
 			&.active{
 				background-color: #fff;
-				a{ color: #D65000; }
+				a{ color: #447983; }
 			}
-			&:hover:not(.active){ background-color: #FF9F66; }
+			&:hover:not(.active){ background-color: #62ADBB; }
 			a{	
 				text-decoration: none;
 				color: #fff;

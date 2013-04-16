@@ -1,0 +1,5 @@
+<%= div_for post, class: "a-post" do %>
+	<h2 class="left-title"><%= link_to post.title, post %></h2>
+	<div class="post-date"><%= l post.created_at, :format => :short_date_time %></div>
+	<div class="post_content"><%== post.content.split('&lt;!-- split_content --&gt;').first %></div>
+<% end %>

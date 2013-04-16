@@ -22,6 +22,7 @@ en:
     log_in_link: "Log in"
     dashboard_link: "Dashboard"
     add_survey_link: "Add survey"
+    blog: "Blog"
     
     surveys: "Surveys"
     clients: "Clients"

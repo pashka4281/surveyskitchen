@@ -22,6 +22,7 @@ gem 'rcsv'
 gem 'formtastic'
 gem 'newrelic_rpm'
 gem 'default_value_for'
+gem 'friendly_id'
 
 # gem 'resque', :require => 'resque/server'
 # gem 'resque_mailer'

@@ -34,6 +34,7 @@ ru:
     about: "О нас"
     plans_pricing: "Тарифы & цены"
     features: "Возможности"
+    blog: "Блог"
 
     user_created_message: "Ваша учетная запись успешно создана"
     user_signed_in_message: "Вы вошли как %{name}."

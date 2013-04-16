@@ -1,0 +1,26 @@
+<div id="navbar">
+  <!-- <a class="brand" href="/dashboard">SurveysKitchen</a> -->
+  <div class="content">
+    <%= link_to "/", id: 'home-link' do %>
+      SurveysKitchen <span>- блог</span>
+    <% end %>
+
+    <ul class="simple-nav right">
+      <!-- <li>
+        <%#= link_to t("layout.create_survey_link"), :register, class: 'signup-btn' %>
+      </li> -->
+
+    </ul>
+
+    <ul id="main-nav" class="right">
+      <%=content_tag :li, class: (request.path =~ /\/(blog)(\/)?\z/ ? 'active' : '')  do -%>
+        <%= link_to "Все статьи", :blog_posts %>
+      <%-end-%>
+      <%=content_tag :li, class: (request.path =~ /\/(archive)(\/)?\z/ ? 'active' : '')  do -%>
+        <%#= link_to t("layout.features"), :blog_archive %>
+      <%-end-%>
+    </ul>
+
+    
+  </div>
+</div>

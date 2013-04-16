@@ -69,6 +69,7 @@ GEM
       sass-rails (>= 3.1.1)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    friendly_id (4.0.9)
     geoip-c (0.8.1)
     haml (3.1.7)
     has_scope (0.5.1)
@@ -241,6 +242,7 @@ DEPENDENCIES
   factory_girl
   factory_girl_rails
   formtastic
+  friendly_id
   geoip-c
   inherited_resources
   jquery-rails

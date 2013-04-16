@@ -96,6 +96,7 @@ body{
 	color: #FFE;
 	font-size: 30px;
 	text-decoration: none;
+	span{ font-size: 15px; font-weight: bold; }
 }
 
 .left{ float: left; }
@@ -188,6 +189,48 @@ h3{
 h1{ font-size: 2.15em;}
 h2{ font-size: 1.9em;}
 h3{ font-size: 1.5em; margin-bottom: 15px;}
-h4{ font-size: 1.15em;}
+h4{ font-size: 1.15em; font-weight: bold;}
 h5{ font-size: 0.9em;}
+
+.fields{
+	textarea{ height: 150px; }
+	input[type="password"], input[type="text"],input[type="email"],input[type="number"], textarea, select{
+		outline: none;
+		font-size: 16px;
+		border: 2px solid #cccccc;
+		padding: 5px;
+		border-radius: 5px;
+		margin: 3px 0;
+		&:focus{
+			border-color: #a63e00;
+		}
+	}
+	label{
+		width: 600px;
+		display: inline-block;
+		clear: right;
+		min-height: 31px;
+		input[type="password"], input[type="text"],input[type="email"],input[type="number"], textarea, select{
+			float: right;
+			width: 400px;
+		}
+		input[type="password"]{
+			width: 200px;margin-right: 200px;
+		}
+	}
+	.uneditable{
+		float: right;
+		width: 400px;
+		font-size: 16px;
+		line-height: 27px;
+		color: rgb(150, 150, 150);
+		font-style: italic;
+		&.small{ font-style: normal; font-size: 12px; }
+	}
+	h3{
+		border-bottom: 1px solid #ccc;
+		margin-bottom: 15px;
+		width: 600px;
+	}
+}
 

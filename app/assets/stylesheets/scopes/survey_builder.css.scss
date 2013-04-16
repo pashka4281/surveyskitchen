@@ -59,11 +59,11 @@
 		float: left;
 		width: 357px;
 		height: 1px;
-		border-top: 1px solid #F04300;
+		border-top: 1px solid #AFB6DA;
 		margin-top: 5px;
 		margin-left: 5px;
 		margin-right: 5px;
-		border-bottom: 1px solid #FFA17C;
+		border-bottom: 1px solid #CFDCFF;
 	}
 	#toolbox{
 		width: 370px;
@@ -71,15 +71,15 @@
 
 		#tabs{
 			//padding-top: 8px;
-			background-color: #ff8100;
+			background-color: #D9E0FA;
 			.info-block{
-				border: 1px solid #FFAE79;
+				border: 1px solid #FDFEFF;
 				margin: 5px;
 				font-size: 13px;
 				border-radius: 100px;
 				padding: 4px 12px;
-				background-color: #BF6530;
-				color: #FFD242;
+				background-color: #30AEBF;
+				color: #F2F3FF;
 				line-height: 15px;
 				max-height: 40px;
 			}
@@ -90,7 +90,7 @@
 			}
 			ul.tabs-nav{
 				height: 36px;
-				background-color: #FFE6A5;
+				background-color: #F0F5FF;
 				padding-top: 12px;
 				//background-color: #ccc;
 				li{
@@ -107,14 +107,14 @@
 					height: 100%;
 					padding-top: 4px;
 					&.ui-state-active{
-						background-color: #ff8100;
+						background-color: #D9E0FA;
 						border-top-left-radius: 10px;
 						border-top-right-radius: 10px;
-						$tab_border_color: #B12300;
+						$tab_border_color: #A4A3AC;
 						border-left: 1px solid $tab_border_color;
 						border-top: 1px solid $tab_border_color;
 						border-right: 1px solid $tab_border_color;
-						a{ color: #fff;}
+						a{ color: #000;}
 					}
 					a{
 						padding: 3px;

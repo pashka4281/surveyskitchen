@@ -199,7 +199,7 @@ class this.Survey
 				info_block.hide()
 				self.stickyBar.containedStickyScroll('fixToOffset', {offset: item.offset().top})
 				$("form", edit_form_wrapper).validationEngine('detach').validationEngine 'attach',
-					promptPosition : "inline"
+					promptPosition: "inline"
 					scroll: false
 				init_ck_editor(self.locale)
 	
