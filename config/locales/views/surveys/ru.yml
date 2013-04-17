@@ -28,6 +28,9 @@ ru:
     report:
       title: "<b>%{name}</b> -- Отчет"
       additional_field: "Дополнительное текстовое поле:"
+      response_link: "Полный ответ"
+      question_skipped: "Количество пропустивших:"
+      question_responded: "Количество ответивших:"
 
     form:
       name: "Название:"

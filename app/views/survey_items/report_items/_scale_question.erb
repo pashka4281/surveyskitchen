@@ -1,3 +1,3 @@
 <%= content_tag :div, '', class: 'star-rating', 
-	'data-rating' => @responses_content.map{|x| x[item.id.to_s]}.map(&:to_i).mean.round(2), 'data-size' =>  item.scale_size	
+	'data-rating' => @responses_content.map{|x| x[:content][item.id.to_s]}.map(&:to_i).mean.round(2), 'data-size' =>  item.scale_size	
 %>

@@ -1,4 +1,4 @@
-<% 	resp_arr = @responses_content.map{|x| x[item.id.to_s]}.compact #example: ['1', '1', '2', '3', '0', '1'] %>
+<% 	resp_arr = @responses_content.map{|x| x[:content][item.id.to_s]}.compact #example: ['1', '1', '2', '3', '0', '1'] %>
 <ul class="report-variants">
 	<% item.rows_array.each_with_index do |variant, i| %>
 		

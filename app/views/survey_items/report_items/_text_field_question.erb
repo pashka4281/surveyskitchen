@@ -1,2 +1,19 @@
-<% resp_arr = @responses_content.map{|x| x[item.id.to_s]}.compact #example: ['1', '1', '2', '3', '0', '1'] %>
-<strong><%= raw resp_arr.join('<span class="responses-separator"></span>') %></strong> 
+<%#  {:content => {'123' => 'hello world'}, :resp_id => 23}  %>
+<% resp_arr = @responses_content.map{|x| [ x[:resp_id], x[:content][item.id.to_s] ] }.reject{|x| x[-1].nil?} %>
+
+
+<% resp_arr_without_empty = resp_arr.reject{|x| x[-1].blank? } %>
+<div class="statistics">
+    <span><%= t('surveys.report.question_skipped') %> <b><%= resp_arr.count - resp_arr_without_empty.count %></b></span>
+    <span><%= t('surveys.report.question_responded') %> <b><%= resp_arr_without_empty.count %></b></span>
+</div>
+
+<div class="scrollable">
+<%#  [[30, "one\r\ntwo\r\nthree"], [31, "пользуюсь,если выпиваю и"]]  %>
+<% resp_arr_without_empty.each do |resp| %>
+	<div>
+		<%== simple_format resp[-1] %>
+		<%= link_to t('surveys.report.response_link'), survey_response_path(@survey, resp[0]), class: "response-link" %>
+	</div>
+<% end %>
+</div>

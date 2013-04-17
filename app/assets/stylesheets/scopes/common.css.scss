@@ -322,6 +322,10 @@ $report-item-color: #C2CEDB;
 		margin-bottom: 15px;
 		position: relative;
 		border: 1px solid $report-item-color;
+		&.survey_items_text_field_question .report-item-body{
+			background: #ECECEC;
+			.scrollable{ background: #fff; }
+		}
 		.report-item-header{
 			padding: 5px 5px 5px 45px;
 			background-color: $report-item-color;
@@ -336,6 +340,40 @@ $report-item-color: #C2CEDB;
 				padding: 0;
 				border-right: 1px solid #ccc;
 				border-left: 1px solid #F3F3F3;
+			}
+			.additional_txt_field_results{
+				margin-top: 10px;
+				padding: 0 15px;
+				strong{ margin-bottom: 10px; display: inline-block; }
+				.scrollable{
+					height: 140px;color: #5A5A5A;
+				}
+			}
+			.scrollable{
+				height: 170px;
+				overflow-y: scroll;
+				border: 1px solid #CCC;
+				padding: 5px;
+				>div{
+					margin-bottom: 3px;
+					padding-bottom: 3px;
+					position: relative;
+					padding-right: 150px;
+					font-weight: 400;
+					&:not(:last-child){
+						border-bottom: 1px dashed #CCC;	
+					}
+					.response-link{
+						position: absolute;
+						top: 0px;
+						right: 5px;
+						font-size: 12px;
+					}
+				}
+			}
+			.statistics{
+				margin-bottom: 5px;
+				b{ font-weight: 700; }
 			}
 		}
 		&::before {

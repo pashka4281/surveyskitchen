@@ -27,6 +27,10 @@ en:
 
     report:
       title: "<b>%{name}</b> -- Report"
+      additional_field: "Additional text field:"
+      response_link: "Full answer"
+      question_skipped: "Number skipped:"
+      question_responded: "Number responded:"
 
     form:
       name: "Survey name:"

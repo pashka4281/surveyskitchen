@@ -77,7 +77,7 @@ class SurveysController < ApplicationController
 
   def report
     @options_colors = SURVEY_REPORT_SETTINGS['colors']['report_options']
-    @responses_content = @survey.responses.map(&:content)
+    @responses_content = @survey.responses.order('created_at DESC').map{|x| {content: x.content, resp_id: x.id}  }
   end
 
   private
