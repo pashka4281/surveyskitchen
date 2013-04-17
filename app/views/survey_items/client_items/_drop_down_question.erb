@@ -2,7 +2,7 @@
 
     <strong class="item-title"><%= "#{counter}. #{item.title}" %></strong>
     <div class="item-content">
-      <select name="response[item-<%= item.id %>]" class="span9">
+      <select name="response[item-<%= item.id %>][values]" class="span9">
         <%- if item.include_empty -%><option> Please select an option </option><%- end -%>
         <% for var in item.variants_array %>
           <option value="<%= var %>" > <%= var %> </option>
