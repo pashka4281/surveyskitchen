@@ -4,8 +4,8 @@
     <div class="item-content">
       <select name="response[item-<%= item.id %>][values]" class="span9">
         <%- if item.include_empty -%><option> Please select an option </option><%- end -%>
-        <% for var in item.variants_array %>
-          <option value="<%= var %>" > <%= var %> </option>
+        <% item.variants_array.each_with_index do |var, i| %>
+          <option value="<%= i %>" > <%= var %> </option>
         <% end %>
       </select>
 

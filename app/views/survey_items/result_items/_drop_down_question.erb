@@ -6,7 +6,7 @@
 		<% item.variants_array.each_with_index do |variant, i| %>
 	    	<li>
 		      	<label class="radio">
-					<% if result == variant %>
+					<% if (!result['values'].blank? && result['values'].to_i == i) %>
 						<strong><%= variant %></strong>
 					<% else %>
 						<%= variant %>
