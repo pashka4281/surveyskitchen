@@ -13,7 +13,8 @@ end
 
 module DbUpdates
 def self.migrate_to_new_val
-	Response.all.collect(&:content).each{|resp| 
+	Response.all.each{|rp| 
+		resp = rp.content
 		resp.each{|i_id, val| 
 			s= SurveyItem.where("id = #{i_id} and type in('SingleSelectQuestion', 'SurveyItems::MultipleSelectQuestion', 'SurveyItems::DropDown')").first
 			if s

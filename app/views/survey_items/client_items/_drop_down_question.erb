@@ -10,7 +10,7 @@
       </select>
 
       <%- if item.include_txt_field -%>
-        <input type="text" />
-      <%- end -%>
+          <input type="text" name="response[item-<%= item.id %>][additional_field]" />
+        <%- end -%>
     </div>
 <%- end -%>
