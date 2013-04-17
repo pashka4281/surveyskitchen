@@ -9,4 +9,13 @@
     		</div>
 		</li>
     <% end %>
+    
+    <% if(additional_fields = @responses_content.map{|x| x[item.id.to_s]['additional_field']}.compact).any? %>
+    <li class="additinal_fields">
+        <span class="right-text"><%= t('surveys.report.additional_field') %></span>
+        <div class="bar-wrapper">
+            <strong><%= raw additional_fields.join('<span class="responses-separator"></span>') %></strong>
+        </div>
+    </li>
+    <% end %>
 </ul>
