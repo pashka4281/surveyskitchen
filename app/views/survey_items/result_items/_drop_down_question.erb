@@ -15,4 +15,10 @@
 			</li>
 	    <% end %>
 	</ul>
+	<% unless result['additional_field'].blank? %>
+	<div class="additional-field">
+		<span><%= t("responses.show.additional_field") %></span>
+		<%= result['additional_field']%>
+	</div>
+	<% end %>
 </td>

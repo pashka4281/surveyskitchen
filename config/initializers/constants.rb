@@ -10,3 +10,23 @@ module GeoTools
 		GEO_IP_DATABASE.look_up(ip)
 	end
 end
+
+module DbUpdates
+def self.migrate_to_new_val
+	Response.all.collect(&:content).each{|resp| 
+		resp.each{|i_id, val| 
+			s= SurveyItem.where("id = #{i_id} and type in('SingleSelectQuestion', 'SurveyItems::MultipleSelectQuestion', 'SurveyItems::DropDown')").first
+			if s
+				tmp = resp[i_id]
+				p resp
+				if resp[i_id]['values'].blank?
+					resp[i_id] = {'values' => tmp}
+					p resp
+					s.content = resp
+					s.save
+				end
+			end 
+		} 
+	}
+end
+end

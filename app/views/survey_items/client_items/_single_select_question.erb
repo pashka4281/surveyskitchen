@@ -6,13 +6,13 @@
 	    	<% item.variants_array.each_with_index do |var, i| %>
 		    	<li>
 			      	<label class="radio">
-						<input type="radio" name="response[item-<%= item.id %>]" value="<%= i %>" /><%= var %>
+						<input type="radio" name="response[item-<%= item.id %>][values]" value="<%= i %>" /><%= var %>
 					</label>
 				</li>
 		    <% end %>
 		</ul>
 		<%- if item.include_txt_field -%>
-	      <input type="text" />
+	      <input type="text" name="response[item-<%= item.id %>][additional_field]" />
 	    <%- end -%>
 	</div>
 <% end %>

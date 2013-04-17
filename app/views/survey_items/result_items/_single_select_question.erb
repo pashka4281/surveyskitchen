@@ -6,10 +6,18 @@
 		<% item.variants_array.each_with_index do |variant, i| %>
 	    	<li>
 		      	<label class="radio">
-					<input type="radio" disabled="disabled" <%= 'checked="true"' if result.to_i == i %>/>
+					<input type="radio" disabled="disabled" <%= 'checked="true"' if (!result['values'].blank? && result['values'].to_i == i) %>/>
 					<%= variant %>
 				</label>
 			</li>
 	    <% end %>
 	</ul>
+
+	<% unless result['additional_field'].blank? %>
+	<div class="additional-field">
+		<span><%= t("responses.show.additional_field") %></span>
+		<%= result['additional_field']%>
+	</div>
+	<% end %>
+	
 </td>

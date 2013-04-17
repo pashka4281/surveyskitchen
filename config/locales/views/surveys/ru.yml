@@ -27,6 +27,8 @@ ru:
     
     report:
       title: "<b>%{name}</b> -- Отчет"
+      additional_field: "Дополнительное текстовое поле:"
+
     form:
       name: "Название:"
       name_placeholder: "Введите название опроса здесь"

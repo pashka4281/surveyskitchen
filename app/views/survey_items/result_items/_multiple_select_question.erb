@@ -5,9 +5,15 @@
 	<ul class="unstyled">
 		<% item.variants_array.each_with_index do |variant, i| %>
 	    	<li>
-	    		<input type="checkbox" disabled="disabled" <%= 'checked="1"' if result.keys.collect(&:to_i).include?(i) %> ></input>
+	    		<input type="checkbox" disabled="disabled" <%= 'checked="1"' if !result['values'].blank? && result['values'].keys.collect(&:to_i).include?(i) %> ></input>
 	    		<%= variant %>
 	    	</li>
 		<% end %>
 	</ul>
+	<% unless result['additional_field'].blank? %>
+	<div class="additional-field">
+		<span><%= t("responses.show.additional_field") %></span>
+		<%= result['additional_field']%>
+	</div>
+	<% end %>
 </td>

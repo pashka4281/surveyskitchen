@@ -3,7 +3,21 @@
 	tr{
 		td{ width: 50%; padding: 7px; }
 		td.reponse-item-title{ background-color: #E7F0FF; font-weight: 700; }
-		td.reponse-content{ background-color: rgba(225, 233, 241, 0.41); border-left: 3px solid #9fb6b8; }
+		td.reponse-content{ 
+			background-color: rgba(225, 233, 241, 0.41); border-left: 3px solid #9fb6b8; 
+			.additional-field{
+				span{
+					display: block;
+					font-size: 13px;
+					margin-bottom: 3px;
+					font-weight: normal;
+				}
+				font-weight: bold;
+				margin: 7px;
+				border: 1px dashed #CCC;
+				padding: 5px;
+			}
+		}
 	}
 }
 

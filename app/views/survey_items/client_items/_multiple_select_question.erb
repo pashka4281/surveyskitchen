@@ -6,10 +6,13 @@
 		    	<% item.variants_array.each_with_index do |var, i| %>
 			    	<li>
 				      	<label class="checkbox">
-							<input type="checkbox" name="response[item-<%= item.id %>][<%= i %>]" value="1" /><%= var %>
+							<input type="checkbox" name="response[item-<%= item.id %>][values][<%= i %>]" value="1" /><%= var %>
 						</label>
 					</li>
 			    <% end %>
 			</ul>
+			<%- if item.include_txt_field -%>
+		      <input type="text" name="response[item-<%= item.id %>][additional_field]" />
+		    <%- end -%>
 		</div>
 <% end %>

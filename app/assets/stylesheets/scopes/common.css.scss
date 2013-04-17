@@ -333,6 +333,7 @@ $report-item-color: #C2CEDB;
 				height: 16px;
 				display: inline-block;
 				margin: 0 8px;
+				padding: 0;
 				border-right: 1px solid #ccc;
 				border-left: 1px solid #F3F3F3;
 			}
@@ -377,8 +378,12 @@ $report-item-color: #C2CEDB;
 				min-height: 24px;
 				position: relative;
 				padding: 2px;
-				span{ display: inline-block; width: 350px; }
+				span{ display: inline-block; width: 350px;padding: 0 7px;line-height: 18px; }
 				&:nth-child(odd){ background-color: rgb(236, 236, 236) }
+				&.additinal_fields{
+					font-size: 13px;
+					strong{ font-size: 14px; }
+				}
 			}
 		}
 	}
