@@ -1,10 +1,12 @@
-<% resp_arr = @responses_content.map do |x| 
+<%  resp_arr =  @responses_content.reject{|x| x[:content][item.id.to_s].nil? }
+    resp_arr = resp_arr.map do |x| 
         {   resp_id: x[:resp_id], 
             field: x[:content][item.id.to_s]['additional_field'], 
             values: x[:content][item.id.to_s]['values'] 
         }
     end
 %>
+
 <% resp_arr_without_empty = resp_arr.reject{|x| x[:values].nil? } %>
 <div class="statistics">
     <span><%= t('surveys.report.question_skipped') %> <b><%= resp_arr.count - resp_arr_without_empty.count %></b></span>
@@ -13,7 +15,7 @@
 
 <ul class="report-variants">
 	<% item.variants_array.each_with_index do |variant, i| %>
-		<% percentage = (resp_arr_without_empty.map{|x| x[:values]}.count(i.to_s).to_f / resp_arr_without_empty.count * 100).round %>
+		<% percentage = resp_arr_without_empty.any? ? (resp_arr_without_empty.map{|x| x[:values]}.count(i.to_s).to_f / resp_arr_without_empty.count * 100).round : 0 %>
     	<li>
     		<span>
     			<input type="radio" disabled="true" />
