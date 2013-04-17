@@ -1,4 +1,4 @@
-<% 	resp_arr = @responses_content.map{|x| x[item.id.to_s]['values']}.compact #example: ['1', '1', '2', '3', '0', '1'] %>
+<% 	resp_arr = @responses_content.map{|x| x[item.id.to_s]}.compact.map{|x| x['values']} #example: ['1', '1', '2', '3', '0', '1'] %>
 <ul class="report-variants">
 	<% item.variants_array.each_with_index do |variant, i| %>
 		<% percentage = (resp_arr.count(i.to_s).to_f / resp_arr.count * 100).round %>
@@ -13,11 +13,13 @@
 		</li>
     <% end %>
 
-    <% if(additional_fields = @responses_content.map{|x| x[item.id.to_s]['additional_field']}.compact).any? %>
+    <% if(additional_fields = @responses_content.map{|x| x[item.id.to_s]}
+        .compact.map{|x| x['additional_field']}.reject(&:blank?)).any?
+    %>
     <li class="additinal_fields">
         <span class="right-text"><%= t('surveys.report.additional_field') %></span>
         <div class="bar-wrapper">
-            <strong><%= raw additional_fields.join('<span class="responses-separator"></span>') %></strong>
+            <strong><%== additional_fields.join('<span class="responses-separator"></span>') %></strong>
         </div>
     </li>
     <% end %>
