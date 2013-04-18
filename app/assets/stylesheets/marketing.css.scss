@@ -112,7 +112,7 @@
 	text-align: center;
 	text-decoration: none;
 	&.small{ padding: 4px; }
-	@include vertical_gradient(#5D949E, #68B7C5 );
+	@include vertical_gradient(#679E5D, #68C56F );
 	
 	@include border_radius(5px);
 	sup{font-size: 11px;}
