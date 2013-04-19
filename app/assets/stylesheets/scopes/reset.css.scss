@@ -141,7 +141,7 @@ body{
 	padding: 6px;
 	text-decoration: none;
 	background-color: #f2f2f2;
-
+	&:visited{ color: #0f0f0f; }
 	&:not(.simple){ 
 		@include vertical_gradient(#f2f2f2, #c5c5c5 ); 
 		&:active:not(:disabled){ 
@@ -171,7 +171,7 @@ body{
 	}
 }
 
-a:visited:not(.btn){ color: rgb(45, 137, 150); }
+a:visited{ color: rgb(45, 137, 150); }
 a{ color: rgb(45, 137, 150); }
 
 form .field_with_errors{

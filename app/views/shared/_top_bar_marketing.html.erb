@@ -17,7 +17,7 @@
     </ul>
 
     <ul id="main-nav" class="right">
-      <%=content_tag :li, class: (request.path =~ /\/(blog)(\/)?\z/ ? 'active' : '')  do -%>
+      <%=content_tag :li, class: (request.path =~ /\/(blog)(\/)?/ ? 'active' : '')  do -%>
         <%= link_to t("layout.blog"), blog_posts_path %>
       <%-end-%>
       <%=content_tag :li, class: (request.path =~ /\/(features)(\/)?\z/ ? 'active' : '')  do -%>

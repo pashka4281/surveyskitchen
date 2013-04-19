@@ -25,4 +25,15 @@ form.blog_post_form{
 		font-size: 12px;
 		margin-bottom: 15px;
 	}
+	.read_more_link{
+		padding: 9px;
+		background-color: #CCC;
+		margin-top: 15px;
+		display: inline-block;
+		text-decoration: none;
+		color: #707070;
+		&:hover{
+			background-color: #E7E7E7;
+		}
+	}
 }
