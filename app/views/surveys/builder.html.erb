@@ -112,7 +112,7 @@
 	$(function(){
 		var survey = new Survey({
 			survey_id: <%= @survey.id %>,
-			survey_update_url: "<%= survey_path(@survey, format: :js) %>",
+			survey_update_url: "<%= survey_path %>",
 			total_items: <%= @survey.items.active.count %>,
 			trashed_items: <%= @survey.items.trashed.count %>,
 			translates: <%== translates_for_builder() %>,

@@ -11,11 +11,11 @@ class this.Survey
 
 		@buildList 		= '#build_list'
 		@survey_items 	= '.survey_item'
-		@insertButtons 	= '.insert_buttons'
 		@noItemsArea 	= '#no-items-area'
 		@new_item_area  = '#new-item-area'
 		@edit_item_area = '#edit-item-area'
 		@add_item_tab   = '#add-item-tab'
+		@remove_from_trashbox_link = "#trashed-items-list li .deleteLnk"
 
 		@delete_links 	= '.survey_item .deleteLnk'
 		@updateSurveyUrl= params['survey_update_url']
@@ -68,12 +68,13 @@ class this.Survey
 					_item.replaceWith(loading_placeholder)
 
 					$.ajax
-						url: "#{@base_path}/items"
+						url: "#{@updateSurveyUrl}/items"
 						type: 'POST'
 						dataType: 'json'
 						data:
 							item_type: i_type
 							previous_item_id: prev_id
+							survey_id: @survey_id
 						success: (resp) =>
 							reponse_item = $(resp.html)
 							loading_placeholder.replaceWith(reponse_item)
@@ -88,24 +89,37 @@ class this.Survey
 
 					return true if _item.data('start_prev_id') is _item.prev().attr('item_id')
 
-					$.ajax "#{@base_path}/items/#{_item.attr('item_id')}/move",
+					$.ajax "#{@updateSurveyUrl}/items/#{_item.attr('item_id')}/move",
 						type: 'PUT'
 						data:
 							previous_item_id: _item.prev().attr('item_id')
+							survey_id: @survey_id
 						success: (resp) -> #resp contains new item markup
 							# $(resp).insertAfter(item).hide().slideDown()
 							# @renewItemsIndexes()
 							# @total_items += 1
 
 
-			update: (event, ui) =>
-				console.log('updated')
-
 		$( '#survey-items-list', @build_list ).disableSelection();
 		# // let the trash be droppable, accepting the new_item_area items
 		
 		$(document).on 'click', @survey_items, (el) =>
 			@editItem($(el.currentTarget).attr('item_id'))
+
+		$(document).on 'click', @remove_from_trashbox_link, (el) =>
+			_el = $(el.currentTarget)
+			li = $(el.currentTarget).parents('li.trashed-item')
+			item_id  = li.attr('item_id')
+			$.ajax
+				url: "#{@updateSurveyUrl}/items/#{item_id}"
+				type: 'DELETE'
+				data:
+					survey_id: @survey_id
+				success: (resp) =>
+					li.fadeOut 300, =>
+						li.remove()
+					@trashed_items -= 1
+					$('#trashbox-btn span.trash-cnt').html("(#{@trashed_items})")
 
 		$(document).on 'click', @add_item_tab, (el) =>
 			@clearEditingTab()
@@ -116,19 +130,17 @@ class this.Survey
 			prev_id = $('#survey-items-list .survey_item:last-child').attr('item_id')
 			loading_placeholder = $("<li class='item-loading-placeholder'>#{@translates.loading_item}</li>").appendTo('#survey-items-list')
 			$.ajax
-				url: "#{@base_path}/items"
+				url: "#{@updateSurveyUrl}/items"
 				type: 'POST'
 				dataType: 'json'
 				data:
 					item_type: i_type
 					previous_item_id: prev_id
+					survey_id: @survey_id
 				success: (resp) =>
 					reponse_item = $(resp.html)
 					loading_placeholder.replaceWith(reponse_item)
 					reponse_item.hide().slideDown(500)
-					if @total_items is 0
-						$(@noItemsArea).hide()
-					@total_items += 1
 
 		#button on the empty survey welcome block
 		$(document).on 'click', '#work-area-texting button', (el) =>
@@ -144,9 +156,10 @@ class this.Survey
 		$(document).on 'click', '.item-copy-link', (el) =>
 			self = this
 			item = $(el.currentTarget).parents('.survey_item')
-			$.ajax "#{@base_path}/items/#{item.attr('item_id')}/copy",
+			$.ajax "#{@updateSurveyUrl}/items/#{item.attr('item_id')}/copy",
                 type: 'POST'
                 data:
+                    survey_id: @survey_id
                     previous_item_id: item.attr('item_id')
                 success: (resp) -> #resp contains new item markup
                     $(resp).insertAfter(item).hide().slideDown()
@@ -159,7 +172,7 @@ class this.Survey
 			_form = $(el.currentTarget)
 			_item_id = _form.find('input[name="item_id"]').val()
 			if(_form.validationEngine('validate'))
-				$.ajax "/surveys/#{@survey_id}/items/#{_item_id}",
+				$.ajax "#{@updateSurveyUrl}/items/#{_item_id}",
 					type: 'PUT'
 					data: _form.serialize()		
 			false
@@ -192,8 +205,10 @@ class this.Survey
 		edit_form_wrapper = @tabs.find("#{@edit_item_area} .edit-form-wrapper")
 		info_block = @tabs.find("#{@edit_item_area} .info-block")
 		edit_form_wrapper.html("<div>#{@translates.loading_item}</div>")
-		$.ajax "#{@base_path}/items/#{item_id}/edit",
+		$.ajax "#{@updateSurveyUrl}/items/#{item_id}/edit",
 			type: 'GET'
+			data:
+				survey_id: @survey_id
 			success: (resp) -> #resp contains edit form
 				edit_form_wrapper.html(resp).hide().fadeIn(100)
 				info_block.hide()
@@ -213,7 +228,7 @@ class this.Survey
 
 	copyItem: (id, pos) =>
 		self = this
-		$.ajax "#{@base_path}/items/#{id}/copy",
+		$.ajax "#{@updateSurveyUrl}/items/#{id}/copy",
 			type: 'POST'
 			data:
 				item_position: pos
@@ -224,11 +239,12 @@ class this.Survey
 
 	addItem: (pos, params) =>
 		self = this
-		$.ajax "#{@base_path}/items",
+		$.ajax "#{@updateSurveyUrl}/items",
 			type: 'POST'
 			data:
 				item_params: params
 				item_position: pos
+				survey_id: @survey_id
 			success: (resp) -> #resp contains new item markup
 				if self.total_items is 0
 					$(self.noItemsArea).hide()
@@ -238,8 +254,10 @@ class this.Survey
 	#removing item from to the trashbox
 	deleteItem: (id) =>
 		self = this
-		$.ajax "#{@base_path}/items/#{id}/delete", 
+		$.ajax "#{@updateSurveyUrl}/items/#{id}/delete", 
 			type: 'DELETE'
+			data:
+				survey_id: @survey_id
 			success: -> #resp contains new item markup
 				self.total_items -= 1
 				self.trashed_items += 1

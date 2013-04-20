@@ -1,7 +1,6 @@
-<%= content_tag_for :li, item, class: 'trashed-item' do %>
+<%= content_tag_for :li, item, class: 'trashed-item', item_id: item.id do %>
 	<%= link_to content_tag(:i, '', class: 'icon-cw'), '#', class: 'restoreLnk' %>
-		<%= link_to content_tag(:i, '', class: 'icon-trash'), survey_item_path(@survey, item), 
-		method: :delete, class: 'deleteLnk btn-danger', confirm: 'Sure?', remote: true, format: :js %>
+	<%= link_to content_tag(:i, '', class: 'icon-trash'), '#', class: 'deleteLnk btn-danger', confirm: 'Sure?'%>
 	<div class="trashed-item-header">
     	<i class="icon-check"></i>
     	<%= item.title %>

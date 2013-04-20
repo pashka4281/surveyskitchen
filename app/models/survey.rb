@@ -2,7 +2,7 @@ class Survey < ActiveRecord::Base
   attr_accessible :account_id, :description, :category, :category_id, :theme_id, :theme,
     :name, :user_id, :user, :account, :items_positions, :prefill_items, :active
 
-    default_scope order('created_at DESC')
+  default_scope order('created_at DESC')
 
   belongs_to :account
   belongs_to :user
@@ -25,6 +25,8 @@ class Survey < ActiveRecord::Base
   
   validates :name, presence: true
   validates :category_id, presence: true
+
+  scope :demo_surveys, where('user_id IS NULL')
 
   def self.preview_survey(lang)
     where(['account_id IS NULL AND preview_flag=?', lang]).first
@@ -89,6 +91,12 @@ class Survey < ActiveRecord::Base
     update_attributes(active: !self.active)
   end
   
+  def attach_to_user!(user)
+    self.user_id = user.id
+    self.account_id = user.account_id
+    self.save
+  end
+
   after_create :example_items, :event_on_created, :setup_default_share_methods
   after_destroy :event_on_destroyed
   before_create :assign_theme, :generate_token

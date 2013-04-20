@@ -235,3 +235,16 @@ h5{ font-size: 0.9em;}
 	}
 }
 
+.error_messages{
+	padding: 7px;
+	background-color: #FF8484;
+	border: 2px solid #850000;
+	color: #640000;
+	margin: 7px;
+	h2{ font-size: 20px; }
+	ul{
+		margin-top: 10px;
+		list-style-type: disc;
+		padding-left: 20px;
+	}
+}

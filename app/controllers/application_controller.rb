@@ -48,6 +48,18 @@ class ApplicationController < ActionController::Base
 		redirect_to request.referer ? :back : :root
 	end
 
+	def	get_item_constant(name)
+		{   'text_field_question' => 'SurveyItems::TextFieldQuestion',
+			'multiple_select_question' => 'SurveyItems::MultipleSelectQuestion',
+			'single_select_question' => 'SurveyItems::SingleSelectQuestion',
+			'scale_question' => 'SurveyItems::ScaleQuestion',
+			'desc_text' => 'SurveyItems::DescText',
+			'drop_down_question' => 'SurveyItems::DropDownQuestion',
+			'video_question' => 'SurveyItems::VideoQuestion',
+			'single_select_grid' => 'SurveyItems::SingleSelectGrid',
+			'page_break' => 'SurveyItems::PageBreak'}[name].constantize rescue nil
+	end
+
 	private
 
   	def current_user

@@ -4,12 +4,16 @@
       <h1><%= t('users.new.title') %></h1>
       <div class="row">
         <div class="column half-width">
-          <%= error_messages_for @user %>
+          <%= error_messages_for @user, :header_message => t('users.new.errors_header'), :message => t('users.new.errors_sub_header') %>
 
           <%= form_for(@user, :url => :register, class: 'form') do |f| %>
             <%= f.label :full_name do %>
               <span><%= t('users.new.full_name') %></span> <%= f.text_field :full_name, placeholder: t('users.new.full_name_placeholder'), class: 'span6' %>
             <% end %>
+            
+          <!--  <%= f.label :account_name do %>
+              <span><%= t('users.new.account_name') %></span> <%= f.text_field :account_name, placeholder: t('users.new.acc_name_placeholder'), class: 'span6' %>
+            <% end %> -->
 
             <%= f.label :email do %>
               <span><%= t('users.new.email') %></span> <%= f.text_field :email, placeholder: t('users.new.email_placeholder'), class: 'span6' %>
@@ -24,12 +28,16 @@
             <% end %>
             <br />
             <%= hidden_field_tag 'user[language]', I18n.locale %>
+            <%= hidden_field_tag('ss', @survey.token) if @survey %>
             <%= f.submit t('users.new.submit'), class: 'btn success' %>
 
           <% end %>
         </div>
         <div class="column half-width">
-          <div class="sign-in-description"><%= raw t('users.new.ensure') %></div>
+          <div class="sign-in-description">
+            <%== t('users.new.ensure') %><br><br>
+            <%= t('users.new.survey_attached', s_name: @survey.name) if @survey %>
+          </div>
         </div>
       </div>
   </div>

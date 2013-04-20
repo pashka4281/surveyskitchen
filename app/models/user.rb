@@ -1,3 +1,4 @@
+#coding: utf-8
 class User < ActiveRecord::Base
 
   has_secure_password
@@ -16,7 +17,7 @@ class User < ActiveRecord::Base
   # validate :unique_account, on: :create
   validates_presence_of :password, on: :create
   # validates_presence_of :first_name, :last_name, :if => lambda{|x| p x; x.full_name.blank? }
-  validates_presence_of :full_name
+  validates_presence_of :full_name, message: "Полное имя"
   validates_uniqueness_of :email
 
   attr_accessor :account_name, :invited, :from_external_provider

@@ -15,6 +15,17 @@ Surveyskitchen::Application.routes.draw do
     get  'register', to: 'users#new'
     post 'register', to: 'users#create'
 
+    namespace :demo do
+      put 's_builder', to: 'surveys#update'
+      get 's_builder', to: 'surveys#builder'
+      get 's_builder/preview', to: 'surveys#preview'
+      get 's_builder/trashbox', to: 'surveys#trashbox'
+      resources :survey_items, as: 'items', path: 's_builder/items' do
+        delete :delete, as: :member
+        post :copy, as: :member
+        put :move, as: :member
+      end
+    end
     get 'know_more/:subject', to: 'home#know_more', as: :know_more
   end
   

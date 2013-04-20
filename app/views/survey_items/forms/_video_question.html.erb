@@ -10,6 +10,7 @@
 
 	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
 	<input type="hidden" name="item_type" value="video_question">
+	<input type="hidden" name="survey_id" value="<%= @survey_item.survey.id %>">
 
 	<div class="field">
 		<span><%= t('survey_items.video_question.size') %></span>

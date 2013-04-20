@@ -23,5 +23,6 @@
 
 	<%= hidden_field_tag :item_id, @survey_item.try(:id) %>
 	<input type="hidden" name="item_type" value="drop_down_question">
+	<input type="hidden" name="survey_id" value="<%= @survey_item.survey.id %>">
 	<%= f.submit t('survey_items.common.save'), class: 'btn small simple success' %>
 <% end %>

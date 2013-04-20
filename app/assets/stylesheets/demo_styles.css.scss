@@ -1,0 +1,20 @@
+/*
+
+ *= require scopes/common
+ *= require scopes/modals
+ *= require scopes/survey_builder
+ *= require scopes/quiz_builder
+
+*/
+
+.survey-demo{
+	.page-header{
+		position: relative;
+		padding-right: 150px !important;
+		a{
+			position: absolute;
+			top: 5px;
+			right: 8px;
+		}
+	}
+}

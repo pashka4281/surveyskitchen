@@ -1,0 +1,150 @@
+<% header("Questions builder", subheader: 'All changes here are automatically saved.') %>
+
+<!---->
+<%= stylesheet_link_tag 'demo_styles' %>
+<style type="text/css"><%= raw @survey.theme.to_css %></style>
+
+<div id="sides-padding">
+	<div id="content-wrapper" class="no_left_bar">
+		<div id="main-content" class="survey-demo">
+		<div id="content-pretty">
+			<div class="page-header nomargin">
+				<h1><%== t('surveys.builder.title', name: @survey.name) %></h1>
+				<a href="/ru/register?ss=<%= @survey.token %>" id="save-and-register-link" class="signup-btn small"><%= t('surveys.demo.save_and_register') %></a>
+		    </div>
+
+			<div id="builder">
+				<div class="row2 build-columns">
+					<div id="toolbox-wrapper" class="column">
+						<div id="toolbox" class="stickyBar">
+							<div id="tabs">
+								<!-- tabs -->
+								<ul class="tabs-nav">
+									<li><a href="#new-item-area" id="add-item-tab"><%= t('surveys.builder.add') %></a></li>
+									<li><a href="#edit-item-area" id="edit-item-tab"><%= t('surveys.builder.edit') %></a></li>
+								</ul>
+								<div id="new-item-area"><%= render '/survey_items/new' %></div>
+								<div id="edit-item-area">
+									<div class="info-block"><%= t('surveys.builder.item_not_selected') %></div>
+									<div class="edit-form-wrapper"></div>
+									<div class="divider_line"></div>
+								</div>
+								
+								<!-- buttons -->
+								<div id="action-buttons">
+									<button id="trashbox-btn" data-url="<%= demo_s_builder_trashbox_path(survey_token: @survey.token) %>" class="btn" data-target="#trashedItemsContainer" data-toggle="modal" role="button">
+										<i class="icon-trash"></i> <%= t 'surveys.builder.trashbox' %> <span class="trash-cnt">(<%= @survey.items.trashed.count %>)</span>
+									</button>
+									<button class="btn btn-warning" id="preview-btn">
+										<i class="icon-eye"></i> <%= t 'surveys.builder.preview' %>
+									</button>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div id="build_list"  class="list column <%= "survey_theme_#{@survey.theme.id}" %>">
+						<h2 class="page_title" id="title" title="Заголовок"><%= @survey.name %></h2>
+
+						<div id="no-items-area">
+							<div id="work-area-texting" class="fifteen columns centered centr-text vspace-big">
+								<h3><%= t('surveys.builder.working_area_1') %></h3>
+								<h5><%= t('surveys.builder.working_area_2') %></h5>
+								<button  class="small btn new-item-btn success">
+									<i class="icon-list-add"></i> <%= t 'surveys.builder.new_item' %> <br>
+								</button>
+							</div>
+						</div>
+
+						<ul id="survey-items-list">
+							<li class="survey_item zero-item"></li>
+							<%- @survey.sorted_items.each do |i| -%>
+								<%= render_survey_item(i) %>
+							<%- end -%>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<%= content_for :after_content do %>
+
+<!-- edit survey item modal -->
+	<div class="modal hide item-form" id="editItemContainer">
+		<a href="#" class="close"></a>
+		<div id="edit-question-id"></div>
+		<div id="editItem"></div>
+		<div class="modal-footer">
+			<button class="btn close"><%= t('survey_items.new.cancel_btn') %></button>
+			<button class="btn success" id="doneEditItemBtn"><%= t('survey_items.new.done_btn') %></button>
+		</div>
+	</div>
+
+<!-- trashed survey items modal -->
+	<div class="modal hide fade" id="trashedItemsContainer">
+	  <a href="#" class="close"></a>
+	  <div class="modal-header">
+	    <h3><%= t('surveys.builder.trashbox_modal_title') %></h3>
+	  </div>
+	  <div class="modal-body"></div>
+	  <div class="modal-footer">
+	    <a href="#" class="btn close">Close</a>
+	  </div>
+	</div>
+<% end %>
+
+
+<%= content_for :js do %>
+<script type="text/javascript">
+  var CKEDITOR_BASEPATH = '/javascripts/ckeditor/';
+</script>
+<%= javascript_include_tag "application" %>
+<script src="/javascripts/jq_validation_engine/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
+<script src="/javascripts/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" src="/javascripts/ckeditor/ckeditor.js"></script>
+
+<script>
+	// document ready 
+	$(function(){
+		window.onbeforeunload = function(e) {
+		    return "<%= t('surveys.demo.reload_warning') %>";
+		};
+		var survey = new Survey({
+			survey_id: <%= @survey.id %>,
+			survey_update_url: "<%= demo_s_builder_path %>",
+			total_items: <%= @survey.items.active.count %>,
+			trashed_items: <%= @survey.items.trashed.count %>,
+			translates: <%== translates_for_builder() %>,
+			locale: "<%= I18n.locale.to_s %>"
+		});
+
+		$(document).on('click', '#preview-btn', function(){
+			window.open("<%= demo_s_builder_preview_path(survey_token: @survey.token) %>",'_blank');
+		})
+
+		$(document).on('click', '#save-and-register-link', function(){
+			window.onbeforeunload = null;
+		})
+
+		$(document).on('change', '#theme-select', function(){
+			_el = $(this)
+			$.ajax({
+				url: "<%= survey_path(@survey) %>",
+				method: "PUT",
+				data: {
+					survey: { theme_id: _el.val() }
+				},
+				success: function(){
+					location.reload();
+				}
+			})
+		})
+	});
+</script>
+<% end %>

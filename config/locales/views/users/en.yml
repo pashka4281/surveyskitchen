@@ -10,7 +10,12 @@ en:
       password_placeholder: "Enter password"
       password_confirmation: "Password confirmation:"
       password_confirmation_placeholder: "Confirm password"
+      #
+      #
       submit: "Sign up now!"
+      errors_header: "Failed to register your account"
+      errors_sub_header: "Fix highlighted errors and try once more:"
+      survey_attached: "Survey \"%{s_name}\" will be added to your account after finishing registration process."
       ensure: >
         We don't share your data with any third party services, we don't use your email to send spam or ads. 
         Your credentials are protected by our <a href="#">Terms of use</a> and <a href="http://www.digicert.com/ssl.htm">ssl secured connection</a>.
