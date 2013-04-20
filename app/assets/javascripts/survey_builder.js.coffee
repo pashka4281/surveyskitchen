@@ -82,7 +82,7 @@ class this.Survey
 							if @total_items is 0
 								$(@noItemsArea).hide()
 							@total_items += 1
-							@renewItemsIndexes()
+							# @renewItemsIndexes()
 				else
 					if _item.hasClass('selected_item')
 						@stickyBar.containedStickyScroll('fixToOffset', {offset: _item.offset().top})
@@ -141,6 +141,9 @@ class this.Survey
 					reponse_item = $(resp.html)
 					loading_placeholder.replaceWith(reponse_item)
 					reponse_item.hide().slideDown(500)
+					if @total_items is 0
+						$(@noItemsArea).hide()
+					@total_items += 1
 
 		#button on the empty survey welcome block
 		$(document).on 'click', '#work-area-texting button', (el) =>
