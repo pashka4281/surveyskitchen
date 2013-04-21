@@ -1,5 +1,4 @@
 Surveyskitchen::Application.routes.draw do
-
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   match '/:locale' => 'home#index', :locale => /en|ru/, as: :locale_root
@@ -26,6 +25,7 @@ Surveyskitchen::Application.routes.draw do
         put :move, as: :member
       end
     end
+    resources :buy_requests, only: [:new, :create]
     get 'know_more/:subject', to: 'home#know_more', as: :know_more
   end
   

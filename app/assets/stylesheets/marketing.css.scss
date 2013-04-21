@@ -208,7 +208,7 @@
 	
 	margin-bottom: 100px;
 	form{
-		input[type="text"], select, textarea, input[type="password"]{
+		input[type="text"],input[type="email"], select, textarea, input[type="password"]{
 			outline: none;
 			border: 1px solid #ccc;
 			padding: 3px;
@@ -218,6 +218,7 @@
 				border: 1px solid #888;
 			}
 		}
+		textarea{ height: 100px; }
 		ul, textare, input, p, select{ color: rgb(70, 70, 70); }
 		ul.unstyled, select, input[type="text"],input[type="password"], textarea{ margin-top: 5px; }
 

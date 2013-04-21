@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415232403) do
+ActiveRecord::Schema.define(:version => 20130421021301) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(:version => 20130415232403) do
   end
 
   add_index "blog_posts", ["slug"], :name => "index_blog_posts_on_slug", :unique => true
+
+  create_table "buy_requests", :force => true do |t|
+    t.string   "email"
+    t.string   "name"
+    t.string   "how_found"
+    t.text     "text"
+    t.string   "acc_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
