@@ -24,7 +24,7 @@ class S::SurveysController < ApplicationController
 
 		@survey.responses.create(
 			user_agent_string: request.env['HTTP_USER_AGENT'],
-			response_data: params[:response],
+			response_data: params[:response] || {},
 			remote_ip: request.remote_ip
 		)
 		cookies.permanent["survey_passed_#{@survey.id}"] = { :value => true, :domain => :all }
