@@ -7,27 +7,39 @@
 				<h3>Free</h3>
 
 				<div class="price">$0/month</div>
+				<ul>
+					<li><i class="icon-plus"></i>Unlimited surveys count</li>
+					<li><i class="icon-plus"></i>Max 100 responses per survey</li>
+					<li><i class="icon-plus"></i>5 survey share methods</li>
+					<li><i class="icon-plus"></i>Adjusting look of your surveys with help of in-build and custom themes</li>
+				</ul>
 				<%= link_to "Start creating surveys", :register, class: 'start-btn' %>
 			</div>
 			<div class="plan-block">
 				<h3>Starter</h3>
 
 				<div class="price">$10/month</div>
-				<%= link_to "Start free 30 days trial", "", class: 'start-btn' %>
+				Leave a request now and get 30% discount for the first year of use. We'll notify you when 
+				SurveysKitchen's payed plans come into place.
+				<%= link_to "Make reservation now", new_buy_request_path(:plan => 'starter'), class: 'start-btn' %>
 			</div>
 
 			<div class="plan-block popular">
 				<h3>Professional</h3>
 
 				<div class="price">$19/month</div>
-				<%= link_to "Start free 30 days trial", "", class: 'start-btn' %>
+				Leave a request now and get 30% discount for the first year of use. We'll notify you when 
+				SurveysKitchen's payed plans come into place.
+				<%= link_to "Make reservation now", new_buy_request_path(:plan => 'pro'), class: 'start-btn' %>
 			</div>
 
 			<div class="plan-block">
 				<h3>Company</h3>
 
 				<div class="price">$79/month</div>
-				<%= link_to "Start free 30 days trial", "", class: 'start-btn' %>
+				Leave a request now and get 30% discount for the first year of use. We'll notify you when 
+				SurveysKitchen's payed plans come into place.
+				<%= link_to "Make reservation now", new_buy_request_path(:plan => 'company'), class: 'start-btn' %>
 			</div>
 
 		</div>

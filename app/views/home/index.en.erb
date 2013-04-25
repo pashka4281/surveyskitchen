@@ -1,12 +1,95 @@
-<% title('online surveying software') %>
 
-	<h2 id="main-wording" class="center-content">
-		You're just a couple minutes ahead of starting 
-		creating professional online surveys.
-	</h2>
+<%= content_for :head do %>
+	<meta property="og:image" content="http://www.surveyskitchen.com/images/marketing/fb-share-img.png">
+<% end %>
+
+<% title('online web surveying service. Create professional surveys for free.') %>
+<div id="fixed-content">
+	<h1 id="main-wording" class="center-content">
+		Professional online surveys became more accessible now.
+		<small>Just in couple of minutes you will be able to create professional quality surveys, gather and analyze results.</small>
+	</h1>
 
 	<div class="marketing-section">
-		<h3>Simple but yet powerful </h3>
+		<div id="screens-block">
+			<img alt="Surveys list" class="lft" src="/images/marketing/Surveyskitchen-surveys.png">
+			<img alt="Demo report" class="rgt" src="/images/marketing/Surveyskitchen-report.png">
+			<img alt="Survey builder" class="ctr" src="/images/marketing/Surveyskitchen-builder.png">
+		</div>
+		<div id="under-screenshots-block">
+			Start using now. Only 20 seconds to register.
+			<%= link_to "Create survey for free", :register, class: 'signup-btn small' %> 
+			<%= link_to "Survey builder . Demo", :demo_s_builder, class: 'signup-btn small red' %>
+			
+			<!-- В Украине 88% руководителей не знакомы с облачными сервисами. Присоединитесь к 12% людей, которые используют -->
+		</div>
+		<h3>
+			SurveysKitchen is a tool that helps you to make correct decisions relying on qualitative information.
+		</h3>
+
+		<p>
+				&emsp;Хотите ли вы узнать мнение о продукте,
+			оценить степень удовлетворенности сотрудников, провести социологическое исследование или узнать
+			мнение друзей по поводу прошедшего или только планирующегося торжества.
+		</p>
+
+		<ol class="row margin-top" id="survey-steps">
+			<li class="column one-third">
+				<img src="/images/marketing/create-survey.png" alt="Создание опроса">
+				<h3 class="left-text">Create surveys</h3>
+				<p>
+					Мы создали простой, но в то же время удобный конструктор опросов.
+					Он рассчитан на одинаково удобную работу как с большими опросами, содержащими десятки вопросов,
+					так и с маленькими, в которых всего несколько вопросов. <!-- Конструктор опросов одинаково удобен 
+					для работы с вашего домашнего компьютера и с мобильного телефона или планшета. -->
+				</p>
+				<%= link_to "Узнать больше о конструкторе опросов", 'http://www.surveyskitchen.com/blog/ispolzuem-konstruktor-surveyskitchen-effektivno' %> 
+			</li>
+			<li class="column one-third">
+				<img src="/images/marketing/collect-responses.png" alt="Сбор результатов">
+				<h3 class="left-text">Gather responses</h3>
+				К вашим услугам предоставляются 5 способов распространения опроса:
+				<ul>
+					<li>
+						<span class="highlight">Прямая ссылка.</span> Отправляйте ссылку респондентам по электронной почте, в чате или в социальных сетях.
+						<!-- Вы также можете задавать адрес, на который респондент будет перенаправлен после прохождения опроса.  -->
+					</li>
+					<li>
+						<span class="highlight">Email.</span> В SurveysKitchen вы можете воспользоваться функцией отправки приглашения для прохождения опроса
+						на электронный адрес респондента. <!-- Вы можете персонализировать приглашение для респондентов, 
+						сохраненных в адресной книге вашей учетной записи. --> Поддерживаются напоминания, а удобный инструмент создания 
+						электронных писем и шаблоны помогут сделать их быстрей и качественней.
+					</li>
+					<li>
+						<span class="highlight">Embedded survey.</span> SurveysKitchen gives you ability to embed survey on a webpage
+						of your site or blog.
+					</li>
+					And others
+<!-- 						<li>
+						Приглашение к прохождению опроса. Размещайте на своей странице приглашение к прохождению опроса в виде 
+						специальной кнопки. Вы можете настраивать частоту ее показов а также внешний вид.
+					</li>
+
+					<li>
+						Социальные сети. Отпраляйте ссылку на ваш опрос в Facebook, Twitter, Google+ или Вконтакте 
+						при помощи нажатия всего одной кнопки.
+					</li> -->
+				</ul>
+				<%= link_to "Узнать больше о способах сбора результатов", '#' %> 
+			</li>
+			<li class="column one-third">
+				<img src="/images/marketing/analyze-results.png" alt="Анализ результатов">
+				<h3 class="left-text">Analyze results</h3>
+				<p>
+					SurveysKitchen дает мощные инструменты анализа ответов. Поддерживается сортировка по отдельным ответам,
+					графическое представление информации, просмотр отдельных ответов, сравнение ответов сохранение отчета в
+					виде документа PDF/CSV, функция "поделиться отчетом" даст возможность представить данные вашему коллеге, 
+					который еще не пользуется SurveysKitchen.
+				</p>
+				<%= link_to "Узнать больше о возможностях отчетов", '#' %> 
+			</li>
+		</ol>
+<!--
 		<div class="row">
 			<div class="img-block column half-width">
 				<img src="/images/marketing/surveys-list.png" alt="Surveys list image">
@@ -25,132 +108,8 @@
 				</div>
 			</div>
 		</div>
+-->
 
-
-		<%= link_to "/plans", class: 'signup-btn', style: 'display: inline-block;' do %>
-			Start cooking surveys for free<br>
-			<sup>View plans & prices</sup>
-		<% end %>
+		<%= link_to "Create survey. Free.", :register, class: 'signup-btn' %>
 	</div>
-
-	<div class="marketing-section">
-		<h3>10 different survey item types for everyone's needs:</h3>
-		<div class="row info-block">
-			<div class="column half-width">
-				<h4>Rich text fragment </h4> 
-				Rich text fragment is used to place some descriptive text on your survey. 
-				It has very common to usual word processor features like creating paragraphs, blocquotes, 
-				making text bold or italic, inserting images and many more.
-			</div>
-			<div class="column half-width">
-				<h4>Drop down item</h4>
-				blah-blah...
-			</div>
-		</div>
-		<div class="row info-block">
-			<div class="column half-width">
-				<h4>Multiple select item</h4>
-				blah-blah...
-			</div>
-			<div class="column half-width">
-				<h4>Scale item</h4>
-				blah-blah...
-			</div>
-		</div>
-		<div class="row info-block">
-			<div class="column half-width">
-				<h4>Single select item</h4>
-				Classic surveying component. It presents a list of items from which you may choose only one.
-			</div>
-			<div class="column half-width">
-				<h4>Text field item</h4>
-				Text field is used to gather some user input. It may also be called "open type question". 
-				For short inputs you may choose text field and if you're expecting some extended response then your choose is textarea.
-			</div>
-		</div>
-		<div class="row info-block">
-			<div class="column half-width">
-				<h4>Video item</h4>
-				With help of video item you can easily embed any video from YouTube or Vimeo. 
-				Just put the link of the clip into textbox, choose desired frame size and you're all done. 
-			</div>
-			<div class="column half-width">
-				<h4>Single select grid</h4>
-				blah-blah...
-			</div>
-		</div>
-		<div class="row info-block">
-			<div class="column half-width">
-				<h4>Date/Time item</h4>
-				blah-blah...
-			</div>
-			<div class="column half-width">
-				<h4>Page break item</h4>
-				Page break splits survey into pages from the place it was inserted. It is just the same survey item and
-				can be moved/copied as well.
-			</div>
-		</div>
-
-	</div>
-
-	<div class="marketing-section">
-		<h3>Stay connected</h3>
-		<div class="social-links">
-			<div class="fb-like" data-send="true" data-layout="button_count" data-width="200" data-show-faces="false" data-font="tahoma"></div>
-			<div><a href="https://twitter.com/share" class="twitter-share-button" data-text="SurveysKitchen: free online surveying & customer opinion research software">Tweet</a></div>
-			<div class="vk">
-				<script type="text/javascript">
-					document.write(VK.Share.button(false,{type: "round", text: "Save to Vkontakte"}));
-				</script>
-			</div>
-			<div><div class="g-plusone" data-size="medium" data-annotation="none" data-href="http://www.surveyskitchen.com"></div></div>
-		</div>
-		
-		
-		<div>Catch our updates on <%= link_to "SurveysKitchen official Facebook page", 'http://www.facebook.com/surveyskitchen' %></div>
-	</div>
-
-<div class="padded-content center-content">
-
-	<h4>
-		SurveysKitchen is a web based software that enables you create online polls and surveys, 
-		gather responses and know your customer's opinion. 
-		It works fine both on desktop and mobile devices. It's currently free so sign up and test.
-	</h4>
-
-	<br />
-
-	<h5>Visit <%= link_to "sign in form", :login %> to enter the site or choose from the providers below:</h5>
-	
-
-	<h3>Get ready for something special soon!</h3>
-	<div class="progress progress-striped active">
-	  <div class="bar" style="width: 70%;"></div>
-	</div>
-
 </div>
-
-
-<%= content_for :js do %>
-<div id="fb-root"></div>
-  <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=471767956202786";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  <script type="text/javascript">
-    document.getElementById('vk_share_button').innerHTML = VK.Share.button('http://www.surveyskitchen.com', {type: 'link'});
-  </script>
-
-  <script type="text/javascript">
-    (function() {
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-  </script>
-<% end %>
