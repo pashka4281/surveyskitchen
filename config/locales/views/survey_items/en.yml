@@ -11,7 +11,7 @@ en:
       page_separator: "Page separator"
       video_item: "Video item"
       single_select_grid: "Single select grid"
-      info: "Нажмите"
+      info: "Click on item / drad it on working area"
 
     text_field:
       title: "Text field"

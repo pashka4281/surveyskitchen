@@ -52,7 +52,8 @@ en:
       title: '<b>%{name}</b> -- Builder'
       copy: "Copy"
       move: "Move"
-      edit: "Edit"
+      add_item: "Add item"
+      edit_item: "Edit item"
       remove: "Remove"
       preview: "Preview"
       trashbox: "Trash box"

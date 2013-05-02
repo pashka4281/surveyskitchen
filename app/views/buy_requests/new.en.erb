@@ -1,18 +1,18 @@
 <div class="marketing-section">
 	<div class="login-box">
-		<h1>Предварительная заявка</h1><br>
-		<p>Команда SurveysKitchen благодарит вас за выбор наших услуг. Мы стараемся удовлетворить ваши требования на 100% и даже больше!</p>
+		<h1>Reserve payed plan</h1><br>
+		<p>SurveysKitchen team thanks you for choosing our services!</p>
 
 		<%= semantic_form_for @buy_request, html: {class: 'form'} do |f| %>
 		  <%= f.inputs class: 'fields2' do %>
-		    <%= f.input :email, label: "Ваш Email:" %>
-		    <%= f.input :name, label: "Ваше имя:" %>
-		    <%= f.input :how_found, label: "Как вы нас нашли?" %>
-		    <%= f.input :text, label: "Особые пожелания/совет нам:" %>
+		    <%= f.input :email, label: "Your contact Email:" %>
+		    <%= f.input :name, label: "Your name:" %>
+		    <%= f.input :how_found, label: "How did you find us?" %>
+		    <%= f.input :text, label: "Additional requests/advice:" %>
 		    <%= f.hidden_field :acc_type, value: params[:plan] %>
 		  <% end %>
 
-		    <%= f.submit 'Отправить' %>
+		    <%= f.submit 'Send' %>
 		<% end %>
 
 	</div>

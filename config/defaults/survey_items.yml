@@ -33,3 +33,39 @@ ru:
   page_break:
     page_header: "Новая страница"
     page_description: "Описание страницы"
+
+en:
+  desc_text:
+    text_content: "<p>Rich text fragment</p>"
+
+  text_field_question:
+    title: "Text field"
+
+  scale_question:
+    title: "Scale item"
+    scale_size: 5
+
+  single_select_question:
+    title: "Single select item"
+    variants: "Option #1\nOption #2\nOption #3\n"
+  
+  multiple_select_question:
+    title: "Multple select item"
+    variants: "Option #1\nOption #2\nOption #3\n"
+
+  drop_down_question:
+    title: "Drop down item"
+    variants: "Option #1\nOption #2\nOption #3\n"
+
+  video_question:
+    frame_size: "640x390"
+    embed_url: "http://www.youtube.com/watch?v=WOC5kHtn_x4"
+
+  single_select_grid:
+    title: "Please rate our products:"
+    rows: "Option #1\nOption #2\nOption #3\n"
+    columns: "Bad\nnormal\nOk\nGreat"
+
+  page_break:
+    page_header: "New Page"
+    page_description: "Page description"

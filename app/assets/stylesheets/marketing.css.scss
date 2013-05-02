@@ -65,7 +65,7 @@
 		display: inline;
 		float: left;
 	}
-	h3{ margin-bottom: 15px; margin-top: 15px; color: #658BAD; font-weight: 700; font-size: 20px; text-align: center;}
+	h3{ font-family: "Forum", cursive; margin-bottom: 15px; margin-top: 15px; color: #658BAD; font-weight: 700; font-size: 20px; text-align: center;}
 	h2{ margin-bottom: 20px; font-size: 28px; color: #658BAD;  margin-top: 20px;}
 	.info-block{
 		h4{ font-weight: bold; color: rgb(47, 58, 116);margin-top: 7px; }
@@ -256,10 +256,24 @@
 }
 
 #survey-steps{
+	margin-bottom: 30px;
+	border: 5px solid #849DFF;
+	padding: 30px 35px;
+	border-radius: 19px;
 	li{
-		//font-family: 'Comfortaa', cursive;
-		//font-family: 'Istok Web', sans-serif;
-		padding: 3px;
+		border: 3px solid #CDD9FD;
+		padding: 25px 0;
+		border-radius: 60px;
+		width: 273px;
+		margin-right: 10px;
+		&:hover{ 
+			border-color: #AAB1FC; 
+			a{ visibility: visible; }
+		}
+		a{ visibility: hidden; }
+		img{ display: block; margin: 0 auto; }
+		p{ text-align: center; font-family: "Forum", cursive; }
+		h3{ margin-bottom: 0; }
 		ul{
 			padding-left: 22px;
 		}
