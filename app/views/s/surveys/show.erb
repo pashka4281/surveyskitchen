@@ -7,7 +7,7 @@
 
 	<div class="padded-content">
 		<% unless @deactivated %>
-			<%= form_tag s_create_result_path(token: @survey.token) do |f| %>
+			<%= form_tag s_create_result_path(token: @survey.token), id: 'survey_form' do |f| %>
 				<% counter = 0 %>
 				<div class="a-page">
 					<%- @paged_items.shift.each do |i| -%>
@@ -51,7 +51,9 @@
 		};
 
       $(document).ready(function(){
-      	$('form').preventDoubleSubmission();
+      	var _form = $('form');
+      	_form.preventDoubleSubmission();
+      	_form.validationEngine('attach', {promptPosition: "inline", scroll: true});
       })
     </script>
 <% end %>

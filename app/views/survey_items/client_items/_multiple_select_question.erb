@@ -7,6 +7,10 @@
 			    	<li>
 				      	<label class="checkbox">
 							<input type="checkbox" name="response[item-<%= item.id %>][values][<%= i %>]" value="1" /><%= var %>
+								<!-- 
+	<input type="checkbox" name="response[item-<%= item.id %>][values][<%= i %>]" value="1" 
+								class="<%= 'validate[minCheckbox[1]]' if item.required_field? %>" data-prompt-position="bottomRight"/><%= var %>
+							-->
 						</label>
 					</li>
 			    <% end %>

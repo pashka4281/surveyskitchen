@@ -2,7 +2,7 @@
 
     <strong class="item-title"><%= "#{counter}. #{item.title}" %></strong>
     <div class="item-content">
-      <select name="response[item-<%= item.id %>][values]" class="span9">
+      <select name="response[item-<%= item.id %>][values]" class="span9 <%= 'validate[required]' if item.required_field? %>">
         <%- if item.include_empty -%><option> Please select an option </option><%- end -%>
         <% item.variants_array.each_with_index do |var, i| %>
           <option value="<%= i %>" > <%= var %> </option>

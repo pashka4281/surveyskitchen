@@ -5,7 +5,8 @@
 
 	    <% item.scale_size.times do |v| %>
 	      <label class="radio inline">
-	        <input type="radio" name="response[item-<%= item.id %>]" value="<%= v+1 %>" /><%= v+1 %>
+	        <input type="radio" name="response[item-<%= item.id %>]" value="<%= v+1 %>" 
+	        	class="<%= 'validate[required]' if item.required_field? %>" data-prompt-position="bottomRight" /><%= v+1 %>
 	      </label>
 	    <% end %>
 	</div>

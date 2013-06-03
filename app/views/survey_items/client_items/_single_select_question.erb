@@ -6,7 +6,8 @@
 	    	<% item.variants_array.each_with_index do |var, i| %>
 		    	<li>
 			      	<label class="radio">
-						<input type="radio" name="response[item-<%= item.id %>][values]" value="<%= i %>" /><%= var %>
+						<input type="radio" name="response[item-<%= item.id %>][values]" value="<%= i %>"
+							class="<%= 'validate[required]' if item.required_field? %>" data-prompt-position="bottomRight" /><%= var %>
 					</label>
 				</li>
 		    <% end %>
