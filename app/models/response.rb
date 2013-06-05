@@ -5,6 +5,9 @@ class Response < ActiveRecord::Base
   belongs_to :shareable, polymorphic: true
   serialize :content
 
+  scope :new_items, where('viewed_at IS NULL')
+  scope :last_30_days, where('responses.created_at > ?', Time.now - 30.days)
+
   def response_data=(data) #data - survey form data
   	data.each do |key, val|
   		write_property(key.split('-')[-1], val)

@@ -16,6 +16,14 @@
 	$('#hover').fadeOut 100, ->
 		$(@).remove()
 
+@add_notify = (message)->
+	$('#notify_bar').remove()
+	msg = $('<div id="notify_bar">' + message + '</div>').appendTo('body').hide().fadeIn(200)
+	callback = ->
+		msg.fadeOut 600, ->
+			#$(this).remove()
+	setTimeout callback, 5000
+
 
 @clear_ck_editor_instances = ->
 	if (CKEDITOR.instances['rich-text-area'] != undefined)

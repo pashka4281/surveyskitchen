@@ -249,3 +249,17 @@ h5{ font-size: 0.9em;}
 		padding-left: 20px;
 	}
 }
+
+#notify_bar{
+	position: fixed;
+	width: 100%;
+	height: 62px;
+	top: 0;
+	z-index: 999999;
+	background-color: #00A800;
+	border-bottom: 3px solid #29CE00;
+	color: #FFF;
+	padding: 20px;
+	font-size: 20px;
+	opacity: 0.9;
+}

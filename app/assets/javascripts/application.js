@@ -22,6 +22,7 @@
 //= require jquery.jvectormap.min
 //= require jquery-jvectormap-world-mill-en
 //= require plugins/scroll-sticky
+//= require plugins/chart
 
 /////// require plugins/jquery.animate-enhanced
    /////// require_tree .
