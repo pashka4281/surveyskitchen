@@ -1,0 +1,16 @@
+<td class="reponse-item-title">
+	<%= "#{counter}. #{item.title}" %>
+</td>
+<td class="reponse-content">
+	<ul class="unstyled">
+		<li><< Данный тип вопроса находится в разработке >> <br> << This type of question is still under development >> </li>
+	</ul>
+
+	<% unless result['additional_field'].blank? %>
+	<div class="additional-field">
+		<span><%= t("responses.show.additional_field") %></span>
+		<%= result['additional_field']%>
+	</div>
+	<% end %>
+	
+</td>
