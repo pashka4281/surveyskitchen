@@ -1,6 +1,38 @@
-<% 	resp_arr = @responses_content.map{|x| x[:content][item.id.to_s]}.compact #example: ['1', '1', '2', '3', '0', '1'] %>
-<ul class="report-variants">
-	<% item.rows_array.each_with_index do |variant, i| %>
-		
-    <% end %>
-</ul>
+<%  resp_arr =  @responses_content.reject{|x| x[:content][item.id.to_s].nil? } %>
+
+
+<%    resp_arr = resp_arr.map do |x| 
+        {   resp_id: x[:resp_id], 
+            field: x[:content][item.id.to_s]['additional_field'], 
+            values: x[:content][item.id.to_s]['values'] 
+        }
+    end
+%>
+
+<% resp_arr_without_empty = resp_arr.reject{|x| x[:values].nil? } %>
+<div class="statistics">
+    <span><%= t('surveys.report.question_skipped') %> <b><%= resp_arr.count - resp_arr_without_empty.count %></b></span>
+    <span><%= t('surveys.report.question_responded') %> <b><%= resp_arr_without_empty.count %></b></span>
+</div>
+
+<table class="grid-table" cellspacing="0">
+		<tr>
+		  <td>&nbsp;</td>
+		  <% item.columns_array.each do |v| %>
+		    <td class="<%= cycle("highlighted", "", :name => "cycle1_#{item.id}") -%>"><%= v %></td>
+		  <% end %>
+		</tr>
+		<% item.rows_array.each_with_index do |row_title, i| %>
+		  <tr>
+		    <td class="grid-row-title"><%= row_title %></td>
+		    <% item.columns_array.each_with_index do |v, j| %>
+		      <% percentage = resp_arr_without_empty.any? ? (resp_arr_without_empty.map{|x| x[:values][i.to_s]}.count(j.to_s).to_f / resp_arr_without_empty.count * 100).round : 0 %>
+
+		      <td class="<%= cycle("highlighted", "", :name => "cycle2_#{i}_#{item.id}") -%>">
+		        <input type="radio" disabled="true" <%#== 'checked="true"' if result[i.to_s] == j.to_s %>></input>
+		        (<%=  percentage %> %)
+		      </td>
+		    <% end %>
+		  </tr>
+		<% end %>
+	</table>

@@ -2,9 +2,24 @@
 	<%= "#{counter}. #{item.title}" %>
 </td>
 <td class="reponse-content">
-	<ul class="unstyled">
-		<li><< Данный тип вопроса находится в разработке >> <br> << This type of question is still under development >> </li>
-	</ul>
+	<table class="grid-table" cellspacing="0">
+		<tr>
+		  <td>&nbsp;</td>
+		  <% item.columns_array.each do |v| %>
+		    <td class="<%= cycle("highlighted", "", :name => "cycle1_#{item.id}") -%>"><%= v %></td>
+		  <% end %>
+		</tr>
+		<% item.rows_array.each_with_index do |row_title, i| %>
+		  <tr>
+		    <td class="grid-row-title"><%= row_title %></td>
+		    <% item.columns_array.each_with_index do |v, j| %>
+		      <td class="<%= cycle("highlighted", "", :name => "cycle2_#{i}_#{item.id}") -%>">
+		        <input type="radio" disabled="true" <%== 'checked="true"' if result['values'][i.to_s] == j.to_s %>></input>
+		      </td>
+		    <% end %>
+		  </tr>
+		<% end %>
+	</table>
 
 	<% unless result['additional_field'].blank? %>
 	<div class="additional-field">

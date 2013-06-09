@@ -11,9 +11,9 @@
         <% item.rows_array.each_with_index do |row_title, i| %>
           <tr>
             <td class="grid-row-title"><%= row_title %></td>
-            <% item.columns_array.each do |v| %>
+            <% item.columns_array.each_with_index do |v, j| %>
               <td class="<%= cycle("highlighted", "", :name => "cycle2_#{i}_#{item.id}") -%>">
-                <input type="radio" name="response[item-<%= item.id %>][<%= i %>]"></input>
+                <input type="radio" name="response[item-<%= item.id %>][values][<%= i %>]" value="<%= j %>"></input>
               </td>
             <% end %>
           </tr>

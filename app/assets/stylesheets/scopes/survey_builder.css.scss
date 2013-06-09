@@ -303,23 +303,11 @@
 				}
 				textarea, input, select{ color: rgb(70, 70, 70); }
 				ul.unstyled, select, input[type="text"], textarea{ margin-top: 10px; }
-				.grid-table{ //table
-					font-size: 13px;
-					width: 100%;
-					margin: 10px auto;
-					tr{ line-height: 20px; }
-					td{ 
-						text-align: center;
-						&:not([class="grid-row-title"]){ 
-							width: 15%;
-						}
-					}
-					.grid-row-title{  text-align: left; }
-				}
+
 			}
 		}
 	}
-	
+
 	.insert-button-wrapper{
 		text-align: center;
 	}
@@ -332,6 +320,19 @@
 		padding: 1px;
 		font-weight: bolder;
 	}
+}
+.grid-table{ //table
+	font-size: 13px;
+	width: 100%;
+	margin: 10px auto;
+	tr{ line-height: 20px; }
+	td{ 
+		text-align: center;
+		&:not([class="grid-row-title"]){ 
+			width: 15%;
+		}
+	}
+	.grid-row-title{  text-align: left; }
 }
 #newItem, #editItemContainer{
 	form{ 

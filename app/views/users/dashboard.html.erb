@@ -3,19 +3,20 @@
 <div class="padded-content">
   <%= page_header 'Dashboard' %>
 
-<canvas id="last_responses" width="710" height="300"></canvas>
+    <h3>Responses for last month:</h3>
+    <canvas id="last_responses" width="710" height="300"></canvas>
 
-<div id="events-block">
-  <h1>Events:</h1>
-  <ul>
-    <% for event in current_account.events %>
-       <li>
-        <%= event.message %>
-        <div class="date"><%= event.created_at %></div>
-      </li>
-    <% end %>
-  </ul>
-</div>
+    <div id="events-block">
+      <h1>Events:</h1>
+      <ul>
+        <% for event in current_account.events %>
+           <li>
+            <%= event.message %>
+            <div class="date"><%= event.created_at.to_s(:date_and_time) %></div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   
   <!-- <ul class="pagination">
     <li class="arrow unavailable"><a href="">&laquo;</a></li>

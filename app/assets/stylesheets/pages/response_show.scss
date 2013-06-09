@@ -1,9 +1,9 @@
 #response-details{ //table
 	width: 100%;
-	tr{
-		td{ width: 50%; padding: 7px; }
-		td.reponse-item-title{ background-color: #E7F0FF; font-weight: 700; }
-		td.reponse-content{ 
+	> tbody > tr{
+		> td{ width: 50%; padding: 7px; }
+		> td.reponse-item-title{ background-color: #E7F0FF; font-weight: 700; }
+		> td.reponse-content{ 
 			background-color: rgba(225, 233, 241, 0.41); border-left: 3px solid #9fb6b8; 
 			.additional-field{
 				span{
@@ -19,14 +19,22 @@
 			}
 		}
 	}
+	.grid-table{
+		td{ 
+			border-bottom: 1px solid #ccc;
+			&.highlighted{ background-color: #E7E9C3 }
+		}
+	}
 }
 
 .result-item {
-	&:first-child td{ border-top: 3px solid #9fb6b8; }
-	td{
+	&:first-child > td{ border-top: 3px solid #9fb6b8; }
+	> td{
 		border-bottom: 3px solid #9FB6B8;
 	}
 }
+
+
 
 #response-meta{
 	font-size: 13px;

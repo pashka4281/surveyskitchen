@@ -8,6 +8,6 @@ class ShareLink < ActiveRecord::Base
 	has_many :responses, :as => :shareable
 
 	def url_suffix
-		custom_url || token
+		custom_url.blank? ? token : custom_url
 	end
 end
