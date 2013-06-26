@@ -111,7 +111,7 @@ class Survey < ActiveRecord::Base
   def generate_token
     self.token = loop do
       random_token = rand(20**7).to_s(16) #SecureRandom.urlsafe_base64
-      break random_token unless self.where(token: random_token).exists?
+      break random_token unless self.class.where(token: random_token).exists?
     end
   end
 

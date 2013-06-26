@@ -252,7 +252,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-twitter
-  rails
+  rails (= 3.2.11)
   rails_admin
   rcsv
   rspec

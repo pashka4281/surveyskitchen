@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails'#, '3.2.3'
+gem 'rails', '3.2.11'
 gem 'agent_orange' # =>  https://github.com/kevinelliott/agent_orange for detecting browser and os
 
 gem 'jquery-rails'

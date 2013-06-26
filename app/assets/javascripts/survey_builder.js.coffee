@@ -21,8 +21,7 @@ class this.Survey
 		@updateSurveyUrl= params['survey_update_url']
 		@new_item_form_data = null
 		@current_action_item_id = null
-		
-		# @renewItemsIndexes()
+
 
 		# tabs functionality (jquery ui tabs) for toolbox
 		@tabs = $('#tabs').tabs()
@@ -251,7 +250,6 @@ class this.Survey
 			success: (resp) -> #resp contains new item markup
 				if self.total_items is 0
 					$(self.noItemsArea).hide()
-				# self.renewItemsIndexes()
 				self.total_items += 1
 
 	#removing item from to the trashbox
@@ -269,7 +267,6 @@ class this.Survey
 				$(self.survey_items + "[item_id=#{id}]").slideUp 300, ->
 					$(@).remove()
 					$(self.noItemsArea).show() if self.total_items is 0
-					# self.renewItemsIndexes()
 
 
 	restoreItem: (id) =>
