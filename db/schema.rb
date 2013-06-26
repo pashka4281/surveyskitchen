@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130421021301) do
+ActiveRecord::Schema.define(:version => 20130626231544) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -101,9 +101,10 @@ ActiveRecord::Schema.define(:version => 20130421021301) do
   end
 
   create_table "exception_storages", :force => true do |t|
-    t.string "message"
-    t.text   "trace"
-    t.string "e_class"
+    t.string   "message"
+    t.text     "trace"
+    t.string   "e_class"
+    t.datetime "created_at"
   end
 
   create_table "quiz_items", :force => true do |t|

@@ -4,4 +4,8 @@ class ExceptionStorage < ActiveRecord::Base
 	def self.from_exception(exception)
 		create(e_class: exception.class.to_s, message: exception.message.to_s, trace: exception.backtrace.join("\n"))
 	end
+
+	after_create do
+
+	end
 end
