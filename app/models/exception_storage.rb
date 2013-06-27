@@ -6,6 +6,6 @@ class ExceptionStorage < ActiveRecord::Base
 	end
 
 	after_create do
-
+		ExceptionMailer.new_exception_notify(self).deliver
 	end
 end
