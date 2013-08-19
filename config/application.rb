@@ -52,7 +52,7 @@ module Surveyskitchen
     
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.assets.precompile += %w(client.css marketing.css demo_styles.css item_modal_app.css item_modal_app.js)
+    config.assets.precompile += %w(client.js client.css marketing.css demo_styles.css item_modal_app.css item_modal_app.js)
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     # set default locale to something other than :en
