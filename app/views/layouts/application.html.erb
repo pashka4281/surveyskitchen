@@ -46,6 +46,9 @@
     <%= yield :after_content if content_for?(:after_content) %>
     <!-- Javascripts
     ================================================== -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="/javascripts/flashcanvas.js"></script>
+    <![endif]-->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript">
       var CKEDITOR_BASEPATH = '/javascripts/ckeditor/';

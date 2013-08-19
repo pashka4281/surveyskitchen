@@ -23,6 +23,7 @@
 //= require jquery-jvectormap-world-mill-en
 //= require plugins/scroll-sticky
 //= require plugins/chart
+//= require plugins/jSignature.min
 
 /////// require plugins/jquery.animate-enhanced
    /////// require_tree .

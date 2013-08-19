@@ -21,7 +21,7 @@
 	msg = $('<div id="notify_bar">' + message + '</div>').appendTo('body').hide().fadeIn(200)
 	callback = ->
 		msg.fadeOut 600, ->
-			#$(this).remove()
+			$(this).remove()
 	setTimeout callback, 5000
 
 

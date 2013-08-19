@@ -216,6 +216,9 @@ h5{ font-size: 0.9em;}
 			float: right;
 			width: 400px;
 		}
+		input[type="checkbox"]{
+			float: right;margin-right: 380px;width: 20px;
+		}
 		input[type="password"]{
 			width: 200px;margin-right: 200px;
 		}

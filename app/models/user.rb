@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   validates_presence_of :full_name, message: "Полное имя"
   validates_uniqueness_of :email
 
+  serialize  :roles, Array
+
   attr_accessor :account_name, :invited, :from_external_provider
 
   after_create :setup_account
@@ -36,6 +38,15 @@ class User < ActiveRecord::Base
 
   def google_auth
     authentications.google.first
+  end
+
+  def add_role(role)
+    self.roles << role
+  end
+
+  # if current_user.has_role?('respondent') then ...
+  def has_role?(role)
+    self.roles.include? role
   end
 
 #private methods:

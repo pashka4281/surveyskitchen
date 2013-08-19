@@ -38,6 +38,8 @@ ru:
       category: "Выберите категорию:"
       description: "Описание:"
       descr_placeholder: "Небольшое описание, о чем ваш опрос"
+      interactive: "Интерактивный опрос:"
+      interactive_desciption: "Интерактивный опрос это ....."
       
     common:
       edit: 'Изменить'

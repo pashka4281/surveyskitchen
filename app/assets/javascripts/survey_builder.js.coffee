@@ -9,9 +9,9 @@ class this.Survey
 		$('#no-items-area').show() if @total_items is 0
 		@self = this
 
-		@buildList 		= '#build_list'
-		@survey_items 	= '.survey_item'
-		@noItemsArea 	= '#no-items-area'
+		@buildList      = '#build_list'
+		@survey_items   = '.survey_item'
+		@noItemsArea    = '#no-items-area'
 		@new_item_area  = '#new-item-area'
 		@edit_item_area = '#edit-item-area'
 		@add_item_tab   = '#add-item-tab'
@@ -209,8 +209,6 @@ class this.Survey
 		edit_form_wrapper.html("<div>#{@translates.loading_item}</div>")
 		$.ajax "#{@updateSurveyUrl}/items/#{item_id}/edit",
 			type: 'GET'
-			data:
-				survey_id: @survey_id
 			success: (resp) -> #resp contains edit form
 				edit_form_wrapper.html(resp).hide().fadeIn(100)
 				info_block.hide()

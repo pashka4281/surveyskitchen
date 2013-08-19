@@ -99,6 +99,9 @@ class SurveyTheme < ActiveRecord::Base
 			.survey_theme_#{self.id} .survey_item label:hover{ 
 				background-color: #{self.highlighted_area_color};
 			}
+			.survey_theme_#{self.id} .survey_item .item-content .signature_pad{ 
+				border: 1px dashed #{self.inner_grid_border_color};
+			}
 		EOSTR
 	end
 

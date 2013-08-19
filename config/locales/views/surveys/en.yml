@@ -38,6 +38,8 @@ en:
       category: "Choose category:"
       description: "Survey description:"
       descr_placeholder: "Enter a brief description here"
+      interactive: "Interactive survey:"
+      interactive_desciption: "Интерактивный опрос это ....."
     
     common:
       edit: 'Edit'

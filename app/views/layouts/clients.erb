@@ -25,13 +25,26 @@
 
     <!-- Javascripts
     ================================================== -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="/javascripts/flashcanvas.js"></script>
+    <![endif]-->
     <!-- Placed at the end of the document so the pages load faster -->
-    <%#= javascript_include_tag "application" %>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="/javascripts/jq_validation_engine/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascripts/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+    <%= javascript_include_tag "client" %>
 
     <%= yield :js if content_for? :js %>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("form").validationEngine('attach',{
+          promptPosition: "inline",
+          scroll: false
+        });
+        $('.signature_pad').jSignature();
+      })
+
+    </script>
 
   </body>
   <%= render('shared/ga_code') if 'production' == Rails.env %>

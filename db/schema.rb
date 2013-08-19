@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130626231544) do
+ActiveRecord::Schema.define(:version => 20130819125933) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -90,6 +90,22 @@ ActiveRecord::Schema.define(:version => 20130626231544) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "events", :force => true do |t|
     t.string   "eventable_type"
@@ -199,6 +215,7 @@ ActiveRecord::Schema.define(:version => 20130626231544) do
     t.integer  "theme_id"
     t.string   "type"
     t.string   "token"
+    t.boolean  "interactive",                  :default => false
   end
 
   add_index "surveys", ["token"], :name => "index_surveys_on_token", :unique => true
@@ -214,8 +231,20 @@ ActiveRecord::Schema.define(:version => 20130626231544) do
     t.boolean  "admin"
     t.string   "password_digest"
     t.string   "language"
+    t.string   "roles"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "versions", :force => true do |t|
+    t.string   "item_type",  :null => false
+    t.integer  "item_id",    :null => false
+    t.string   "event",      :null => false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
 
 end

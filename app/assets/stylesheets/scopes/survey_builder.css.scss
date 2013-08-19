@@ -247,10 +247,12 @@
 						transition: background-color 350ms ease-out;
 					}
 				}
-				.item-inner{ background-color: #FFF85A; }
 				color: #555;
+				.item-inner{ 
+					background-color: #FFF85A; 
+					.item-content{color: #555;}
+				}
 				.item-title{ color: #555; }
-				.item-content{ color: #555; }
 				.item_tools{ display: block;}
 			}
 			&:not(.ui-sortable-helper).selected_item .arrow{ display: block;}
@@ -281,7 +283,10 @@
 				
 				//border-radius: 4px;
 				ul li{	line-height: 22px;	}
-				.item-content{ margin-right: 100px; }
+				.item-content{ 
+					margin-right: 100px;
+					.signature{ border: 1px dashed #CCC; }
+				}
 				.radio, .checkbox {
 					min-height: 18px;
 					padding: 1px 3px;

@@ -22,15 +22,6 @@ class SurveyItemsController < ApplicationController
 	end
 	
 	def	create
-		# item_params = Rack::Utils.parse_nested_query(params[:item_params])
-		# type = item_params.delete('item_type')
-		# @item = get_item_constant(type).new(survey: @survey, position: params[:item_position])
-		# if @item.save
-		# 	render(partial: "survey_items/items/#{@item.type.demodulize.underscore}", locals:{item: @item})
-		# else
-		# 	render js: "alert('error')", status: :unprocessible_entry
-		# end
-
 		@item_type = params[:item_type]
 		@item = get_item_constant(@item_type).new(survey_id: @survey.id, previous_item_id: params[:previous_item_id])
 		unless @item.save
@@ -71,15 +62,16 @@ class SurveyItemsController < ApplicationController
 	private
 	
 	def	get_item_constant(name)
-		{   'text_field_question' => 'SurveyItems::TextFieldQuestion',
+			{ 	'text_field_question'  => 'SurveyItems::TextFieldQuestion',
 			'multiple_select_question' => 'SurveyItems::MultipleSelectQuestion',
-			'single_select_question' => 'SurveyItems::SingleSelectQuestion',
-			'scale_question' => 'SurveyItems::ScaleQuestion',
-			'desc_text' => 'SurveyItems::DescText',
-			'drop_down_question' => 'SurveyItems::DropDownQuestion',
-			'video_question' => 'SurveyItems::VideoQuestion',
-			'single_select_grid' => 'SurveyItems::SingleSelectGrid',
-			'page_break' => 'SurveyItems::PageBreak'}[name].constantize rescue nil
+			'single_select_question'   => 'SurveyItems::SingleSelectQuestion',
+			'scale_question'           => 'SurveyItems::ScaleQuestion',
+			'desc_text'                => 'SurveyItems::DescText',
+			'drop_down_question'       => 'SurveyItems::DropDownQuestion',
+			'video_question'           => 'SurveyItems::VideoQuestion',
+			'single_select_grid'       => 'SurveyItems::SingleSelectGrid',
+			'signature'       				 => 'SurveyItems::Signature',
+			'page_break'               => 'SurveyItems::PageBreak'}[name].constantize rescue nil
 	end
 
 	def get_survey

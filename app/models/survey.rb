@@ -1,6 +1,8 @@
 class Survey < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :account_id, :description, :category, :category_id, :theme_id, :theme,
-    :name, :user_id, :user, :account, :items_positions, :prefill_items, :active
+    :name, :user_id, :user, :account, :items_positions, :prefill_items, :active, :interactive
 
   default_scope order('created_at DESC')
 
@@ -20,8 +22,6 @@ class Survey < ActiveRecord::Base
   has_one :share_email
 
   attr_accessor :prefill_items
-  
-  STEPS = %w(basic_info survey_type builder)
   
   validates :name, presence: true
   validates :category_id, presence: true

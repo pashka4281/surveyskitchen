@@ -10,7 +10,12 @@
     <%= f.label :description do %> <%= t("surveys.form.description") %>
       <%= f.text_area :description, rows: 5, class: 'span5', placeholder: t("surveys.form.descr_placeholder") %>
     <% end %>
-    <!-- <label for="survey_prefill_items" class="checkbox">
+  <!--
+    <%= f.label :interactive do %> <%= t("surveys.form.interactive") %>
+      <%=f.check_box :interactive, class: 'checkbox disabled', disabled: 'disabled' %>
+    <% end %>
+
+     <label for="survey_prefill_items" class="checkbox">
       <%=f.check_box :prefill_items, class: 'checkbox' %> Prefill survey with example items
     </label>
   -->

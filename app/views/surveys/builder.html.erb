@@ -1,25 +1,25 @@
 <% header("Questions builder", subheader: 'All changes here are automatically saved.') %>
 
-<%= page_header t('surveys.builder.title', name: @survey.name), nomargin: true, default_survey_menu: true %>
+<%= page_header t('.title', name: @survey.name), nomargin: true, default_survey_menu: true %>
 
 <!---->
-	<style type="text/css"><%= raw @survey.theme.to_css %></style>
+	<style type="text/css"><%== @survey.theme.to_css %></style>
 
 <div id="survey_theme_select" class="page-sub-header">
-	<span><%= t('surveys.builder.themes_select') %></span>
+	<span><%= t('.themes_select') %></span>
 	<select id="theme-select">
-		<optgroup label="<%= t('surveys.builder.themes_global') %>">
+		<optgroup label="<%= t('.themes_global') %>">
 			<% for th in @themes_global %>
 				<option value="<%= th.id %>" <%= 'selected="selected"' if @survey.theme_id == th.id%>><%= th.name %></option>
 			<% end %>
 		</optgroup>
-		<optgroup label="<%= t('surveys.builder.themes_current') %>">
+		<optgroup label="<%= t('.themes_current') %>">
 			<% for th in @themes_current %>
 				<option value="<%= th.id %>" <%= 'selected="selected"' if @survey.theme_id == th.id%>><%= th.name %></option>
 			<% end %>
 		</optgroup>
 	</select>
-	<%= link_to t('surveys.builder.look_and_feel'), look_survey_path(@survey, page: 'logo'), class: 'btn small' %>
+	<%= link_to t('.look_and_feel'), look_survey_path(@survey, page: 'logo'), class: 'btn small' %>
 </div>
 
 <div id="builder">
@@ -29,8 +29,8 @@
 				<div id="tabs">
 					<!-- tabs -->
 					<ul class="tabs-nav">
-						<li><a href="#new-item-area" id="add-item-tab"><%= t 'surveys.builder.add_item' %></a></li>
-						<li><a href="#edit-item-area" id="edit-item-tab"><%= t 'surveys.builder.edit_item' %></a></li>
+						<li><a href="#new-item-area" id="add-item-tab"><%= t '.add_item' %></a></li>
+						<li><a href="#edit-item-area" id="edit-item-tab"><%= t '.edit_item' %></a></li>
 					</ul>
 					<div id="new-item-area"><%= render '/survey_items/new' %></div>
 					<div id="edit-item-area">
@@ -42,10 +42,10 @@
 					<!-- buttons -->
 					<div id="action-buttons">
 						<button id="trashbox-btn" data-url="<%= trashbox_survey_path(@survey) %>" class="btn" data-target="#trashedItemsContainer" data-toggle="modal" role="button">
-							<i class="icon-trash"></i> <%= t 'surveys.builder.trashbox' %> <span class="trash-cnt">(<%= @survey.items.trashed.count %>)</span>
+							<i class="icon-trash"></i> <%= t '.trashbox' %> <span class="trash-cnt">(<%= @survey.items.trashed.count %>)</span>
 						</button>
 						<button class="btn btn-warning" id="preview-btn">
-							<i class="icon-eye"></i> <%= t 'surveys.builder.preview' %>
+							<i class="icon-eye"></i> <%= t '.preview' %>
 						</button>
 					</div>
 
@@ -57,10 +57,10 @@
 
 			<div id="no-items-area">
 				<div id="work-area-texting" class="fifteen columns centered centr-text vspace-big">
-					<h3><%= t('surveys.builder.working_area_1') %></h3>
-					<h5><%= t('surveys.builder.working_area_2') %></h5>
+					<h3><%= t('.working_area_1') %></h3>
+					<h5><%= t('.working_area_2') %></h5>
 					<button  class="small btn new-item-btn success">
-						<i class="icon-list-add"></i> <%= t 'surveys.builder.new_item' %> <br>
+						<i class="icon-list-add"></i> <%= t '.new_item' %> <br>
 					</button>
 				</div>
 			</div>
@@ -95,7 +95,7 @@
 	<div class="modal hide fade" id="trashedItemsContainer">
 	  <a href="#" class="close"></a>
 	  <div class="modal-header">
-	    <h3><%= t('surveys.builder.trashbox_modal_title') %></h3>
+	    <h3><%= t('.trashbox_modal_title') %></h3>
 	  </div>
 	  <div class="modal-body"></div>
 	  <div class="modal-footer">
