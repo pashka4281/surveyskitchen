@@ -28,8 +28,8 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 		@survey = Survey.demo_surveys.find_by_token(params[:ss])
 		if @user.valid?
-			user.roles = ['user', 'respondent']
-			user.save
+			@user.roles = ['user', 'respondent']
+			@user.save
 			UserMailer.welcome_email(@user).deliver
 			@survey.attach_to_user!(@user) if @survey
 			session[:user_id] = @user.id
