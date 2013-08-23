@@ -3,6 +3,7 @@
     <strong class="item-title"><%= "#{counter}. #{item.title}" %></strong>
     <div class="item-content">
       <div class="signature_pad"></div>
+      <input type="hidden" name="response[item-<%= item.id %>][signature_data]" />
     </div>
     
 <%- end -%>

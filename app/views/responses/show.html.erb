@@ -49,3 +49,15 @@
 
 	
 </div>
+
+<% content_for :js do %>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.signature-pad').each(function(){
+			_this = $(this)
+			_this.jSignature();
+			_this.jSignature('setData', "data:" + _this.data('signature'))
+		})
+	})
+</script>
+<% end %>

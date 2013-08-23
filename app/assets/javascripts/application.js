@@ -19,14 +19,12 @@
 //= require jquery.minicolors
 //= require survey_builder
 //= require accordion
-//= require jquery.jvectormap.min
-//= require jquery-jvectormap-world-mill-en
-//= require plugins/scroll-sticky
-//= require plugins/chart
-//= require plugins/jSignature.min
 
-/////// require plugins/jquery.animate-enhanced
-   /////// require_tree .
+//= require jVectorMap.min
+//= require jVectorMap.world
+//= require scroll-sticky
+//= require chart
+//= require jSignature.min
 
 
 

@@ -5,14 +5,14 @@ module S
 
 		def show
 			@paged_items = @survey.paged_items
-			if @survey.interactive
-				@current_respondent = current_respondent()
-			else
+			# if @survey.interactive
+			# 	@current_respondent = current_respondent()
+			# else
 				render 'deactivated' and return unless @survey.active
 				render 'passed' and return if cookies["survey_passed_#{@survey.id}"]
 				
 				cookies.permanent["survey_shown_#{@survey.id}"] = { :value => true, :domain => :all }
-			end
+			# end
 		end
 
 		def create_result
