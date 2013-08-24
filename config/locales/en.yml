@@ -1,0 +1,18 @@
+en:
+  activerecord:
+    attributes:
+      models:
+        survey: 'Survey'
+        user:
+          email: "E-mail address"
+          full_name: "Full name"
+          password: "Password"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "is required"
+  time:
+    formats:
+      short_date_time: '%b %d, %Y, %k:%M'

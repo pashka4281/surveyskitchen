@@ -1,0 +1,40 @@
+!!!
+%html{ lang: "en" }
+  %head
+    %meta{ charset: "utf-8" }
+    %meta{ 'http-equiv' => "X-UA-Compatible", content: "IE=Edge,chrome=1" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    %title= content_for?(:title) ? yield(:title) : "Surveyskitchen"
+    = csrf_meta_tags
+    %meta{ name: "Description", content: "SurveysKitchen - the most convenient and fastest tool for creating online surveys and polls" }
+    %meta{ name: "keywords", content: "SurveysKitchen,surveys,online-surveys,polls,web-polls,web-surveys,opinnion research, marketing research, analysis,voting,statistics" }
+    %link{ href: 'http://fonts.googleapis.com/css?family=Special+Elite', rel: 'stylesheet', type: 'text/css' }
+    = stylesheet_link_tag "application", media: "all"
+    = favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
+
+  %body
+    = render 'shared/top_bar'
+    .container= yield
+    = yield :after_content if content_for?(:after_content)
+    
+
+    / Javascripts
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+    /  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    /  <script type="text/javascript" src="/javascripts/flashcanvas.js"></script>
+    /[endif]
+
+    / Placed at the end of the document so the pages load faster
+    :javascript
+      var CKEDITOR_BASEPATH = '/javascripts/ckeditor/';
+    = javascript_include_tag "application"
+    
+    = yield :js if content_for? :js
+    - flash.each do |key, val|
+      = content_for :js do
+        :javascript
+          add_notify("#{ val }")
+
+  = render('shared/ga_code') if 'production' == Rails.env
+  = render('shared/uservoice_tab') if 'production' == Rails.env

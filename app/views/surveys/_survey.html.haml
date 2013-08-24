@@ -1,0 +1,36 @@
+.panel.panel-default
+  .panel-heading
+    .row
+      .col-md-12
+        %h4.panel-title
+          %a.accordion-toggle{ 'data-toggle' => 'collapse', 'data-parent' => '#surveys_list', href: "#collapse_#{survey.id}" }= survey.name
+      
+    .row
+      .col-md-4
+        - if survey.active
+          = link_to t("surveys.index.active"), [:switch, survey], class: 'switch-btn btn btn-success btn-xs'
+        - else
+          = link_to t("surveys.index.stopped"), [:switch, survey], class: 'switch-btn btn btn-danger btn-xs'
+      .col-md-4
+        %small.pull-right= survey.created_at.to_s(:date_and_time)
+      .col-md-4
+        .btn-group.btn-group-sm.pull-right
+          =# link_to t("surveys.index.edit_link"), edit_survey_path(survey), class: 'btn btn-default'
+          = link_to builder_survey_path(survey), class: 'btn btn-default' do
+            %span.glyphicon.glyphicon-pencil
+            = t("surveys.index.edit_link")
+          = link_to t("surveys.index.share_link"), share_survey_path(survey), class: 'btn btn-default'
+          = link_to [survey, :responses], class: 'btn btn-default' do
+            = t("surveys.index.responses_link")
+            %span.label.label-info= survey.responses.count
+          = link_to t("surveys.index.report_link"), [:report, survey], class: 'btn btn-default'
+  .panel-collapse.collapse{ id: "collapse_#{survey.id}" }
+    .panel-body
+      .survey-header
+        %h5= survey.category.name
+      
+      .survey-desc
+        = survey.description
+
+      .pull-right
+        = link_to t("surveys.index.delete_link"), survey, method: :delete, confirm: t("surveys.index.delete_confirm"), class: 'delete-survey-lnk btn btn-sm btn-danger'

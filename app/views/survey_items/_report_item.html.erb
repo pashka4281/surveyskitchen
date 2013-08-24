@@ -1,8 +1,0 @@
-<%= div_for item, class: "report-item", item_id: item.id do -%>
-	<div class="report-item-header">
-		<h4><%= item.title %></h4>
-	</div>
-	<div class="report-item-body">
-		<%= render "/survey_items/report_items/#{item.type.demodulize.underscore}", item: item, counter: index + 1 %>
-	</div>
-<%- end -%>

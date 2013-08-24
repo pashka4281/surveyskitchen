@@ -49,7 +49,7 @@ module ApplicationHelper
     submenu ||= opts[:default_survey_menu] && survey_subtitle
     submenu ||= opts[:default_client_menu] && client_subtitle
     raw <<-EOS
-      <div class="page-header #{opt_classes}"><h1>#{text}</h1>#{submenu}</div>
+      <div class="row #{opt_classes}"><h1>#{text}</h1>#{submenu}</div>
     EOS
   end
 

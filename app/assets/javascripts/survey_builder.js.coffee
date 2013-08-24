@@ -24,7 +24,7 @@ class this.Survey
 
 
 		# tabs functionality (jquery ui tabs) for toolbox
-		@tabs = $('#tabs').tabs()
+		@tabs = $('#tabs')#.tabs()
 
 		@stickyBar = $('.stickyBar')
 		@new_item_area = $( "#new-item-area" )
@@ -33,13 +33,15 @@ class this.Survey
 		@makeToolboxScrollable()
 
 		# let the new_item_area items be draggable
-		$( "ul li", @new_item_area ).draggable
+		$( ".btn-group-vertical button", @new_item_area ).draggable
 			cancel: "a.ui-icon" # clicking an icon won't initiate dragging
 			revert: "invalid" # when not dropped, the item will revert back to its initial position
 			containment: "document"
 			helper: "clone"
+			helper: (event) ->
+				$("<li>#{ $(this).text() }</li>")#.wrap(ret)
 			connectToSortable: '#survey-items-list'
-			scroll: true
+			# scroll: true
 	
 
 		$( '#survey-items-list', @build_list ).sortable

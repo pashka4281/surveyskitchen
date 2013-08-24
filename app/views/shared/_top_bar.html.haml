@@ -1,0 +1,18 @@
+.navbar.navbar-inverse{ role: 'navigation' }
+  .navbar-header
+    %button.navbar-toggle{ type: "button", 'data-toggle' => "collapse", 'data-target' => ".navbar-ex1-collapse" }
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a#home-link.navbar-brand{ href: dashboard_path } SurveysKitchen
+  .collapse.navbar-collapse.navbar-ex1-collapse
+    %ul.nav.navbar-nav
+      = content_tag :li, class: (request.path =~ /\A\/(surveys)(\/)?\z/ ? 'active' : '')  do
+        = link_to raw("<i class=\"icon-edit-1\"></i> #{t('layout.surveys')} (#{current_account.surveys.count})"), :surveys
+      = content_tag(:li){ link_to(raw('<i class="icon-wrench"></i> Admin'), :rails_admin) } if current_user.admin?
+
+    %ul.nav.navbar-nav.navbar-right
+      %li= link_to t("layout.account_link"), :account_info
+      %li= link_to t("layout.profile_link"), :profile
+      %li= link_to t("layout.log_out_link"), :logout

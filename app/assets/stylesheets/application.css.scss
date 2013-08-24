@@ -2,12 +2,12 @@
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
- *= require scopes/reset
+ *= require bootstrap.min
  *= require scopes/common
+ *= require fontello/main
  *= require scopes/sprite-animation
  *= require scopes/modals
  *= require scopes/survey_builder
- *= require scopes/quiz_builder
  *= require scopes/flags16
  *= require scopes/validationEngine.jquery
 */

@@ -4,7 +4,7 @@
     <strong class="item-title"><%= item.title %></strong>
     <div class="item-content">
       <div class="clear"></div>
-      <select name="drop_down_<%= item.id %>" class="span9">
+      <select name="drop_down_<%= item.id %>" class="form-control">
         <%- if item.include_empty -%><option> Please select an option </option><%- end -%>
         <% for var in item.variants_array %>
           <option value="<%= var %>" > <%= var %> </option>

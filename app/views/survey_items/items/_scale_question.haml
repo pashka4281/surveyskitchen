@@ -1,0 +1,9 @@
+= content_tag_for :li, item, class: "countable survey_item question-item", item_id: item.id do
+  = render 'survey_items/items/_tools_box', item: item 
+  .item-inner
+    %strong.item-title= item.title
+    .item-content
+      .btn-group{ 'data-toggle' => "buttons" }
+        - item.scale_size.times do |v|
+          %label.btn.btn-default
+            %input{ type: "radio", name: "options_#{item.id}" }= (v+1)

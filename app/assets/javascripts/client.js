@@ -12,3 +12,4 @@
 //
 //= require jSignature.min
 //= require fitvids
+//= require bootstrap.min

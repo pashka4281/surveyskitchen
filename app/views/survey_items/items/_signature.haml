@@ -1,0 +1,7 @@
+= content_tag_for :li, item, class: "survey_item signature-item", item_id: item.id do
+  = render 'survey_items/items/_tools_box', item: item
+  .item-inner
+    .item-title= item.title
+    .item-content
+      .signature
+        %img{ src: "/images/icons/signature.png" }

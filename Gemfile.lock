@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/bcardarella/client_side_validations
+  revision: 03dfff597e025e164f44621846cf25d85e596ddc
+  branch: 3-2-stable
+  specs:
+    client_side_validations (3.2.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -45,6 +52,9 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
     chronic (0.9.1)
+    client_side_validations-formtastic (2.2.1)
+      client_side_validations (~> 3.2.0)
+      formtastic (~> 2.2.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -246,6 +256,8 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   capistrano
   carrierwave
+  client_side_validations!
+  client_side_validations-formtastic
   coffee-rails
   database_cleaner
   default_value_for
@@ -254,6 +266,7 @@ DEPENDENCIES
   formtastic
   friendly_id
   geoip-c
+  haml
   inherited_resources
   jquery-rails
   kaminari

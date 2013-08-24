@@ -1,0 +1,10 @@
+= form_for @survey_item, url: '#', html:{ id: 'desc_text_item_form', class: 'panel-body2' } do |f|
+  .form-group
+    = f.text_area :text_content, name: 'survey_item[text_content]', rows: 2, id: 'rich-text-area',
+      class: 'validate[required]', placeholder: t('survey_items.common.title_placeholder')
+
+
+  = hidden_field_tag :item_id, @survey_item.try(:id)
+  %input{ type: "hidden", name: "item_type", value: "desc_text" }
+  %input{ type: "hidden", name: "survey_id", value: @survey_item.survey.id }
+  = f.submit t('survey_items.common.save'), class: 'btn btn-success' 

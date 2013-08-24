@@ -1,0 +1,26 @@
+= form_for @survey_item, url: '#', html:{ id: 'scale_question_form', class: 'panel-body' } do |f|
+  .form-group
+    %label= t('survey_items.common.item_title')
+    = f.text_area :title, name: 'survey_item[title]', rows: 2, 'data-errormessage' => t('survey_items.common.item_title_error_msg'),
+      class: 'validate[required] form-control', placeholder: t('survey_items.common.title_placeholder')
+
+  .well.well-sm
+    %span.help-block= t('survey_items.text_field.appearance')
+    %label.radio
+      = f.radio_button :scale_size, 3, name: 'survey_item[scale_size]'
+      = t('survey_items.scale_question.scale_3')
+    %label.radio
+      = f.radio_button :scale_size, 5, name: 'survey_item[scale_size]'
+      = t('survey_items.scale_question.scale_5')
+    %label.radio
+      = f.radio_button :scale_size, 10, name: 'survey_item[scale_size]'
+      = t('survey_items.scale_question.scale_10')
+
+  %label.checkbox
+    = f.check_box :required_field, name: 'survey_item[required_field]'
+    = t('survey_items.common.make_required') 
+
+  = hidden_field_tag :item_id, @survey_item.try(:id)
+  %input{ type: "hidden", name: "item_type", value: "scale_question" }
+  %input{ type: "hidden", name: "survey_id", value: @survey_item.survey.id }
+  = f.submit t('survey_items.common.save'), class: 'btn btn-success' 

@@ -13,19 +13,20 @@
 //= require jquery
 //= require jquery-ui-1.10.2.custom.min
 //= require jquery_ujs
+//= require bootstrap.min
 //= require common
 //= require jLinedTextarea
 //= require jquery.display_star_rating
 //= require jquery.minicolors
 //= require survey_builder
-//= require accordion
 
 //= require jVectorMap.min
 //= require jVectorMap.world
 //= require scroll-sticky
 //= require chart
 //= require jSignature.min
-
+//= require rails.validations
+//= require rails.validations.formtastic
 
 
 $(function(){

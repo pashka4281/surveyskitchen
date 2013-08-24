@@ -1,0 +1,40 @@
+:ruby
+  resp_arr = @responses_content.reject{|x| x[:content][item.id.to_s].nil?}
+    resp_arr = resp_arr.map do |x| 
+        {   resp_id: x[:resp_id], 
+            field: x[:content][item.id.to_s]['additional_field'], 
+            values: x[:content][item.id.to_s]['values'] 
+        }
+    end
+  resp_arr_without_empty = resp_arr.reject{|x| x[:values].nil? }
+
+.statistics
+  %span
+    = t('surveys.report.question_skipped')
+    %b= resp_arr.count - resp_arr_without_empty.count
+  %span
+    = t('surveys.report.question_responded')
+    %b= resp_arr_without_empty.count
+
+- values_keys = resp_arr_without_empty.map{ |x| x[:values].keys }
+%ul.list-unstyled.report-variants
+  - item.variants_array.each_with_index do |variant, i|
+    - percentage =values_keys.any? ? (values_keys.flatten.count(i.to_s).to_f / values_keys.count * 100).round : 0
+    .row
+      .col-md-4
+        %input{ type: "checkbox", disabled: "true" }
+        = variant
+      .col-md-8
+        .progress.progress-striped
+          .progress-bar.progress-bar-success{ role: "progressbar", 'aria-valuenow' => "#{percentage}", 'aria-valuemin' => "0", 'aria-valuemax' => "100", style: "width: #{percentage}%" }
+            %span= "#{ percentage}%"
+
+
+- if(additional_fields = resp_arr.map{|x| x[:field]}.reject(&:blank?)).any?
+  .additional_txt_field_results
+    %strong= t('surveys.report.additional_field')
+    .scrollable
+      - resp_arr_without_empty.reject{|x| x[:field].blank? }.each do |resp|
+        %div
+          = simple_format resp[:field]
+          = link_to t('surveys.report.response_link'), survey_response_path(@survey, resp[:resp_id]), class: "response-link"

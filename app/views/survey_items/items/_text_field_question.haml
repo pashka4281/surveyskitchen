@@ -1,0 +1,9 @@
+= content_tag_for :li, item, class: "countable survey_item question-item", item_id: item.id do
+  = render 'survey_items/items/_tools_box', item: item 
+  .item-inner
+    %strong.item-title= item.title
+    .item-content
+      - if item.appearance == 'txt_field'
+        %input.form-control{ type: "text" }
+      - else
+        %textarea.form-control

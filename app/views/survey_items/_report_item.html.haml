@@ -1,0 +1,6 @@
+.panel.panel-primary
+  .panel-heading
+    %h3.panel-title= item.title
+
+  .panel-body
+    = render "/survey_items/report_items/#{item.type.demodulize.underscore}", item: item, counter: index + 1

@@ -43,132 +43,18 @@
 	select{ margin-right: 20px; }
 }
 
-#builder{
-	display: block;
-	margin: 25px auto;
-	width: 1000px;
+#tabs{
+	padding-top: 8px;
 }
-#toolbox-wrapper{
-	width: 370px;
-	height: auto;
-	//border: 1px solid #E75604;
-	//background-color: #FFD873;
-	top: 0;
-	bottom: 0;
-	.divider_line{
-		float: left;
-		width: 357px;
-		height: 1px;
-		border-top: 1px solid #AFB6DA;
-		margin-top: 5px;
-		margin-left: 5px;
-		margin-right: 5px;
-		border-bottom: 1px solid #CFDCFF;
-	}
-	#toolbox{
-		width: 370px;
-		&.stickyBar{ margin-left:0 }
 
-		#tabs{
-			//padding-top: 8px;
-			background-color: #D9E0FA;
-			.info-block{
-				border: 1px solid #FDFEFF;
-				margin: 5px;
-				font-size: 13px;
-				border-radius: 100px;
-				padding: 4px 12px;
-				background-color: #30AEBF;
-				color: #F2F3FF;
-				line-height: 15px;
-				max-height: 40px;
-			}
-			#action-buttons{ 
-				padding: 5px;
-				button{ width: 171px; }
-				#trashbox-btn{ margin-right: 5px; }
-			}
-			ul.tabs-nav{
-				height: 36px;
-				background-color: #F0F5FF;
-				padding-top: 12px;
-				//background-color: #ccc;
-				li{
-					list-style: none;
-					float: left;
-					position: relative;
-					top: 0;
-					margin: 1px .2em 0 0;
-					border-bottom-width: 0;
-					padding: 0;
-					white-space: nowrap;
-					padding: 0px;
-					outline: none;
-					height: 100%;
-					padding-top: 4px;
-					&.ui-state-active{
-						background-color: #D9E0FA;
-						border-top-left-radius: 10px;
-						border-top-right-radius: 10px;
-						$tab_border_color: #A4A3AC;
-						border-left: 1px solid $tab_border_color;
-						border-top: 1px solid $tab_border_color;
-						border-right: 1px solid $tab_border_color;
-						a{ color: #000;}
-					}
-					a{
-						padding: 3px;
-						vertical-align: middle;
-						font-size: 12px;
-						outline: none;
-						text-decoration: none;
-						color: #804700;
-					}
-				}
-			}
-			//edit item form styles
-			#edit-item-area{
-				form{
-					padding: 4px 3px 0px 3px;
-					.field{ 
-						margin-bottom: 7px;
-						span{ font-size: 12px; }
-					}
-					label{font-size: 13px;display: block;line-height: 15px;}
-					input[type="text"],input[type="email"] select, textarea{
-						outline: none;
-						border: 1px solid #CCC;
-						padding: 3px;
-						width: 100%;
-						font-size: 12px;
-						margin-top: 5px;
-					}
-				}
-			}
-		}
-	}
-	
-}
-.build-columns{
-	display: block;
-	background-color: #FFF6E0;
-	&:after {
-		clear: both;
-		content: ".";
-		display: block;
-		height: 0;
-		visibility: hidden;
-	}
-}
 #build_list{
 	//position: relative;
 	//left: 300px;
 	//right: 0;
 	//padding: 25px 7px 7px 7px;
-	width: 620px;
 	//margin-bottom: 30px;
 	counter-reset:section;
-	margin-left: 10px;
+	//margin-left: 10px;
 	min-height: 500px;
 	border: 1px solid #ccc;
 	//padding: 0 10px;
@@ -249,7 +135,7 @@
 				}
 				color: #555;
 				.item-inner{ 
-					background-color: #FFF85A; 
+					background-color: #EDFAFF; 
 					.item-content{color: #555;}
 				}
 				.item-title{ color: #555; }
@@ -287,43 +173,9 @@
 					margin-right: 100px;
 					.signature{ border: 1px dashed #CCC; }
 				}
-				.radio, .checkbox {
-					min-height: 18px;
-					padding: 1px 3px;
-				}
-				label{	display: block;	}
-				label.inline{ display: inline-block; padding: 3px 12px;}
-				input[type="text"], select, textarea{
-					outline: none;
-					border: 1px solid #ccc;
-					padding: 3px;
-					width: 85%;
-					font-size: 16px;
-					&:focus{
-						border-color: #888;
-					}
-				}
-				input[type="text"], textarea{
-					border-top: 2px solid #999;
-				}
-				textarea, input, select{ color: rgb(70, 70, 70); }
-				ul.unstyled, select, input[type="text"], textarea{ margin-top: 10px; }
 
 			}
 		}
-	}
-
-	.insert-button-wrapper{
-		text-align: center;
-	}
-	.insert_buttons{ 
-		display: inline-block; 
-		margin-bottom: 10px;
-		font-size: 12px;
-		width: 70%;
-		visibility: hidden;
-		padding: 1px;
-		font-weight: bolder;
 	}
 }
 .grid-table{ //table
@@ -338,54 +190,6 @@
 		}
 	}
 	.grid-row-title{  text-align: left; }
-}
-#newItem, #editItemContainer{
-	form{ 
-		margin-bottom: 0;
-		input[type="text"], select, textarea{
-			outline: none;
-			border: 1px solid #ccc;
-			padding: 3px;
-			width: 100%;
-			font-size: 14px;
-			margin-top: 5px;
-			margin-bottom: 5px;
-			&:focus{
-				border: 1px solid #888;
-			}
-		}
-		textarea.tall{height: 6em;}
-		label.checkbox{ display: block; }
-	}
-}
-#editItem{
-	bottom: 40px;
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-}
-
-#new-item-area{
-	ul{
-		float: left; width: 50%;
-		li{
-			padding: 0 5px;
-			position: relative;
-			&.ui-draggable-dragging{
-				z-index: 10;
-				//border: 1px solid #ff0000;
-				display: inline-block !important;
-				width: 165px !important;
-			}
-			button{ 
-				margin-top: 5px; 
-				width: 170px;
-				text-align: left;
-			}
-		}
-	}
-	
 }
 
 

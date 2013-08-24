@@ -1,0 +1,24 @@
+= semantic_form_for @survey, html: {class: 'form-horizontal', role: 'form'}, validate: true do |f|
+  =f.inputs do
+    =f.input :name, label: t("surveys.form.name")
+  .form-group
+    %label.col-md-2.control-label= t("surveys.form.name")
+    .col-md-6= f.text_field :name, class: 'form-control', placeholder: t("surveys.form.name_placeholder")
+
+  .form-group
+    %label.col-md-2.control-label= t("surveys.form.category")
+    .col-md-6= f.select(:category_id, Category.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Select'}, class: 'form-control')
+
+  .form-group
+    %label.col-md-2.control-label= t("surveys.form.description")
+    .col-md-6= f.text_area :description, rows: 5, class: 'form-control', placeholder: t("surveys.form.descr_placeholder")
+
+    / <%= f.label :interactive do %> <%= t("surveys.form.interactive") %>
+    /   <%=f.check_box :interactive, class: 'checkbox disabled', disabled: 'disabled' %>
+    / <% end %>
+
+    /  <label for="survey_prefill_items" class="checkbox">
+    /   <%=f.check_box :prefill_items, class: 'checkbox' %> Prefill survey with example items
+    / </label>
+
+  = f.submit class: 'btn btn-success'
