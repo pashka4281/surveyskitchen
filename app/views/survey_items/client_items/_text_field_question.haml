@@ -1,0 +1,9 @@
+= div_for item, class: "survey_item" do
+  .form-group
+    %strong.item-title= "#{counter}. #{item.title}"
+    .item-content
+      - if item.appearance == 'txt_field'
+        %input.form-control{ type: "text", name:"response[item-#{ item.id }]", class: "#{ 'validate[required]' if item.required_field? }" }
+      - else
+        %textarea.form-control{ name:"response[item-#{ item.id }]", class: "#{ 'validate[required]' if item.required_field? }" }
+

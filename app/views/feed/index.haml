@@ -1,0 +1,30 @@
+- @resp_surveys.inspect
+
+- @resp_days.each do |day, responses|
+  %h2= l day, :format => :short_date
+  - responses.each do |response|
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+        %span.label.label-default= l response.created_at, :format => :short_date_time
+        = link_to response.survey.name, [response.survey, :responses]
+      .panel-body.sig-pad-form
+        - response.content.each_with_index do |x,i|
+          - s_item = SurveyItem.find_by_id(x[0])
+          = render "/responses/short_response", item: s_item, result: x[1], index: i
+        / =link_to [response.survey, response] do
+        /   = response.content
+
+= paginate @responses
+
+
+- content_for :js do 
+  :javascript
+    $(document).ready(function(){
+      $('.signature-pad').each(function(){
+        _this = $(this)
+
+        _this.jSignature();
+        _this.jSignature("setData", "data:" + _this.data('signature')) 
+      })
+    })

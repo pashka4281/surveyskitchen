@@ -1,0 +1,38 @@
+.item
+  - case item.class.name
+  - when 'SurveyItems::SingleSelectQuestion'
+    %strong= item.title
+    = item.variants_array[result['values'].to_i] unless result['values'].blank?
+
+  - when 'SurveyItems::DropDownQuestion'
+    %strong= item.title
+    = item.variants_array[result['values'].to_i] unless result['values'].blank?
+
+  - when 'SurveyItems::MultipleSelectQuestion'
+    %strong= item.title
+    - unless result['values'].blank?
+      - item.variants_array.each_with_index do |variant, i|
+        = variant if result['values'].keys.collect(&:to_i).include?(i)
+
+  - when 'SurveyItems::TextFieldQuestion'
+    %strong= item.title
+    = result
+
+  - when 'SurveyItems::SingleSelectGrid'
+    %strong= item.title
+    - unless result['values'].blank?
+      %ul
+        - item.rows_array.each_with_index do |row_title, i|
+          %li
+            = row_title
+            = "---->"
+            = item.columns_array[result['values'][i.to_s].to_i] unless result['values'][i.to_s].blank?
+
+  - when 'SurveyItems::ScaleQuestion'
+    %strong= item.title
+    - item.scale_size.times do |v|
+      %input{ type: "radio", disabled: "disabled", checked: result.to_i == v+1 }= v+1 
+
+
+  - if item.class.name ==  'SurveyItems::Signature'
+    .signature-pad{'data-signature' => result[:signature_data] }

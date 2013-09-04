@@ -1,0 +1,34 @@
+.login-box
+	.row
+		.col-md-6
+			%h3= t('sessions.new.sign_in_credentials')
+
+			= form_tag :login, class: 'form-horizontal' do
+				.form-group
+					= label_tag :email, t('.email'), class: 'col-md-2'
+					.col-md-8
+						= text_field_tag :email, '', placeholder: t('.email_placeholder'), class: 'form-control'
+				
+				.form-group
+					= label_tag :password, t('.password'), class: 'col-md-2'
+					.col-md-8
+						= password_field_tag :password, nil, placeholder: t('.password_placeholder'), class: 'form-control'
+				%br
+				= submit_tag t('.submit'), class: 'btn btn-success'
+		.col-md-6
+			%h3= t('sessions.new.sign_in_providers')
+			#providers.list-unstyled
+				.col-md-6
+					= link_to "/auth/facebook", class: 'btn btn-default ' do
+						%img{ src: "/images/icons/facebook.png", style: "vertical-align:middle" }
+						= t('sessions.new.sign_in_with', provider: "Facebook")
+				.col-md-6
+					= link_to "/auth/twitter", class: 'btn btn-default' do
+						%img{ src: "/images/icons/twitter.png", style: "vertical-align:middle" }
+						= t('sessions.new.sign_in_with', provider: "Twitter")
+
+			/ = link_to "#", class: 'btn' do
+			/ %img{ src: "/images/icons/google.png", style: "vertical-align:middle" }
+			/ = t('sessions.new.sign_in_with', provider: "Google")
+	.sign-in-description= raw t('sessions.new.additional_links')
+

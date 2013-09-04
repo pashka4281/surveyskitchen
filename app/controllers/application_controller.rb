@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def	get_item_constant(name)
-		{   'text_field_question' => 'SurveyItems::TextFieldQuestion',
+		{ 'text_field_question' => 'SurveyItems::TextFieldQuestion',
 			'multiple_select_question' => 'SurveyItems::MultipleSelectQuestion',
 			'single_select_question' => 'SurveyItems::SingleSelectQuestion',
 			'scale_question' => 'SurveyItems::ScaleQuestion',
@@ -60,10 +60,14 @@ class ApplicationController < ActionController::Base
 			'page_break' => 'SurveyItems::PageBreak'}[name].constantize rescue nil
 	end
 
-	private
+	protected
 
-  	def current_user
-	    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+	def load_user
+		@user = current_user
+	end
+
+  def current_user
+	  @current_user ||= User.find(session[:user_id]) if session[:user_id]
 	end
 
 	def get_locale_from_user

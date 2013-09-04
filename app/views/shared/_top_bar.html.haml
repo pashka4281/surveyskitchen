@@ -1,4 +1,4 @@
-.navbar.navbar-inverse{ role: 'navigation' }
+.navbar.navbar-inverse.navbar-static-top{ role: 'navigation' }
   .navbar-header
     %button.navbar-toggle{ type: "button", 'data-toggle' => "collapse", 'data-target' => ".navbar-ex1-collapse" }
       %span.sr-only Toggle navigation
@@ -8,6 +8,12 @@
     %a#home-link.navbar-brand{ href: dashboard_path } SurveysKitchen
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav
+      = content_tag :li, class: (request.path =~ /\A\/(feed)(\/)?\z/ ? 'active' : '')  do
+        %a{ href: feed_path }
+          %i.icon-edit-1
+          = t('layout.feed')
+          - if current_account.responses.new_items.count > 0
+            %span.badge= current_account.responses.new_items.count
       = content_tag :li, class: (request.path =~ /\A\/(surveys)(\/)?\z/ ? 'active' : '')  do
         = link_to raw("<i class=\"icon-edit-1\"></i> #{t('layout.surveys')} (#{current_account.surveys.count})"), :surveys
       = content_tag(:li){ link_to(raw('<i class="icon-wrench"></i> Admin'), :rails_admin) } if current_user.admin?

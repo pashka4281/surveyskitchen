@@ -27,8 +27,10 @@
 
     <%= render 'shared/top_bar_marketing' %>
     <%= flash_messages %>
-
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    
 
     <%= yield :after_content if content_for?(:after_content) %>
     <%= render '/shared/footer' %>

@@ -1,5 +1,6 @@
 // marketing app stylesheet
-//=require scopes/navbar
+//=require scopes/common
+//=require bootstrap.min
 //=require scopes/blog
 //
 
@@ -31,6 +32,8 @@
 	max-width: 1100px;
 }
 
+.center-content{ text-align: center; }
+
 #main-wording{
 	margin: 25px auto;
 	width: 920px;
@@ -48,51 +51,6 @@
 	small{ display: inline-block; font-size: 20px }
 }
 
-.marketing-section{
-	line-height: 20px;
-	padding: 15px;
-	background-color: #FFFFFF;
-	font-size: 14px;
-	font-family: 'Open Sans', sans-serif;
-	color: #303030;
-	margin-bottom: 10px;
-	p{ padding: 5px 10px; }
-	b{font-weight: bold;}
-	img.left-aligned{
-		border-radius: 10px;
-		margin: 5px;
-		display: inline;
-		float: left;
-	}
-	h3{ font-family: "Forum", cursive; margin-bottom: 15px; margin-top: 15px; color: #658BAD; font-weight: 700; font-size: 20px; text-align: center;}
-	h2{ margin-bottom: 20px; font-size: 28px; color: #658BAD;  margin-top: 20px;}
-	.info-block{
-		h4{ font-weight: bold; color: rgb(47, 58, 116);margin-top: 7px; }
-	}
-	img.pretty{
-		@include border_radius(0.3em);
-		-webkit-box-shadow: rgba(0,0,0,0.65) 0 1px 4px;
-		-moz-box-shadow: rgba(0,0,0,0.65) 0 1px 4px;
-		box-shadow: rgba(0,0,0,0.65) 0 1px 4px;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-		border: #fff 0.3em solid;
-	}
-	.a-block{
-		padding: 7px;
-		.inlined{
-			display: inline-block;
-			padding-left: 7px;
-			vertical-align: top;
-		}
-	}
-	ol.items-list{
-		li{
-			margin-bottom: 10px;
-		}
-	}
-}
 
 .signup-btn{
 	cursor: pointer;
@@ -205,35 +163,11 @@
 	box-shadow: 0 2px 6px rgba(0,0,0,0.65);
 	@include vertical_gradient(#FFF, #F5F5F5);
 	
-	margin-bottom: 100px;
-	form{
-		input[type="text"],input[type="email"], select, textarea, input[type="password"]{
-			outline: none;
-			border: 1px solid #ccc;
-			padding: 3px;
-			width: 300px;
-			font-size: 16px;
-			&:focus{
-				border: 1px solid #888;
-			}
-		}
-		textarea{ height: 100px; }
-		ul, textare, input, p, select{ color: rgb(70, 70, 70); }
-		ul.unstyled, select, input[type="text"],input[type="password"], textarea{ margin-top: 5px; }
-
-		label{
-			display: block;
-			margin-top: 10px;
-			span{
-				display: block;
-			}
-		}
-	}
-	.providers .btn{
+	#providers .btn{
 		display:block;
 		margin-top: 10px;
 		padding: 3px 3px 0 3px;
-		width: 300px;
+		text-align: left;
 	}
 	.sign-in-description{
 		margin-top: 10px;
@@ -313,15 +247,13 @@ ul.answers{
 	}
 }
 
-#fixed-content{
-	margin: 0 auto;
-	width: 960px;
-}
 
 #screens-block {
 	position: relative;
+	width: 960px;
 	height: 320px;
 	overflow: hidden;
+	margin: 0 auto;
 	img{
 		position: absolute;
 		bottom: 0;

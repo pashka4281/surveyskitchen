@@ -1,0 +1,15 @@
+= div_for item, class: "survey_item" do
+  .form-group
+    %strong.item-title= "#{counter}. #{item.title}"
+    .item-content
+      %table.grid-table{ cellspacing: "0" }
+        %tr
+          %td &nbsp;
+          - item.columns_array.each do |v|
+            %td{ class: cycle("highlighted", "", :name => "cycle1_#{item.id}") }= v
+        - item.rows_array.each_with_index do |row_title, i|
+          %tr
+            %td.grid-row-title= row_title
+            - item.columns_array.each_with_index do |v, j|
+              %td{ class: cycle("highlighted", "", :name => "cycle2_#{i}_#{item.id}") }
+                %input{ type: "radio", name: "response[item-#{ item.id }][values][#{ i }]", value: j }

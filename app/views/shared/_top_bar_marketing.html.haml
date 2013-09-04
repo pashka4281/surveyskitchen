@@ -1,0 +1,23 @@
+.navbar.navbar-inverse.navbar-static-top{ role: 'navigation' }
+  .navbar-header
+    %button.navbar-toggle{ type: "button", 'data-toggle' => "collapse", 'data-target' => ".navbar-ex1-collapse" }
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a#home-link.navbar-brand{ href: '/' } SurveysKitchen
+  .collapse.navbar-collapse.navbar-ex1-collapse
+    %ul.nav.navbar-nav
+      =content_tag :li, class: (request.path =~ /\/(blog)(\/)?/ ? 'active' : '')  do
+        = link_to t("layout.blog"), blog_posts_path
+      =content_tag :li, class: (request.path =~ /\/(features)(\/)?\z/ ? 'active' : '')  do
+        = link_to t("layout.features"), features_path(locale: I18n.locale)
+      =content_tag :li, class: (request.path =~ /\/(about)(\/)?\z/ ? 'active' : '')  do
+        = link_to t("layout.about"), about_path(locale: I18n.locale)
+      =content_tag :li, class: (request.path =~ /\/(plans)(\/)?\z/ ? 'active' : '')  do 
+        = link_to t("layout.plans_pricing"), plans_path(locale: I18n.locale) 
+
+    %ul.nav.navbar-nav.navbar-right
+      %li= link_to "ru", locale_root_path(:ru)
+      %li= link_to "en", locale_root_path(:en)
+      %li= link_to t("layout.log_in_link"), :login

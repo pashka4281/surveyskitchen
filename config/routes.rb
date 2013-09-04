@@ -30,6 +30,7 @@ Surveyskitchen::Application.routes.draw do
   end
   
   get 'logout',   to: 'sessions#destroy'
+  get 'feed', to: 'feed#index'
   get :switch_locale, to: 'home#switch_locale'
 
   get :theme_preview, to: 'themes#theme_preview'

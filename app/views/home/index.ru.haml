@@ -1,0 +1,128 @@
+
+= content_for :head do
+	%meta{ property: "og:image", content: "http://www.surveyskitchen.com/images/marketing/fb-share-img.png" }
+
+- title('онлайн сервис для проведения профессиональных опросов.')
+#fixed-content
+	%h1#main-wording.center-content
+		Сервис для проведения профессиональных онлайн опросов.
+		%small Уже через несколько минут вы сможете создавать качественные опросы, собирать и анализировать результаты
+
+
+	.marketing-section
+		#screens-block
+			%img.lft{ alt: "Список опросы", src: "/images/marketing/Surveyskitchen-surveys.png" }
+			%img.rgt{ alt: "Пример отчета", src: "/images/marketing/Surveyskitchen-report.png" }
+			%img.ctr{ alt: "Конструктор опросов", src: "/images/marketing/Surveyskitchen-builder.png" }
+
+		#under-screenshots-block
+			Начните пользоваться сейчас. Всего 20 секунд для регистрации. 
+			= link_to "Создать опрос бесплатно", :register, class: 'signup-btn small' 
+			= link_to "Конструктор опросов. Demo", :demo_s_builder, class: 'signup-btn small red'
+		%h3
+			SurveysKitchen - это инструмент, который помогает вам принимать правильные решение,
+			полагаясь на качественную информацию
+
+		%p
+			Хотите ли вы узнать мнение о продукте,
+			оценить степень удовлетворенности сотрудников, провести социологическое исследование или узнать
+			мнение друзей по поводу прошедшего или только планирующегося торжества.
+
+		.row
+			.col-md-4
+				.panel.panel-info
+					.panel-heading
+						%h3.panel-title Конструктор опросов
+					.panel-body
+						%img{ src: "/images/marketing/create-survey.png", alt: "Создание опроса" }
+						%p
+							Мы создали простой, но в то же время удобный конструктор опросов.
+							Он рассчитан на одинаково удобную работу как с большими опросами, содержащими десятки вопросов,
+							так и с маленькими, в которых всего несколько вопросов.  Конструктор опросов одинаково удобен 
+							для работы с вашего домашнего компьютера и с мобильного телефона или планшета.
+
+							= link_to "Узнать больше", 'http://www.surveyskitchen.com/blog/ispolzuem-konstruktor-surveyskitchen-effektivno', style: "display: inline-block"
+
+			.col-md-4
+				.panel.panel-info
+					.panel-heading
+						%h3.panel-title Методы распространения
+					.panel-body
+						%img{ src: "/images/marketing/collect-responses.png", alt: "Сбор результатов" }
+						
+						%p
+							К вашим услугам предоставляются 5 способов распространения опроса:
+							%ul.list-unstyled
+								%li
+									%span.highlight Прямая ссылка.
+									Отправляйте ссылку респондентам по электронной почте, в чате или в социальных сетях.
+									Вы также можете задавать адрес, на который респондент будет перенаправлен после прохождения опроса.
+								%li
+									%span.highlight Email
+									В SurveysKitchen вы можете воспользоваться функцией отправки приглашения для прохождения опроса
+									на электронный адрес респондента. 
+									/ Вы можете персонализировать приглашение для респондентов, 
+									/ сохраненных в адресной книге вашей учетной записи. 
+									/ Поддерживаются напоминания, а удобный инструмент создания 
+									/ электронных писем и шаблоны помогут сделать их быстрей и качественней.
+								%li
+									%span.highlight Встроенный опрос.
+									SurveysKitchen дает возможность встроить опрос на страницу
+									вашего сайта или блога.
+								= link_to "Узнать больше", '#', style: "display: inline-block"
+			.col-md-4
+				.panel.panel-info
+					.panel-heading
+						%h3.panel-title Анализ результатов
+					.panel-body
+						%img{ src: "/images/marketing/analyze-results.png", alt: "Анализ результатов" }
+						%p
+							Оценка результатов в форме графического отчета.
+
+							= link_to "Узнать больше", '#', style: "display: inline-block"
+
+		.row
+			.col-md-6
+				%h4 Для чего я могу использовать опросы SurveysKitchen?
+				%p
+					Опросы могут служить хорошим источником информации о вашем продукте или деятельности.
+					Они помогут узнать реальные отзывы людей о услуге, еще до того, как вы ее запустите, таким образом,
+					сэкономив ваше время и средства.
+			.col-md-6
+				%h4 Что происходит в случае достижения ограничений тарифного плана?
+				%p
+					В этом случае вы получите предложение перейти на тарифный план с меньшими ограничениями.
+					Вы можете сменить тарифный план в любое время, возможности нового тарифного плана 
+					будут доступны сразу после этого. Оплата по новому тарифному плану будет производится по графику, т.е. 
+					через месяц после последнего платежа в не зависимости от манипуляций с тарифными планами.
+		.row
+			.col-md-6
+				%h4 Как долго можно пользоваться бесплатным тарифным планом?
+				%p
+					Вы можете использовать бесплатный тарифный план неограниченное время.
+					Он идеально подойдет для индивидульного использования в случае небольшого количества 
+					опросов или в качестве знакомства с возможностями SurveysKitchen. 
+			.col-md-6
+				%h4 Зачем нужен список контактов?
+				%p
+					Контакты необходимы для того, чтобы иметь возможность персонализации ваших опросов, приглашений к опросам а также отчетов.
+					К примеру, вы можете автоматически вставить любые контактные данные респондента, которому отправляется приглашение.
+
+		/ <div class="row">
+		/ 	<div class="img-block column half-width">
+		/ 		<img src="/images/marketing/surveys-list.png" alt="Surveys list image">
+		/ 		<div class="description">
+		/ 			<h4>Surveys list</h4>
+		/ 			Manage all your surveys in one place. Activate/deactivate survey right from the list.
+		/ 		</div>
+		/ 	</div>
+			
+		/ 	<div class="img-block column half-width">
+		/ 		<img src="/images/marketing/survey-builder.png" alt="Survey builder image">
+		/ 		<div class="description">
+		/ 			<h4>Awesome survey builder</h4>
+		/ 			We created great survey builder to utilize all that power SurveysKitchen put into surveys.
+		/ 			Self-explanationary easy to use and working same good on both destktop and mobile browsers.
+
+
+		= link_to "Создать опрос бесплатно", :register, class: 'signup-btn'

@@ -1,0 +1,7 @@
+= div_for item, class: "survey_item" do
+  .form-group
+    .item-title= item.title
+    .item-content
+      .well
+        .signature-pad
+        %input.output{ type: "hidden", name: "response[item-#{ item.id }][signature_data]" }

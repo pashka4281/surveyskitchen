@@ -27,11 +27,5 @@ class ProfilesController < ApplicationController
 		end
 		redirect_to action: 'edit'
 	end
-
-	private
-
-	def load_user
-		@user = current_user
-	end
   	
 end

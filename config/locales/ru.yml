@@ -15,4 +15,5 @@ ru:
               blank: "должно быть указано"
   time:
     formats:
-      short_date_time: '%d %b %k:%M, %Y'
+      short_date_time: '%d %b %k:%M'
+      short_date: '%d %B, %Y'

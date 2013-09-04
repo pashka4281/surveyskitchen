@@ -1,0 +1,8 @@
+= div_for item, class: "survey_item" do
+  .form-group
+    %strong.item-title= "#{counter}. #{item.title}"
+    .item-content
+      .btn-group{ 'data-toggle' => "buttons" }
+        - item.scale_size.times do |v|
+          %label.btn.btn-default
+            %input{ type: "radio", name: "options_#{item.id}", class: "#{ 'validate[required]' if item.required_field? }", 'data-prompt-position' => "bottomRight" }= (v+1)

@@ -5,5 +5,5 @@ Time::DATE_FORMATS.merge!(
   day_of_month: '%e %B',
   long_day: '%A, %e %B %Y',
   date_and_time: '%B %d, %Y, %l:%M %p',
-  short_date_time: '%b %d, %Y, %k:%M'
+  short_date_time: '%b %d, %k:%M'
 )

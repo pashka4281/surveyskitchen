@@ -36,9 +36,8 @@
           promptPosition: "inline",
           scroll: false
         });
-        $('.signature_pad').jSignature().bind('change', function(e){
-          $(e.target).next('input[type="hidden"]').val($(this).jSignature("getData", "base30"))
-        })
       })
+
+    = yield :js
 
   = render('shared/ga_code') if 'production' == Rails.env
