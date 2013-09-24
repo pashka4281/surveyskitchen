@@ -1,0 +1,46 @@
+.page-header= page_header t("responses.index.title", name: @survey.name), default_survey_menu: true
+
+.row
+	.col-md-4
+		%h3= t("responses.index.resp_list_title", resp_count: @responses_count)
+		- if @responses.any?
+			%ul#responses-list.list-unstyled
+				= render @responses
+			= paginate @responses
+		- else
+			%p= raw t("responses.index.no_items", link: share_survey_path(@survey))
+	.col-md-8
+		%h3= t("responses.index.map_title")
+		#map
+
+= content_for :js do
+	:javascript
+		var gdpData = #{ @geodata.to_json };
+
+		$('#map').vectorMap({map: 'world_mill_en',
+			language: '#{ I18n.locale }',
+			series: {
+			    regions: [{
+			      values: gdpData,
+			      scale: ['#C8EEFF', '#0071A4'],
+			      normalizeFunction: 'polynomial'
+			    }]
+			},
+			onRegionLabelShow: function(e, el, code){
+				responses_count = gdpData[code] || 0;
+				el.html(el.html()+' (Ответов: '+responses_count+')');
+			}
+			,regionStyle:{
+			  initial: {
+			    fill: 'white',
+			    "fill-opacity": 1,
+			    "stroke": 'none',
+			    "stroke-width": 0,
+			    "stroke-opacity": 1
+			  },
+			  hover: { "fill-opacity": 0.8 },
+			  selected: { fill: 'yellow' },
+			  selectedHover: { }
+			}
+			,backgroundColor: "#9CA9AF"
+		});

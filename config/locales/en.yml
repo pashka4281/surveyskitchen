@@ -1,18 +1,25 @@
 en:
   activerecord:
     attributes:
-      models:
-        survey: 'Survey'
-        user:
-          email: "E-mail address"
-          full_name: "Full name"
-          password: "Password"
+      user:
+        email: "E-mail address"
+        full_name: "Full name"
+        password: "Password"
     errors:
       models:
         user:
           attributes:
             email:
-              blank: "is required"
+              blank: "can't be blank"
+            full_name:
+              blank: "should be set"
+        survey:
+          attributes:
+            name: 
+              blank: "Specify survey name"
+            category_id:
+              blank: "Select category"
   time:
     formats:
-      short_date_time: '%b %d, %Y, %k:%M'
+      short_date_time: '%d %b %k:%M'
+      short_date: '%d %B, %Y'

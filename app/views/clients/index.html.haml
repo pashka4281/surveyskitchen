@@ -1,0 +1,17 @@
+.page-header
+  %h3= t("clients.index.title")
+
+- if @clients.any?
+  %table.table#clients_list{ cellspacing: "0" }
+    %thead
+      %tr
+        %td= t("clients.index.thead_name")
+        %td= t("clients.index.thead_email")
+        %td= t("clients.index.thead_note")
+        %td
+
+    = render @clients
+- else
+  %h4= t("clients.index.no_items")
+%br
+= link_to t("clients.index.add_link"), :new_client, class: 'btn btn-default'

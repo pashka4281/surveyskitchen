@@ -3,10 +3,15 @@
  * listed below.
  *
  *= require bootstrap.min
+ *= require bootstrap-select.min
  *= require scopes/common
  *= require fontello/main
  *= require scopes/sprite-animation
+ *= require scopes/client_side_validation
  *= require scopes/survey_builder
  *= require scopes/flags16
  *= require scopes/validationEngine.jquery
+ *= require formtastic-bootstrap
+ *= require pages/responses_index
+ *= require pages/response_show
 */

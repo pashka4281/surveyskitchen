@@ -64,6 +64,11 @@ GEM
     coffee-script-source (1.6.3)
     database_cleaner (1.1.1)
     default_value_for (2.0.3)
+    delayed_job (3.0.5)
+      activesupport (~> 3.0)
+    delayed_job_active_record (0.4.4)
+      activerecord (>= 2.1.0, < 4)
+      delayed_job (~> 3.0)
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (1.4.0)
@@ -79,6 +84,8 @@ GEM
       railties (>= 3.2, < 5.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    formtastic-bootstrap (2.1.3)
+      formtastic (~> 2.2)
     friendly_id (4.0.10)
     geoip-c (0.8.2)
     haml (4.0.3)
@@ -108,6 +115,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     libv8 (3.11.8.17)
+    liquid (2.5.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -149,6 +157,9 @@ GEM
     omniauth-twitter (1.0.0)
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
+    omnicontacts (0.3.4)
+      json
+      rack
     paper_trail (2.7.2)
       activerecord (~> 3.0)
       railties (~> 3.0)
@@ -261,20 +272,25 @@ DEPENDENCIES
   coffee-rails
   database_cleaner
   default_value_for
+  delayed_job
+  delayed_job_active_record
   factory_girl
   factory_girl_rails
   formtastic
+  formtastic-bootstrap
   friendly_id
   geoip-c
   haml
   inherited_resources
   jquery-rails
   kaminari
+  liquid
   mysql2
   newrelic_rpm
   omniauth
   omniauth-facebook
   omniauth-twitter
+  omnicontacts
   paper_trail
   rails (= 3.2.11)
   rails_admin

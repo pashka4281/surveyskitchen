@@ -1,4 +1,6 @@
-class ShareEmbed < ActiveRecord::Base
+class ShareMethods::Embed < ActiveRecord::Base
+  self.table_name = "share_embeds"
+
 	attr_accessible :survey_id, :active
 	belongs_to :survey
 

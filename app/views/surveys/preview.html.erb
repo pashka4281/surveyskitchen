@@ -1,31 +1,32 @@
 <style type="text/css"><%= @survey.theme.to_css %></style>
 
 <div class="sk-survey <%= "survey_theme_#{@survey.theme.id}" %>">
+	<div id="main-content">
+		<h2 id="title" class="page_title"><%= @survey.name %></h2>
 
-	<h2 id="title" class="page_title"><%= @survey.name %></h2>
-
-	<div class="padded-content">
-		<form>
-			<% counter = 0 %>
-			<div class="a-page">
-				<%- @paged_items.shift.each do |i| -%>
-					<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
-					<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
-				<%- end -%>
-			</div>
-			<%- @paged_items.each do |page_elements| -%>
+		<div class="padded-content">
+			<form>
+				<% counter = 0 %>
 				<div class="a-page">
-					<%- page_elements.each do |i| -%>
+					<%- @paged_items.shift.each do |i| -%>
 						<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
 						<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
-					<% end %>
+					<%- end -%>
 				</div>
-			<% end %>
-		</form>
-		<button class="btn">Done</button>
-	</div>
+				<%- @paged_items.each do |page_elements| -%>
+					<div class="a-page">
+						<%- page_elements.each do |i| -%>
+							<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
+							<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
+						<% end %>
+					</div>
+				<% end %>
+			</form>
+			<button class="btn">Done</button>
+		</div>
 
-	<footer>
-	  <p>Powered by <a href="http://SurveysKitchen.com">SurveysKitchen</a> © <%= Time.now.year %></p>
-	</footer>
+		<footer>
+		  <p>Powered by <a href="http://SurveysKitchen.com">SurveysKitchen</a> © <%= Time.now.year %></p>
+		</footer>
+	</div>
 </div>

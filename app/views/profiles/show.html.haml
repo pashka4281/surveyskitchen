@@ -1,0 +1,51 @@
+.page-header= t("profiles.show.title")
+  
+.form-horizontal
+
+  .form-group
+    %label.col-lg-2.control-label= t("profiles.show.account_name")
+    .col-lg-10
+      %p.form-control-static= @user.account.name
+  .form-group
+    %label.col-lg-2.control-label= t("profiles.show.first_name")
+    .col-lg-10
+      %p.form-control-static= @user.first_name
+  .form-group
+    %label.col-lg-2.control-label= t("profiles.show.last_name")
+    .col-lg-10
+      %p.form-control-static= @user.last_name
+  .form-group
+    %label.col-lg-2.control-label= t("profiles.show.email")
+    .col-lg-10
+      %p.form-control-static= @user.email
+  .form-group
+    %label.col-lg-2.control-label= t("profiles.show.password")
+    .col-lg-10
+      %p.form-control-static ******
+
+  
+  = link_to t("profiles.show.change_fields"), :edit_profile, id: 'change-profile-details-lnk', class: "btn btn-default"
+  =# f.submit "Sign up now!", class: 'btn btn-primary'
+.spacer
+  %h3= t("profiles.show.authentications")
+
+  .authentication
+    %span Facebook:
+    - if fb_auth = @user.facebook_auth
+      = fb_auth.linked_name
+    - else
+      = link_to t("profiles.show.connect_with", name: "Facebook"), "/auth/facebook", class: 'big_btn fb-auth-btn'
+
+  .authentication
+    %span Twitter:
+    - if tw_auth = @user.twitter_auth
+      = tw_auth.linked_name
+    - else
+      = link_to t("profiles.show.connect_with", name: "Twitter"), "/auth/twitter", class: 'big_btn tw-auth-btn'
+
+  .authentication
+    %span Google: 
+    - if tw_auth = @user.google_auth
+      = tw_auth.linked_name
+    - else
+      = link_to t("profiles.show.connect_with", name: "Google"), "#", class: 'big_btn go-auth-btn'

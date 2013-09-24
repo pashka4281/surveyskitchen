@@ -23,6 +23,7 @@ en:
     dashboard_link: "Dashboard"
     add_survey_link: "Add survey"
     blog: "Blog"
+    responses_link: "Responses"
     
     surveys: "Surveys"
     clients: "Clients"

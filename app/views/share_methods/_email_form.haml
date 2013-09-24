@@ -1,0 +1,36 @@
+.page-header
+	%h1= raw(t("share_methods.form_email.title"))
+
+= semantic_form_for @share_method, :url => shares_path, html: { class: 'form' } do |f|
+	.panel.panel-default
+		.panel-heading
+			%h3.panel-title= t("share_methods.form_email.recipients_settings")
+		.panel-body
+			%select.selectpicker.span6{ name: "share_methods_#{@share_method.class.name.demodulize.underscore}[recipients][]", multiple: true, 
+				'data-selected-text-format' => "count", 'data-width' => 'auto', 'data-title' => t('share_methods.form_email.user_list') }
+				- for client in current_account.clients
+					%option{ 'data-subtext' => client.email, value: client.id }= client.full_name
+
+	.panel.panel-default
+		.panel-heading
+			%h3.panel-title= t("share_methods.form_email.message_settings")
+		.panel-body
+			.row
+				.col-md-4
+					.field
+						%h4= t("share_methods.form_email.from_address")
+						=f.text_field :from_email, value: current_user.email, class: 'form-control'
+					.field
+						%h4= t("share_methods.form_email.subject")
+						=f.text_field :subject, value: t("share_methods.form_email.subject_prefill", survey_name: @survey.name), class: 'form-control'
+				.col-md-8
+					.field
+						%h4= t("share_methods.form_email.content")
+						= f.text_area :text, class: 'form-control', rows: 8
+	
+	= f.input :survey_id, value: @survey.id, as: :hidden 
+	= f.input :type, value: @share_method.class.name, as: :hidden 
+	= f.input :current_user_id, value: current_user.id, as: :hidden 
+
+	= f.submit 'активировать', class: 'btn btn-success'
+	= link_to(t('share_methods.form_common.back_to_share_methods'), share_survey_path(@survey), class: 'btn btn-default')

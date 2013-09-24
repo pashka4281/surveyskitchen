@@ -1,0 +1,41 @@
+.page-header= t("profiles.edit.title")
+
+.panel.panel-default
+  .panel-body
+    = semantic_form_for(@user, :url => :profile, html:{ class: 'form-horizontal' }) do |f|
+      .form-group
+        %label.col-md-2.control-label= t("profiles.edit.account_name")
+        .col-md-6
+          .form-control-static= @user.account.name
+
+      .form-group.input
+        %label.col-md-2.control-label= t("profiles.edit.first_name")
+        .col-md-6
+          .controls= f.text_field :first_name, class: "form-control"
+
+      .form-group.input
+        %label.col-md-2.control-label= t("profiles.edit.last_name")
+        .col-md-6
+          .controls= f.text_field :last_name, class: "form-control"
+
+      .form-group.input
+        %label.col-md-2.control-label= t("profiles.edit.email")
+        .col-md-6
+          .controls= f.email_field :email, class: "form-control"
+      .form-group.input
+        %label.col-md-2.control-label= t("profiles.edit.current_password")
+        .col-md-3
+          .controls= f.password_field :current_password, :autocomplete => "off", class: "form-control"
+
+      = f.submit t("profiles.edit.update_btn"), class: "btn btn-success"
+
+
+.panel.panel-default
+  .panel-body
+    = form_for(@user, :url => :profile, html:{ class: 'form-horizontal' }) do |f|
+      .form-group.input
+        %label.col-md-2.control-label= t("profiles.edit.language")
+        .col-md-3
+          .controls= f.select :language, [['English', 'en'], ['Русский', 'ru']], {}, class: 'form-control'
+
+      = f.submit t("profiles.edit.update_btn"), class: "btn btn-success"

@@ -31,7 +31,7 @@ en:
       response_link: "Full answer"
       question_skipped: "Number skipped:"
       question_responded: "Number responded:"
-
+      no_data: "I'm really sorry but at the moment there is no data to show up :( share this survey to get more responses"
     form:
       name: "Survey name:"
       name_placeholder: "Enter name here"
@@ -106,3 +106,13 @@ en:
 
     demo:
       default_name: "Test survey"
+
+    navigation:
+      edit:
+        next: "Builder >>"
+      builder:
+        prev: "<< Edit"
+        next: "Send >>"
+      share:
+        prev: "<< Builder"
+        next: "Report >>"

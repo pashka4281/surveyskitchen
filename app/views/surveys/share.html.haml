@@ -1,0 +1,107 @@
+.page-header
+  .row
+    .col-md-12
+      .pull-left
+        %h3=raw t('surveys.share.title', name: @survey.name)
+      .pull-right
+        = link_to t("surveys.navigation.share.prev"), builder_survey_path(@survey), class: "btn btn-default btn-sm"
+        = link_to t("surveys.navigation.share.next"), report_survey_path(@survey), class: "btn btn-default btn-sm"
+
+.panel.panel-default#share-link-block
+  .panel-heading
+    %h3.panel-title
+      %div{ class: "status" + (@survey.share_link ? ' active' : '') }
+      = t('surveys.share.link')
+  .panel-body
+    .col-md-7
+      = t('surveys.share.link_content')
+    .col-md-5
+      - if @survey.share_link
+        %input.form-control.survey-share-block{readonly: true, type: 'text', value: APP_HOST + s_show_survey_path(token: @survey.share_link.url_suffix) }
+      - else
+        = t('surveys.share.link_inactive')
+        %br
+        = link_to t('surveys.share.activate_link'), new_share_path(type: 'link', survey_id: @survey.id), :class => "btn small"
+
+
+.panel.panel-default#email-block
+  .panel-heading
+    %h3.panel-title
+      %div{ class: "status" + (@survey.share_email ? ' active' : '') }
+      = t('surveys.share.email')
+  .panel-body
+    .row
+      .col-md-7
+        = t('surveys.share.email_content')
+      .col-md-5
+        - if @survey.share_email
+          = link_to t('surveys.share.deactivate_email'), share_path(@survey.share_email, type: 'email', survey_id: @survey.id), method: :delete, confirm: "are you sure?", class: 'btn btn-default'
+          %button.btn.btn-default= t('surveys.share.settings_email')
+        - else
+          = t('surveys.share.email_inactive')
+          %br
+          = link_to t('surveys.share.email_create'), new_share_path(type: 'email', survey_id: @survey.id), class: "btn btn-default"
+
+
+.panel.panel-default#embed-block
+  .panel-heading
+    %h3.panel-title
+      %div{ class: "status" + (@survey.share_embed ? ' active' : '') }
+      = t('surveys.share.embed')
+  .panel-body
+    .row
+      .col-md-7
+        = t('surveys.share.embed_content')
+        - if @survey.share_embed
+          %br
+          %button.btn.btn-default= t('surveys.share.settings_embed')
+      .col-md-5
+        - if @survey.share_embed
+          %textarea.form-control.survey-share-block{rows: 3, readonly: true, type: 'text'}="<iframe id=\"sk_survey_#{@survey.share_embed.token}_embed\" style=\"height: 500px; width: 460px; border: 1px solid rgb(204, 204, 204);\" frameborder=\"0\" src=\"#{APP_HOST}/s/#{@survey.share_embed.token}\"></iframe>"
+        - else
+          = t('surveys.share.embed_inactive')
+          %br
+          %button.btn.btn-default= t('surveys.share.activate_embed')
+
+
+.panel.panel-default#invite-block
+  .panel-heading
+    %h3.panel-title
+      %div{ class: "status" + (@survey.share_embed ? ' active' : '') }
+      = t('surveys.share.invite')
+  .panel-body
+    .row
+      .col-md-7
+        = t('surveys.share.invite_content')
+        %br
+        %button.btn.btn-default= t('surveys.share.settings_invite')
+      .col-md-5
+        - if @survey.share_link
+          %input.form-control.survey-share-block{readonly: true, type: 'text', value: "<script src=\"#{APP_HOST}/invite_button/#{@survey.share_link.token}\".js></script>" }
+        - else 
+          = t('surveys.share.invite_inactive')
+          %button.btn.btn-default= t('surveys.share.activate_invite')
+
+
+.panel.panel-default#social-block
+  .panel-heading
+    %h3.panel-title
+      %div{ class: "status" + (@survey.share_email ? ' active' : '') }
+      = t('surveys.share.social')
+  .panel-body
+    .row
+      .col-md-7
+        = t('surveys.share.social_content')
+        %br
+        %button.btn.btn-default= t('surveys.share.activate_social')
+        %br
+        %button.btn.btn-default= t('surveys.share.settings_social')
+      .col-md-5
+        %a{ href: "#"}
+          %img{ src: "/images/icons/share_survey/vk.png" }
+        %a{ href: "#"}
+          %img{ src: "/images/icons/share_survey/twitter.png" }
+        %a{ href: "#"}
+          %img{ src: "/images/icons/share_survey/gplus.png" }
+        %a{ href: "#"}
+          %img{ src: "/images/icons/share_survey/facebook.png" }

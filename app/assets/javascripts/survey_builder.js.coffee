@@ -33,19 +33,24 @@ class this.Survey
 		@makeToolboxScrollable()
 
 		# let the new_item_area items be draggable
-		$( ".btn-group-vertical button", @new_item_area ).draggable
+		$( "ul li", @new_item_area ).draggable
 			cancel: "a.ui-icon" # clicking an icon won't initiate dragging
 			revert: "invalid" # when not dropped, the item will revert back to its initial position
 			containment: "document"
 			helper: "clone"
-			helper: (event) ->
-				$("<li>#{ $(this).text() }</li>")#.wrap(ret)
+			# helper: (event) ->
+			# 	$("""<li id="droppable-item"><button class="btn btn-default btn-sm">#{ $(this).html() }</li>""")#.wrap(ret)
 			connectToSortable: '#survey-items-list'
 			# scroll: true
 	
 
 		$( '#survey-items-list', @build_list ).sortable
 			placeholder: "drop-placeholder"
+			# placeholder: (event) ->
+			# 	element: (currentItem) ->
+			# 		return $("""<li class="drop-placeholder"></li>""")[0]
+			# 	update: (container, p) ->
+			# 		return
 			axis: 'y'
 			calcel: '.zero-item'
 			forcePlaceholderSize: true

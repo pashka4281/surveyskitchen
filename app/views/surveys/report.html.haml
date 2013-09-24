@@ -1,12 +1,17 @@
-= page_header t('surveys.report.title', name: @survey.name), default_survey_menu: true
+.page-header
+  .row
+    .col-md-12
+      .pull-left
+        %h3=raw t('.title', name: @survey.name)
+      .pull-right
+        = link_to t("surveys.navigation.report.prev"), share_survey_path(@survey), class: "btn btn-default btn-sm"
 
 #report
-	- if @responses_content.any?
-		- @survey.sorted_question_items.each_with_index do |s_item,i|
-			= render "/survey_items/report_item", item: s_item, index: i 
-	- else
-		%h3	I'm really sorry but at the moment there is no data to show up :(
-		share this survey to get more responses
+  - if @responses_content.any?
+    - @survey.sorted_question_items.each_with_index do |s_item,i|
+      = render "/survey_items/report_item", item: s_item, index: i 
+  - else
+    %h3= t('.no_data')
 
 
 / = content_for :after_content do 
@@ -28,5 +33,5 @@
 
 
 - content_for :js do
-	:javascript
-		$('.star-rating').jDisplayStars();
+  :javascript
+    $('.star-rating').jDisplayStars();

@@ -3,18 +3,18 @@
 		<strong class="item-title"><%= "#{counter}. #{item.title}" %></strong>
 		<div class="item-content">
 			<ul class="list-unstyled">
-		    	<% item.variants_array.each_with_index do |var, i| %>
-			    	<li>
-				      	<label class="radio">
-							<input type="radio" name="response[item-<%= item.id %>][values]" value="<%= i %>"
-								class="<%= 'validate[required]' if item.required_field? %>" data-prompt-position="bottomRight" /><%= var %>
+	    	<% item.variants_array.each_with_index do |var, i| %>
+		    	<li>
+			      <label class="radio">
+						<input type="radio" name="response[item-<%= item.id %>][values]" value="<%= i %>"
+							class="<%= 'validate[required]' if item.required_field? %>" data-prompt-position="bottomRight" /><%= var %>
 						</label>
 					</li>
-			    <% end %>
+		    <% end %>
 			</ul>
 			<%- if item.include_txt_field -%>
-		      <input type="text" name="response[item-<%= item.id %>][additional_field]" />
-		    <%- end -%>
+				<input type="text" name="response[item-<%= item.id %>][additional_field]" />
+			<%- end -%>
 		</div>
 	</div>
 

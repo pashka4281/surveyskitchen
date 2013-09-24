@@ -1,4 +1,6 @@
-class ShareLink < ActiveRecord::Base
+class ShareMethods::Link < ActiveRecord::Base
+  self.table_name = "share_links"
+
 	attr_accessible :survey_id, :custom_url, :active
 	belongs_to :survey
 

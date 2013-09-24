@@ -8,12 +8,12 @@
     = csrf_meta_tags
     %meta{ name: "Description", content: "SurveysKitchen - the most convenient and fastest tool for creating online surveys and polls" }
     %meta{ name: "keywords", content: "SurveysKitchen,surveys,online-surveys,polls,web-polls,web-surveys,opinnion research, marketing research, analysis,voting,statistics" }
-    %link{ href: 'http://fonts.googleapis.com/css?family=Special+Elite', rel: 'stylesheet', type: 'text/css' }
-    = stylesheet_link_tag "application", media: "all"
+    / %link{ href: 'http://fonts.googleapis.com/css?family=Special+Elite', rel: 'stylesheet', type: 'text/css' }
+    = stylesheet_link_tag "client", media: "all"
     = favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
 
   %body
-    .container= yield
+    = yield
     
 
     / Javascripts

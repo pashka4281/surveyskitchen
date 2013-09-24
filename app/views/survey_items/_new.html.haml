@@ -1,29 +1,35 @@
-.row
-  .col-md-12
-    %p
-      .well.well-sm= t('survey_items.new.info')
-.row
-  .col-md-6.col-xs-6
-    .btn-group-vertical.btn-group-sm
-      %button.btn.btn-default{ 'data-item-type' => "text_field_question" }
-        %i.icon-text-height.pull-left= t('survey_items.new.text_field')
-      %button.btn.btn-default{ 'data-item-type' => "multiple_select_question" }
-        %i.icon-check.pull-left= t('survey_items.new.multiple_select')
-      %button.btn.btn-default{ 'data-item-type' => "single_select_question" }
-        %i.icon-check.pull-left= t('survey_items.new.single_select')
-      %button.btn.btn-default{ 'data-item-type' => "drop_down_question" }
-        %i.icon-down-open.pull-left= t('survey_items.new.drop_down')
-      %button.btn.btn-default{ 'data-item-type' => "signature" }
-        %i.icon-down-open.pull-left= t('survey_items.new.signature')
-  .col-md-6.col-xs-6
-    .btn-group-vertical.btn-group-sm
-      %button.btn.btn-default{ 'data-item-type' => "scale_question" }
-        %i.icon-resize-full.pull-left= t('survey_items.new.scale_question')
-      %button.btn.btn-default{ 'data-item-type' => "desc_text" }
-        %i.icon-font.pull-left= t('survey_items.new.rich_text')
-      %button.btn.btn-default{ 'data-item-type' => "page_break" }
-        %i.icon-doc-alt.pull-left= t('survey_items.new.page_separator') 
-      %button.btn.btn-default{ 'data-item-type' => "video_question" }
-        %i.icon-video.pull-left= t('survey_items.new.video_item')
-      %button.btn.btn-default{ 'data-item-type' => "single_select_grid" }
-        %i.icon-th.pull-left= t('survey_items.new.single_select_grid')
+.info-block= t('survey_items.new.info')
+
+%ul.list-unstyled{ style: 'overflow: auto' }
+  %li.new-item
+    %button.button.small.simple{ 'data-item-type' => "text_field_question" }
+      %i.icon-text-height.pull-left= t('survey_items.new.text_field')
+  %li.new-item
+    %button.button.small.simple{ 'data-item-type' => "multiple_select_question" }
+      %i.icon-check.pull-left= t('survey_items.new.multiple_select')
+  %li.new-item
+    %button.button.small.simple{ 'data-item-type' => "single_select_question" }
+      %i.icon-check.pull-left= t('survey_items.new.single_select')
+  %li.new-item
+    %button.button.small.simple{ 'data-item-type' => "drop_down_question" }
+      %i.icon-down-open.pull-left= t('survey_items.new.drop_down')
+  %li.new-item
+    %button.button.small.simple{ 'data-item-type' => "signature" }
+      %i.icon-down-open.pull-left= t('survey_items.new.signature')
+  
+%ul.list-unstyled{ style: 'overflow: auto' }
+  %li.new-item
+    %button.button.small.simple{ 'data-item-type' => "scale_question" }
+      %i.icon-resize-full.pull-left= t('survey_items.new.scale_question')
+  %li.new-item
+    %button.button.small.simple{ 'data-item-type' => "desc_text" }
+      %i.icon-font.pull-left= t('survey_items.new.rich_text')
+  %li.new-item
+    %button.button.small.simple{ 'data-item-type' => "page_break" }
+      %i.icon-doc-alt.pull-left= t('survey_items.new.page_separator') 
+  %li.new-item
+    %button.button.small.simple{ 'data-item-type' => "video_question" }
+      %i.icon-video.pull-left= t('survey_items.new.video_item')
+  %li.new-item
+    %button.button.small.simple{ 'data-item-type' => "single_select_grid" }
+      %i.icon-th.pull-left= t('survey_items.new.single_select_grid')

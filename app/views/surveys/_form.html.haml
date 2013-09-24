@@ -1,13 +1,13 @@
 = semantic_form_for @survey, html: {class: 'form-horizontal', role: 'form'}, validate: true do |f|
-  =f.inputs do
-    =f.input :name, label: t("surveys.form.name")
-  .form-group
+  .form-group.input
     %label.col-md-2.control-label= t("surveys.form.name")
-    .col-md-6= f.text_field :name, class: 'form-control', placeholder: t("surveys.form.name_placeholder")
+    .col-md-6
+      .controls= f.text_field :name, class: 'form-control', placeholder: t("surveys.form.name_placeholder")
 
-  .form-group
+  .form-group.input
     %label.col-md-2.control-label= t("surveys.form.category")
-    .col-md-6= f.select(:category_id, Category.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Select'}, class: 'form-control')
+    .col-md-6
+      .controls= f.select(:category_id, Category.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Select'}, class: 'form-control')
 
   .form-group
     %label.col-md-2.control-label= t("surveys.form.description")
@@ -21,4 +21,4 @@
     /   <%=f.check_box :prefill_items, class: 'checkbox' %> Prefill survey with example items
     / </label>
 
-  = f.submit class: 'btn btn-success'
+  = f.submit t('surveys.form.submit'), class: 'btn btn-success'

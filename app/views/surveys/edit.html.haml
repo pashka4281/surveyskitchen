@@ -1,0 +1,10 @@
+.page-header
+  .row
+    .col-md-12
+      .pull-left
+        %h3=raw t('surveys.edit.title', name: @survey.name)
+      .pull-right
+        = link_to t("surveys.navigation.edit.next"), builder_survey_path(@survey), class: "btn btn-default btn-sm"
+
+
+= render 'form'

@@ -20,4 +20,4 @@
     %ul.nav.navbar-nav.navbar-right
       %li= link_to "ru", locale_root_path(:ru)
       %li= link_to "en", locale_root_path(:en)
-      %li= link_to t("layout.log_in_link"), :login
+      %li= link_to t("layout.log_in_link"), login_path(:locale => I18n.locale)

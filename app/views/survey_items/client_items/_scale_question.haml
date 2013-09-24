@@ -4,5 +4,5 @@
     .item-content
       .btn-group{ 'data-toggle' => "buttons" }
         - item.scale_size.times do |v|
-          %label.btn.btn-default
+          %label.radio.inline
             %input{ type: "radio", name: "options_#{item.id}", class: "#{ 'validate[required]' if item.required_field? }", 'data-prompt-position' => "bottomRight" }= (v+1)

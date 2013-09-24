@@ -4,7 +4,9 @@
 		> td{ width: 50%; padding: 7px; }
 		> td.reponse-item-title{ background-color: #E7F0FF; font-weight: 700; }
 		> td.reponse-content{ 
-			background-color: rgba(225, 233, 241, 0.41); border-left: 3px solid #9fb6b8; 
+			background-color: rgba(225, 233, 241, 0.41); border-left: 3px solid #9fb6b8;
+			ul{ list-style: none; padding-left: 0; }
+			label{ font-weight: normal; }
 			.additional-field{
 				span{
 					display: block;

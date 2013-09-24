@@ -1,0 +1,43 @@
+.login-box
+    
+  %h1= t('users.new.title')
+  .row
+    .col-md-6
+      = error_messages_for @user, :header_message => t('users.new.errors_header'), :message => t('users.new.errors_sub_header')
+
+      = semantic_form_for(@user, :url => :register, html: { class: 'form-horizontal' }, validate: true) do |f|
+        
+        .form-group.input
+          %label.col-md-4.control-label= t('.full_name')
+          .col-md-8
+            .controls= text_field_tag :full_name, '', placeholder: t('.full_name_placeholder'), class: 'form-control'
+        
+        / <%= f.label :account_name do %>
+        /   <span><%= t('users.new.account_name') %></span> <%= f.text_field :account_name, placeholder: t('users.new.acc_name_placeholder'), class: 'span6'
+        / <% end %>
+
+        .form-group.input
+          %label.col-md-4.control-label= t('.email')
+          .col-md-8
+            .controls= text_field_tag :email, '', placeholder: t('.email_placeholder'), class: 'form-control'
+
+        .form-group.input
+          %label.col-md-4.control-label= t('.password')
+          .col-md-8
+            .controls= text_field_tag :password, '', placeholder: t('.password_placeholder'), class: 'form-control'
+
+        .form-group.input
+          %label.col-md-4.control-label= t('.password_confirmation')
+          .col-md-8
+            .controls= text_field_tag :password_confirmation, '', placeholder: t('.password_confirmation_placeholder'), class: 'form-control'
+
+        %br
+        = hidden_field_tag 'user[language]', I18n.locale
+        = hidden_field_tag('ss', @survey.token) if @survey
+        = f.submit t('users.new.submit'), class: 'btn btn-success'
+    .col-md-6
+      .sign-in-description
+        = raw t('users.new.ensure')
+        %br
+        %br
+        = t('users.new.survey_attached', s_name: @survey.name) if @survey

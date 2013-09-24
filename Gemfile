@@ -12,6 +12,8 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
+gem "omnicontacts"
+
 gem 'russian'
 gem 'geoip-c' # apt-get install libgeoip-dev  to make it install
 gem 'kaminari' #for pagination. Used also by rails_admin
@@ -24,8 +26,13 @@ gem 'default_value_for'
 gem 'friendly_id'
 gem 'paper_trail'
 gem 'haml'
+gem 'liquid'
+
+gem 'delayed_job'
+gem 'delayed_job_active_record'
 
 gem 'formtastic'
+gem 'formtastic-bootstrap'
 gem 'client_side_validations', git: 'https://github.com/bcardarella/client_side_validations', branch: '3-2-stable'
 gem 'client_side_validations-formtastic'
 

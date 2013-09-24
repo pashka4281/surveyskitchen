@@ -9,9 +9,10 @@ class ResponsesController < ApplicationController
 
 	def index
 		@survey          = current_account.surveys.find(params[:survey_id])
-		@responses       = @survey.responses.order('created_at DESC').page(params[:page])
+		@all_responses   = @survey.responses.order('created_at DESC')
+		@responses       = @all_responses.page(params[:page])
 		@responses_count = @survey.responses.count
-		@geodata         = get_geodata(@responses.map{|x| x.geodata[:country_code] rescue nil })
+		@geodata         = get_geodata(@all_responses.map{|x| x.geodata[:country_code] rescue nil })
 	end
 
 	def destroy
@@ -20,6 +21,17 @@ class ResponsesController < ApplicationController
 		@response.destroy
 
 		redirect_to survey_responses_path(@survey)
+	end
+
+	def update
+		@survey   = current_account.surveys.find(params[:survey_id])
+		@response = @survey.responses.find(params[:id])
+
+		@response.update_attributes(params[:response])
+		respond_to do |fmt|
+			fmt.html{}
+			fmt.json{ render json: "ok".to_json, success: true }
+		end
 	end
 
 private

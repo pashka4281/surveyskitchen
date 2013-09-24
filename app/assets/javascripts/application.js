@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery-ui-1.10.2.custom.min
 //= require jquery_ujs
+//= require bootstrap-select.min
 //= require bootstrap.min
+
 //= require common
 //= require jLinedTextarea
 //= require jquery.display_star_rating
@@ -27,6 +29,7 @@
 //= require flashcanvas
 //= require jSignature.min
 //= require rails.validations
+//= require rails.validations.formtastic.bootstrap
 //= require rails.validations.formtastic
 
 
@@ -34,6 +37,8 @@ $(function(){
 	$('body').on('hidden', '.modal', function(){
 		$(this).removeData('modal');
 	})
+
+  $('.selectpicker').selectpicker();
 
 	//flash mesages close button
 	$(document).on('click', '.flash-message a.close', function(){

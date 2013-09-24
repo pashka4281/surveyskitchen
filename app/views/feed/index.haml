@@ -3,11 +3,14 @@
 - @resp_days.each do |day, responses|
   %h2= l day, :format => :short_date
   - responses.each do |response|
-    .panel.panel-default
+    .panel{ class: response.viewed_at ? 'panel-default' : 'panel-primary' }
       .panel-heading
         %h3.panel-title
         %span.label.label-default= l response.created_at, :format => :short_date_time
         = link_to response.survey.name, [response.survey, :responses]
+        - unless response.viewed_at
+          .pull-right
+            .btn.btn-default.btn-xs.mark-as-readed-btn{ 'data-survey-id' => response.survey.id, 'data-response-id' => response.id }= t('.mark_as_readed')
       .panel-body.sig-pad-form
         - response.content.each_with_index do |x,i|
           - s_item = SurveyItem.find_by_id(x[0])
@@ -25,6 +28,19 @@
         _this = $(this)
 
         _this.jSignature();
-        _this.jSignature("setData", "data:" + _this.data('signature')) 
+        _this.jSignature("setData", "data:" + _this.data('signature'))
+      })
+
+      $('.mark-as-readed-btn').click(function(){
+        _this = $(this);
+        $.ajax("/surveys/" + _this.data('survey-id') + "/responses/" + _this.data('response-id') + ".json", { 
+          type: "PUT",
+          dataType: 'json',
+          data: { response: { viewed_at: new Date() } },
+          success: function(){            
+            _this.parents('.panel').removeClass('panel-primary').addClass('panel-default');
+            _this.parent().remove();
+          }
+        })
       })
     })

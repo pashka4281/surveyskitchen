@@ -1,0 +1,16 @@
+.page-header
+	.row
+		.col-md-12
+			%h3= t("clients.new.title")
+
+= form_tag :clients, class: 'new_client_form' do
+	.form-group
+		%label= t('clients.new.one_per_line')
+		= text_area_tag :clients_list, @unprocessed_lines, rows: 7, placeholder: "client@mail.com, John, Smith", class: 'import_area form-control'
+		
+	= submit_tag t('clients.new.save_btn'), class: "btn btn-success"
+	= link_to t(".back_to_list"), :clients, class: "btn btn-default"
+	
+- content_for :js do
+	:javascript
+		// $(".new_client_form .import_area").linedtextarea();

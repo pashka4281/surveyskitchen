@@ -3,7 +3,6 @@
   .item-inner
     %strong.item-title= item.title
     .item-content
-      .btn-group{ 'data-toggle' => "buttons" }
-        - item.scale_size.times do |v|
-          %label.btn.btn-default
-            %input{ type: "radio", name: "options_#{item.id}" }= (v+1)
+      - item.scale_size.times do |v|
+        %label.radio-inline
+          %input{ type: "radio", name: "options_#{item.id}" }= (v+1) 

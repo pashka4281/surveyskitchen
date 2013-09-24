@@ -1,5 +1,5 @@
 class Survey < ActiveRecord::Base
-  has_paper_trail
+  has_paper_trail :on => [:create, :destroy]#, :meta => { :account_id  => :account_id }
 
   attr_accessible :account_id, :description, :category, :category_id, :theme_id, :theme,
     :name, :user_id, :user, :account, :items_positions, :prefill_items, :active, :interactive
@@ -12,14 +12,13 @@ class Survey < ActiveRecord::Base
   belongs_to :theme, class_name: 'SurveyTheme'
   has_many   :items, dependent: :destroy, class_name: 'SurveyItem'
   has_many   :responses, dependent: :destroy
-  has_many   :events, as: :eventable
   serialize  :items_positions, Array
   default_value_for  :items_positions, []
 
   #share methods:
-  has_one :share_link
-  has_one :share_embed
-  has_one :share_email
+  has_one :share_link, class_name: ShareMethods::Link
+  has_one :share_embed, class_name: ShareMethods::Embed
+  has_one :share_email, class_name: ShareMethods::Email
 
   attr_accessor :prefill_items
   
@@ -97,8 +96,7 @@ class Survey < ActiveRecord::Base
     self.save
   end
 
-  after_create :example_items, :event_on_created, :setup_default_share_methods
-  after_destroy :event_on_destroyed
+  after_create :example_items, :setup_default_share_methods
   before_create :assign_theme, :generate_token
 
   private
@@ -116,21 +114,10 @@ class Survey < ActiveRecord::Base
   end
 
   def setup_default_share_methods
-    ShareLink.create(survey_id: self.id, active: true)
-    ShareEmbed.create(survey_id: self.id, active: true)
+    ShareMethods::Link.create(survey_id: self.id, active: true)
+    ShareMethods::Embed.create(survey_id: self.id, active: true)
     # ShareEmail.create(survey_id: self.id)
   end
-
-  #create an event that there is a new survey
-  def event_on_created
-    self.events << Events::SurveyCreatedEvent.create(account_id: account_id, eventable_name: self.name)
-  end  
-
-  #create an event that a survey is destroyed
-  def event_on_destroyed
-    self.events << Events::SurveyDestroyedEvent.create(account_id: account_id, eventable_name: self.name)
-  end
-
 
   def assign_theme
     self.theme = SurveyTheme.global.first

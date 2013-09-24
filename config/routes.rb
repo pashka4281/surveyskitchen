@@ -48,7 +48,7 @@ Surveyskitchen::Application.routes.draw do
       post :copy, as: :member
       put :move, as: :member
     end
-    resources :responses, only: [:show, :destroy, :index]
+    resources :responses, only: [:show, :destroy, :index, :update]
     resources :themes
   end
 
@@ -80,5 +80,6 @@ Surveyskitchen::Application.routes.draw do
   resource :profile
 
   match '/auth/:provider/callback', to: 'external_sessions#callback', provider: /twitter|facebook/
+  match "/contacts/:importer/callback" => "external_sessions#contacts_callback"
   # mount Resque::Server, :at => '/resque_tasks'
 end

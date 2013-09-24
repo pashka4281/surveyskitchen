@@ -2,6 +2,10 @@ class SurveysController < ApplicationController
   before_filter :authenticate_user!
   before_filter :get_survey, except: [:create, :index, :new]
 
+  def info_for_paper_trail
+    { :account_id => current_account.id }
+  end
+
   def builder
     @no_left_bar = true
     @themes_current = current_account.survey_themes

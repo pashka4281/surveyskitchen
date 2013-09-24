@@ -8,6 +8,8 @@ en:
       save_btn: "Save"
       import_btn: "Import"
       one_per_line: "One client per line:"
+      processed: "Processed: %{num}"
+      unsaved: "Unsaved: %{num}"
     index:
       title: "Clients"
       no_items: "There are no clients at the moment."

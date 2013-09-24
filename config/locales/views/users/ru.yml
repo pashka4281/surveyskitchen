@@ -7,7 +7,7 @@ ru:
       full_name: "Имя:"
       full_name_placeholder: "Введите ваше полное имя"
       password: "Пароль:"
-      password_placeholder: "Введите пароль:"
+      password_placeholder: "Введите пароль"
       password_confirmation: "Подтверждение пароля:"
       password_confirmation_placeholder: "Повторите пароль"
       account_name: "Название аккаунта"
@@ -19,3 +19,6 @@ ru:
       ensure: >
         Мы не распространяем ваши данные третим лицам, мы не используем ваш Email для рассылки спама или рекламы. 
         Ваши персональные данные защищены <a href="#">условиями пользования</a> а также <a href="http://www.digicert.com/ssl.htm">ssl шифрованием</a>.
+
+    dashboard:
+      last_month_responses: "Ответы за последние 30 дней:"

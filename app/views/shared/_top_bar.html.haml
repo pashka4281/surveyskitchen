@@ -10,8 +10,8 @@
     %ul.nav.navbar-nav
       = content_tag :li, class: (request.path =~ /\A\/(feed)(\/)?\z/ ? 'active' : '')  do
         %a{ href: feed_path }
-          %i.icon-edit-1
-          = t('layout.feed')
+          %i.icon-chat-1
+          = t('layout.responses_link')
           - if current_account.responses.new_items.count > 0
             %span.badge= current_account.responses.new_items.count
       = content_tag :li, class: (request.path =~ /\A\/(surveys)(\/)?\z/ ? 'active' : '')  do
@@ -19,6 +19,19 @@
       = content_tag(:li){ link_to(raw('<i class="icon-wrench"></i> Admin'), :rails_admin) } if current_user.admin?
 
     %ul.nav.navbar-nav.navbar-right
-      %li= link_to t("layout.account_link"), :account_info
-      %li= link_to t("layout.profile_link"), :profile
+      %li.dropdown
+        = link_to raw(t("layout.account")), '#', class: "dropdown-toggle", 'data-toggle'=>"dropdown"
+        %ul.dropdown-menu
+          %li
+            = link_to :account_info do
+              %i.icon-info-circled
+              = t("layout.account_info_link")
+          %li
+            = link_to :profile do
+              %i.icon-user
+              = t("layout.profile_link")
+          %li
+            = link_to :clients do
+              %i.icon-users-1
+              = t("layout.clients_link")
       %li= link_to t("layout.log_out_link"), :logout

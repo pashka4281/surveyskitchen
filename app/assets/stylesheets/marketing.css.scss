@@ -4,7 +4,7 @@
 //=require scopes/blog
 //
 
-@import url(http://fonts.googleapis.com/css?family=Forum&subset=latin,cyrillic);
+//@import url(http://fonts.googleapis.com/css?family=Forum&subset=latin,cyrillic);
 
 @mixin vertical_gradient($from, $to){
 	background-image: -webkit-gradient(linear,center top,center bottom,color-stop(0%,$from),color-stop(100%,$to));
@@ -79,6 +79,7 @@
 		@include vertical_gradient(#7bb6c1, #8eb9c1);
 		box-shadow: 0 2px 2px #cccaca,inset 0 1px 0 #e5e4e4;
 		text-shadow: 0 -1px 0 rgba(255,255,255,0.1);
+		text-decoration: none;
 	}
 	&:visited{ color: white !important; }
 }

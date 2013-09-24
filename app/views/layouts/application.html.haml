@@ -12,9 +12,11 @@
     = stylesheet_link_tag "application", media: "all"
     = favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
 
-  %body
+  %body.app
     = render 'shared/top_bar'
-    .container= yield
+    .container
+      #main-content
+        #content-pretty= yield
     = yield :after_content if content_for?(:after_content)
     
 
@@ -32,9 +34,8 @@
     
     = yield :js if content_for? :js
     - flash.each do |key, val|
-      = content_for :js do
-        :javascript
-          add_notify("#{ val }")
+      :javascript
+        add_notify("#{ val }")
 
   = render('shared/ga_code') if 'production' == Rails.env
   = render('shared/uservoice_tab') if 'production' == Rails.env

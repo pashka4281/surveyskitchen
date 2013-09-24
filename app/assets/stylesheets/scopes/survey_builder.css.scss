@@ -40,11 +40,16 @@
 	padding: 10px 10px 10px;
 	border-bottom: 1px solid rgb(206, 202, 202);
 	background-color: #F5F5F5;
+	margin-left: -10px;
+	margin-right: -10px;
+	margin-top: -20px;
 	select{ margin-right: 20px; }
 }
 
-#tabs{
-	padding-top: 8px;
+#builder{ 
+	display: block;
+	margin: 25px auto;
+	width: 1000px;
 }
 
 #build_list{
@@ -53,37 +58,43 @@
 	//right: 0;
 	//padding: 25px 7px 7px 7px;
 	//margin-bottom: 30px;
-	counter-reset:section;
+	width: 620px;
+	margin-left: 10px;
+	counter-reset: section;
 	//margin-left: 10px;
 	min-height: 500px;
 	border: 1px solid #ccc;
+	border-top: none;
 	//padding: 0 10px;
 	h2.page_title{
 		line-height: 35px;
 		padding: 10px;
 		margin-bottom: 8px;
+		margin-top: 0px;
 	}
 	#no-items-area{
-        display: none;
-        margin: 10px;
-        img{
-        	position: absolute;
-			bottom: 10px;
-			left: 10px;
-        }
-        #work-area-texting{
-            color: #929292;
-            text-align: center;
-            border: 3px dashed #CCC;
-            padding: 25px;
-            position: relative;
+      display: none;
+      margin: 10px;
+      img{
+      	position: absolute;
+				bottom: 10px;
+				left: 10px;
+      }
+      #work-area-texting{
+        color: #929292;
+        text-align: center;
+        border: 3px dashed #CCC;
+        padding: 25px;
+        position: relative;
 			height: 130px;
 			button{ margin-top: 12px; }
-        }
+  	}
 	}
 	ul#survey-items-list{
 		min-height: 20px;
 		position: relative;
+		list-style: none;
+		padding-left: 0;
 		.drop-placeholder{
 			//border: 1px dashed #555 inset;
 			margin-top: 10px;
@@ -151,8 +162,8 @@
 				border: 1px solid #bebebe;
 				//border-top-left-radius: 5px;
 				//border-top-right-radius: 5px;
-				button.deleteLnk{ color: #ff0000; }
 				display: none;
+				.deleteLnk{ color: #ff0000; }
 			}
 			.arrow{
 				background: url(/images/arrow.png);
@@ -168,10 +179,21 @@
 				padding: 10px 65px 10px 10px;
 				
 				//border-radius: 4px;
-				ul li{	line-height: 22px;	}
-				.item-content{ 
+
+				.item-content{
 					margin-right: 100px;
+					label.inline {
+						display: inline-block;
+						padding: 3px 12px;
+					}
 					.signature{ border: 1px dashed #CCC; }
+					ul li{	
+						line-height: 22px;
+						label{
+							margin: 0;
+							font-weight: normal;
+						}
+					}
 				}
 
 			}
@@ -230,6 +252,67 @@
 			color: #666;
 
 			@include rich_text_content;
+		}
+	}
+}
+
+#toolbox-wrapper {
+	width: 370px;
+	height: auto;
+	top: 0;
+	bottom: 0;
+}
+
+
+#droppable-item{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	list-style: none;
+	z-index: 3;
+}
+
+
+#tabs{
+	background-color: #D9E0FA;
+	
+	.nav-tabs{ 
+		background-color: #FFF6E0; padding-top: 8px; 
+		li.active a{ background-color: #D9E0FA; border-color: #A4A3AC; border-bottom: none; }
+	}
+	.info-block {
+		border: 1px solid #FDFEFF;
+		margin: 5px;
+		font-size: 13px;
+		border-radius: 100px;
+		padding: 4px 12px;
+		background-color: #30AEBF;
+		color: #F2F3FF;
+		line-height: 15px;
+		max-height: 40px;
+	}
+
+	#action-buttons{ padding: 5px; }
+
+	.tab-pane{ padding: 4px; }
+	#new-item-area{
+		ul{
+			float: left; width: 50%;
+			li{
+				padding: 0 5px;
+				position: relative;
+				&.ui-draggable-dragging{
+					z-index: 10;
+					//border: 1px solid #ff0000;
+					display: inline-block !important;
+					width: 165px !important;
+				}
+				button{ 
+					margin-top: 5px; 
+					width: 170px;
+					text-align: left;
+				}
+			}
 		}
 	}
 }

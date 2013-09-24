@@ -1,5 +1,5 @@
 class Response < ActiveRecord::Base
-  attr_accessible :user_agent_string, :response_data, :remote_ip, :survey, :survey_id
+  attr_accessible :user_agent_string, :response_data, :remote_ip, :survey, :survey_id, :viewed_at
 
   belongs_to :survey
   belongs_to :shareable, polymorphic: true

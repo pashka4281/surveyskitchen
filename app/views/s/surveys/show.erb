@@ -3,37 +3,38 @@
 <style type="text/css"><%== @survey.theme.to_css %></style>
 
 <div class="sk-survey <%= "survey_theme_#{@survey.theme.id}" %>">
-	<h2 id="title" class="page_title"><%= @survey.name %></h2>
+  <div id="main-content">
+  	<h2 id="title" class="page_title"><%= @survey.name %></h2>
 
-	<div class="padded-content">
-		<% unless @deactivated %>
-			<%= form_tag s_create_result_path(token: @survey.token), id: 'survey_form' do |f| %>
-				<% counter = 0 %>
-				<div class="a-page">
-					<%- @paged_items.shift.each do |i| -%>
-						<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
-						<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
-					<%- end -%>
-				</div>
-				<%- @paged_items.each do |page_elements| -%>
-					<div class="a-page">
-						<%- page_elements.each do |i| -%>
-							<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
-							<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
-						<% end %>
-					</div>
-				<% end %>
-				<input type="submit" class="btn button" value="Готово"></input>
-			<% end %>
-		<% else %>
-			Sorry, this survey is not active at the moment.
-		<% end %>
-	</div>
+  	<div class="padded-content">
+  		<% unless @deactivated %>
+  			<%= form_tag s_create_result_path(token: @survey.token), id: 'survey_form' do |f| %>
+  				<% counter = 0 %>
+  				<div class="a-page">
+  					<%- @paged_items.shift.each do |i| -%>
+  						<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
+  						<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
+  					<%- end -%>
+  				</div>
+  				<%- @paged_items.each do |page_elements| -%>
+  					<div class="a-page">
+  						<%- page_elements.each do |i| -%>
+  							<% counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class) %>
+  							<%= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter %>
+  						<% end %>
+  					</div>
+  				<% end %>
+  				<input type="submit" class="btn button" value="Готово"></input>
+  			<% end %>
+  		<% else %>
+  			Sorry, this survey is not active at the moment.
+  		<% end %>
+  	</div>
 
-	<footer>
-	  <p>Создайте свой опрос при помощи <a href="http://SurveysKitchen.com">SurveysKitchen</a>  бесплатно.</p>
-	</footer>
-
+  	<footer>
+  	  <p>Создайте свой опрос при помощи <a href="http://SurveysKitchen.com">SurveysKitchen</a>  бесплатно.</p>
+  	</footer>
+  </div>
 </div>
 
 <%= content_for :js do %>

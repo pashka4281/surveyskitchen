@@ -2,6 +2,7 @@ require "rvm/capistrano"
 require "bundler/capistrano"
 require "whenever/capistrano"
 require 'new_relic/recipes'
+require "delayed/recipes"
 
 load 'deploy/assets'
 
@@ -9,6 +10,7 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 set :application, 'surveyskitchen'
+set :rails_env, "production" #added for delayed job  
 
 # RVM details:
 set :using_rvm, true
@@ -66,6 +68,10 @@ after "deploy:update", "deploy:cleanup"
 after "deploy:finalize_update", "deploy:symlink_shared_stuff"
 after "deploy:update", "newrelic:notice_deployment"
 
-# after "deploy:stop",    "delayed_job:stop"
-# after "deploy:start",   "delayed_job:start"
-# after "deploy:restart", "delayed_job:restart"
+after "deploy:stop",    "delayed_job:stop"
+after "deploy:start",   "delayed_job:start"
+after "deploy:restart", "delayed_job:restart"
+
+after "deploy:stop",    "delayed_job:stop"
+after "deploy:start",   "delayed_job:start"
+after "deploy:restart", "delayed_job:restart"

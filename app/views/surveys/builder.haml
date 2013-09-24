@@ -1,51 +1,52 @@
-- header("Questions builder", subheader: 'All changes here are automatically saved.')
+.page-header
+	.row
+		.col-md-12
+			.pull-left
+				%h3=raw t('surveys.share.title', name: @survey.name)
+			.pull-right
+				= link_to t("surveys.navigation.builder.prev"), edit_survey_path(@survey), class: "btn btn-default btn-xs"
+				= link_to t("surveys.navigation.builder.next"), share_survey_path(@survey), class: "btn btn-default btn-sm"
+
 
 :css
 	#{ @survey.theme.to_css }
 
-.row
-	.col-md-12
-		#survey_theme_select.page-sub-header
-			%span= t('.themes_select')
-			%select#theme-select
-				%optgroup{ label: t('.themes_global') }
-					- for th in @themes_global
-						%option{ value: th.id, selected: @survey.theme_id == th.id ? 'selected' : '' }= th.name
-				%optgroup{ label: t('.themes_current') }
-					- for th in @themes_current
-						%option{ value: th.id, selected: @survey.theme_id == th.id ? 'selected' : '' }= th.name
+#survey_theme_select.page-sub-header
+	%span= t('.themes_select')
+	%select#theme-select
+		%optgroup{ label: t('.themes_global') }
+			- for th in @themes_global
+				%option{ value: th.id, selected: @survey.theme_id == th.id }= th.name
+		%optgroup{ label: t('.themes_current') }
+			- for th in @themes_current
+				%option{ value: th.id, selected: @survey.theme_id == th.id }= th.name
 
-			= link_to t('.look_and_feel'), look_survey_path(@survey, page: 'logo'), class: 'btn small'
+	= link_to t('.look_and_feel'), look_survey_path(@survey, page: 'logo'), class: 'btn small'
 
 #builder.row
-	.col-md-4
-		#toolbox.stickyBar
-			#tabs
-				/ -- tabs --
-				%ul.nav.nav-tabs
-					%li.active
-						%a{ href: '#new-item-area', id: "add-item-tab", 'data-toggle' => "tab" }= t '.add_item'
-					%li
-						%a{ href: "#edit-item-area", id: "edit-item-tab", 'data-toggle' => "tab" }= t '.edit_item'
-				.tab-content
-					.tab-pane.active#new-item-area= render '/survey_items/new'
-					.tab-pane#edit-item-area
-						.row
-							.col-md-12
-								%p
-									.info-block.well.well-sm Элемент не выбран. Кликните на элементе, который вы хотите изменить
-						.edit-form-wrapper.panel.panel-default
+	.build-columns
+		#toolbox-wrapper.column
+			#toolbox.stickyBar
+				#tabs
+					/ -- tabs --
+					%ul.nav.nav-tabs
+						%li.active
+							%a{ href: '#new-item-area', id: "add-item-tab", 'data-toggle' => "tab" }= t '.add_item'
+						%li
+							%a{ href: "#edit-item-area", id: "edit-item-tab", 'data-toggle' => "tab" }= t '.edit_item'
+					.tab-content
+						.tab-pane.active#new-item-area= render '/survey_items/new'
+						.tab-pane#edit-item-area
+							.info-block=t('.item_not_selected')
+							.edit-form-wrapper.panel.panel-default
 
-				%p#action-buttons
-				.col-md-12
-					.btn-group.btn-group-justified
+					%p#action-buttons.text-center
 						%a.btn.btn-warning#trashbox-btn{ 'data-url' => trashbox_survey_path(@survey), 'data-target' => "#trashedItemsContainer", 'data-toggle' => "modal", role: "button" }
 							%i.icon-trash= t '.trashbox'
 							%span.trash-cnt= @survey.items.trashed.count
 						%a.btn.btn-warning#preview-btn
 							%i.icon-eye= t '.preview'
 
-	.col-md-8
 		#build_list.list.column{ class: "survey_theme_#{@survey.theme.id}" }
 			%h2.page_title#title= @survey.name
 			#no-items-area
@@ -63,7 +64,7 @@
 
 = content_for :after_content do
 	/ edit survey item modal --
-	.modal.hide.item-form#editItemContainer
+	.modal.fade.item-form#editItemContainer
 		%a.close{ href: "#" }
 		#edit-question-id
 		#editItem
@@ -72,13 +73,16 @@
 			%button.btn.success#doneEditItemBtn= t('survey_items.new.done_btn')
 
 	/ trashed survey items modal --
-	.modal.hide.fade#trashedItemsContainer
-		%a.close{ href: "#" }
-		.modal-header
-			%h3= t('.trashbox_modal_title')
-		.modal-body
-		.modal-footer
-			%a.btn.close{ href: "#" } Close
+	.modal.fade#trashedItemsContainer
+		.modal-dialog
+			.modal-content
+				.modal-header
+					%button.close{ type: "button", 'data-dismiss' => "modal", 'aria-hidden' => "true"} &times;
+					%h4.modal-title= t('.trashbox_modal_title')
+				.modal-body
+
+				.modal-footer
+					%button.btn.btn-default{ type: "button", 'data-dismiss' => "modal"}Close
 
 
 = content_for :js do

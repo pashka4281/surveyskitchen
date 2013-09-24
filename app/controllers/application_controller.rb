@@ -35,7 +35,11 @@ class ApplicationController < ActionController::Base
 
 	#getting current locale from user profile or from headers
 	def set_locale
-		I18n.locale = get_locale_from_user || extract_locale_from_accept_language_header
+		unless self.class.parent.name == 'RailsAdmin'
+			I18n.locale = get_locale_from_user || extract_locale_from_accept_language_header
+		else
+			I18n.locale = :en
+		end
 	end
 
 	def set_locale_marketing

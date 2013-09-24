@@ -1,4 +1,4 @@
-= form_for @survey_item, url: '#', html:{ id: 'desc_text_item_form', class: 'panel-body2' } do |f|
+= form_for @survey_item, url: '#', html:{ id: 'desc_text_item_form' } do |f|
   .form-group
     = f.text_area :text_content, name: 'survey_item[text_content]', rows: 2, id: 'rich-text-area',
       class: 'validate[required]', placeholder: t('survey_items.common.title_placeholder')
