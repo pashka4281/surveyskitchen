@@ -27,6 +27,7 @@ gem 'friendly_id'
 gem 'paper_trail'
 gem 'haml'
 gem 'liquid'
+gem 'daemons'
 
 gem 'delayed_job'
 gem 'delayed_job_active_record'
