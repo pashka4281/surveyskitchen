@@ -19,15 +19,17 @@
 						<div id="toolbox" class="stickyBar">
 							<div id="tabs">
 								<!-- tabs -->
-								<ul class="tabs-nav">
-									<li><a href="#new-item-area" id="add-item-tab"><%= t('surveys.builder.add') %></a></li>
-									<li><a href="#edit-item-area" id="edit-item-tab"><%= t('surveys.builder.edit') %></a></li>
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#new-item-area" id="add-item-tab" data-toggle="tab"><%= t('surveys.builder.add_item') %></a></li>
+									<li><a href="#edit-item-area" id="edit-item-tab" data-toggle="tab"><%= t('surveys.builder.edit_item') %></a></li>
 								</ul>
-								<div id="new-item-area"><%= render '/survey_items/new' %></div>
-								<div id="edit-item-area">
-									<div class="info-block"><%= t('surveys.builder.item_not_selected') %></div>
-									<div class="edit-form-wrapper"></div>
-									<div class="divider_line"></div>
+								<div class="tab-content">
+									<div class="tab-pane active" id="new-item-area"><%= render '/survey_items/new' %></div>
+									<div class="tab-pane" id="edit-item-area">
+										<div class="info-block"><%= t('surveys.builder.item_not_selected') %></div>
+										<div class="edit-form-wrapper"></div>
+										<div class="divider_line"></div>
+									</div>
 								</div>
 								
 								<!-- buttons -->
@@ -73,17 +75,6 @@
 
 
 <%= content_for :after_content do %>
-
-<!-- edit survey item modal -->
-	<div class="modal hide item-form" id="editItemContainer">
-		<a href="#" class="close"></a>
-		<div id="edit-question-id"></div>
-		<div id="editItem"></div>
-		<div class="modal-footer">
-			<button class="btn close"><%= t('survey_items.new.cancel_btn') %></button>
-			<button class="btn success" id="doneEditItemBtn"><%= t('survey_items.new.done_btn') %></button>
-		</div>
-	</div>
 
 <!-- trashed survey items modal -->
 	<div class="modal hide fade" id="trashedItemsContainer">

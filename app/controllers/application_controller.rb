@@ -61,6 +61,7 @@ class ApplicationController < ActionController::Base
 			'drop_down_question' => 'SurveyItems::DropDownQuestion',
 			'video_question' => 'SurveyItems::VideoQuestion',
 			'single_select_grid' => 'SurveyItems::SingleSelectGrid',
+			'signature' => 'SurveyItems::Signature',
 			'page_break' => 'SurveyItems::PageBreak'}[name].constantize rescue nil
 	end
 

@@ -29,3 +29,5 @@ ru:
       back_to_list: "Вернуться к списку"
     show:
       title: "<b>%{name}</b>"
+      edit: "Изменить"
+      back_to_list: "Вернуться к списку"

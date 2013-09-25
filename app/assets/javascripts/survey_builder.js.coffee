@@ -216,6 +216,7 @@ class this.Survey
 		edit_form_wrapper.html("<div>#{@translates.loading_item}</div>")
 		$.ajax "#{@updateSurveyUrl}/items/#{item_id}/edit",
 			type: 'GET'
+			data: { survey_id: self.survey_id }
 			success: (resp) -> #resp contains edit form
 				edit_form_wrapper.html(resp).hide().fadeIn(100)
 				info_block.hide()
