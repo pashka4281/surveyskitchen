@@ -3,7 +3,7 @@ class AddPassedTextToSurvey < ActiveRecord::Migration
     add_column :surveys, :submit_btn_txt, :string
     add_column :surveys, :passed_message, :text
 
-    Survey.where("account_id NOT NULL").each do |s|
+    Survey.all.each do |s|
       YAML.load_file(Rails.root.join('config', 'defaults', 'surveys.yml'))[s.user.language].each do |key, val|
         s.send("#{key}=", val)
         s.save
