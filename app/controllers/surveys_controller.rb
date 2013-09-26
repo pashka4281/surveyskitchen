@@ -2,10 +2,6 @@ class SurveysController < ApplicationController
   before_filter :authenticate_user!
   before_filter :get_survey, except: [:create, :index, :new]
 
-  def info_for_paper_trail
-    { :account_id => current_account.id }
-  end
-
   def builder
     @no_left_bar = true
     @themes_current = current_account.survey_themes
@@ -34,7 +30,7 @@ class SurveysController < ApplicationController
       else
         flash[:notice] = "Changes saved"
         redirect_to survey_themes_path(@survey) and return if params[:survey][:theme_id]
-        redirect_to [:edit, @survey]
+        redirect_to [:builder, @survey]
       end
     else
       render nothing: true, status: 400

@@ -5,21 +5,6 @@
 %h3= t('.last_month_responses')# Responses for last month:
 %canvas#last_responses{ width: "710", height: "300" }
 
-.row#events-block
-  .col-md-12
-    %ul.list-group
-      - for event in @events
-        %li.list-group-item
-          - case event.event
-            - when 'create'
-              Создан опрос
-              = event.item.name
-            - when 'destroy'
-              Удален опрос
-              = event.object['name']
-          .pull-right
-            .date= l event.created_at, :format => :date_time
-
 = content_for :js do 
   :javascript
     var data = {

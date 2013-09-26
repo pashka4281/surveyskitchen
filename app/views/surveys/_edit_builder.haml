@@ -1,0 +1,39 @@
+#builder.row
+  .build-columns
+    #toolbox-wrapper.column
+      #toolbox.stickyBar
+        #tabs
+          / -- tabs --
+          %ul.nav.nav-tabs
+            %li.active
+              %a{ href: '#new-item-area', id: "add-item-tab", 'data-toggle' => "tab" }= t 'surveys.builder.add_item'
+            %li
+              %a{ href: "#edit-item-area", id: "edit-item-tab", 'data-toggle' => "tab" }= t 'surveys.builder.edit_item'
+          .tab-content
+            .tab-pane.active#new-item-area= render '/survey_items/new'
+            .tab-pane#edit-item-area
+              .info-block=t('surveys.builder.item_not_selected')
+              .edit-form-wrapper.panel.panel-default
+
+          %p#action-buttons.text-center
+            %a.btn.btn-warning#trashbox-btn{ 'data-url' => trashbox_survey_path(@survey), 'data-target' => "#trashedItemsContainer", 'data-toggle' => "modal", role: "button" }
+              %i.icon-trash= t 'surveys.builder.trashbox'
+              %span.trash-cnt= @survey.items.trashed.count
+            %a.btn.btn-warning#preview-btn
+              %i.icon-eye= t 'surveys.builder.preview'
+
+    #build_list.list.column{ class: "survey_theme_#{@survey.theme.id}" }
+      %h2.page_title#title= @survey.name
+      #no-items-area
+        #work-area-texting
+          %h3= t('surveys.builder.working_area_1')
+          %h5= t('surveys.builder.working_area_2')
+          %button.small.btn.new-item-btn.success
+            %i.icon-list-add= t('surveys.builder.new_item')
+
+      %ul.list-unstyled#survey-items-list
+        %li.survey_item.zero-item
+        - @survey.sorted_items.each do |i|
+          = render_survey_item(i)
+        %li.button-item
+          %button.btn-btn-default= @survey.submit_btn_txt

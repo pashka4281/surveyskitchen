@@ -52,7 +52,7 @@ class this.Survey
 			# 	update: (container, p) ->
 			# 		return
 			axis: 'y'
-			calcel: '.zero-item'
+			cancel: '.button-item'
 			forcePlaceholderSize: true
 			cursor: 'move'
 			opacity: 0.7
@@ -185,11 +185,6 @@ class this.Survey
 					type: 'PUT'
 					data: _form.serialize()		
 			false
-
-	#DEPRECATED
-	renewItemsIndexes: ->
-		$(@survey_items).removeAttr('itemindex').each (i, el) =>
-			$(el).attr('itemindex', i)
 
 	clearEditingTab: =>
 		# item_id = $(@edit_item_area).data('editing_item')

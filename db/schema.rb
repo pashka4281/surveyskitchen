@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130922205317) do
+ActiveRecord::Schema.define(:version => 20130925160512) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -217,6 +217,8 @@ ActiveRecord::Schema.define(:version => 20130922205317) do
     t.string   "type"
     t.string   "token"
     t.boolean  "interactive",                  :default => false
+    t.string   "submit_btn_txt"
+    t.text     "passed_message"
   end
 
   add_index "surveys", ["token"], :name => "index_surveys_on_token", :unique => true
@@ -236,17 +238,5 @@ ActiveRecord::Schema.define(:version => 20130922205317) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-
-  create_table "versions", :force => true do |t|
-    t.string   "item_type",  :null => false
-    t.integer  "item_id",    :null => false
-    t.string   "event",      :null => false
-    t.string   "whodunnit"
-    t.text     "object"
-    t.datetime "created_at"
-    t.integer  "account_id"
-  end
-
-  add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
 
 end

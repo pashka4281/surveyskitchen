@@ -161,9 +161,6 @@ GEM
     omnicontacts (0.3.4)
       json
       rack
-    paper_trail (2.7.2)
-      activerecord (~> 3.0)
-      railties (~> 3.0)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -293,7 +290,6 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-twitter
   omnicontacts
-  paper_trail
   rails (= 3.2.11)
   rails_admin
   rcsv

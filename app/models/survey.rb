@@ -1,8 +1,6 @@
 class Survey < ActiveRecord::Base
-  has_paper_trail :on => [:create, :destroy]#, :meta => { :account_id  => :account_id }
-
   attr_accessible :account_id, :description, :category, :category_id, :theme_id, :theme,
-    :name, :user_id, :user, :account, :items_positions, :prefill_items, :active, :interactive
+    :name, :user_id, :user, :account, :items_positions, :prefill_items, :active, :interactive, :submit_btn_txt, :passed_message
 
   default_scope order('created_at DESC')
 
@@ -94,6 +92,14 @@ class Survey < ActiveRecord::Base
     self.user_id = user.id
     self.account_id = user.account_id
     self.save
+  end
+
+  after_initialize do
+    return true unless self.new_record?
+    YAML.load_file(Rails.root.join('config', 'defaults', 'surveys.yml'))[I18n.locale.to_s].each do |key, val|
+      self.send(key).blank? ? send("#{key}=", val) : true
+    end
+    true
   end
 
   after_create :example_items, :setup_default_share_methods

@@ -1,0 +1,11 @@
+ru:
+  submit_btn_txt: Готово
+  passed_message:
+    "<h1>Ответ отправлен.</h1>
+    <h2>Ваше мнение ценно для нас.</h2>"
+
+en:
+  submit_btn_txt: Done
+  passed_message:
+    "<h1>Response sent.</h1>
+    <h2>Your oppinion is valuable for us!.</h2>"

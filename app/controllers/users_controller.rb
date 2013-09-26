@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 	def dashboard
 		@surveys = current_account.surveys.all(:include => :responses)
 		@responses = current_account.responses.last_30_days.map(&:created_at).map(&:to_date)
-		@events = current_account.survey_events.limit(10)
 		
 		time_ago = Time.now - 30.days
 		time_now = Time.now

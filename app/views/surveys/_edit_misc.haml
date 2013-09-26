@@ -1,0 +1,32 @@
+%br
+= semantic_form_for @survey, html: {class: 'form-horizontal', role: 'form'}, validate: true do |f|
+  .form-group.input
+    %label.col-md-2.control-label= t("surveys.builder.submit_btn_txt")
+    .col-md-6
+      .controls= f.text_field :submit_btn_txt, class: 'form-control'
+
+  .form-group
+    %label.col-md-2.control-label= t("surveys.builder.passed_message")
+    .col-md-6= f.text_area :passed_message, rows: 5, class: 'form-control', id: "passed_message_txt"
+
+
+  = f.submit t('surveys.builder.save_misc_btn'), class: 'btn btn-success'
+
+- content_for :js do
+  :javascript
+    $(document).ready(function(){
+      CKEDITOR.replace("passed_message_txt", {
+      language: "#{ I18n.locale }",
+      toolbar: [
+        { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+        { name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'SpecialChar' ] },
+        { name: 'styles', items: [ 'Styles', 'Format' ] },
+        { name: 'others', items: [ '-' ] },
+        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Strike' ] },
+        { name: 'tools', items: [ 'Maximize' ] },
+        { name: 'links', items: [ 'Link', 'Unlink'] },
+        { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source' ] },
+        { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] }
+      ]}
+      )
+    })

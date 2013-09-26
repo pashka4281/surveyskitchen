@@ -70,6 +70,12 @@ en:
       themes_select: "Select color theme:"
       working_area_1: "This is your working area."
       working_area_2: "Start building survey by inserting items here."
+      loading_item: "Загрузка..."
+      item_not_selected: "Элемент не выбран. Кликните на элементе, который вы хотите изменить"
+      builder_tab: "Конструктор"
+      misc_tab: "Настройки опроса"
+      submit_btn_txt: "Текст кнопки:"
+      save_misc_btn: Сохранить
     share:
       title: '<b>%{name}</b> -- Сбор результатов'
       
