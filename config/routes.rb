@@ -4,13 +4,13 @@ Surveyskitchen::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  match '/:locale' => 'home#index', :locale => /en|ru/, as: :locale_root
+  # match '/:locale' => 'home#index', :locale => /en|ru/, as: :locale_root
   root to: 'home#locale_redirect'
   scope "/:locale", :locale => /en|ru/ do
     get :tos, to: 'home#tos'
-    get :about, to: 'home#about'
-    get :plans, to: 'home#plans'
-    get :features, to: 'home#features'
+    # get :about, to: 'home#about'
+    # get :plans, to: 'home#plans'
+    # get :features, to: 'home#features'
 
     get  'login',    to: 'sessions#new'
     post 'login',    to: 'sessions#create'
