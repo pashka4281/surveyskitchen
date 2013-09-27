@@ -21,6 +21,6 @@ class SessionsController < ApplicationController
   def destroy
     current_user_locale = current_user.language
   	session[:user_id] = nil
-    redirect_to locale_root_path(current_user_locale)
+    redirect_to "/#{ current_user_locale }"
   end
 end

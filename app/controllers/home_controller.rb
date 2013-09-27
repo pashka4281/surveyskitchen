@@ -30,6 +30,6 @@ class HomeController < ApplicationController
 
   #root path
   def locale_redirect
-    redirect_to current_user ? dashboard_path : locale_root_path(locale: I18n.locale)
+    redirect_to current_user ? dashboard_path : "/#{ I18n.locale }"
   end
 end

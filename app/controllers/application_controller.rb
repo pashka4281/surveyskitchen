@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def authenticate_admin!
-		redirect_to(locale_root_path(I18n.default_locale)) and return if !current_user || !current_user.admin?
+		redirect_to("/#{ I18n.default_locale }") and return if !current_user || !current_user.admin?
 	end
 
 	#getting current locale from user profile or from headers
