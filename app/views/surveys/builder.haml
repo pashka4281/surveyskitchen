@@ -1,12 +1,4 @@
-.page-header
-	.row
-		.col-md-12
-			.pull-left
-				%h3=raw t('surveys.share.title', name: @survey.name)
-			.pull-right
-				= link_to t("surveys.navigation.builder.prev"), edit_survey_path(@survey), class: "btn btn-default btn-xs"
-				= link_to t("surveys.navigation.builder.next"), share_survey_path(@survey), class: "btn btn-default btn-sm"
-
+.page-header= page_header t(".title", name: @survey.name), default_survey_menu: true, survey_nav_step: :builder
 
 :css
 	#{ @survey.theme.to_css }
@@ -28,9 +20,9 @@
 	%li
 		%a{ href: "#hello", id: "edit-item-tab", 'data-toggle' => "tab" }= t '.misc_tab'
 .tab-content
-	.tab-pane.active#builder-tab
+	.tab-pane.fade.in.active#builder-tab
 		= render 'edit_builder'
-	.tab-pane#hello
+	.tab-pane.fade#hello
 		= render 'edit_misc'
 	
 

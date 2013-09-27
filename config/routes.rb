@@ -1,4 +1,7 @@
 Surveyskitchen::Application.routes.draw do
+  
+  ComfortableMexicanSofa::Routing.admin(:path => '/cms-admin')
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   match '/:locale' => 'home#index', :locale => /en|ru/, as: :locale_root
@@ -82,4 +85,8 @@ Surveyskitchen::Application.routes.draw do
   match '/auth/:provider/callback', to: 'external_sessions#callback', provider: /twitter|facebook/
   match "/contacts/:importer/callback" => "external_sessions#contacts_callback"
   # mount Resque::Server, :at => '/resque_tasks'
+
+  # Make sure this routeset is defined last
+  ComfortableMexicanSofa::Routing.content(:path => '/', :sitemap => false)
+
 end

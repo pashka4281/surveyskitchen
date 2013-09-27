@@ -43,13 +43,20 @@ module ApplicationHelper
     }.to_json
   end
 
-  def page_header(text, opts = {nomargin: false, submenu: nil, default_survey_menu: nil})
-    opt_classes = opts[:nomargin] ? 'nomargin' : ''
+  def page_header(text, opts = { submenu: nil, default_survey_menu: false})
     submenu = opts[:submenu] && "<div class=\"subheader\">#{opts[:submenu]}</div>"
     submenu ||= opts[:default_survey_menu] && survey_subtitle
     submenu ||= opts[:default_client_menu] && client_subtitle
+
     raw <<-EOS
-      <div class="#{opt_classes}"><h1>#{text}</h1>#{submenu}</div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="pull-left">
+            <h3>#{text}</h3>#{submenu}
+          </div>
+          <div class="pull-right">#{ get_survey_nav_links(opts[:survey_nav_step]) }</div>
+        </div>
+      </div>
     EOS
   end
 
@@ -82,6 +89,19 @@ module ApplicationHelper
         #{link_to(raw('<i class="icon-users-1"></i>' + t('clients.common.clients')), [:clients], class: 'light')} | 
         #{link_to(raw('<i class="icon-pencil-2"></i>'+ t('clients.common.edit')), [:edit, @client], class: 'light')}
     </div>"
+  end
+
+  def get_survey_nav_links(step)
+    {
+      report: link_to(t("surveys.navigation.report.prev"), share_survey_path(@survey), class: "btn btn-default btn-sm"),
+      share: 
+        link_to(t("surveys.navigation.share.prev"), builder_survey_path(@survey), class: "btn btn-default btn-sm") + " " +
+        link_to(t("surveys.navigation.share.next"), report_survey_path(@survey), class: "btn btn-default btn-sm"),
+      builder:
+        link_to(t("surveys.navigation.builder.prev"), edit_survey_path(@survey), class: "btn btn-default btn-xs") + " " +
+        link_to(t("surveys.navigation.builder.next"), share_survey_path(@survey), class: "btn btn-default btn-sm"),
+      edit: link_to(t("surveys.navigation.edit.next"), builder_survey_path(@survey), class: "btn btn-default btn-sm")
+    }[step].to_s
   end
 
 end

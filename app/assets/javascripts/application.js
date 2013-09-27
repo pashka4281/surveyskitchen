@@ -11,7 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-ui-1.10.2.custom.min
+//= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap-select.min
 //= require bootstrap.min

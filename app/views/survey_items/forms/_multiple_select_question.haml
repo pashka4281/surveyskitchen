@@ -1,27 +1,23 @@
-= form_for @survey_item, url: '#', html:{ id: 'single_select_question_form', class: 'panel-body' } do |f|
+= form_for @survey_item, url: '#', html:{ id: 'multiple_select_question_form', class: 'panel-body' } do |f|
   .form-group
     %label= t('survey_items.common.item_title')
     = f.text_area :title, name: 'survey_item[title]', rows: 2, 'data-errormessage' => t('survey_items.common.item_title_error_msg'),
       class: 'validate[required] form-control', placeholder: t('survey_items.common.title_placeholder')
 
   .form-group
-    %label= t('survey_items.single_select.variants')
-    = f.text_area :variants, name: 'survey_item[variants]', rows: 6, 'data-errormessage' => t('survey_items.single_select.variants_error_msg'),
-      class: 'validate[required] form-control', placeholder: t('survey_items.single_select.variants_placeholder')
+    %label= t('survey_items.multiple_select.variants')
+    = f.text_area :variants, name: 'survey_item[variants]', rows: 6, 'data-errormessage' => t('survey_items.multiple_select.variants_error_msg'),
+      class: 'validate[required] form-control', placeholder: t('survey_items.multiple_select.variants_placeholder')
 
   %label.checkbox
     = f.check_box :include_txt_field, name: 'survey_item[include_txt_field]'
-    = t('survey_items.single_select.include_txt_field')
+    = t('survey_items.multiple_select.include_txt_field')
 
   %label.checkbox
     = f.check_box :required_field, name: 'survey_item[required_field]'
     = t('survey_items.common.make_required')
 
-  / %label.checkbox
-  / = f.check_box :shuffle_options, name: 'survey_item[shuffle_options]'
-  / = t('survey_items.single_select.shuffle')
-
   = hidden_field_tag :item_id, @survey_item.try(:id)
-  %input{ type: "hidden", name: "item_type", value: "single_select_question" }
+  %input{ type: "hidden", name: "item_type", value: "multiple_select_question" }
   %input{ type: "hidden", name: "survey_id", value: @survey_item.survey.id }
   = f.submit t('survey_items.common.save'), class: 'btn btn-success' 

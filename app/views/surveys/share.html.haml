@@ -1,11 +1,4 @@
-.page-header
-  .row
-    .col-md-12
-      .pull-left
-        %h3=raw t('surveys.share.title', name: @survey.name)
-      .pull-right
-        = link_to t("surveys.navigation.share.prev"), builder_survey_path(@survey), class: "btn btn-default btn-sm"
-        = link_to t("surveys.navigation.share.next"), report_survey_path(@survey), class: "btn btn-default btn-sm"
+.page-header= page_header t(".title", name: @survey.name), default_survey_menu: true, survey_nav_step: :share
 
 .panel.panel-default#share-link-block
   .panel-heading

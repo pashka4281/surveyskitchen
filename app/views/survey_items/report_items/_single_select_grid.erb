@@ -30,7 +30,8 @@
 
 		      <td class="<%= cycle("highlighted", "", :name => "cycle2_#{i}_#{item.id}") -%>">
 		        <input type="radio" disabled="true" <%#== 'checked="true"' if result[i.to_s] == j.to_s %>></input>
-		        (<%=  percentage %> %)
+		        <%= "#{ percentage} %" %>
+            (<%= resp_arr_without_empty.map{|x| x[:values][i.to_s]}.count(j.to_s) %>)
 		      </td>
 		    <% end %>
 		  </tr>

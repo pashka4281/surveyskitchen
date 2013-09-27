@@ -27,7 +27,7 @@
         .col-md-8
           .progress.progress-striped
             .progress-bar.progress-bar-success{ role: "progressbar", 'aria-valuenow' => "#{percentage}", 'aria-valuemin' => "0", 'aria-valuemax' => "100", style: "width: #{percentage}%" }
-              %span= "#{ percentage}%"
+              %span= "#{ percentage }% (#{ resp_arr_without_empty.map{|x| x[:values]}.count(i.to_s) })"
 
 
 - if(additional_fields = resp_arr.map{|x| x[:field]}.reject(&:blank?)).any?

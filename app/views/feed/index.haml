@@ -3,7 +3,7 @@
 - @resp_days.each do |day, responses|
   %h2= l day, :format => :short_date
   - responses.each do |response|
-    .panel{ class: response.viewed_at ? 'panel-default' : 'panel-primary' }
+    .panel{ class: response.viewed_at ? 'panel-default' : 'panel-info' }
       .panel-heading
         %h3.panel-title
         %span.label.label-default= l response.created_at, :format => :short_date_time

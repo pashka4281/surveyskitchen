@@ -13,6 +13,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
 gem "omnicontacts"
+gem 'comfortable_mexican_sofa', '~> 1.8.0'
 
 gem 'russian'
 gem 'geoip-c' # apt-get install libgeoip-dev  to make it install
