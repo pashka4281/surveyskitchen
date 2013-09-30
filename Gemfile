@@ -62,6 +62,6 @@ end
 
 group :test do
   gem 'factory_girl'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '= 1.0.1'
   gem 'factory_girl_rails'
 end

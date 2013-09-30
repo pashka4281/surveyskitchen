@@ -32,19 +32,6 @@ ActiveRecord::Schema.define(:version => 20130926125536) do
     t.datetime "updated_at",          :null => false
   end
 
-  create_table "blog_comments", :force => true do |t|
-    t.string   "name",       :null => false
-    t.string   "email",      :null => false
-    t.string   "website"
-    t.text     "body",       :null => false
-    t.integer  "post_id",    :null => false
-    t.string   "state"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "blog_comments", ["post_id"], :name => "index_blog_comments_on_post_id"
-
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -224,15 +211,6 @@ ActiveRecord::Schema.define(:version => 20130926125536) do
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
-  create_table "events", :force => true do |t|
-    t.string   "eventable_type"
-    t.integer  "eventable_id"
-    t.integer  "account_id"
-    t.string   "type"
-    t.datetime "created_at"
-    t.string   "eventable_name"
-  end
-
   create_table "exception_storages", :force => true do |t|
     t.string   "message"
     t.text     "trace"
@@ -323,16 +301,16 @@ ActiveRecord::Schema.define(:version => 20130926125536) do
     t.integer  "user_id"
     t.string   "name"
     t.text     "description"
-    t.string   "items_positions",              :default => "'"
+    t.string   "items_positions"
     t.datetime "updated_at"
     t.boolean  "setup_finished",               :default => false
     t.integer  "category_id"
+    t.string   "token"
     t.datetime "created_at"
     t.boolean  "active",                       :default => true
     t.string   "preview_flag",    :limit => 3
     t.integer  "theme_id"
     t.string   "type"
-    t.string   "token"
     t.boolean  "interactive",                  :default => false
     t.string   "submit_btn_txt"
     t.text     "passed_message"

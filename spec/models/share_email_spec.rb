@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe ShareEmail do
+describe ShareMethods::Email do
   pending "add some examples to (or delete) #{__FILE__}"
 end

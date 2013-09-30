@@ -1,8 +1,9 @@
 require "rvm/capistrano"
 require "bundler/capistrano"
-require "whenever/capistrano"
 require 'new_relic/recipes'
 require "delayed/recipes"
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
 
 load 'deploy/assets'
 
@@ -22,7 +23,8 @@ set :scm, 'git'
 set :scm_verbose, true
 set :git_enable_submodules, 1
 set :deploy_via, :remote_cache
-set :repository, "git@bitbucket.org:pashka4281/surveyskitchen.git"
+# set :repository, "git@bitbucket.org:pashka4281/surveyskitchen.git"
+set :repository, "git@gitlab.surveyskitchen.com:root/sk.git"
 set :branch, "master"
 
 set :user, 'ubuntu'

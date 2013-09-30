@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe ShareEmbed do
+describe ShareMethods::Embed do
   pending "add some examples to (or delete) #{__FILE__}"
 end

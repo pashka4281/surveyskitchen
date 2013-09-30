@@ -79,7 +79,7 @@ GEM
       redcarpet (>= 2.2.0)
       sass-rails (>= 3.1.0)
     daemons (1.1.9)
-    database_cleaner (1.1.1)
+    database_cleaner (1.0.1)
     default_value_for (2.0.3)
     delayed_job (3.0.5)
       activesupport (~> 3.0)
@@ -299,7 +299,7 @@ DEPENDENCIES
   coffee-rails
   comfortable_mexican_sofa (~> 1.8.0)
   daemons
-  database_cleaner
+  database_cleaner (= 1.0.1)
   default_value_for
   delayed_job
   delayed_job_active_record
