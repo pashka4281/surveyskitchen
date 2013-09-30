@@ -35,6 +35,6 @@ class ShareMethodsController < ApplicationController
 	end
 
 	def share_method_params
-		params[:share_methods_email] || params[:share_methods_embed] # || params[:share_xxxx]
+		params[:share_methods_email] || params[:share_methods_embed] || params[:share_methods_link] # || params[:share_xxxx]
 	end
 end

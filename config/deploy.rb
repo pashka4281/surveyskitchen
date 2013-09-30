@@ -11,10 +11,11 @@ ssh_options[:forward_agent] = true
 
 set :application, 'surveyskitchen'
 set :rails_env, "production" #added for delayed job  
-
+# before 'deploy:setup', 'rvm:install_rvm'
 # RVM details:
 set :using_rvm, true
-set :rvm_ruby_string, '1.9.3@surveyskitchen'
+set :rvm_ruby_string, 'ruby-2.0.0-p195@surveyskitchen'
+set :rvm_type, :system
 
 # SCM details:
 set :scm, 'git'

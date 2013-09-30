@@ -1,0 +1,40 @@
+=	page_header t("share_methods.form_link.title"), 
+	submenu: link_to(t('share_methods.form_common.back_to_share_methods'), share_survey_path(@survey))
+
+= semantic_form_for @share_method, :url => shares_path do |f|
+	.opt
+		%label
+			%input{ type: "radio", name: "link_type", checked: "checked", value: "0"}
+			= t('share_methods.form_link.token')
+		.description
+			= t('share_methods.form_link.preview')
+			%span http://www.surveyskitchen.com/s/XXXXXX
+
+	.opt
+		%label
+			%input{ type: "radio", name: "link_type", value: "1" }
+			= t('share_methods.form_link.custom_url')
+		.padded.fields= f.text_field :custom_url, disabled: 'disabled', id: 'custom_url_field'
+		.description
+			%span#custom_field_descr http://www.surveyskitchen.com/s/YOUR_URL
+
+	= f.input :survey_id, value: @survey.id, as: :hidden
+	= f.input :type, value: @share_method.class.name, as: :hidden
+	= f.input :current_user_id, value: current_user.id, as: :hidden
+
+	= f.submit 'активировать'
+
+- content_for :js do
+	:javascript
+		$(function(){
+			$('#custom_url_field').bind('change keyup keydown', function(){
+				$('#custom_field_descr').text('http://www.surveyskitchen.com/s/' + $(this).val())
+			}).change();
+
+			$('input[name="link_type"]').change(function(){
+				if($(this).val() == 1)
+					$('#custom_url_field').removeAttr('disabled')
+				else
+					$('#custom_url_field').attr('disabled', true)
+			})
+		})

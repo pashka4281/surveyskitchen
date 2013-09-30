@@ -36,37 +36,3 @@
   	</footer>
   </div>
 </div>
-
-<%= content_for :js do %>
-  <script type="text/javascript">
-		jQuery.fn.preventDoubleSubmission = function() {
-		  $(this).bind('submit',function(e){
-		    var _form = $(this);
-		    if (_form.data('submitted') === true) {
-		      e.preventDefault();
-		    } else {
-		      _form.data('submitted', true);
-		    }
-		  });
-		  return this;
-		};
-
-    $(document).ready(function(){
-    	var _form = $('form');
-    	_form.preventDoubleSubmission();
-    	_form.validationEngine('attach', {promptPosition: "inline", scroll: true});
-
-
-    	$('.signature-pad').each(function(){
-    		_this = $(this)
-
-    		_this.jSignature();
-    		_this.bind('change', function(e){
-    			_this.next('.output').val(_this.jSignature("getData","base30") )
-    		})
-    	})
-
-    	$(".video-wrapper").fitVids();
-    })
-  </script>
-<% end %>

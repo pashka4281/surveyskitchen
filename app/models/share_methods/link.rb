@@ -1,7 +1,9 @@
 class ShareMethods::Link < ActiveRecord::Base
   self.table_name = "share_links"
 
-	attr_accessible :survey_id, :custom_url, :active
+	attr_accessible :survey_id, :custom_url, :active, :current_user_id
+  attr_accessor :current_user_id
+  
 	belongs_to :survey
 
 	validates :custom_url, uniqueness: true, allow_blank: true

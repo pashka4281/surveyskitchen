@@ -13,4 +13,4 @@
 //= require flashcanvas
 //= require jSignature.min
 //= require fitvids
-//= require bootstrap.min
+//= require _survey_passing

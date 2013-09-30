@@ -16,11 +16,11 @@
 //= require bootstrap-select.min
 //= require bootstrap.min
 
-//= require common
+//= require _common
 //= require jLinedTextarea
 //= require jquery.display_star_rating
 //= require jquery.minicolors
-//= require survey_builder
+//= require _survey_builder
 
 //= require jVectorMap.min
 //= require jVectorMap.world
