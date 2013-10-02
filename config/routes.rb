@@ -61,7 +61,7 @@ Surveyskitchen::Application.routes.draw do
   end
 
   namespace :s do
-    get  ':token', to: 'surveys#show', as: :show_survey
+    get  ':token(?t=:collector_type)', to: 'surveys#show', as: :show_survey
     post ':token', to: 'surveys#create_result', as: :create_result
     get ':token/auth', to: 'sessions#new', as: :auth
   end

@@ -50,7 +50,7 @@
           %button.btn.btn-default= t('surveys.share.settings_embed')
       .col-md-5
         - if @survey.share_embed
-          %textarea.form-control.survey-share-block{rows: 3, readonly: true, type: 'text'}="<iframe id=\"sk_survey_#{@survey.share_embed.token}_embed\" style=\"height: 500px; width: 460px; border: 1px solid rgb(204, 204, 204);\" frameborder=\"0\" src=\"#{APP_HOST}/s/#{@survey.share_embed.token}\"></iframe>"
+          %textarea.form-control.survey-share-block{rows: 3, readonly: true, type: 'text'}="<iframe id=\"sk_survey_#{@survey.share_embed.token}_embed\" style=\"height: 500px; width: 460px; border: 1px solid rgb(204, 204, 204);\" frameborder=\"0\" src=\"#{APP_HOST + s_show_survey_path(token: @survey.share_link.url_suffix, collector_type: 1) }></iframe>"
         - else
           = t('surveys.share.embed_inactive')
           %br
@@ -70,7 +70,7 @@
         %button.btn.btn-default= t('surveys.share.settings_invite')
       .col-md-5
         - if @survey.share_link
-          %input.form-control.survey-share-block{readonly: true, type: 'text', value: "<script src=\"#{APP_HOST}/invite_button/#{@survey.share_link.token}\".js></script>" }
+          %input.form-control.survey-share-block{readonly: true, type: 'text', value: "<script src=\"#{APP_HOST}/invite_button/#{@survey.share_link.token}.js\"></script>" }
         - else 
           = t('surveys.share.invite_inactive')
           %button.btn.btn-default= t('surveys.share.activate_invite')
