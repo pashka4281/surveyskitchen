@@ -1,0 +1,15 @@
+= content_tag_for :li, item, class: "countable survey_item question-item", item_id: item.id do
+	= render 'survey_items/items/_tools_box', item: item
+	.item-inner
+		%strong.item-title
+			= item.title
+			- if item.required_field?
+				%span.require-mark *
+		.item-content
+			%ul.list-unstyled
+				- for var in item.variants_array
+					%li
+						%label.radio
+							%input{ type: "radio", name: "response[item-#{ item.id }]", value: var }= var
+			- if item.include_txt_field
+				%input{ type: "text" }

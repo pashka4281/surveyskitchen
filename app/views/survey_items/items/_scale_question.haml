@@ -1,7 +1,10 @@
 = content_tag_for :li, item, class: "countable survey_item question-item", item_id: item.id do
   = render 'survey_items/items/_tools_box', item: item 
   .item-inner
-    %strong.item-title= item.title
+    %strong.item-title
+      = item.title
+      - if item.required_field?
+        %span.require-mark *
     .item-content
       - item.scale_size.times do |v|
         %label.radio-inline

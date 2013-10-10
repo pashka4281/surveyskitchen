@@ -180,7 +180,9 @@
 				padding: 10px 65px 10px 10px;
 				
 				//border-radius: 4px;
-
+				.item-title{
+					.require-mark{ color: #F05D5D; }
+				}
 				.item-content{
 					margin-right: 100px;
 					label.inline {
@@ -190,7 +192,7 @@
 					.signature{ border: 1px dashed #CCC; }
 					ul li{	
 						line-height: 22px;
-						label{ margin: 0; font-weight: normal; }
+						label{ margin: 0; font-weight: normal; padding-left: 25px; }
 					}
 				}
 
