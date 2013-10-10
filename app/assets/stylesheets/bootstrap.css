@@ -259,10 +259,6 @@ table {
     img {
         max-width: 100% !important;
     }
-  @    page {
-        margin: 2cm .5cm;
-    }
-
     p,
   h2,
   h3 {
@@ -5618,16 +5614,6 @@ body.modal-open,
 
 .affix {
     position: fixed;
-}
-
-@-ms-viewport {
-    width: device-width;
-}
-
-@media screen and (max-width: 400px) {
-  @    -ms-viewport {
-        width: 320px;
-    }
 }
 
 .hidden {
