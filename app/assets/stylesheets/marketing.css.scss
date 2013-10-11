@@ -81,6 +81,8 @@
 	vertical-align: middle;
 	text-align: center;
 	text-decoration: none;
+	display: inline-block;
+	margin-bottom: 3px;
 	&.small{ padding: 7px; }
 	&.tiny{ padding: 3px; font-size: 14px; }
 	&.red{ @include vertical_gradient(#9E5D5D, #C02F2F ); }

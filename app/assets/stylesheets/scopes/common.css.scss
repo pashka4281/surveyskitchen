@@ -18,7 +18,7 @@ body.app{
 }
 .signature-pad{ max-height: 150px;  max-width: 400px; }
 .muted { color: #999; }
-.margbot{ margin-bottom: 25px; }
+.margbot{ margin-bottom: 25px !important; }
 
 // share page
 .status{
