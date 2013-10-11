@@ -4,3 +4,6 @@ User-agent: *
 Disallow: /auth/google
 Disallow: /auth/facebook
 Disallow: /auth/twitter
+
+Disallow: /en/demo/s_builder/preview?survey_token=*
+Disallow: /ru/demo/s_builder/preview?survey_token=*
