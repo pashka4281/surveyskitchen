@@ -106,12 +106,12 @@ body.app{
 
 
 //SIMPLE COLUMN SYSTEM
-.row:before, .row:after {
+/*.row:before, .row:after {
  content: " ";
  display: table;
 }
 .padded{padding: 5px;}
-.row{ display: inline-block;width: 100%; position: relative; }
+.row{ display: inline-block;width: 100%; position: relative; }*/
 .column{ float: left; }
 .column.one-third{ width: 33.333333%; }
 .column.two-third{ width: 66.666666%; }

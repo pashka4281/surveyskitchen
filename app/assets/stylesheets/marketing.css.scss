@@ -38,7 +38,7 @@
 
 #main-wording{
 	margin: 25px auto;
-	width: 920px;
+	max-width: 920px;
 	font-size: 34px;
 	color: #1E95AC;
 	font-family: 'Marcellus', serif;
@@ -219,7 +219,7 @@
 		}
 	}
 }
-html{height: 100%;}
+//html{height: 100%;}
 
 footer{
 	padding: 20px;
@@ -229,7 +229,7 @@ footer{
 	margin-top: 20px;
 	h2{ margin-bottom: 10px; }
 	a{
-		color: #fff !important;
+		color: #A3B9FF !important;
 	}
 }
 
@@ -266,7 +266,7 @@ ul.answers{
 
 #screens-block {
 	position: relative;
-	width: 960px;
+	max-width: 960px;
 	height: 320px;
 	overflow: hidden;
 	margin: 0 auto;
