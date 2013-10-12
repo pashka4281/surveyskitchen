@@ -10,7 +10,7 @@
         .form-group.input
           %label.col-md-4.control-label= t('.full_name')
           .col-md-8
-            .controls= text_field_tag :full_name, '', placeholder: t('.full_name_placeholder'), class: 'form-control'
+            .controls= f.text_field :full_name, placeholder: t('.full_name_placeholder'), class: 'form-control'
         
         / <%= f.label :account_name do %>
         /   <span><%= t('users.new.account_name') %></span> <%= f.text_field :account_name, placeholder: t('users.new.acc_name_placeholder'), class: 'span6'
@@ -19,17 +19,17 @@
         .form-group.input
           %label.col-md-4.control-label= t('.email')
           .col-md-8
-            .controls= text_field_tag :email, '', placeholder: t('.email_placeholder'), class: 'form-control'
+            .controls= f.email_field :email, placeholder: t('.email_placeholder'), class: 'form-control'
 
         .form-group.input
           %label.col-md-4.control-label= t('.password')
           .col-md-8
-            .controls= text_field_tag :password, '', placeholder: t('.password_placeholder'), class: 'form-control'
+            .controls= f.password_field :password, placeholder: t('.password_placeholder'), class: 'form-control'
 
         .form-group.input
           %label.col-md-4.control-label= t('.password_confirmation')
           .col-md-8
-            .controls= text_field_tag :password_confirmation, '', placeholder: t('.password_confirmation_placeholder'), class: 'form-control'
+            .controls= f.password_field :password_confirmation, placeholder: t('.password_confirmation_placeholder'), class: 'form-control'
 
         %br
         = hidden_field_tag 'user[language]', I18n.locale

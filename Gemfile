@@ -29,6 +29,8 @@ gem 'haml'
 gem 'liquid'
 gem 'daemons'
 
+gem 'axlsx_rails' # for *.xlsx reports regerating
+
 gem 'delayed_job'
 gem 'delayed_job_active_record'
 

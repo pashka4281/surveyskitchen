@@ -17,17 +17,18 @@
     %b= resp_arr_without_empty.count
 
 - values_keys = resp_arr_without_empty.map{ |x| x[:values].keys }
-%ul.list-unstyled.report-variants
-  - item.variants_array.each_with_index do |variant, i|
-    - percentage =values_keys.any? ? (values_keys.flatten.count(i.to_s).to_f / values_keys.count * 100).round : 0
-    .row
-      .col-md-4
-        %input{ type: "checkbox", disabled: "true" }
-        = variant
-      .col-md-8
-        .progress.progress-striped
-          .progress-bar.progress-bar-success{ role: "progressbar", 'aria-valuenow' => "#{percentage}", 'aria-valuemin' => "0", 'aria-valuemax' => "100", style: "width: #{percentage}%" }
-            %span= "#{ percentage }% (#{ values_keys.flatten.count(i.to_s) })"
+.row.report-variants
+  .col-md-12
+    - item.variants_array.each_with_index do |variant, i|
+      - percentage =values_keys.any? ? (values_keys.flatten.count(i.to_s).to_f / values_keys.count * 100).round : 0
+      .row
+        .col-md-6
+          %input{ type: "checkbox", disabled: "true" }
+          = variant
+        .col-md-6
+          .progress.progress-striped
+            .progress-bar.progress-bar-success{ style: "background-color: #{ cycle(*SURVEY_REPORT_SETTINGS['colors']['report_options'], name: item.id) }; width: #{percentage}%", role: "progressbar", 'aria-valuenow' => "#{percentage}", 'aria-valuemin' => "0", 'aria-valuemax' => "100" }
+              %span= "#{ percentage }% (#{ values_keys.flatten.count(i.to_s) })"
 
 
 - if(additional_fields = resp_arr.map{|x| x[:field]}.reject(&:blank?)).any?

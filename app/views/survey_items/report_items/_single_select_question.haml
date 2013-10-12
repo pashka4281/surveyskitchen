@@ -1,11 +1,11 @@
 :ruby
   resp_arr =  @responses_content.reject{|x| x[:content][item.id.to_s].nil? }
-    resp_arr = resp_arr.map do |x| 
-        {   resp_id: x[:resp_id], 
-            field: x[:content][item.id.to_s]['additional_field'], 
-            values: x[:content][item.id.to_s]['values'] 
-        }
-    end
+  resp_arr = resp_arr.map do |x| 
+    {   resp_id: x[:resp_id], 
+        field: x[:content][item.id.to_s]['additional_field'], 
+        values: x[:content][item.id.to_s]['values'] 
+    }
+  end
 
 - resp_arr_without_empty = resp_arr.reject{|x| x[:values].nil? }
 .statistics
@@ -21,12 +21,12 @@
     - item.variants_array.each_with_index do |variant, i|
       - percentage = resp_arr_without_empty.any? ? (resp_arr_without_empty.map{|x| x[:values]}.count(i.to_s).to_f / resp_arr_without_empty.count * 100).round : 0
       .row
-        .col-md-4
+        .col-md-6
           %input{ type: "radio", disabled: "true" }
           = variant
-        .col-md-8
+        .col-md-6
           .progress.progress-striped
-            .progress-bar.progress-bar-success{ role: "progressbar", 'aria-valuenow' => "#{percentage}", 'aria-valuemin' => "0", 'aria-valuemax' => "100", style: "width: #{percentage}%" }
+            .progress-bar{ style: "background-color: #{ cycle(*SURVEY_REPORT_SETTINGS['colors']['report_options'], name: item.id) }; width: #{percentage}%", role: "progressbar", 'aria-valuenow' => "#{percentage}", 'aria-valuemin' => "0", 'aria-valuemax' => "100" }
               %span= "#{ percentage }% (#{ resp_arr_without_empty.map{|x| x[:values]}.count(i.to_s) })"
 
 
