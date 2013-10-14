@@ -18,11 +18,11 @@
 	%li.active
 		%a{ href: '#builder-tab', id: "add-item-tab", 'data-toggle' => "tab" }= t '.builder_tab'
 	%li
-		%a{ href: "#hello", id: "edit-item-tab", 'data-toggle' => "tab" }= t '.misc_tab'
+		%a{ href: "#misc", id: "edit-misc-tab", 'data-toggle' => "tab" }= t '.misc_tab'
 .tab-content
 	.tab-pane.fade.in.active#builder-tab
 		= render 'edit_builder'
-	.tab-pane.fade#hello
+	.tab-pane.fade#misc
 		= render 'edit_misc'
 	
 

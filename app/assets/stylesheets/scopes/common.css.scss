@@ -1,5 +1,7 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+
 body.app{
-  background-image: url('/images/bg-image.png');
+  background: #727272 url('/images/line-tile.png') top left;
 }
 
 
@@ -19,7 +21,7 @@ body.app{
 .signature-pad{ max-height: 150px;  max-width: 400px; }
 .muted { color: #999; }
 .margbot{ margin-bottom: 25px !important; }
-
+.vmargin{ margin-top: 7px; margin-bottom: 7px; }
 // share page
 .status{
   display: inline-block;
@@ -30,6 +32,25 @@ body.app{
   background-color: #D60000;
   &.active{
     background-color: #00D600;
+  }
+}
+
+.flat-btn{
+  background: #EBEBEB;
+  display: inline-block;
+  padding: .4em .8em;
+  margin-right: .5em;
+  text-decoration: none;
+  color: #666;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+  &:hover{
+    background: #0181EB;
+    text-shadow: none;
+    color: #F8F8F8;
+    text-decoration: none;
   }
 }
 
@@ -64,30 +85,19 @@ body.app{
      position:relative;
      z-index: 2;
      #content-pretty{
-       -moz-border-radius: 15px;
-       -webkit-border-radius: 15px;
-       -khtml-border-radius: 15px;
-       border-radius: 15px;
-       //border: 4px solid #ff8100;
-       border: 4px solid #9CA9AF;
        margin-bottom: 30px;
        background-color: #fff;
        min-height: 200px;
        position: relative;
        padding: 10px;
        .page-header{
-
-         padding: 10px;
-         //background-color: #ff8100;
-         background-color: #9CA9AF;
-         border-top-left-radius: 10px;
-         border-top-right-radius: 10px;
-         margin-bottom: 20px;
-         color: #fff;
-         margin-top: -10px;
-          margin-left: -11px;
-          margin-right: -11px;
-         //border-bottom: 1px solid #ADADAD;
+          padding: 10px;
+          margin-bottom: 20px;
+          color: #FFF;
+          margin-top: -10px;
+          margin-left: -10px;
+          margin-right: -10px;
+          background: #505050;
          .subheader{ margin-top: 5px;a{ color: #fff; } }
          &.nomargin{ margin-bottom: 0 }
          
@@ -98,7 +108,7 @@ body.app{
          }
          h1{ font-size: 18px; display: inline-block;}
 
-         a.light{ color: #fff; padding: 2px; font-size: 12px; &:hover{ color: #374964 } }
+         a.light{ color: #fff; padding: 2px; font-size: 12px; display: inline-block; &:hover{ color: #89B7FC } }
        }
      }
    }
@@ -150,20 +160,10 @@ body.app{
  padding: 6px;
  text-decoration: none;
  background-color: #f2f2f2;
- &:visited{ color: #0f0f0f; }
- &:not(.simple){ 
-   @include vertical_gradient(#f2f2f2, #c5c5c5 ); 
-   &:active:not(:disabled){ 
-     @include vertical_gradient(#c5c5c5, #f2f2f2);
-   }
- }
- -moz-border-radius: 2px;
- -webkit-border-radius: 2px;
- border-radius: 2px;
  border: 1px solid #A5A5A5;
  display: inline-block;
+ &:visited{ color: #0f0f0f; }
  &:hover:not(:disabled){ border: 1px solid #4B4B4B; text-decoration: none; }
- 
  &.small{ padding: 3px; font-size: 11px; }
  &.success{ 
    background-color: #51a351;
@@ -200,7 +200,7 @@ body.app{
      margin-left: 4px;
      &:hover{ box-shadow: 0 0 25px #FF8383; }
    }
-   .links .button{ margin-right: 5px; }
+   .links .button{ margin-right: 5px; margin-bottom: 5px; }
    &.active .switch-btn { 
      color: #05BB05; 
      box-shadow: 0 0 22px #05BB05; 
@@ -218,10 +218,10 @@ body.app{
    }
    &.active .survey-status {color: #009400; }
 
-   .left-padder{ padding-left: 70px }
+   .left-padder{ padding-left: 55px }
    .survey-header{
-     padding-right: 160px;
      position: relative;
+     padding-right: 160px;
      margin-bottom: 15px;
      h3{ margin-top: 0 }
      a{
@@ -231,7 +231,7 @@ body.app{
      }
      .survey-date{
        position: absolute;
-       top: 2px;
+       top: 0px;
        right: 10px;
        font-size: 11px;
        color: #bbb;
@@ -253,6 +253,23 @@ body.app{
      font-size: 12px;
    }
  }
+}
+
+@media (max-width: 768px) {
+  #surveys_list{
+   .survey{
+      padding: 25px 7px;
+      .survey-header{
+        padding-right: 0;
+        .survey-date{
+         top: -12px;
+        }
+      }
+      .delete-survey-lnk{
+        bottom: 1px;
+      }
+    }
+  }
 }
 
 #notify_bar{

@@ -38,7 +38,7 @@
           dataType: 'json',
           data: { response: { viewed_at: new Date() } },
           success: function(){            
-            _this.parents('.panel').removeClass('panel-primary').addClass('panel-default');
+            _this.parents('.panel').removeClass('panel-info').addClass('panel-default');
             _this.parent().remove();
           }
         })

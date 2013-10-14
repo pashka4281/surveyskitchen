@@ -6,8 +6,6 @@
 
 //@import url(http://fonts.googleapis.com/css?family=Forum&subset=latin,cyrillic);
 
-@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
-
 @mixin vertical_gradient($from, $to){
 	background-image: -webkit-gradient(linear,center top,center bottom,color-stop(0%,$from),color-stop(100%,$to));
 	background-image: -webkit-linear-gradient($from 0,$to 100%);

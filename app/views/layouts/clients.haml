@@ -4,9 +4,10 @@
     %meta{ charset: "utf-8" }
     %meta{ 'http-equiv' => "X-UA-Compatible", content: "IE=Edge,chrome=1" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    %meta{ property: "og:image", content: "http://www.surveyskitchen.com/images/marketing/fb-share-img.png" }
     %title= content_for?(:title) ? yield(:title) : "Surveyskitchen"
     = csrf_meta_tags
-    %meta{ name: "Description", content: "SurveysKitchen - the most convenient and fastest tool for creating online surveys and polls" }
+    %meta{ name: "Description", content: yield(:description) }
     %meta{ name: "keywords", content: "SurveysKitchen,surveys,online-surveys,polls,web-polls,web-surveys,opinnion research, marketing research, analysis,voting,statistics" }
     / %link{ href: 'http://fonts.googleapis.com/css?family=Special+Elite', rel: 'stylesheet', type: 'text/css' }
     = stylesheet_link_tag "client", media: "all"

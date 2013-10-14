@@ -1736,6 +1736,10 @@ table th[class*="col-"] {
 }
 
 @media (max-width: 768px) {
+    .container{
+        padding-right: 5px;
+        padding-left: 5px;
+    }
     .table-responsive {
         width: 100%;
         margin-bottom: 15px;
@@ -2168,12 +2172,12 @@ textarea.input-lg {
     vertical-align: middle;
     cursor: pointer;
     border: 1px solid transparent;
-    border-radius: 4px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
+    transition: background-color 0.5s;
 }
 
 .btn:focus {
@@ -2209,8 +2213,7 @@ fieldset[disabled] .btn {
 
 .btn-default {
     color: #333333;
-    background-color: #ffffff;
-    border-color: #cccccc;
+    background-color: #D1D1D1;
 }
 
 .btn-default:hover,
@@ -2218,9 +2221,8 @@ fieldset[disabled] .btn {
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
-    color: #333333;
-    background-color: #ebebeb;
-    border-color: #adadad;
+    color: #F8F8F8;
+    background-color: #0181EB;
 }
 
 .btn-default:active,
@@ -2495,7 +2497,6 @@ fieldset[disabled] .btn-link:focus {
     padding: 10px 16px;
     font-size: 18px;
     line-height: 1.33;
-    border-radius: 6px;
 }
 
 .btn-sm,
@@ -2503,7 +2504,6 @@ fieldset[disabled] .btn-link:focus {
     padding: 5px 10px;
     font-size: 12px;
     line-height: 1.5;
-    border-radius: 3px;
 }
 
 .btn-xs {
