@@ -5,7 +5,9 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a#home-link.navbar-brand{ href: '/' } SurveysKitchen
+    %a#home-link.navbar-brand{ href: '/' } 
+      SurveysKitchen
+      %sup beta
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav
       =content_tag :li, class: (request.path =~ /\/(blog)(\/)?/ ? 'active' : '')  do

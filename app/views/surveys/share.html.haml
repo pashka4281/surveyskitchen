@@ -6,15 +6,27 @@
       %div{ class: "status" + (@survey.share_link ? ' active' : '') }
       = t('surveys.share.link')
   .panel-body
-    .col-md-7
-      = t('surveys.share.link_content')
-    .col-md-5
-      - if @survey.share_link
-        %input.form-control.survey-share-block{readonly: true, type: 'text', value: APP_HOST + s_show_survey_path(token: @survey.share_link.url_suffix) }
-      - else
-        = t('surveys.share.link_inactive')
-        %br
-        = link_to t('surveys.share.activate_link'), new_share_path(type: 'link', survey_id: @survey.id), :class => "btn small"
+    .row
+      .col-md-7
+        = t('surveys.share.link_content')
+      .col-md-5
+        - if @survey.share_link
+          %input.form-control.survey-share-block{readonly: true, type: 'text', value: @share_url }
+        - else
+          = t('surveys.share.link_inactive')
+          %br
+          = link_to t('surveys.share.activate_link'), new_share_path(type: 'link', survey_id: @survey.id), :class => "btn small"
+    .row
+      .col-md-12
+        %hr
+    .row
+      .col-md-7
+        = t('surveys.share.qr_code_description')
+      .col-md-5
+        - if @survey.share_link
+          = image_tag qr_code_survey_path(@survey, format: 'svg')
+        - else
+          = t('surveys.share.qr_code_inactive')
 
 
 .panel.panel-default#email-block
@@ -28,8 +40,8 @@
         = t('surveys.share.email_content')
       .col-md-5
         - if @survey.share_email
-          = link_to t('surveys.share.deactivate_email'), share_path(@survey.share_email, type: 'email', survey_id: @survey.id), method: :delete, confirm: "are you sure?", class: 'btn btn-default'
-          %button.btn.btn-default= t('surveys.share.settings_email')
+          = link_to t('surveys.share.deactivate_email'), share_path(@survey.share_email, type: 'email', survey_id: @survey.id), method: :delete, confirm: "are you sure?", class: 'btn btn-default vmargin'
+          / %button.btn.btn-default= t('surveys.share.settings_email')
         - else
           = t('surveys.share.email_inactive')
           %br
@@ -47,10 +59,10 @@
         = t('surveys.share.embed_content')
         - if @survey.share_embed
           %br
-          %button.btn.btn-default.vmargin= t('surveys.share.settings_embed')
+          / %button.btn.btn-default.vmargin= t('surveys.share.settings_embed')
       .col-md-5
         - if @survey.share_embed
-          %textarea.form-control.survey-share-block{rows: 3, readonly: true, type: 'text'}="<iframe id=\"sk_survey_#{@survey.share_embed.token}_embed\" style=\"height: 500px; width: 460px; border: 1px solid rgb(204, 204, 204);\" frameborder=\"0\" src=\"#{APP_HOST + s_show_survey_path(token: @survey.share_link.url_suffix, collector_type: 1) }\"></iframe>"
+          %textarea.form-control.survey-share-block{rows: 3, readonly: true, type: 'text'}="<iframe id=\"sk_survey_#{@survey.share_embed.token}_embed\" style=\"height: 500px; width: 460px; border: 1px solid rgb(204, 204, 204);\" frameborder=\"0\" src=\"#{ @share_url }\"></iframe>"
         - else
           = t('surveys.share.embed_inactive')
           %br
@@ -79,7 +91,7 @@
 .panel.panel-default#social-block
   .panel-heading
     %h3.panel-title
-      %div{ class: "status" + (@survey.share_email ? ' active' : '') }
+      %div.status.active
       = t('surveys.share.social')
   .panel-body
     .row
@@ -92,9 +104,9 @@
       .col-md-5
         %a{ href: "#"}
           %img{ src: "/images/icons/share_survey/vk.png" }
-        %a{ href: "#"}
+        %a{ href: "#", onclick: "window.open(\"https://twitter.com/intent/tweet?text=#{ @share_url }\", 'twitter-share-dialog', 'width=626,height=436'); return false;" }
           %img{ src: "/images/icons/share_survey/twitter.png" }
         %a{ href: "#"}
           %img{ src: "/images/icons/share_survey/gplus.png" }
-        %a{ href: "#"}
+        %a{ href: "#", onclick: "window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('#{ @share_url }'), 'facebook-share-dialog', 'width=626,height=436'); return false;" }
           %img{ src: "/images/icons/share_survey/facebook.png" }

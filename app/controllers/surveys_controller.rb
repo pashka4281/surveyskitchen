@@ -68,6 +68,7 @@ class SurveysController < ApplicationController
   end
 
   def share
+    @share_url = APP_HOST + s_show_survey_path(token: @survey.share_link.url_suffix)
   end
 
   def trashbox
@@ -81,6 +82,13 @@ class SurveysController < ApplicationController
     respond_to do |fmt|
       fmt.html{ }
       fmt.xlsx{ render xlsx: "report", filename: "SK-report", disposition: 'inline' }
+    end
+  end
+
+  def qr_code
+    respond_to do |format|
+      format.svg  { render :qrcode => APP_HOST + s_show_survey_path(token: @survey.share_link.url_suffix), 
+        level: :l, unit: 5, offset: 20, size: 3 }
     end
   end
 

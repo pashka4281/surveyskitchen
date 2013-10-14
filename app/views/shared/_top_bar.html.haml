@@ -5,7 +5,9 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a#home-link.navbar-brand{ href: dashboard_path } SurveysKitchen
+    %a#home-link.navbar-brand{ href: dashboard_path } 
+      SurveysKitchen
+      %sup beta
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav
       = content_tag :li, class: (request.path =~ /\A\/(feed)(\/)?\z/ ? 'active' : '')  do

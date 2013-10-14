@@ -1,11 +1,12 @@
 !!!
-%html{ lang: "en" }
+%html{ lang: I18n.locale }
   %head
     %meta{ charset: "utf-8" }
     %meta{ 'http-equiv' => "X-UA-Compatible", content: "IE=Edge,chrome=1" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
     %title= cms_page_content(:title)
     = csrf_meta_tags
+    %meta{ property: "og:image", content: "http://www.surveyskitchen.com/images/marketing/fb-share-img.png" }
     %meta{ name: "Description", content: cms_page_content(:description) }
     %meta{ name: "keywords", content: cms_page_content(:keywords) }
     %link{ href: 'http://fonts.googleapis.com/css?family=Special+Elite', rel: 'stylesheet', type: 'text/css' }

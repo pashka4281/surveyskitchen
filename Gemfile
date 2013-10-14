@@ -31,6 +31,9 @@ gem 'daemons'
 
 gem 'axlsx_rails' # for *.xlsx reports regerating
 
+gem 'rqrcode-rails3'
+gem 'mini_magick'
+
 gem 'delayed_job'
 gem 'delayed_job_active_record'
 

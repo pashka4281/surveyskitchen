@@ -25,10 +25,12 @@
   </head>
   <body class="blog-body <%= yield :body_class if content_for?(:body_class) %>">
 
-    <%= render current_user ? 'shared/top_bar_blog' : '/shared/top_bar_marketing' %>
+    <%= render '/shared/top_bar_marketing' %>
     <%= flash_messages %>
 
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
 
 
     <%= render '/shared/footer' %>
