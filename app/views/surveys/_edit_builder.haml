@@ -35,5 +35,5 @@
         %li.survey_item.zero-item
         - @survey.sorted_items.each do |i|
           = render_survey_item(i)
-        %li.button-item
-          %button.btn-btn-default= @survey.submit_btn_txt
+      .button-item
+        %button.btn-btn-default= @survey.submit_btn_txt

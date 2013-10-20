@@ -1,6 +1,6 @@
 class SurveysController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :get_survey, except: [:create, :index, :new]
+  before_filter :authenticate_user!, except: [:qr_code]
+  before_filter :get_survey, except: [:create, :index, :new, :qr_code]
 
   def builder
     @no_left_bar = true
@@ -86,6 +86,7 @@ class SurveysController < ApplicationController
   end
 
   def qr_code
+    @survey = Survey.find(params[:id])
     respond_to do |format|
       format.svg  { render :qrcode => APP_HOST + s_show_survey_path(token: @survey.share_link.url_suffix), 
         level: :l, unit: 5, offset: 20, size: 3 }
