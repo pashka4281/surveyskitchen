@@ -1,23 +1,26 @@
-<p class="hint">
-	Вставьте в текст поста <%= "<!-- split_content -->" %> чтобы разделить его на две части, 
+.hint
+	Вставьте в текст поста
+	= "<!-- split_content -->"
+	чтобы разделить его на две части, 
 	первая из которых будет показана на странице списка постов
-</p>
 
-<%= semantic_form_for @post, html:{class: 'blog_post_form'} do |f| %>
-	<%=f.inputs class: 'fields' do %>
-		<%=f.input :title, input_html: {class: "title_input"} %>
-		<%=f.input :content, input_html: {id: "rich-text-area"} %>
-		<%=f.input :meta_keywords, input_html: {class: "meta-field field"} %>
-		<%=f.input :meta_description, input_html: {class: "meta-field"} %>
-	<% end %>
-	<%=f.submit 'Сохранить' %>
-<% end %>
+= semantic_form_for @post, html:{class: 'form'} do |f|
+	=f.inputs class: 'fields' do
+		.form-group
+			=f.input :title, input_html: {class: "form-control"}
+		.form-group
+			=f.input :content, input_html: {class: "form-control", id: "rich-text-area"}
+		.form-group
+			=f.input :meta_keywords, input_html: {class: "form-control", rows: 3}
+		.form-group
+			=f.input :meta_description, input_html: {class: "form-control", rows: 3}
+	=f.submit 'Сохранить'
 
 
-<%= content_for :js do %>
-<script type="text/javascript" src="/javascripts/ckeditor/ckeditor.js"></script>
-<script type="text/javascript">
-CKEDITOR.replace("rich-text-area",{ 
+= content_for :js do
+	=javascript_include_tag "/javascripts/ckeditor/ckeditor.js"
+	:javascript
+		CKEDITOR.replace("rich-text-area",{ 
 			language: 'ru',
 			toolbar: [
 				{ name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
@@ -30,9 +33,3 @@ CKEDITOR.replace("rich-text-area",{
 				{ name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source' ] },
 				{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] }
 			]})
-</script>
-<% end %>
-
-<style type="text/css">
-form.blog_post{  }
-</style>
