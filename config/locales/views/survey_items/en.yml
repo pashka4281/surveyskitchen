@@ -12,6 +12,7 @@ en:
       video_item: "Video item"
       single_select_grid: "Single select grid"
       info: "Click on item / drad it on working area"
+      signature: "Signature"
 
     text_field:
       title: "Text field"

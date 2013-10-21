@@ -22,4 +22,6 @@ en:
   time:
     formats:
       short_date_time: '%d %b %k:%M'
+      date_time: '%d %B %k:%M'
+      full_date_time: '%d %B, %Y %k:%M'
       short_date: '%d %B, %Y'

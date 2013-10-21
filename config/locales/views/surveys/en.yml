@@ -5,7 +5,7 @@ en:
     index:
       title: "Surveys"
       no_items: "There are not items to display currently"
-      create_link: "Create your first survey"
+      create_link: "Create survey"
 
       edit_link: "Edit"
       share_lin: "Share"
@@ -40,6 +40,7 @@ en:
       descr_placeholder: "Enter a brief description here"
       interactive: "Interactive survey:"
       interactive_desciption: "Интерактивный опрос это ....."
+      submit: "Submit"
     
     common:
       edit: 'Edit'
@@ -70,24 +71,27 @@ en:
       themes_select: "Select color theme:"
       working_area_1: "This is your working area."
       working_area_2: "Start building survey by inserting items here."
-      loading_item: "Загрузка..."
-      item_not_selected: "Элемент не выбран. Кликните на элементе, который вы хотите изменить"
-      builder_tab: "Конструктор"
-      misc_tab: "Настройки опроса"
-      submit_btn_txt: "Текст кнопки:"
-      save_misc_btn: Сохранить
+      loading_item: "Loading..."
+      item_not_selected: "Item not selected. Click on the element that you want to edit."
+      builder_tab: "Builder"
+      misc_tab: "Survey settings"
+      submit_btn_txt: "Submit button text:"
+      save_misc_btn: Save
     share:
       title: '<b>%{name}</b> -- Сбор результатов'
       
-      link: "Прямая ссылка"
-      link_content: "Поделитесь ссылкой с вашими респондентами по почте, в чате или социальной сети."
+      link: "Direct link"
+      link_content: "Share this link with your respondents via email, chat or social networks."
       settings_link: "Настройки прямой ссылки"
       activate_link: "Активировать прямую ссылку"
+      qr_code_description: >
+        QR-code is an image that has survey link encoded in it. Link can be read by any morden smartphone 
+        using camera with help of special application software for reading QR-кодов.
       
-      embed: "Встроенный опрос"
-      embed_content: > 
-        Вы можете встроить опрос в страницу вашего сайта или блога.
-        Для этого скопируйте приведенный ниже код и разместите его перед закрывающим тегом </body> на вашей странице.
+      embed: "Embedded survey"
+      embed_content: >
+        You can embed survey on the page of your site or blog.
+        For this copy the code on the right side and pste it in any place of html markup of your site
       settings_embed: "Настройки встроенного опроса"
       activate_embed: "Активировать встроенный опрос"
 
@@ -96,17 +100,17 @@ en:
       settings_invite: "Настройки приглашения к опросу"
       activate_invite: "Активировать интерактивное приглашение"
 
-      email: "Email (электронная почта)"
-      email_send_now: "Отправить сейчас"
-      email_content: > 
-        Отправляйте приглашение для прохождения опроса при помощи рассылки Email. 
-        Возможны персонализированные письма для респондентов в адресной книге вашей учетной записи.
+      email: "Email"
+      email_send_now: "Send now"
+      email_content: >
+        Send invitation for your respondents using Email invitation.
+        You can personalyze invitation emails for respondents tht are in contacts list of your account.
       settings_email: "Настройки рассылки Email"
-      email_create: "Создать новую Email рассылку"
+      email_create: "Create new Email invitation"
       activate_email: "Активировать Email"
 
-      social: "Социальные сети"
-      social_content: "Поделитесь приглашением для прохождения опроса в Facebook, Twitter, Google+ и Вконтакте."
+      social: "Social networks"
+      social_content: "Share invitation for passing surveys in Facebook, Twitter, Google+ and Vkontakte."
       settings_social: "Настройки опросов для социальных сетей"
       activate_social: "Активировать опрос через социальные сети"
 
