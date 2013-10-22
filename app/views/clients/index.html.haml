@@ -2,14 +2,12 @@
   %h3= t("clients.index.title")
 
 - if @clients.any?
-  %table.table#clients_list{ cellspacing: "0" }
-    %thead
-      %tr
-        %td= t("clients.index.thead_name")
-        %td= t("clients.index.thead_email")
-        %td= t("clients.index.thead_note")
-        %td
-
+  #clients_list
+    .row.hidden-sm.hidden-xs#header
+      .col-md-2= t("clients.index.thead_name")
+      .col-md-2= t("clients.index.thead_email")
+      .col-md-5= t("clients.index.thead_note")
+      .col-md-3
     = render @clients
 - else
   %h4= t("clients.index.no_items")

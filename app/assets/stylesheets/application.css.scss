@@ -36,7 +36,6 @@
   background-color: #EBEBEB;
   padding-top: 20px;
   .columns{
-    
     height: 100%;
     .column-wrapper{
       width: 3.333333333%;
@@ -56,5 +55,18 @@
         }
       }
     }
+  }
+}
+
+
+
+#clients_list{
+  #header{ padding: 7px; font-size: 12px; font-style: italic;}
+  .client{
+      border-bottom: 1px solid #ccc;
+      padding: 3px;
+      &.actions{
+        text-align: right;
+      }
   }
 }

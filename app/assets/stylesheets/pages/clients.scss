@@ -89,12 +89,10 @@
 	width: 100%;
 	thead td{ padding: 7px; font-size: 12px; font-style: italic;}
 	.client{
-		td{ 
 			border-bottom: 1px solid #ccc;
 			padding: 3px;
 			&.actions{
 				text-align: right;
 			}
-		}
 	}
 }

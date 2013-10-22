@@ -1,7 +1,10 @@
-= content_tag_for :tr, client do
-	%td.name= link_to client.full_name, client
-	%td.email= link_to client.email, client
-	%td.note= client.note
-	%td.actions
-		= link_to t('clients.index.edit_btn'), edit_client_path(client), class: 'btn btn-default'
-		= link_to t('clients.index.delete_btn'), client_path(client), method: :delete, confirm: "Are you sure?", class: 'btn btn-danger'
+
+.col-md-12
+  = content_tag_for :div, client, class: "row" do
+    .row
+      .col-md-2.name= link_to client.full_name, client
+      .col-md-2.email= link_to client.email, client
+      .col-md-5.note= client.note
+      .col-md-3.actions
+        = link_to t('clients.index.edit_btn'), edit_client_path(client), class: 'btn btn-default'
+        = link_to t('clients.index.delete_btn'), client_path(client), method: :delete, confirm: "Are you sure?", class: 'btn btn-danger'
