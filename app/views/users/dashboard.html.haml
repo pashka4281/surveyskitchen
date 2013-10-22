@@ -2,55 +2,22 @@
 .page-header
   %h3= 'Dashboard'
 
-%h3= t('.last_month_responses')# Responses for last month:
-%canvas#last_responses{ width: "710", height: "300" }
+#dashboard-blocks.row
+  .col-md-3
+    .block
+      %h4= t('.total_responses')
+      %strong= current_account.responses.count
+  .col-md-3
+    .block
+      %h4= t('.views')
+      %strong= current_account.survey_visits.count
 
-= content_for :js do 
-  :javascript
-    var data = {
-      labels : #{ @chart_days.to_json },
-      datasets : [{
-        fillColor : "rgba(151,187,205,0.5)",
-        strokeColor : "rgba(151,187,205,1)",
-        pointColor : "rgba(151,187,205,1)",
-        pointStrokeColor : "#fff",
-        data : #{ @chart_data.to_json }
-      }]
-    }
 
-    options = { 
-      scaleOverlay : false, //Boolean - If we show the scale above the chart data
-      scaleOverride : true, //Boolean - If we want to override with a hard coded scale
-      //** Required if scaleOverride is true **
-      //Number - The number of steps in a hard coded scale
-      scaleSteps : #{ @max_chart_value },
-      scaleStepWidth : #{ 1 }, //Number - The value jump in the hard coded scale
-      scaleStartValue : 0,          //Number - The scale starting value
-      scaleLineColor : "rgba(0,0,0,.1)", //String - Colour of the scale line 
-      scaleLineWidth : 1,           //Number - Pixel width of the scale line
-      scaleLabel : "<"+"%=value%"+">",
-      scaleShowLabels : true,       //Boolean - Whether to show labels on the scale 
-      scaleFontFamily : "'Arial'",  //String - Scale label font declaration for the scale label
-      scaleFontSize : 12,           //Number - Scale label font size in pixels
-      scaleFontStyle : "normal",    //String - Scale label font weight style  
-      scaleFontColor : "#666",      //String - Scale label font colour
-      scaleShowGridLines : true, ///Boolean - Whether grid lines are shown across the chart
-      scaleGridLineColor : "rgba(0,0,0,.08)", //String - Colour of the grid lines
-      scaleGridLineWidth : 1,   //Number - Width of the grid lines
-      bezierCurve : false,      //Boolean - Whether the line is curved between points
-      pointDot : true,          //Boolean - Whether to show a dot for each point
-      pointDotRadius : 3,       //Number - Radius of each point dot in pixels
-      pointDotStrokeWidth : 1,  //Number - Pixel width of point dot stroke
-      datasetStroke : true,     //Boolean - Whether to show a stroke for datasets
-      datasetStrokeWidth : 2,   //Number - Pixel width of dataset stroke
-      datasetFill : true,       //Boolean - Whether to fill the dataset with a colour
-      animation : true,         //Boolean - Whether to animate the chart
-      animationSteps : 60,      //Number - Number of animation steps
-      animationEasing : "easeOutQuart" //String - Animation easing effect
-    }
-
-    $(function () {
-      var ctx = $("#last_responses").get(0).getContext("2d");
-      var myNewChart = new Chart(ctx).Line(data,options);
-    });
-
+%h4= t('.last_month_responses')# Responses for last month:
+#last_responses
+  .columns
+    - @responses_count.each do |x|
+      - percentage = x.to_f / @max_chart_value * 100
+      .column-wrapper
+        .column{ style: "height: #{ percentage }%" }
+          %span.value= x

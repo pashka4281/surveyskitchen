@@ -15,3 +15,46 @@
  *= require pages/responses_index
  *= require pages/response_show
 */
+
+
+/* DASHBOARD */
+#dashboard-blocks{
+  .block{
+    text-align: center;
+    background-color: #CDDBFF;
+    padding: 5px;
+    border: 3px solid #9CB5F8;
+    margin-bottom: 5px;
+    h4{ margin-top: 0; }
+    strong{ font-size: 18px; }
+  }
+}
+
+#last_responses{
+  height: 120px;
+  width: 100%;
+  background-color: #EBEBEB;
+  padding-top: 20px;
+  .columns{
+    
+    height: 100%;
+    .column-wrapper{
+      width: 3.333333333%;
+      height: 100%;
+      float: left;
+      position: relative;
+      &:not(:last-child){
+        border-right: 1px solid #FFF;
+      }
+      .column{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: #bbb;
+        .value{
+          position: absolute; top: -15px; width: 100%; text-align: center; font-size: 65%; height: 15px;
+        }
+      }
+    }
+  }
+}

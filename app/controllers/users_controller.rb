@@ -6,16 +6,13 @@ class UsersController < ApplicationController
 	def dashboard
 		@surveys = current_account.surveys.all(:include => :responses)
 		@responses = current_account.responses.last_30_days.map(&:created_at).map(&:to_date)
-		
-		time_ago = Time.now - 30.days
-		time_now = Time.now
-		@chart_data = Array.new(30, 0)
-		@chart_days = Array.new(30, "")
-		(Date.new(time_ago.year,time_ago.month,time_ago.day)..Date.new(time_now.year,time_now.month,time_now.day)).each_with_index do |date, i| 
-			@chart_data[i] = @responses.count(date)
-			@chart_days[i] = Time.parse(date.to_s).to_s(:day_of_month) if i % 4 == 0
+		@responses_count = []
+		for x in 0...30 do
+    	date = (Time.current - x.days).to_date
+    	@responses_count << @responses.count(date)
 		end
-		@max_chart_value = @chart_data.max
+
+		@max_chart_value = @responses_count.max
 	end
 
 	def new

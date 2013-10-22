@@ -25,7 +25,6 @@
 //= require jVectorMap.min
 //= require jVectorMap.world
 //= require scroll-sticky
-//= require chart
 //= require flashcanvas
 //= require jSignature.min
 //= require rails.validations

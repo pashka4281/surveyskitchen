@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130926125536) do
+ActiveRecord::Schema.define(:version => 20131022002735) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -31,6 +31,19 @@ ActiveRecord::Schema.define(:version => 20130926125536) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
+
+  create_table "blog_comments", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "email",      :null => false
+    t.string   "website"
+    t.text     "body",       :null => false
+    t.integer  "post_id",    :null => false
+    t.string   "state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "blog_comments", ["post_id"], :name => "index_blog_comments_on_post_id"
 
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
@@ -195,6 +208,15 @@ ActiveRecord::Schema.define(:version => 20130926125536) do
   add_index "cms_snippets", ["site_id", "identifier"], :name => "index_cms_snippets_on_site_id_and_identifier", :unique => true
   add_index "cms_snippets", ["site_id", "position"], :name => "index_cms_snippets_on_site_id_and_position"
 
+  create_table "comments", :force => true do |t|
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.text     "text"
+    t.integer  "user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
     t.integer  "attempts",   :default => 0
@@ -210,6 +232,15 @@ ActiveRecord::Schema.define(:version => 20130926125536) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "events", :force => true do |t|
+    t.string   "eventable_type"
+    t.integer  "eventable_id"
+    t.integer  "account_id"
+    t.string   "type"
+    t.datetime "created_at"
+    t.string   "eventable_name"
+  end
 
   create_table "exception_storages", :force => true do |t|
     t.string   "message"
@@ -296,21 +327,30 @@ ActiveRecord::Schema.define(:version => 20130926125536) do
     t.text     "content"
   end
 
+  create_table "survey_visits", :force => true do |t|
+    t.integer  "survey_id"
+    t.text     "user_agent_string"
+    t.text     "content"
+    t.string   "remote_ip"
+    t.datetime "exit_at"
+    t.datetime "created_at"
+  end
+
   create_table "surveys", :force => true do |t|
     t.integer  "account_id"
     t.integer  "user_id"
     t.string   "name"
     t.text     "description"
-    t.string   "items_positions"
+    t.string   "items_positions",              :default => "'"
     t.datetime "updated_at"
     t.boolean  "setup_finished",               :default => false
     t.integer  "category_id"
-    t.string   "token"
     t.datetime "created_at"
     t.boolean  "active",                       :default => true
     t.string   "preview_flag",    :limit => 3
     t.integer  "theme_id"
     t.string   "type"
+    t.string   "token"
     t.boolean  "interactive",                  :default => false
     t.string   "submit_btn_txt"
     t.text     "passed_message"

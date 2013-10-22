@@ -22,3 +22,5 @@ ru:
 
     dashboard:
       last_month_responses: "Ответы за последние 30 дней:"
+      total_responses: Всего ответов
+      views: Все просмотры опросов

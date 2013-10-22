@@ -12,6 +12,11 @@ module S
 				render 'passed' and return if cookies["survey_passed_#{@survey.id}"]
 				
 				cookies.permanent["survey_shown_#{@survey.id}"] = { :value => true, :domain => :all }
+				@survey.survey_visits.create(
+					user_agent_string: request.env['HTTP_USER_AGENT'],
+					response_data: params[:response] || {},
+					remote_ip: request.remote_ip
+				)
 			# end
 		end
 

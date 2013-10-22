@@ -10,6 +10,7 @@ class Survey < ActiveRecord::Base
   belongs_to :theme, class_name: 'SurveyTheme'
   has_many   :items, dependent: :destroy, class_name: 'SurveyItem'
   has_many   :responses, dependent: :destroy
+  has_many   :survey_visits, dependent: :destroy
   serialize  :items_positions, Array
   default_value_for  :items_positions, []
 

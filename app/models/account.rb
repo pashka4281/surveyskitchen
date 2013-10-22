@@ -3,7 +3,8 @@ class Account < ActiveRecord::Base
 
 	has_many :users
 	has_many :surveys
-	has_many :responses, through: :surveys
+  has_many :responses, through: :surveys
+	has_many :survey_visits, through: :surveys
 	has_many :clients
 	has_many :client_lists
 	has_many :survey_themes
