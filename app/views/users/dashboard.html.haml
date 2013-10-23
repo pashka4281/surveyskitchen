@@ -5,19 +5,33 @@
 #dashboard-blocks.row
   .col-md-3
     .block
-      %h4= t('.total_responses')
+      %h4
+        = t('.total_responses')
+        %span.glyphicon.glyphicon-question-sign{ 'data-tooltip' => true, title: t('.total_responses_desc') }
       %strong= current_account.responses.count
   .col-md-3
     .block
-      %h4= t('.views')
-      %strong= current_account.survey_visits.count
-
+      %h4
+        = t('.views')
+        %span.glyphicon.glyphicon-question-sign{ 'data-tooltip' => true, title: t('.views_desc') }
+      %strong= current_account.survey_visits.count 
+      %span
 
 %h4= t('.last_month_responses')# Responses for last month:
 #last_responses
   .columns
-    - @responses_count.each do |x|
-      - percentage = x.to_f / @max_chart_value * 100
-      .column-wrapper
-        .column{ style: "height: #{ percentage }%" }
-          %span.value= x
+    - @grouped_count.each do |month_group|
+      - month = month_group.first
+      - days = month_group.last
+      .month{ style: "width: #{ month_group.last.count.to_f / @responses_count.count * 100 }%" }
+        - index = 0 
+        .month_name= t("date.month_names")[month]
+        - days.each do |x|
+          - percentage = x[-1].to_f / @max_chart_value * 100
+          .column-wrapper{ style: "width: #{ 100.0 / days.count }%" }
+            .day_number
+              - unless x[0].day % 2 == 0
+                = x[0].day
+            .column{ style: "height: #{ percentage }%" }
+              %span.value= x[-1]
+              

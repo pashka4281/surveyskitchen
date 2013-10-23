@@ -45,4 +45,6 @@ $(function(){
 			$(this).remove();
 		})
 	})
+
+	$('[data-tooltip]').tooltip({})
 });

@@ -35,23 +35,54 @@
   width: 100%;
   background-color: #EBEBEB;
   padding-top: 20px;
+  margin-bottom: 40px;
   .columns{
     height: 100%;
-    .column-wrapper{
-      width: 3.333333333%;
+    .month{
       height: 100%;
-      float: left;
       position: relative;
-      &:not(:last-child){
-        border-right: 1px solid #FFF;
-      }
-      .column{
+      float: left;
+      .month_name{
         position: absolute;
-        bottom: 0;
+        bottom: -35px;
+        left: 0;
         width: 100%;
-        background-color: #bbb;
-        .value{
-          position: absolute; top: -15px; width: 100%; text-align: center; font-size: 65%; height: 15px;
+        text-align: center;
+        border: 1px solid #EEE;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: #2E2E2E;
+        padding-top: 13px;
+        color: #929292;
+      }
+      .column-wrapper{
+        width: 3.333333333%;
+        height: 100%;
+        float: left;
+        position: relative;
+        border-right: 1px solid #FFF;
+        .column{
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          background-color: #585656;
+          .value{font-style: italic;
+            position: absolute; top: -15px; width: 100%; text-align: center; font-size: 65%; height: 15px;
+          }
+        }
+        .day_number{
+          text-align: center;
+          font-size: 65%;
+          font-weight: bold;
+          position: absolute;
+          bottom: -15px;
+          width: 100%;
+          color: #FFF;
+        }
+      }
+      &:last-child{
+        .column-wrapper:last-child{
+          border-right: none;
         }
       }
     }
