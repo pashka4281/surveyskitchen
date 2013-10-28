@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 		
 		29.downto(0).each do |x|
 			date = (Time.current - x.days).to_date
+			@grouped_count[date.month] = [] if @grouped_count[date.month].nil?
 			@grouped_count[date.month] << [date, @responses.count(date)]
 			@responses_count << @responses.count(date)
 		end
