@@ -5,7 +5,7 @@ class ExceptionStorage < ActiveRecord::Base
 		create(e_class: exception.class.to_s, message: exception.message.to_s, trace: exception.backtrace.join("\n"))
 	end
 
-	# after_create do
-	# 	ExceptionMailer.new_exception_notify(self).deliver
-	# end
+	after_create do
+		ExceptionMailer.delay.new_exception_notify(self)
+	end
 end
