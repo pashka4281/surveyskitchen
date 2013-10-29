@@ -1,0 +1,7 @@
+= content_for :description, @post.meta_description
+= content_for :keywords, @post.meta_keywords
+
+.a-post
+	%h1= @post.title
+	.divider
+	.post-content= raw @post.content.gsub('&lt;!-- split_content --&gt;', '')

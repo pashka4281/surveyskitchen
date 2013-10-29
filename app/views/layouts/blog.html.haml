@@ -1,0 +1,47 @@
+!!!
+%html{ lang: I18n.locale }
+  %head
+    %meta{ charset: "utf-8" }
+    %meta{ 'http-equiv' => "X-UA-Compatible", content: "IE=Edge,chrome=1" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    %title= cms_page_content(:title)
+    = csrf_meta_tags
+    %meta{ property: "og:image", content: "http://www.surveyskitchen.com/images/marketing/fb-share-img.png" }
+    %meta{ name: "Description", content: yield(:description) }
+    %meta{ name: "Keywords", content: yield(:keywords) }
+    %link{ href: 'http://fonts.googleapis.com/css?family=Special+Elite', rel: 'stylesheet', type: 'text/css' }
+    = stylesheet_link_tag "marketing", :media => "all"
+    = favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
+    = javascript_include_tag "http://vk.com/js/api/share.js?11"
+  %body
+    = render 'shared/top_bar_marketing'
+    .container= yield
+    = render 'shared/footer'
+    / Javascripts
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+    /  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    /  <script type="text/javascript" src="/javascripts/flashcanvas.js"></script>
+    /[endif]
+    #fb-root
+
+  = javascript_include_tag "marketing"
+  :javascript
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=471767956202786";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+
+  = render('shared/ga_code') if 'production' == Rails.env
+  = render('shared/uservoice_tab') if 'production' == Rails.env
