@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131022002735) do
+ActiveRecord::Schema.define(:version => 20131104143908) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
-    t.integer  "account_plan_id"
     t.string   "subdomain"
     t.integer  "owner_id"
     t.datetime "created_at"
@@ -249,6 +248,15 @@ ActiveRecord::Schema.define(:version => 20131022002735) do
     t.datetime "created_at"
   end
 
+  create_table "plans", :force => true do |t|
+    t.string  "name"
+    t.float   "price"
+    t.boolean "remove_survey_footer"
+    t.boolean "custom_logo"
+    t.integer "surveys_count_limit"
+    t.integer "responses_count_limit"
+  end
+
   create_table "quiz_items", :force => true do |t|
     t.integer "quiz_id"
     t.string  "type"
@@ -310,6 +318,13 @@ ActiveRecord::Schema.define(:version => 20131022002735) do
     t.boolean "active"
   end
 
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "plan_id"
+    t.integer  "account_id"
+    t.datetime "last_payed_at"
+    t.datetime "created_at"
+  end
+
   create_table "survey_items", :force => true do |t|
     t.integer  "survey_id"
     t.text     "content"
@@ -354,6 +369,7 @@ ActiveRecord::Schema.define(:version => 20131022002735) do
     t.boolean  "interactive",                  :default => false
     t.string   "submit_btn_txt"
     t.text     "passed_message"
+    t.boolean  "hide_sk_footer",               :default => false
   end
 
   add_index "surveys", ["token"], :name => "index_surveys_on_token", :unique => true

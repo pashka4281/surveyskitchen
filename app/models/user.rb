@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   serialize  :roles, Array
 
-  attr_accessor :account_name, :invited, :from_external_provider
+  attr_accessor :account_name, :invited, :from_external_provider, :plan_id
 
   after_create :setup_account
   before_save :set_full_name, :set_language
@@ -59,8 +59,10 @@ class User < ActiveRecord::Base
 
   def setup_account
     unless self.invited
-      a = Account.create(name: self.account_name, owner: self)
-      a.users << self
+      plan    = plan_id.nil? ? Plan.find_by_name('free') : Plan.find(plan_id)
+      account = Account.create(name: self.account_name, owner: self)
+      account.subscribe_to_plan!(plan)
+      account.users << self
     end
   end
 

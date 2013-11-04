@@ -1,14 +1,23 @@
 %br
 = semantic_form_for @survey, html: {class: 'form-horizontal', role: 'form'}, validate: true do |f|
   .form-group.input
-    %label.col-md-2.control-label= t("surveys.builder.submit_btn_txt")
+    %label.col-md-3.control-label= t("surveys.builder.submit_btn_txt")
     .col-md-6
       .controls= f.text_field :submit_btn_txt, class: 'form-control'
 
   .form-group
-    %label.col-md-2.control-label= t("surveys.builder.passed_message")
+    %label.col-md-3.control-label= t("surveys.builder.passed_message")
     .col-md-6= f.text_area :passed_message, rows: 5, class: 'form-control', id: "passed_message_txt"
 
+  
+  .form-group
+    %label.col-md-3.control-label= t("surveys.builder.hide_sk_footer")
+    .col-md-6
+      - if current_subscription.plan.remove_survey_footer
+        = f.check_box :hide_sk_footer
+      - else
+        %input{type: 'checkbox', disabled: true}
+        = t("surveys.builder.hide_sk_footer_not_supported")
 
   = f.submit t('surveys.builder.save_misc_btn'), class: 'btn btn-success'
 

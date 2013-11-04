@@ -1,0 +1,25 @@
+.row
+  .col-md-12
+    .jumbotron
+      %h3
+        %small Plan:
+
+        %span= t("account_plans.#{ current_subscription.plan.name }")
+      %h3
+        %small Account name:
+        = @account.name.blank? ? "<not set>" : @account.name
+      %h3
+        %small Account created:
+        = @account.created_at.to_s(:date_and_time)
+      %h3
+        %small Owner:
+        = @account.owner.full_name
+      %h3
+        %small Users:
+        = @account.users.count
+      %h3
+        %small Surveys:
+        = @account.surveys.count
+      %h3
+        %small Responses:
+        = @account.responses.count

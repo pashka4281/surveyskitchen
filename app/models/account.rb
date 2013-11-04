@@ -12,4 +12,10 @@ class Account < ActiveRecord::Base
 	has_many :quizzes
 
 	belongs_to :owner, class_name: 'User', :foreign_key => :owner_id
+
+	has_one :subscription
+
+	def subscribe_to_plan!(plan)
+		Subscription.create(plan: plan, account: self)
+	end
 end

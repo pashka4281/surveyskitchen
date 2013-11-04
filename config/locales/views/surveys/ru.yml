@@ -81,6 +81,8 @@ ru:
       submit_btn_txt: "Текст кнопки отправки результата"
       passed_message: "Сообщение, выводимое после отправки ответа" 
       save_misc_btn: Сохранить
+      hide_sk_footer: Убрать надпись "Powered by SurveysKitchen" в конце опроса"
+      hide_sk_footer_not_supported: Функция не поддерживается в текущем тарифном плане 
     share:
       title: '<b>%{name}</b> -- Сбор результатов'
       

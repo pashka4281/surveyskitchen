@@ -1,0 +1,10 @@
+.padded
+  = raw @survey.passed_message
+
+  - if @survey.account.subscription.plan.remove_survey_footer && !@survey.hide_sk_footer
+    %footer
+      %p
+        Powered by 
+        %a{ href: "http://SurveysKitchen.com" } SurveysKitchen
+        ©
+        = Time.now.year

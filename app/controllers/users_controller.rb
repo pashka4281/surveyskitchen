@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 		if @user.valid?
 			@user.roles = ['user', 'respondent']
 			@user.save
-			UserMailer.welcome_email(@user).deliver
+			UserMailer.delay.welcome_email(@user)
 			@survey.attach_to_user!(@user) if @survey
 			session[:user_id] = @user.id
 			redirect_to :dashboard, notice: I18n.t('layout.user_created_message')

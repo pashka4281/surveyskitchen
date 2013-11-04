@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-	helper_method :current_account, :current_user
+	helper_method :current_account, :current_user, :current_subscription
 	protect_from_forgery
 	before_filter :set_locale
 
@@ -73,6 +73,10 @@ class ApplicationController < ActionController::Base
 
   def current_user
 	  @current_user ||= User.find(session[:user_id]) if session[:user_id]
+	end
+
+	def current_subscription
+		current_account.try(:subscription)
 	end
 
 	def get_locale_from_user

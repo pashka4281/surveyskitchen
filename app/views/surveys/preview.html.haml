@@ -1,0 +1,27 @@
+%style{ type: "text/css" }= @survey.theme.to_css
+
+.sk-survey{ class: "survey_theme_#{ @survey.theme.id }" }
+	#main-content
+		%h2#title.page_title= @survey.name
+
+		.padded-content
+			%form
+				- counter = 0
+				.a-page
+					- @paged_items.shift.each do |i|
+						- counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class)
+						= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter
+				- @paged_items.each do |page_elements|
+					.a-page
+						- page_elements.each do |i|
+							- counter += 1 unless [SurveyItems::PageBreak, SurveyItems::DescText].include?(i.class)
+							= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter
+			%button.btn= @survey.submit_btn_txt
+
+		- if @survey.account.subscription.plan.remove_survey_footer && !@survey.hide_sk_footer
+			%footer
+				%p
+					Powered by 
+					%a{ href: "http://SurveysKitchen.com" } SurveysKitchen
+					©
+					= Time.now.year

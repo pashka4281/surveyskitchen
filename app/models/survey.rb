@@ -1,5 +1,5 @@
 class Survey < ActiveRecord::Base
-  attr_accessible :account_id, :description, :category, :category_id, :theme_id, :theme,
+  attr_accessible :account_id, :description, :category, :category_id, :theme_id, :theme, :hide_sk_footer,
     :name, :user_id, :user, :account, :items_positions, :prefill_items, :active, :interactive, :submit_btn_txt, :passed_message
 
   default_scope order('created_at DESC')
@@ -75,14 +75,16 @@ class Survey < ActiveRecord::Base
   end
 
   def move_item!(previous_item_id, item_id)
-    self.items_positions.delete(item_id)
-    if previous_item_id
-      index = self.items_positions.index(previous_item_id.to_i)
-      self.items_positions.insert(index + 1, item_id)
-    else
-      self.items_positions.unshift(item_id)
+    transaction do
+      self.items_positions.delete(item_id)
+      if previous_item_id
+        index = self.items_positions.index(previous_item_id.to_i)
+        self.items_positions.insert(index + 1, item_id)
+      else
+        self.items_positions.unshift(item_id)
+      end
+      self.save
     end
-    self.save
   end
 
   def switch!

@@ -25,3 +25,8 @@ en:
       date_time: '%d %B %k:%M'
       full_date_time: '%d %B, %Y %k:%M'
       short_date: '%d %B, %Y'
+
+
+  account_plans:
+    free: "Free"
+    basic: "Basic"
