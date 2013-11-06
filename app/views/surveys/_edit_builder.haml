@@ -30,10 +30,10 @@
           %h5= t('surveys.builder.working_area_2')
           %button.small.btn.new-item-btn.success
             %i.icon-list-add= t('surveys.builder.new_item')
-
-      %ul.list-unstyled#survey-items-list
-        %li.survey_item.zero-item
-        - @survey.sorted_items.each do |i|
-          = render_survey_item(i)
-      .button-item
-        %button.btn-btn-default= @survey.submit_btn_txt
+      .padded-content
+        %ul.list-unstyled#survey-items-list
+          %li.survey_item.zero-item
+          - @survey.sorted_items.each do |i|
+            = render_survey_item(i)
+        .button-item
+          %button.btn-btn-default= @survey.submit_btn_txt

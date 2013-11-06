@@ -32,7 +32,7 @@ class SurveyTheme < ActiveRecord::Base
 	default_value_for :content, {}
 	serialize :content, Hash
 
-	custom_field_accessor :survey_bg_color, :survey_title_font_b, :survey_title_font_i,
+	custom_field_accessor :survey_bg_color, :page_bg_color, :survey_title_font_b, :survey_title_font_i,
 					:survey_title_font_u, :survey_title_txt_color, :survey_title_bg_color, :item_title_font_b,
 					:item_title_font_i, :item_title_font_u, :item_title_txt_color, :item_bg_color, :item_inner_font_b,
 					:item_inner_font_i, :item_inner_font_u, :item_inner_txt_color, :inner_grid_border_color,
@@ -70,7 +70,10 @@ class SurveyTheme < ActiveRecord::Base
 
 	def to_css
 		<<-EOSTR
-			.survey_theme_#{self.id}, .survey_theme_#{self.id} .survey_item{ 
+			.survey_theme_#{self.id}{ 
+				background-color: #{self.page_bg_color} 
+			}
+			.survey_theme_#{self.id} .survey_item, .survey_theme_#{self.id} .padded-content{ 
 				background-color: #{self.survey_bg_color} 
 			}
 			.survey_theme_#{self.id} .page_break_texting{
