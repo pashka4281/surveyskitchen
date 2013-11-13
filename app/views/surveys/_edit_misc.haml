@@ -9,6 +9,9 @@
     %label.col-md-3.control-label= t("surveys.builder.passed_message")
     .col-md-6= f.text_area :passed_message, rows: 5, class: 'form-control', id: "passed_message_txt"
 
+  .form-group
+    %label.col-md-3.control-label= t("surveys.builder.numerate_items")
+    .col-md-6= f.check_box :numerate_items, rows: 5
   
   .form-group
     %label.col-md-3.control-label= t("surveys.builder.hide_sk_footer")

@@ -18,7 +18,7 @@
 							= render "/survey_items/client_items/#{i.type.demodulize.underscore}", item: i, counter: counter
 			%button.btn= @survey.submit_btn_txt
 
-		- if @survey.account.subscription.plan.remove_survey_footer && !@survey.hide_sk_footer
+		- if !@survey.account || @survey.account.subscription.plan.remove_survey_footer && !@survey.hide_sk_footer
 			%footer
 				%p
 					Powered by 

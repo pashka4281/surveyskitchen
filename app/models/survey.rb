@@ -1,5 +1,5 @@
 class Survey < ActiveRecord::Base
-  attr_accessible :account_id, :description, :category, :category_id, :theme_id, :theme, :hide_sk_footer,
+  attr_accessible :account_id, :description, :category, :category_id, :theme_id, :theme, :hide_sk_footer, :numerate_items,
     :name, :user_id, :user, :account, :items_positions, :prefill_items, :active, :interactive, :submit_btn_txt, :passed_message
 
   default_scope order('created_at DESC')

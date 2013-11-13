@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131104143908) do
+ActiveRecord::Schema.define(:version => 20131113145728) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -370,6 +370,7 @@ ActiveRecord::Schema.define(:version => 20131104143908) do
     t.string   "submit_btn_txt"
     t.text     "passed_message"
     t.boolean  "hide_sk_footer",               :default => false
+    t.boolean  "numerate_items",               :default => true
   end
 
   add_index "surveys", ["token"], :name => "index_surveys_on_token", :unique => true

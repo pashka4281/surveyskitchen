@@ -1,6 +1,8 @@
 = div_for item, class: "survey_item" do
   .form-group
-    %strong.item-title= "#{counter}. #{item.title}"
+    %strong.item-title
+      = "#{ counter }. " if @survey.numerate_items
+      = item.title
     .item-content
       .btn-group{ 'data-toggle' => "buttons" }
         - item.scale_size.times do |v|

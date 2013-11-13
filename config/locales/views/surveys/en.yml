@@ -78,7 +78,8 @@ en:
       submit_btn_txt: "Submit button text:"
       save_misc_btn: Save
       hide_sk_footer: Remove "Powered by SurveysKitchen" label in the end of survey
-      hide_sk_footer_not_supported: Not supported by current plan 
+      hide_sk_footer_not_supported: Not supported by current plan
+      numerate_items: Automatically numerate questions
     share:
       title: '<b>%{name}</b> -- Сбор результатов'
       

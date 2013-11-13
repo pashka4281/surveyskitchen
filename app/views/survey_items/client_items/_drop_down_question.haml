@@ -1,6 +1,8 @@
 = div_for item, class: "survey_item" do
   .form-group
-    %strong.item-title= "#{counter}. #{item.title}"
+    %strong.item-title
+      = "#{ counter }. " if @survey.numerate_items
+      = item.title
     .item-content
       %select.form-control{ name: "response[item-#{ item.id }][values]", class: "#{ 'validate[required]' if item.required_field? }" }
         - if item.include_empty 
