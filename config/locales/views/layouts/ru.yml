@@ -63,3 +63,4 @@ ru:
     user_created_message: "Ваша учетная запись успешно создана"
     user_signed_in_message: "Вы вошли как %{name}."
     create_survey_link: "Создать опрос"
+    invalid_email_or_password: "Неверный Email или пароль, попробуйте еще раз"

@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 	    session[:user_id] = user.id
 	    redirect_to :dashboard, :notice => I18n.t('layout.user_signed_in_message', name: user.full_name)
 	  else
-	    flash.now.alert = "Invalid email or password"
+	    flash.now.alert = I18n.t('layout.invalid_email_or_password')
 	    render "new"
 	  end
   end
