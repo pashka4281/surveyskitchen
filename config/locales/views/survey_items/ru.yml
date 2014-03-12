@@ -12,7 +12,7 @@ ru:
       scale_question: "Шкала оценок"
       rich_text: "Описательный текст"
       page_separator: "Разделитель страницы"
-      video_item: "Видео вопрос"
+      video_item: "Видеоклип YouTube/Vimeo"
       single_select_grid: "Матричный вопрос"
       signature: "Подпись"
       info: "Нажмите / перетяните на рабочую область необходтиый тип вопроса"
