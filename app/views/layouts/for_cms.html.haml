@@ -10,6 +10,8 @@
     %meta{ name: "Description", content: cms_page_content(:description) }
     %meta{ name: "keywords", content: cms_page_content(:keywords) }
     %link{ href: 'http://fonts.googleapis.com/css?family=Special+Elite', rel: 'stylesheet', type: 'text/css' }
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"
     = stylesheet_link_tag "marketing", :media => "all"
     = favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
     = javascript_include_tag "http://vk.com/js/api/share.js?11"
@@ -25,7 +27,8 @@
     /[endif]
     #fb-root
 
-  = javascript_include_tag "marketing"
+  = javascript_include_tag "http://code.jquery.com/jquery-1.11.0.min.js"
+  = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
   :javascript
     (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];

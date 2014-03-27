@@ -1,0 +1,16 @@
+#survey-wizard-steps
+  %ul.steps
+    %li{ 'data-target'=>"#step1", class: "#{ 'active' if current_step == 'builder' }" }
+      %span.badge 1
+      Конструктор опроса
+      %span.chevron
+    %li{ 'data-target'=>"#step2", class: "#{ 'active' if current_step == 'share' }" }
+      %span.badge 2
+      Сбор результатов
+      %span.chevron
+    %li{ 'data-target'=>"#step3", class: "#{ 'active' if current_step == 'report' }" }
+      %span.badge 3
+      Анализ данных
+      %span.chevron
+
+  .actions= get_survey_nav_links(current_step.to_sym)

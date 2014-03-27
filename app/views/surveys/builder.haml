@@ -1,7 +1,9 @@
-.page-header= page_header t(".title", name: @survey.name), default_survey_menu: true, survey_nav_step: :builder
+.page-header= page_header t(".title", name: @survey.name), default_survey_menu: true
 
 :css
 	#{ @survey.theme.to_css }
+
+= render 'wizard_steps', {current_step: 'builder'}
 
 #survey_theme_select.page-sub-header
 	%span= t('.themes_select')
@@ -24,29 +26,6 @@
 		= render 'edit_builder'
 	.tab-pane.fade#misc
 		= render 'edit_misc'
-	
-
-
-= content_for :after_content do
-	/ edit survey item modal --
-	.modal.fade.item-form#editItemContainer
-		%a.close{ href: "#" }
-		#edit-question-id
-		#editItem
-		.modal-footer
-			%button.btn.close= t('survey_items.new.cancel_btn')
-			%button.btn.success#doneEditItemBtn= t('survey_items.new.done_btn')
-
-	/ trashed survey items modal --
-	.modal.fade#trashedItemsContainer
-		.modal-dialog
-			.modal-content
-				.modal-header
-					%h4.modal-title= t('.trashbox_modal_title')
-				.modal-body
-
-				.modal-footer
-					%button.btn.btn-default{ type: "button", 'data-dismiss' => "modal"}Close
 
 
 = content_for :js do

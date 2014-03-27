@@ -54,7 +54,6 @@ module ApplicationHelper
           <div class="pull-left">
             <h3>#{text}</h3>#{submenu}
           </div>
-          <div class="pull-right">#{ get_survey_nav_links(opts[:survey_nav_step]) }</div>
         </div>
       </div>
     EOS
@@ -96,7 +95,7 @@ module ApplicationHelper
         link_to(t("surveys.navigation.share.prev"), builder_survey_path(@survey), class: "btn btn-default btn-sm") + " " +
         link_to(t("surveys.navigation.share.next"), report_survey_path(@survey), class: "btn btn-default btn-sm"),
       builder:
-        link_to(t("surveys.navigation.builder.prev"), edit_survey_path(@survey), class: "btn btn-default btn-xs") + " " +
+        link_to(t("surveys.navigation.builder.prev"), edit_survey_path(@survey), class: "btn btn-default btn-sm") + " " +
         link_to(t("surveys.navigation.builder.next"), share_survey_path(@survey), class: "btn btn-default btn-sm"),
       edit: link_to(t("surveys.navigation.edit.next"), builder_survey_path(@survey), class: "btn btn-default btn-sm")
     }[step].to_s

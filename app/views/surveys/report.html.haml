@@ -1,4 +1,6 @@
-.page-header= page_header t(".title", name: @survey.name), default_survey_menu: true, survey_nav_step: :report
+.page-header= page_header t(".title", name: @survey.name), default_survey_menu: true
+
+= render 'wizard_steps', {current_step: 'report'}
 
 #report
   - if @responses_content.any?

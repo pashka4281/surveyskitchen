@@ -7,16 +7,19 @@
     %title= cms_page_content(:title)
     = csrf_meta_tags
     %meta{ property: "og:image", content: "http://www.surveyskitchen.com/images/marketing/fb-share-img.png" }
-    %meta{ name: "Description", content: yield(:description) }
-    %meta{ name: "Keywords", content: yield(:keywords) }
+    %meta{ name: "Description", content: cms_page_content(:description) }
+    %meta{ name: "keywords", content: cms_page_content(:keywords) }
     %link{ href: 'http://fonts.googleapis.com/css?family=Special+Elite', rel: 'stylesheet', type: 'text/css' }
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"
     = stylesheet_link_tag "marketing", :media => "all"
     = favicon_link_tag '/favicon.ico', rel: 'shortcut icon'
     = javascript_include_tag "http://vk.com/js/api/share.js?11"
   %body
     = render 'shared/top_bar_marketing'
-    .container= yield
-    = render 'shared/footer'
+    = yield
+    
+
     / Javascripts
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
@@ -25,10 +28,8 @@
     /[endif]
     #fb-root
 
-  = javascript_include_tag "marketing"
-
-  = yield :js if content_for? :js
-
+  = javascript_include_tag "http://code.jquery.com/jquery-1.11.0.min.js"
+  = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
   :javascript
     (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];

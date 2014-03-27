@@ -18,6 +18,8 @@
     <%= yield :css %>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=cyrillic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", :media => "all" %>
+    <%= stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css", :media => "all" %>
     <%= stylesheet_link_tag "marketing", :media => "all" %>
     <script type="text/javascript" src="http://vk.com/js/api/share.js?11" charset="windows-1251"></script>
 
@@ -40,7 +42,8 @@
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "marketing" %>
+    <%= javascript_include_tag "http://code.jquery.com/jquery-1.11.0.min.js" %>
+    <%= javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" %>
     <%= yield :js if content_for? :js %>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {

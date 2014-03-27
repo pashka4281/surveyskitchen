@@ -89,8 +89,6 @@
   }
 }
 
-
-
 #clients_list{
   #header{ padding: 7px; font-size: 12px; font-style: italic;}
   .client{
@@ -99,5 +97,107 @@
       &.actions{
         text-align: right;
       }
+  }
+}
+
+#survey-wizard-steps {
+  background-color: #f9f9f9;
+  border: 1px solid #d4d4d4;
+  margin-bottom: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  *zoom: 1;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  &:before {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+  &:after {
+    display: table;
+    line-height: 0;
+    content: "";
+    clear: both;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none outside none;
+    li {
+      position: relative;
+      float: left;
+      height: 46px;
+      padding: 0 20px 0 30px;
+      margin: 0;
+      font-size: 16px;
+      line-height: 46px;
+      color: #999999;
+      cursor: default;
+      background: #ededed;
+      width: 228px;
+      .chevron {
+        position: absolute;
+        top: 0;
+        right: -14px;
+        display: block;
+        border: 24px solid transparent;
+        border-right: 0;
+        border-left: 14px solid #d4d4d4;
+        &:before {
+          position: absolute;
+          top: -24px;
+          right: 1px;
+          display: block;
+          border: 24px solid transparent;
+          border-right: 0;
+          border-left: 14px solid #ededed;
+          content: "";
+        }
+      }
+      &.complete { color: #468847; background: #f3f4f5;
+        &:hover { cursor: pointer; background: #e7eff8;
+          .chevron:before { border-left: 14px solid #e7eff8; }
+        }
+        .chevron:before { border-left: 14px solid #f3f4f5; }
+      }
+      &.active {
+        color: #3a87ad;
+        background: #CAE2FF;
+        .badge{ background-color: #3a87ad; }
+        .chevron:before {
+          border-left: 14px solid #CAE2FF;
+        }
+      }
+      .badge { margin-right: 8px; }
+      &:nth-child(1) { z-index: 10; padding-left: 20px; border-radius: 4px 0 0 4px; }
+      &:nth-child(2) { z-index: 9; }
+      &:nth-child(3) { z-index: 8; }
+      &:nth-child(4) { z-index: 7; }
+      &:nth-child(5) { z-index: 6; }
+      &:nth-child(6) { z-index: 5; }
+      &:nth-child(7) { z-index: 4; }
+      &:nth-child(8) { z-index: 3; }
+      &:nth-child(9) { z-index: 2; }
+      &:nth-child(10) { z-index: 1; }
+    }
+  }
+  .actions {
+    float: right;
+    padding-right: 15px;
+    line-height: 44px;
+    vertical-align: middle;
+    a {
+      margin-right: 8px;
+      font-size: 12px;
+    }
+    .btn-prev i {
+      margin-right: 5px;
+    }
+    .btn-next i {
+      margin-left: 5px;
+    }
   }
 }

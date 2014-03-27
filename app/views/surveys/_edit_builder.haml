@@ -16,9 +16,6 @@
               .edit-form-wrapper.panel.panel-default
 
           %p#action-buttons.text-center
-            %a.btn.btn-warning#trashbox-btn{ 'data-url' => trashbox_survey_path(@survey), 'data-target' => "#trashedItemsContainer", 'data-toggle' => "modal", role: "button" }
-              %i.icon-trash= t 'surveys.builder.trashbox'
-              %span.trash-cnt= @survey.items.trashed.count
             %a.btn.btn-warning#preview-btn
               %i.icon-eye= t 'surveys.builder.preview'
 

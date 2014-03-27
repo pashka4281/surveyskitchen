@@ -1,25 +1,26 @@
 .navbar.navbar-inverse.navbar-static-top{ role: 'navigation' }
-  .navbar-header
-    %button.navbar-toggle{ type: "button", 'data-toggle' => "collapse", 'data-target' => ".navbar-ex1-collapse" }
-      %span.sr-only Toggle navigation
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    %a#home-link.navbar-brand{ href: '/' } 
-      SurveysKitchen
-      %sup beta
-  .collapse.navbar-collapse.navbar-ex1-collapse
-    %ul.nav.navbar-nav
-      =content_tag :li, class: (request.path =~ /\/(blog)(\/)?/ ? 'active' : '')  do
-        = link_to t("layout.blog"), blog_posts_path
-      =content_tag :li, class: (request.path =~ /\/(features)(\/)?\z/ ? 'active' : '')  do
-        = link_to t("layout.features"), "/#{ I18n.locale }/features"
-      =content_tag :li, class: (request.path =~ /\/(about)(\/)?\z/ ? 'active' : '')  do
-        = link_to t("layout.about"), "/#{ I18n.locale }/about"
-      =content_tag :li, class: (request.path =~ /\/(plans)(\/)?\z/ ? 'active' : '')  do 
-        = link_to t("layout.plans_pricing"), "/#{ I18n.locale }/plans"
+  .container
+    .navbar-header
+      %button.navbar-toggle{ type: "button", 'data-toggle' => "collapse", 'data-target' => ".navbar-ex1-collapse" }
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a#home-link.navbar-brand{ href: '/' } 
+        SurveysKitchen
+        %sup beta
+    .collapse.navbar-collapse.navbar-ex1-collapse
+      %ul.nav.navbar-nav
+        =content_tag :li, class: (request.path =~ /\/(blog)(\/)?/ ? 'active' : '')  do
+          = link_to t("layout.blog"), blog_posts_path
+        =content_tag :li, class: (request.path =~ /\/(features)(\/)?\z/ ? 'active' : '')  do
+          = link_to t("layout.features"), "/#{ I18n.locale }/features"
+        =content_tag :li, class: (request.path =~ /\/(about)(\/)?\z/ ? 'active' : '')  do
+          = link_to t("layout.about"), "/#{ I18n.locale }/about"
+        =content_tag :li, class: (request.path =~ /\/(plans)(\/)?\z/ ? 'active' : '')  do 
+          = link_to t("layout.plans_pricing"), "/#{ I18n.locale }/plans"
 
-    %ul.nav.navbar-nav.navbar-right
-      %li= link_to "ru", "/ru"
-      %li= link_to "en", "/en"
-      %li= link_to t("layout.log_in_link"), login_path(:locale => I18n.locale)
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to "ru", "/ru"
+        %li= link_to "en", "/en"
+        %li= link_to t("layout.log_in_link"), login_path(:locale => I18n.locale)

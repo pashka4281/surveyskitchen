@@ -1,5 +1,7 @@
 .page-header= page_header t(".title", name: @survey.name), default_survey_menu: true, survey_nav_step: :share
 
+= render 'wizard_steps', {current_step: 'share'}
+
 .panel.panel-default#share-link-block
   .panel-heading
     %h3.panel-title
