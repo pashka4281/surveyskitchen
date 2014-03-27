@@ -6,7 +6,6 @@
   .left-padder
     .survey-header
       %h3= link_to survey.name, builder_survey_path(survey)
-      %h5= survey.category.name
       .survey-date= l survey.created_at, format: :full_date_time
     .survey-desc= survey.description
     .links

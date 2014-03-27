@@ -22,7 +22,6 @@ class Survey < ActiveRecord::Base
   attr_accessor :prefill_items
   
   validates :name, presence: true
-  validates :category_id, presence: true
 
   scope :demo_surveys, where('user_id IS NULL')
 
