@@ -58,6 +58,7 @@ group :development do
   gem 'sqlite3'
   gem 'capistrano'
   gem 'rvm-capistrano'
+  gem 'letter_opener'
 end
 
 group :development, :test do

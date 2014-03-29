@@ -35,10 +35,6 @@ Surveyskitchen::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.smtp_settings = {
-    :address   => "smtp.mandrillapp.com",
-    :port      => 587,
-    :user_name => 'pashka4281@gmail.com',
-    :password  => 'rXDOh5ov9GfYC9pDnkUIuA'
-  }
+  config.action_mailer.asset_host = "http://localhost:3000"
+  config.action_mailer.delivery_method = :letter_opener
 end

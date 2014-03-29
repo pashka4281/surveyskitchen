@@ -1,0 +1,31 @@
+<table width="100%" style="background: #727272 url(<%= image_path("line-tile.png")%>) top left;" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+      <center>
+        <table width="600" cellspacing="0" cellpadding="0">
+          <tr><td height="30">&nbsp;</td></tr>
+          <tr>
+            <td>
+              <table width="600" style="background-color: #ffffff;" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="30">&nbsp;</td>
+                  <td>
+                    <table width="540" style="background-color: #ffffff;">
+                      <tr><td height="30">&nbsp;</td></tr>
+                      <tr>
+                        <td><%= yield %></td>
+                      </tr>
+                      <tr><td height="30">&nbsp;</td></tr>
+                    </table>
+                  </td>
+                  <td width="30">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr><td height="30">&nbsp;</td></tr>
+        </table>
+      </center>
+    </td>
+  </tr>
+</table>
